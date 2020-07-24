@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PL.Pantallas.Adicionales
 {
-    public partial class Form_Agregar_Nueva_Vacante_PL : Form
+    public partial class Form_Consulta_Roles : Form
     {
-        public Form_Agregar_Nueva_Vacante_PL()
+        public Form_Consulta_Roles()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace PL.Pantallas.Adicionales
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Adicionales.Form_Menu_Reclutamiento atras = new Adicionales.Form_Menu_Reclutamiento();
+            Adicionales.Form_Menu_Personal atras = new Adicionales.Form_Menu_Personal();
             atras.ShowDialog();
         }
     }

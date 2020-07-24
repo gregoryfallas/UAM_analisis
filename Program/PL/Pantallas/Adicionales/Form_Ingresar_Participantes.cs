@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PL.Pantallas.Adicionales
 {
-    public partial class Form_Ingresar_Postulantes_PL : Form
+    public partial class Form_Ingresar_Participantes : Form
     {
-        public Form_Ingresar_Postulantes_PL()
+        public Form_Ingresar_Participantes()
         {
             InitializeComponent();
         }

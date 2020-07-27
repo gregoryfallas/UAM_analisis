@@ -37,19 +37,5 @@ namespace PL.Pantallas.Adicionales
             Adicionales.Form_Creacion_Usuarios usuario = new Adicionales.Form_Creacion_Usuarios();
             usuario.ShowDialog();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Adicionales.Form_Creacion_Roles roles = new Adicionales.Form_Creacion_Roles();
-            roles.ShowDialog();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Adicionales.Form_Consulta_Roles rol = new Adicionales.Form_Consulta_Roles();
-            rol.ShowDialog();
-        }
     }
 }

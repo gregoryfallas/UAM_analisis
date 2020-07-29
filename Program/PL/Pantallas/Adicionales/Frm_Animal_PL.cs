@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
+using PL.Pantallas.Extras;
+
 
 
 namespace PL.Pantallas.Adicionales
@@ -40,6 +42,22 @@ namespace PL.Pantallas.Adicionales
         {
             PL.Pantallas.Adicionales.Frm_Clientes_PL clientes = new Frm_Clientes_PL ();
             clientes.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CedulaClienteBusquedabtn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgregarTipoMascotabtn_Click(object sender, EventArgs e)
+        {
+            PL.Pantallas.Extras.Frm_TipoAnimal_PL ta = new Frm_TipoAnimal_PL();
+            ta.ShowDialog();
         }
     }
 }

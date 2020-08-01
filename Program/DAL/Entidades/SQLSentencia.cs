@@ -9,6 +9,7 @@ namespace DAL.Entidades
 {
     public class SQLSentencia
     {
+       
         #region Propiedades
         public string Peticion { get; set; }
         public List<SqlParameter> lstParametros { get; set; }

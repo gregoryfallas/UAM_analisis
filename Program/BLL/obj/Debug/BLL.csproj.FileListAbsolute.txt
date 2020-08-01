@@ -4,3 +4,7 @@ C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.dll
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.dll.config
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.csproj.CopyComplete

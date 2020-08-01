@@ -290,3 +290,6 @@ C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.c
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CoreCompileInputs.cache
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.exe
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\BLL.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\BLL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CopyComplete

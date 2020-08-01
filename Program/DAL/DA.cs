@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -51,8 +52,61 @@ namespace DAL
         }
         #endregion
 
+        #region PUBLICOS
+
+        #region Sentencias
+        /// <summary>
+        ///Metodo que ejecuta la sentencia para eliminar, modificar, agregar
+        /// </summary>
+        /// <param name="peticion"></param>
+        /// <returns></returns>
+        public bool ejecutarSentecia(SQLSentencia peticion)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                this.ABRIR();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+        }
+        #endregion
+
+        #region Mascotas
+        /// <summary>
+        /// Consultar los tipos de raza de los mascotas
+        /// </summary>
+        /// <param name="P_Peticion"></param>
+        /// <returns></returns>
+        
+
+        #endregion
 
 
+
+
+
+
+
+
+
+
+
+        #endregion
 
     }
 }

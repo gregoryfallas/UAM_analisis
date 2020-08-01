@@ -1,0 +1,6 @@
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb

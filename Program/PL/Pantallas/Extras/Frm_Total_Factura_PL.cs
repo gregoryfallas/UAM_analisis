@@ -57,14 +57,15 @@ namespace PL.Pantallas.Extras
             Font font = new Font("Arial",14);
             int ancho = 350;
             int y = 20;
+            int x = 250;
 
-            e.Graphics.DrawString("---Veterinaria El Bosque----",font,Brushes.Black,new RectangleF(0,y+=20,ancho,20));
-            e.Graphics.DrawString("Factura#:", font, Brushes.Black, new RectangleF(0, y+= 20, ancho, 20));
-            e.Graphics.DrawString("ID_Cliente:", font, Brushes.Black, new RectangleF(0, y+= 20, ancho, 20));
-            e.Graphics.DrawString("Fecha_Factura:", font, Brushes.Black, new RectangleF(0, y+= 20, ancho, 20));
+            e.Graphics.DrawString("---Veterinaria El Bosque----",font,Brushes.Black,new RectangleF(x,y+=40,ancho,20));
+            e.Graphics.DrawString("Factura#:", font, Brushes.Black, new RectangleF(x, y+= 40, ancho, 20));
+            e.Graphics.DrawString("IDCliente:", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
+            e.Graphics.DrawString("FechaFactura:", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
             
 
-            e.Graphics.DrawString("---Productos/Servicios---:", font, Brushes.Black, new RectangleF(0, y+= 40, ancho, 20));
+            e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y+= 40, ancho, 20));
             foreach(DataRow row in dt.Rows)
             {
 
@@ -72,12 +73,12 @@ namespace PL.Pantallas.Extras
                  row["Detalle"].ToString() + " " +
                  row["Cantidad"].ToString() + " " +
                  row["Precio Total"].ToString() 
-               , font, Brushes.Black, new RectangleF(0, y+= 20, ancho, 20));
+               , font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
 
             }
-            e.Graphics.DrawString("SubTotal:", font, Brushes.Black, new RectangleF(0, y+= 30, ancho, 20));
-            e.Graphics.DrawString("---Total: ¢", font, Brushes.Black, new RectangleF(0, y+= 20, ancho, 20));
-            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(0, y+= 50, ancho, 20));
+            e.Graphics.DrawString("---SubTotal:", font, Brushes.Black, new RectangleF(x, y+= 30, ancho, 20));
+            e.Graphics.DrawString("---Total: ¢", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
+            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y+= 50, ancho, 20));
 
         }
 

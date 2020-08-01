@@ -31,34 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Contado_PL));
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsb_Cajas = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Contado = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Credito = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Express = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_Impuesto = new System.Windows.Forms.TextBox();
             this.txt_Descuento = new System.Windows.Forms.TextBox();
-            this.btn_Guardar = new System.Windows.Forms.Button();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btn_Agregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_Precio = new System.Windows.Forms.TextBox();
             this.txt_Total = new System.Windows.Forms.TextBox();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
-            this.btn_Orden = new System.Windows.Forms.Button();
             this.gb_Datos = new System.Windows.Forms.GroupBox();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -79,22 +70,44 @@
             this.btn_inicio = new System.Windows.Forms.Button();
             this.btn_Recetas = new System.Windows.Forms.Button();
             this.btn_Promociones = new System.Windows.Forms.Button();
+            this.grp_FormaPago = new System.Windows.Forms.GroupBox();
+            this.rdb_Efectivo = new System.Windows.Forms.RadioButton();
+            this.rdb_Tarjeta = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rdb_Contado = new System.Windows.Forms.RadioButton();
+            this.rdb_Credito = new System.Windows.Forms.RadioButton();
+            this.tsb_Cajas = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Contado = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Credito = new System.Windows.Forms.ToolStripButton();
+            this.tsb_Express = new System.Windows.Forms.ToolStripButton();
+            this.btn_Guardar = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Agregar = new System.Windows.Forms.Button();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.btn_Orden = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gb_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.grp_FormaPago.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.grp_FormaPago);
             this.panel1.Controls.Add(this.btn_Promociones);
             this.panel1.Controls.Add(this.btn_Recetas);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.btn_Cancelar);
             this.panel1.Controls.Add(this.btn_Confirmar);
             this.panel1.Controls.Add(this.btn_Orden);
             this.panel1.Controls.Add(this.gb_Datos);
@@ -128,15 +141,6 @@
             this.toolStrip1.TabIndex = 23;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // tsb_Cajas
-            // 
-            this.tsb_Cajas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Cajas.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Cajas.Image")));
-            this.tsb_Cajas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Cajas.Name = "tsb_Cajas";
-            this.tsb_Cajas.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Cajas.Text = "toolStripButton1";
-            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
@@ -148,15 +152,6 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_Contado
-            // 
-            this.tsb_Contado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Contado.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Contado.Image")));
-            this.tsb_Contado.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Contado.Name = "tsb_Contado";
-            this.tsb_Contado.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Contado.Text = "toolStripButton2";
             // 
             // toolStripLabel2
             // 
@@ -170,15 +165,6 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // tsb_Credito
-            // 
-            this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
-            this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Credito.Name = "tsb_Credito";
-            this.tsb_Credito.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Credito.Text = "toolStripButton3";
-            // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
@@ -190,15 +176,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_Express
-            // 
-            this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
-            this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Express.Name = "tsb_Express";
-            this.tsb_Express.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Express.Text = "toolStripButton4";
             // 
             // toolStripLabel4
             // 
@@ -219,6 +196,7 @@
             this.groupBox1.Controls.Add(this.btn_Guardar);
             this.groupBox1.Controls.Add(this.txt_Cantidad);
             this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.btn_Cancelar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btn_Agregar);
             this.groupBox1.Controls.Add(this.label4);
@@ -228,9 +206,9 @@
             this.groupBox1.Controls.Add(this.txt_Total);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(442, 74);
+            this.groupBox1.Location = new System.Drawing.Point(442, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(596, 220);
+            this.groupBox1.Size = new System.Drawing.Size(638, 220);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto-Servicio";
@@ -258,20 +236,6 @@
             this.txt_Descuento.Size = new System.Drawing.Size(155, 26);
             this.txt_Descuento.TabIndex = 8;
             this.txt_Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Guardar.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.btn_Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Guardar.Location = new System.Drawing.Point(486, 139);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(64, 57);
-            this.btn_Guardar.TabIndex = 8;
-            this.btn_Guardar.UseVisualStyleBackColor = false;
             // 
             // txt_Cantidad
             // 
@@ -305,22 +269,6 @@
             this.label3.Size = new System.Drawing.Size(86, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Descuento%";
-            // 
-            // btn_Agregar
-            // 
-            this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Agregar.FlatAppearance.BorderSize = 0;
-            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Agregar.Location = new System.Drawing.Point(415, 139);
-            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Agregar.TabIndex = 7;
-            this.btn_Agregar.UseVisualStyleBackColor = false;
-            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // label4
             // 
@@ -379,50 +327,6 @@
             this.txt_Total.TabIndex = 3;
             this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Cancelar.BackgroundImage = global::PL.Properties.Resources.cancelar;
-            this.btn_Cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
-            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Cancelar.Location = new System.Drawing.Point(960, 569);
-            this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Cancelar.TabIndex = 10;
-            this.btn_Cancelar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(877, 569);
-            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Confirmar.TabIndex = 9;
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
-            // 
-            // btn_Orden
-            // 
-            this.btn_Orden.BackgroundImage = global::PL.Properties.Resources.doctor;
-            this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Orden.FlatAppearance.BorderSize = 0;
-            this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Orden.Location = new System.Drawing.Point(839, 322);
-            this.btn_Orden.Name = "btn_Orden";
-            this.btn_Orden.Size = new System.Drawing.Size(99, 81);
-            this.btn_Orden.TabIndex = 6;
-            this.btn_Orden.UseVisualStyleBackColor = true;
-            this.btn_Orden.Click += new System.EventHandler(this.btn_Orden_Click);
-            // 
             // gb_Datos
             // 
             this.gb_Datos.Controls.Add(this.txt_Fecha_Doc);
@@ -435,7 +339,7 @@
             this.gb_Datos.Controls.Add(this.txt_Orden);
             this.gb_Datos.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb_Datos.ForeColor = System.Drawing.Color.White;
-            this.gb_Datos.Location = new System.Drawing.Point(18, 77);
+            this.gb_Datos.Location = new System.Drawing.Point(18, 52);
             this.gb_Datos.Name = "gb_Datos";
             this.gb_Datos.Size = new System.Drawing.Size(407, 217);
             this.gb_Datos.TabIndex = 21;
@@ -590,7 +494,7 @@
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(48, 617);
+            this.btn_inicio.Location = new System.Drawing.Point(43, 637);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(92, 41);
             this.btn_inicio.TabIndex = 11;
@@ -601,7 +505,7 @@
             // btn_Recetas
             // 
             this.btn_Recetas.ForeColor = System.Drawing.Color.Black;
-            this.btn_Recetas.Location = new System.Drawing.Point(963, 335);
+            this.btn_Recetas.Location = new System.Drawing.Point(996, 335);
             this.btn_Recetas.Name = "btn_Recetas";
             this.btn_Recetas.Size = new System.Drawing.Size(75, 55);
             this.btn_Recetas.TabIndex = 24;
@@ -617,6 +521,210 @@
             this.btn_Promociones.TabIndex = 25;
             this.btn_Promociones.Text = "Promociones";
             this.btn_Promociones.UseVisualStyleBackColor = true;
+            // 
+            // grp_FormaPago
+            // 
+            this.grp_FormaPago.Controls.Add(this.rdb_Efectivo);
+            this.grp_FormaPago.Controls.Add(this.rdb_Tarjeta);
+            this.grp_FormaPago.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_FormaPago.ForeColor = System.Drawing.Color.White;
+            this.grp_FormaPago.Location = new System.Drawing.Point(960, 490);
+            this.grp_FormaPago.Name = "grp_FormaPago";
+            this.grp_FormaPago.Size = new System.Drawing.Size(111, 112);
+            this.grp_FormaPago.TabIndex = 26;
+            this.grp_FormaPago.TabStop = false;
+            this.grp_FormaPago.Text = "Forma Pago";
+            // 
+            // rdb_Efectivo
+            // 
+            this.rdb_Efectivo.AutoSize = true;
+            this.rdb_Efectivo.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Efectivo.ForeColor = System.Drawing.Color.White;
+            this.rdb_Efectivo.Location = new System.Drawing.Point(4, 19);
+            this.rdb_Efectivo.Name = "rdb_Efectivo";
+            this.rdb_Efectivo.Size = new System.Drawing.Size(85, 31);
+            this.rdb_Efectivo.TabIndex = 1;
+            this.rdb_Efectivo.Text = "Efectivo";
+            this.rdb_Efectivo.UseVisualStyleBackColor = true;
+            // 
+            // rdb_Tarjeta
+            // 
+            this.rdb_Tarjeta.AutoSize = true;
+            this.rdb_Tarjeta.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Tarjeta.ForeColor = System.Drawing.Color.White;
+            this.rdb_Tarjeta.Location = new System.Drawing.Point(6, 54);
+            this.rdb_Tarjeta.Name = "rdb_Tarjeta";
+            this.rdb_Tarjeta.Size = new System.Drawing.Size(81, 31);
+            this.rdb_Tarjeta.TabIndex = 2;
+            this.rdb_Tarjeta.Text = "Tarjeta";
+            this.rdb_Tarjeta.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(680, 656);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 30);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Total Factura:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(821, 656);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(117, 30);
+            this.textBox1.TabIndex = 27;
+            this.textBox1.Text = "¢";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rdb_Contado);
+            this.groupBox2.Controls.Add(this.rdb_Credito);
+            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(833, 490);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(111, 112);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Método Pago";
+            // 
+            // rdb_Contado
+            // 
+            this.rdb_Contado.AutoSize = true;
+            this.rdb_Contado.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Contado.ForeColor = System.Drawing.Color.White;
+            this.rdb_Contado.Location = new System.Drawing.Point(4, 19);
+            this.rdb_Contado.Name = "rdb_Contado";
+            this.rdb_Contado.Size = new System.Drawing.Size(90, 31);
+            this.rdb_Contado.TabIndex = 1;
+            this.rdb_Contado.Text = "Contado";
+            this.rdb_Contado.UseVisualStyleBackColor = true;
+            // 
+            // rdb_Credito
+            // 
+            this.rdb_Credito.AutoSize = true;
+            this.rdb_Credito.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdb_Credito.ForeColor = System.Drawing.Color.White;
+            this.rdb_Credito.Location = new System.Drawing.Point(6, 54);
+            this.rdb_Credito.Name = "rdb_Credito";
+            this.rdb_Credito.Size = new System.Drawing.Size(81, 31);
+            this.rdb_Credito.TabIndex = 2;
+            this.rdb_Credito.Text = "Crédito";
+            this.rdb_Credito.UseVisualStyleBackColor = true;
+            // 
+            // tsb_Cajas
+            // 
+            this.tsb_Cajas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Cajas.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Cajas.Image")));
+            this.tsb_Cajas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Cajas.Name = "tsb_Cajas";
+            this.tsb_Cajas.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Cajas.Text = "toolStripButton1";
+            // 
+            // tsb_Contado
+            // 
+            this.tsb_Contado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Contado.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Contado.Image")));
+            this.tsb_Contado.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Contado.Name = "tsb_Contado";
+            this.tsb_Contado.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Contado.Text = "toolStripButton2";
+            // 
+            // tsb_Credito
+            // 
+            this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
+            this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Credito.Name = "tsb_Credito";
+            this.tsb_Credito.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Credito.Text = "toolStripButton3";
+            // 
+            // tsb_Express
+            // 
+            this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
+            this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Express.Name = "tsb_Express";
+            this.tsb_Express.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Express.Text = "toolStripButton4";
+            // 
+            // btn_Guardar
+            // 
+            this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Guardar.BackgroundImage = global::PL.Properties.Resources.Guardar;
+            this.btn_Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Guardar.FlatAppearance.BorderSize = 0;
+            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Guardar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Guardar.Location = new System.Drawing.Point(475, 137);
+            this.btn_Guardar.Name = "btn_Guardar";
+            this.btn_Guardar.Size = new System.Drawing.Size(64, 57);
+            this.btn_Guardar.TabIndex = 8;
+            this.btn_Guardar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Cancelar.BackgroundImage = global::PL.Properties.Resources.cancelar;
+            this.btn_Cancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancelar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Cancelar.Location = new System.Drawing.Point(554, 137);
+            this.btn_Cancelar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Cancelar.TabIndex = 10;
+            this.btn_Cancelar.UseVisualStyleBackColor = false;
+            // 
+            // btn_Agregar
+            // 
+            this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
+            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Agregar.FlatAppearance.BorderSize = 0;
+            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Agregar.Location = new System.Drawing.Point(391, 137);
+            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Agregar.Name = "btn_Agregar";
+            this.btn_Agregar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Agregar.TabIndex = 7;
+            this.btn_Agregar.UseVisualStyleBackColor = false;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Confirmar.Location = new System.Drawing.Point(1011, 629);
+            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Confirmar.TabIndex = 9;
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
+            // btn_Orden
+            // 
+            this.btn_Orden.BackgroundImage = global::PL.Properties.Resources.doctor;
+            this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Orden.FlatAppearance.BorderSize = 0;
+            this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Orden.Location = new System.Drawing.Point(839, 322);
+            this.btn_Orden.Name = "btn_Orden";
+            this.btn_Orden.Size = new System.Drawing.Size(99, 81);
+            this.btn_Orden.TabIndex = 6;
+            this.btn_Orden.UseVisualStyleBackColor = true;
+            this.btn_Orden.Click += new System.EventHandler(this.btn_Orden_Click);
             // 
             // Frm_Contado_PL
             // 
@@ -639,6 +747,10 @@
             this.gb_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.grp_FormaPago.ResumeLayout(false);
+            this.grp_FormaPago.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -695,5 +807,13 @@
         private System.Windows.Forms.Button btn_inicio;
         private System.Windows.Forms.Button btn_Recetas;
         private System.Windows.Forms.Button btn_Promociones;
+        private System.Windows.Forms.GroupBox grp_FormaPago;
+        private System.Windows.Forms.RadioButton rdb_Efectivo;
+        private System.Windows.Forms.RadioButton rdb_Tarjeta;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rdb_Contado;
+        private System.Windows.Forms.RadioButton rdb_Credito;
     }
 }

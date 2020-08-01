@@ -24,7 +24,9 @@ namespace PL.Pantallas.Extras
 
         private void btn_AbrirCaja_Click(object sender, EventArgs e)
         {
-            if (caja ==1)
+            int caja=1;
+
+            if (caja==1)
             {
                 MessageBox.Show("Ya la Caja se encuentra abierta ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -32,7 +34,7 @@ namespace PL.Pantallas.Extras
             {
                 MessageBox.Show("Caja abierta con Exito ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-                byte caja = 1;
+               
             }
 
 
@@ -43,7 +45,7 @@ namespace PL.Pantallas.Extras
         {
             if (MessageBox.Show("¿Desea cerrar Caja?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                byte caja = 2;
+               int caja = 2;
 
                 MessageBox.Show("Caja cerrada con Exito ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -52,7 +54,7 @@ namespace PL.Pantallas.Extras
             }
             else
             {
-                byte caja = 1;
+                int caja = 1;
             }
 
 

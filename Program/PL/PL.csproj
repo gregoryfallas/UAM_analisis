@@ -251,6 +251,12 @@
     <Compile Include="Pantallas\Extras\Frm_Contado_PL.Designer.cs">
       <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.Designer.cs">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -405,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Contado_PL.resx">
       <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Credito_PL.resx">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.resx">
       <DependentUpon>Frm_Cuentas_Cobrar_PL.cs</DependentUpon>

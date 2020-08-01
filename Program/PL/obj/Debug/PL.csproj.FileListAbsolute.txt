@@ -291,3 +291,4 @@ C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.exe
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.pdb
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Contado_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Cajas_PL.resources
+C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Credito_PL.resources

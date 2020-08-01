@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Facturacion_PL));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_inicio = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsb_Cajas = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Contado = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Credito = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsb_Express = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Cajas = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Contado = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Credito = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Express = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +61,114 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 641);
             this.panel1.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsb_Cajas,
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.tsb_Contado,
+            this.toolStripLabel2,
+            this.toolStripSeparator2,
+            this.tsb_Credito,
+            this.toolStripLabel3,
+            this.toolStripSeparator3,
+            this.tsb_Express,
+            this.toolStripLabel4,
+            this.toolStripSeparator4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1059, 25);
+            this.toolStrip1.TabIndex = 23;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsb_Cajas
+            // 
+            this.tsb_Cajas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Cajas.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Cajas.Image")));
+            this.tsb_Cajas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Cajas.Name = "tsb_Cajas";
+            this.tsb_Cajas.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Cajas.Text = "Cajas";
+            this.tsb_Cajas.Click += new System.EventHandler(this.tsb_Cajas_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
+            this.toolStripLabel1.Text = "CAJAS";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Contado
+            // 
+            this.tsb_Contado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Contado.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Contado.Image")));
+            this.tsb_Contado.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Contado.Name = "tsb_Contado";
+            this.tsb_Contado.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Contado.Text = "Contado";
+            this.tsb_Contado.Click += new System.EventHandler(this.tsb_Contado_Click);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(63, 22);
+            this.toolStripLabel2.Text = "CONTADO";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Credito
+            // 
+            this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
+            this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Credito.Name = "tsb_Credito";
+            this.tsb_Credito.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Credito.Text = "Crédito";
+            this.tsb_Credito.Click += new System.EventHandler(this.tsb_Credito_Click);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(53, 22);
+            this.toolStripLabel3.Text = "CREDITO";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsb_Express
+            // 
+            this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
+            this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_Express.Name = "tsb_Express";
+            this.tsb_Express.Size = new System.Drawing.Size(23, 22);
+            this.tsb_Express.Text = "Express";
+            // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.ForeColor = System.Drawing.Color.Black;
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(52, 22);
+            this.toolStripLabel4.Text = "EXPRESS";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // panel2
             // 
@@ -84,113 +192,6 @@
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_Cajas,
-            this.toolStripLabel1,
-            this.toolStripSeparator1,
-            this.tsb_Contado,
-            this.toolStripLabel2,
-            this.toolStripSeparator2,
-            this.tsb_Credito,
-            this.toolStripLabel3,
-            this.toolStripSeparator3,
-            this.tsb_Express,
-            this.toolStripLabel4,
-            this.toolStripSeparator4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1059, 25);
-            this.toolStrip1.TabIndex = 23;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(42, 22);
-            this.toolStripLabel1.Text = "CAJAS";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(63, 22);
-            this.toolStripLabel2.Text = "CONTADO";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(53, 22);
-            this.toolStripLabel3.Text = "CREDITO";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.ForeColor = System.Drawing.Color.Black;
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(52, 22);
-            this.toolStripLabel4.Text = "EXPRESS";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_Cajas
-            // 
-            this.tsb_Cajas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Cajas.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Cajas.Image")));
-            this.tsb_Cajas.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Cajas.Name = "tsb_Cajas";
-            this.tsb_Cajas.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Cajas.Text = "toolStripButton1";
-            this.tsb_Cajas.Click += new System.EventHandler(this.tsb_Cajas_Click);
-            // 
-            // tsb_Contado
-            // 
-            this.tsb_Contado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Contado.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Contado.Image")));
-            this.tsb_Contado.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Contado.Name = "tsb_Contado";
-            this.tsb_Contado.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Contado.Text = "toolStripButton2";
-            this.tsb_Contado.Click += new System.EventHandler(this.tsb_Contado_Click);
-            // 
-            // tsb_Credito
-            // 
-            this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
-            this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Credito.Name = "tsb_Credito";
-            this.tsb_Credito.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Credito.Text = "toolStripButton3";
-            // 
-            // tsb_Express
-            // 
-            this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
-            this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Express.Name = "tsb_Express";
-            this.tsb_Express.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Express.Text = "toolStripButton4";
-            // 
             // Frm_Facturacion_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,9 +206,9 @@
             this.Load += new System.EventHandler(this.Frm_Facturacion_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

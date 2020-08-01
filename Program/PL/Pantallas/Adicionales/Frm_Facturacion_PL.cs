@@ -57,5 +57,11 @@ namespace PL.Pantallas.Adicionales
             Frm_Cajas_PL Cajas = new Frm_Cajas_PL();
             Cajas.ShowDialog();
         }
+
+        private void tsb_Credito_Click(object sender, EventArgs e)
+        {
+            Frm_Credito_PL Credito = new Frm_Credito_PL();
+            Credito.ShowDialog();
+        }
     }
 }

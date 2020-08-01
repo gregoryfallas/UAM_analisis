@@ -90,6 +90,9 @@ namespace PL.Pantallas.Extras
             printDocument1.PrintPage += Imprimir_PrintPage;
             printDocument1.Print();
 
+            MessageBox.Show("Factura generada con exito");
+            this.Hide();
+
         }
     }
 

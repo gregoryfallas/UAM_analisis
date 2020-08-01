@@ -77,6 +77,8 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
+            this.btn_Recetas = new System.Windows.Forms.Button();
+            this.btn_Promociones = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,6 +90,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.btn_Promociones);
+            this.panel1.Controls.Add(this.btn_Recetas);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btn_Cancelar);
@@ -412,7 +416,7 @@
             this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Orden.FlatAppearance.BorderSize = 0;
             this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Orden.Location = new System.Drawing.Point(912, 322);
+            this.btn_Orden.Location = new System.Drawing.Point(839, 322);
             this.btn_Orden.Name = "btn_Orden";
             this.btn_Orden.Size = new System.Drawing.Size(99, 81);
             this.btn_Orden.TabIndex = 6;
@@ -594,6 +598,26 @@
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
+            // btn_Recetas
+            // 
+            this.btn_Recetas.ForeColor = System.Drawing.Color.Black;
+            this.btn_Recetas.Location = new System.Drawing.Point(963, 335);
+            this.btn_Recetas.Name = "btn_Recetas";
+            this.btn_Recetas.Size = new System.Drawing.Size(75, 55);
+            this.btn_Recetas.TabIndex = 24;
+            this.btn_Recetas.Text = "Recetas";
+            this.btn_Recetas.UseVisualStyleBackColor = true;
+            // 
+            // btn_Promociones
+            // 
+            this.btn_Promociones.ForeColor = System.Drawing.Color.Black;
+            this.btn_Promociones.Location = new System.Drawing.Point(950, 423);
+            this.btn_Promociones.Name = "btn_Promociones";
+            this.btn_Promociones.Size = new System.Drawing.Size(121, 49);
+            this.btn_Promociones.TabIndex = 25;
+            this.btn_Promociones.Text = "Promociones";
+            this.btn_Promociones.UseVisualStyleBackColor = true;
+            // 
             // Frm_Contado_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,5 +693,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_inicio;
+        private System.Windows.Forms.Button btn_Recetas;
+        private System.Windows.Forms.Button btn_Promociones;
     }
 }

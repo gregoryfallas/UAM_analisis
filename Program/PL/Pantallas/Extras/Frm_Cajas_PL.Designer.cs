@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_inicio = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_AbrirCaja = new System.Windows.Forms.Button();
             this.btn_CerrarCaja = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,27 +49,18 @@
             this.panel1.Size = new System.Drawing.Size(772, 586);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // groupBox1
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.btn_inicio);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(772, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 586);
-            this.panel2.TabIndex = 1;
-            // 
-            // btn_inicio
-            // 
-            this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(44, 511);
-            this.btn_inicio.Name = "btn_inicio";
-            this.btn_inicio.Size = new System.Drawing.Size(92, 41);
-            this.btn_inicio.TabIndex = 12;
-            this.btn_inicio.Text = "Inicio";
-            this.btn_inicio.UseVisualStyleBackColor = false;
-            this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
+            this.groupBox1.Controls.Add(this.btn_AbrirCaja);
+            this.groupBox1.Controls.Add(this.btn_CerrarCaja);
+            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(158, 79);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(505, 406);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "OPCIONES";
             // 
             // btn_AbrirCaja
             // 
@@ -93,18 +84,27 @@
             this.btn_CerrarCaja.UseVisualStyleBackColor = true;
             this.btn_CerrarCaja.Click += new System.EventHandler(this.btn_CerrarCaja_Click);
             // 
-            // groupBox1
+            // panel2
             // 
-            this.groupBox1.Controls.Add(this.btn_AbrirCaja);
-            this.groupBox1.Controls.Add(this.btn_CerrarCaja);
-            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(157, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(505, 406);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "OPCIONES";
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.btn_inicio);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(772, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(165, 586);
+            this.panel2.TabIndex = 1;
+            // 
+            // btn_inicio
+            // 
+            this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_inicio.Location = new System.Drawing.Point(44, 511);
+            this.btn_inicio.Name = "btn_inicio";
+            this.btn_inicio.Size = new System.Drawing.Size(92, 41);
+            this.btn_inicio.TabIndex = 12;
+            this.btn_inicio.Text = "Inicio";
+            this.btn_inicio.UseVisualStyleBackColor = false;
+            this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
             // Frm_Cajas_PL
             // 
@@ -117,8 +117,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAJAS";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

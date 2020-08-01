@@ -23,50 +23,39 @@ namespace PL.Pantallas.Adicionales
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+          
         }
+                    
 
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            Frm_Servicios_PL servicios = new Frm_Servicios_PL();
-            servicios.ShowDialog();
-        }
-
-        private void btn_Confirmar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
-                factura.ShowDialog();
-            }
-        }
-
-        private void btn_Cancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea Cancelar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                
-            }
-        }
-
-        private void btn_Orden_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea Cargar orden de Médico ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                string orden;
-                orden = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el número de orden:","Orden de Médico");
-                MessageBox.Show("Orden Cargada con Exito: " +orden,"Orden",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-
-                txt_Orden.Text = orden;
-
-            }
-        }
+        
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-            txt_Fecha_Doc.Text = DateTime.Now.ToShortDateString();
+            byte caja=1;
+            if (caja==1)
+            {
+                tsb_Contado.Enabled = true;
+                tsb_Credito.Enabled = true;
+                tsb_Express.Enabled = true;
+            }
+            else
+            {
+                tsb_Contado.Enabled = false;
+                tsb_Credito.Enabled = false;
+                tsb_Express.Enabled = false;
+            }
+        }
 
+        private void tsb_Contado_Click(object sender, EventArgs e)
+        {
+            Frm_Contado_PL Contado = new Frm_Contado_PL();
+            Contado.ShowDialog();
+        }
+
+        private void tsb_Cajas_Click(object sender, EventArgs e)
+        {
+            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();
+            Cajas.ShowDialog();
         }
     }
 }

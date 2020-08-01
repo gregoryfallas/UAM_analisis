@@ -37,10 +37,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_Factura = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_Imprimir = new System.Windows.Forms.Button();
             this.btn_Confirmar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Imprimir = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.gpb_Factura.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -133,7 +134,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txt_Factura);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.btn_Imprimir);
             this.panel2.Controls.Add(this.btn_Confirmar);
@@ -142,6 +143,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(127, 424);
             this.panel2.TabIndex = 1;
+            // 
+            // txt_Factura
+            // 
+            this.txt_Factura.Location = new System.Drawing.Point(15, 46);
+            this.txt_Factura.Name = "txt_Factura";
+            this.txt_Factura.ReadOnly = true;
+            this.txt_Factura.Size = new System.Drawing.Size(100, 20);
+            this.txt_Factura.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(19, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 34);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "#Factura";
             // 
             // btn_Imprimir
             // 
@@ -154,6 +174,7 @@
             this.btn_Imprimir.Size = new System.Drawing.Size(75, 57);
             this.btn_Imprimir.TabIndex = 4;
             this.btn_Imprimir.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 
             // btn_Confirmar
             // 
@@ -168,24 +189,9 @@
             this.btn_Confirmar.UseVisualStyleBackColor = true;
             this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
-            // label4
+            // Imprimir
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(19, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 34);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "#Factura";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(15, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.Imprimir.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Imprimir_PrintPage);
             // 
             // Frm_Total_Factura_PL
             // 
@@ -221,7 +227,8 @@
         private System.Windows.Forms.Button btn_Confirmar;
         private System.Windows.Forms.GroupBox gpb_Factura;
         private System.Windows.Forms.Button btn_Imprimir;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Factura;
         private System.Windows.Forms.Label label4;
+        private System.Drawing.Printing.PrintDocument Imprimir;
     }
 }

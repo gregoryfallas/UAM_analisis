@@ -582,5 +582,11 @@
   <ItemGroup>
     <None Include="Recursos\Clock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{681fc8bd-a5a3-4447-9c82-1a6347b11a2d}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

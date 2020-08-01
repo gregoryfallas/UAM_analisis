@@ -5,3 +5,8 @@ C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.dll.config
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.xml
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete

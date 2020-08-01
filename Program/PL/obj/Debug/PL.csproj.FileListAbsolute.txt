@@ -293,3 +293,8 @@ C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.p
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\BLL.dll
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\BLL.pdb
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CopyComplete
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\DAL.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\EntityFramework.dll
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\DAL.pdb
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\DAL.dll.config
+C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\bin\Debug\EntityFramework.xml

@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VETERINARIA_EL_BOSQUEModelStoreContainer" CdmEntityContainer="VETERINARIA_EL_BOSQUEEntities">
+    <EntitySetMapping Name="ANUNCIOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ANUNCIOS">
+        <MappingFragment StoreEntitySet="ANUNCIOS">
+          <ScalarProperty Name="ID_Anuncios" ColumnName="ID_Anuncios" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANUNCIOS_ENVIADOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ANUNCIOS_ENVIADOS">
+        <MappingFragment StoreEntitySet="ANUNCIOS_ENVIADOS">
+          <ScalarProperty Name="ID_Anuncios_Enviados" ColumnName="ID_Anuncios_Enviados" />
+          <ScalarProperty Name="ID_Anuncios" ColumnName="ID_Anuncios" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARTICULOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ARTICULOS">
+        <MappingFragment StoreEntitySet="ARTICULOS">
+          <ScalarProperty Name="ID_Articulos" ColumnName="ID_Articulos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARTICULOS_PROVEEDOR">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ARTICULOS_PROVEEDOR">
+        <MappingFragment StoreEntitySet="ARTICULOS_PROVEEDOR">
+          <ScalarProperty Name="ID_Articulos_Proveedor" ColumnName="ID_Articulos_Proveedor" />
+          <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
+          <ScalarProperty Name="ID_Articulos" ColumnName="ID_Articulos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAJAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CAJAS">
+        <MappingFragment StoreEntitySet="CAJAS">
+          <ScalarProperty Name="ID_Caja" ColumnName="ID_Caja" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAMPA_AS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CAMPA_AS">
+        <MappingFragment StoreEntitySet="CAMPA_AS">
+          <ScalarProperty Name="ID_Campa_as" ColumnName="ID_Campa_as" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Cantidad_Pacientes" ColumnName="Cantidad_Pacientes" />
+          <ScalarProperty Name="ID_Distritos" ColumnName="ID_Distritos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAMPA_AS_PARTICIPANTES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CAMPA_AS_PARTICIPANTES">
+        <MappingFragment StoreEntitySet="CAMPA_AS_PARTICIPANTES">
+          <ScalarProperty Name="ID_Campa_as_Participantes" ColumnName="ID_Campa_as_Participantes" />
+          <ScalarProperty Name="ID_Campa_as" ColumnName="ID_Campa_as" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CANTONES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CANTONES">
+        <MappingFragment StoreEntitySet="CANTONES">
+          <ScalarProperty Name="ID_Cantones" ColumnName="ID_Cantones" />
+          <ScalarProperty Name="ID_Provincias" ColumnName="ID_Provincias" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CITAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CITAS">
+        <MappingFragment StoreEntitySet="CITAS">
+          <ScalarProperty Name="ID_Cita" ColumnName="ID_Cita" />
+          <ScalarProperty Name="ID_Mascota" ColumnName="ID_Mascota" />
+          <ScalarProperty Name="ID_Consultorio" ColumnName="ID_Consultorio" />
+          <ScalarProperty Name="ID_Motivo_Cita" ColumnName="ID_Motivo_Cita" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Hora_Inicio" ColumnName="Hora_Inicio" />
+          <ScalarProperty Name="Hora_Fin" ColumnName="Hora_Fin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CLIENTES">
+        <MappingFragment StoreEntitySet="CLIENTES">
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+          <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="ID_Provincias" ColumnName="ID_Provincias" />
+          <ScalarProperty Name="ID_Cantones" ColumnName="ID_Cantones" />
+          <ScalarProperty Name="ID_Distritos" ColumnName="ID_Distritos" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Credito" ColumnName="Credito" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COBROS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.COBROS">
+        <MappingFragment StoreEntitySet="COBROS">
+          <ScalarProperty Name="ID_Cobro" ColumnName="ID_Cobro" />
+          <ScalarProperty Name="ID_Caja" ColumnName="ID_Caja" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="Metodo_Pago" ColumnName="Metodo_Pago" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONSULTORIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CONSULTORIO">
+        <MappingFragment StoreEntitySet="CONSULTORIO">
+          <ScalarProperty Name="ID_Consultorio" ColumnName="ID_Consultorio" />
+          <ScalarProperty Name="ID_Tipo_Consultorio" ColumnName="ID_Tipo_Consultorio" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CREDITOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.CREDITOS">
+        <MappingFragment StoreEntitySet="CREDITOS">
+          <ScalarProperty Name="ID_Creditos" ColumnName="ID_Creditos" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="Monto_Anterior" ColumnName="Monto_Anterior" />
+          <ScalarProperty Name="Monto_Actual" ColumnName="Monto_Actual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTAMENTOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.DEPARTAMENTOS">
+        <MappingFragment StoreEntitySet="DEPARTAMENTOS">
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DESPACHO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.DESPACHO">
+        <MappingFragment StoreEntitySet="DESPACHO">
+          <ScalarProperty Name="ID_Despacho" ColumnName="ID_Despacho" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_ARTICULOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.DETALLE_ARTICULOS">
+        <MappingFragment StoreEntitySet="DETALLE_ARTICULOS">
+          <ScalarProperty Name="ID_Detalle_Articulos" ColumnName="ID_Detalle_Articulos" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="ID_Articulos" ColumnName="ID_Articulos" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DETALLE_SERVICIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.DETALLE_SERVICIO">
+        <MappingFragment StoreEntitySet="DETALLE_SERVICIO">
+          <ScalarProperty Name="ID_Detalle_Servicio" ColumnName="ID_Detalle_Servicio" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="ID_Servicios" ColumnName="ID_Servicios" />
+          <ScalarProperty Name="ID_Cita" ColumnName="ID_Cita" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DISTRITOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.DISTRITOS">
+        <MappingFragment StoreEntitySet="DISTRITOS">
+          <ScalarProperty Name="ID_Distritos" ColumnName="ID_Distritos" />
+          <ScalarProperty Name="ID_Cantones" ColumnName="ID_Cantones" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ESTADOS">
+        <MappingFragment StoreEntitySet="ESTADOS">
+          <ScalarProperty Name="ID_Estados" ColumnName="ID_Estados" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA_COMPRA">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.FACTURA_COMPRA">
+        <MappingFragment StoreEntitySet="FACTURA_COMPRA">
+          <ScalarProperty Name="ID_Factura_Compra" ColumnName="ID_Factura_Compra" />
+          <ScalarProperty Name="ID_Solicitud_Compra" ColumnName="ID_Solicitud_Compra" />
+          <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+          <ScalarProperty Name="Referencia_Bancaria" ColumnName="Referencia_Bancaria" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA_PROMOCION">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.FACTURA_PROMOCION">
+        <MappingFragment StoreEntitySet="FACTURA_PROMOCION">
+          <ScalarProperty Name="ID_Factura_Promocion" ColumnName="ID_Factura_Promocion" />
+          <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FACTURAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.FACTURAS">
+        <MappingFragment StoreEntitySet="FACTURAS">
+          <ScalarProperty Name="ID_Facturas" ColumnName="ID_Facturas" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="ID_Caja" ColumnName="ID_Caja" />
+          <ScalarProperty Name="Numero_Factura" ColumnName="Numero_Factura" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Tipo_Pago" ColumnName="Tipo_Pago" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INVENTARIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.INVENTARIO">
+        <MappingFragment StoreEntitySet="INVENTARIO">
+          <ScalarProperty Name="ID_Inventario" ColumnName="ID_Inventario" />
+          <ScalarProperty Name="ID_Articulos" ColumnName="ID_Articulos" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.MARCAS">
+        <MappingFragment StoreEntitySet="MARCAS">
+          <ScalarProperty Name="ID_Marcas" ColumnName="ID_Marcas" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MASCOTAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.MASCOTAS">
+        <MappingFragment StoreEntitySet="MASCOTAS">
+          <ScalarProperty Name="ID_Mascota" ColumnName="ID_Mascota" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo_Animal" ColumnName="Tipo_Animal" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Tamaño" ColumnName="Tamaño" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METODO_PAGO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.METODO_PAGO">
+        <MappingFragment StoreEntitySet="METODO_PAGO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Metodo" ColumnName="Metodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOTIVO_CITA">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.MOTIVO_CITA">
+        <MappingFragment StoreEntitySet="MOTIVO_CITA">
+          <ScalarProperty Name="ID_Motivo_Cita" ColumnName="ID_Motivo_Cita" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOMINA">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.NOMINA">
+        <MappingFragment StoreEntitySet="NOMINA">
+          <ScalarProperty Name="ID_Nomina" ColumnName="ID_Nomina" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOMINA_PERSONAL">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.NOMINA_PERSONAL">
+        <MappingFragment StoreEntitySet="NOMINA_PERSONAL">
+          <ScalarProperty Name="ID_Nomina_Personal" ColumnName="ID_Nomina_Personal" />
+          <ScalarProperty Name="ID_Nomina" ColumnName="ID_Nomina" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Total_Horas" ColumnName="Total_Horas" />
+          <ScalarProperty Name="Salario_Bruto" ColumnName="Salario_Bruto" />
+          <ScalarProperty Name="Salario_Neto" ColumnName="Salario_Neto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBSERVACIONES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.OBSERVACIONES">
+        <MappingFragment StoreEntitySet="OBSERVACIONES">
+          <ScalarProperty Name="ID_Observaciones" ColumnName="ID_Observaciones" />
+          <ScalarProperty Name="ID_Cita" ColumnName="ID_Cita" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARTICIPANTES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PARTICIPANTES">
+        <MappingFragment StoreEntitySet="PARTICIPANTES">
+          <ScalarProperty Name="ID_Participantes" ColumnName="ID_Participantes" />
+          <ScalarProperty Name="ID_Reclutamiento" ColumnName="ID_Reclutamiento" />
+          <ScalarProperty Name="Cedula_" ColumnName="Cedula_" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+          <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="ID_Provincia" ColumnName="ID_Provincia" />
+          <ScalarProperty Name="ID_Canton" ColumnName="ID_Canton" />
+          <ScalarProperty Name="ID_Distrito" ColumnName="ID_Distrito" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONAL">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PERSONAL">
+        <MappingFragment StoreEntitySet="PERSONAL">
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="ID_Puesto" ColumnName="ID_Puesto" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+          <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+          <ScalarProperty Name="Salario_Hora" ColumnName="Salario_Hora" />
+          <ScalarProperty Name="Salario_Mensual" ColumnName="Salario_Mensual" />
+          <ScalarProperty Name="Fecha_Contratacion" ColumnName="Fecha_Contratacion" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROMOCIONES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PROMOCIONES">
+        <MappingFragment StoreEntitySet="PROMOCIONES">
+          <ScalarProperty Name="ID_Promocion" ColumnName="ID_Promocion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha_Inicio" ColumnName="Fecha_Inicio" />
+          <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PROVEEDOR">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="ID_Proveedor" ColumnName="ID_Proveedor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVINCIAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PROVINCIAS">
+        <MappingFragment StoreEntitySet="PROVINCIAS">
+          <ScalarProperty Name="ID_Provincias" ColumnName="ID_Provincias" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRUEBAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PRUEBAS">
+        <MappingFragment StoreEntitySet="PRUEBAS">
+          <ScalarProperty Name="ID_Pruebas" ColumnName="ID_Pruebas" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRUEBAS_LABORATORIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PRUEBAS_LABORATORIO">
+        <MappingFragment StoreEntitySet="PRUEBAS_LABORATORIO">
+          <ScalarProperty Name="ID_Pruebas_Laboratorio" ColumnName="ID_Pruebas_Laboratorio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRUEBAS_PARTICIPANTES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PRUEBAS_PARTICIPANTES">
+        <MappingFragment StoreEntitySet="PRUEBAS_PARTICIPANTES">
+          <ScalarProperty Name="ID_Pruebas_Participantes" ColumnName="ID_Pruebas_Participantes" />
+          <ScalarProperty Name="ID_Pruebas" ColumnName="ID_Pruebas" />
+          <ScalarProperty Name="ID_Participantes" ColumnName="ID_Participantes" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUESTOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.PUESTOS">
+        <MappingFragment StoreEntitySet="PUESTOS">
+          <ScalarProperty Name="ID_Puestos" ColumnName="ID_Puestos" />
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Salario_Base" ColumnName="Salario_Base" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECETAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.RECETAS">
+        <MappingFragment StoreEntitySet="RECETAS">
+          <ScalarProperty Name="ID_Receta" ColumnName="ID_Receta" />
+          <ScalarProperty Name="ID_Cita" ColumnName="ID_Cita" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RECLUTAMIENTO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.RECLUTAMIENTO">
+        <MappingFragment StoreEntitySet="RECLUTAMIENTO">
+          <ScalarProperty Name="ID_Reclutamiento" ColumnName="ID_Reclutamiento" />
+          <ScalarProperty Name="ID_Puestos" ColumnName="ID_Puestos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REQUISITOS_PARTICIPANTES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.REQUISITOS_PARTICIPANTES">
+        <MappingFragment StoreEntitySet="REQUISITOS_PARTICIPANTES">
+          <ScalarProperty Name="ID_Requisitos_Participantes" ColumnName="ID_Requisitos_Participantes" />
+          <ScalarProperty Name="ID_Requisitos" ColumnName="ID_Requisitos" />
+          <ScalarProperty Name="ID_Participantes" ColumnName="ID_Participantes" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REQUISITOS_PUESTO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.REQUISITOS_PUESTO">
+        <MappingFragment StoreEntitySet="REQUISITOS_PUESTO">
+          <ScalarProperty Name="ID_Requisitos" ColumnName="ID_Requisitos" />
+          <ScalarProperty Name="ID_Puestos" ColumnName="ID_Puestos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESULTADO_LABORATORIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.RESULTADO_LABORATORIO">
+        <MappingFragment StoreEntitySet="RESULTADO_LABORATORIO">
+          <ScalarProperty Name="ID_Resultado_Laboratorio" ColumnName="ID_Resultado_Laboratorio" />
+          <ScalarProperty Name="ID_Pruebas_Laboratorio" ColumnName="ID_Pruebas_Laboratorio" />
+          <ScalarProperty Name="ID_Cita" ColumnName="ID_Cita" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROLES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.ROLES">
+        <MappingFragment StoreEntitySet="ROLES">
+          <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.SERVICIOS">
+        <MappingFragment StoreEntitySet="SERVICIOS">
+          <ScalarProperty Name="ID_Servicios" ColumnName="ID_Servicios" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SERVICIOS_EXPRESS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.SERVICIOS_EXPRESS">
+        <MappingFragment StoreEntitySet="SERVICIOS_EXPRESS">
+          <ScalarProperty Name="ID_Servicios" ColumnName="ID_Servicios" />
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD_ARTICULOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.SOLICITUD_ARTICULOS">
+        <MappingFragment StoreEntitySet="SOLICITUD_ARTICULOS">
+          <ScalarProperty Name="ID_Solicitud_Articulos" ColumnName="ID_Solicitud_Articulos" />
+          <ScalarProperty Name="ID_Articulo_Proveedor" ColumnName="ID_Articulo_Proveedor" />
+          <ScalarProperty Name="ID_Solicitud_Compra" ColumnName="ID_Solicitud_Compra" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD_COMPRA">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.SOLICITUD_COMPRA">
+        <MappingFragment StoreEntitySet="SOLICITUD_COMPRA">
+          <ScalarProperty Name="ID_Solicitud_Compra" ColumnName="ID_Solicitud_Compra" />
+          <ScalarProperty Name="Encabezado" ColumnName="Encabezado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TABLAS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.TABLAS">
+        <MappingFragment StoreEntitySet="TABLAS">
+          <ScalarProperty Name="ID_Tabla" ColumnName="ID_Tabla" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_ANIMAL">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.TIPO_ANIMAL">
+        <MappingFragment StoreEntitySet="TIPO_ANIMAL">
+          <ScalarProperty Name="ID_Tipo_Animal" ColumnName="ID_Tipo_Animal" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_CONSULTORIO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.TIPO_CONSULTORIO">
+        <MappingFragment StoreEntitySet="TIPO_CONSULTORIO">
+          <ScalarProperty Name="ID_Tipo_Consultorio" ColumnName="ID_Tipo_Consultorio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_MARCA">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.TIPO_MARCA">
+        <MappingFragment StoreEntitySet="TIPO_MARCA">
+          <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_PAGO">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.TIPO_PAGO">
+        <MappingFragment StoreEntitySet="TIPO_PAGO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_ROL">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.USUARIO_ROL">
+        <MappingFragment StoreEntitySet="USUARIO_ROL">
+          <ScalarProperty Name="ID_Usuario_Rol" ColumnName="ID_Usuario_Rol" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIOS">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.USUARIOS">
+        <MappingFragment StoreEntitySet="USUARIOS">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Created_at" ColumnName="Created_at" />
+          <ScalarProperty Name="Last_Login" ColumnName="Last_Login" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VACACIONES">
+      <EntityTypeMapping TypeName="VETERINARIA_EL_BOSQUEModel.VACACIONES">
+        <MappingFragment StoreEntitySet="VACACIONES">
+          <ScalarProperty Name="ID_Vacaciones" ColumnName="ID_Vacaciones" />
+          <ScalarProperty Name="ID_Personal" ColumnName="ID_Personal" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ESTADOS_TABLAS" TypeName="VETERINARIA_EL_BOSQUEModel.ESTADOS_TABLAS" StoreEntitySet="ESTADOS_TABLAS">
+      <EndProperty Name="ESTADOS">
+        <ScalarProperty Name="ID_Estados" ColumnName="ID_Estados" />
+      </EndProperty>
+      <EndProperty Name="TABLAS">
+        <ScalarProperty Name="ID_Tabla" ColumnName="ID_Tabla" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,6 +1,7 @@
 ﻿using DAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -88,12 +89,54 @@ namespace DAL
 
         #region Mascotas
         /// <summary>
-        /// Consultar los tipos de raza de los mascotas
+        /// Metodo para consultar los tipos de mascotas en la base de datos
         /// </summary>
-        /// <param name="P_Peticion"></param>
-        /// <returns></returns>
-        
+        /// <param name="P_Peticion">Entidad Sentencia</param>
+        /// <returns>Lista de Entidades de Perfiles</returns>
+        public List<TIPO_ANIMAL> ConsultarTipoMascota(SQLSentencia P_Peticion)
+        {
+            List<TIPO_ANIMAL> lstresultados = new List<TIPO_ANIMAL>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
 
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        TIPO_ANIMAL tipo = new TIPO_ANIMAL();
+                       
+                        tipo.ID_Tipo_Animal= Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Tipo= item.ItemArray[1].ToString();
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+        
         #endregion
 
 

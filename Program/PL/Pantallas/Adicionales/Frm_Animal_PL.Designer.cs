@@ -223,6 +223,7 @@
             this.buscarAnimalbtn.Size = new System.Drawing.Size(31, 27);
             this.buscarAnimalbtn.TabIndex = 32;
             this.buscarAnimalbtn.UseVisualStyleBackColor = true;
+            this.buscarAnimalbtn.Click += new System.EventHandler(this.buscarAnimalbtn_Click);
             // 
             // mascotalbl
             // 
@@ -290,6 +291,7 @@
             // 
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(151, 148);
             this.comboBox1.Name = "comboBox1";

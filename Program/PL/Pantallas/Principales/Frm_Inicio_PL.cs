@@ -46,15 +46,14 @@ namespace PL.Pantallas.Principales
 
         private void ts_Compras_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Compras_PL compras = new Frm_Compras_PL();
+             Frm_Compras_PL compras = new Frm_Compras_PL();
             compras.ShowDialog();
 
         }
 
         private void ts_Tesoreria_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Frm_Tesoreria_PL tesoreria = new Frm_Tesoreria_PL();
             tesoreria.ShowDialog();
 

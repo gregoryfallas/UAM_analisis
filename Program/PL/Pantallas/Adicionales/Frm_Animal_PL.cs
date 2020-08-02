@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
+using PL.Pantallas.Extras;
+using BLL;
+using DAL.Entidades;
 
 
 namespace PL.Pantallas.Adicionales
@@ -17,7 +20,21 @@ namespace PL.Pantallas.Adicionales
         public Frm_Animal_PL()
         {
             InitializeComponent();
+            CargarCombos();
         }
+
+        private void CargarCombos()
+        {
+            List<TIPO_ANIMAL> lstresultado = BL.ConsultaTipoAnimal();
+         
+            this.comboBox1.DataSource = lstresultado;
+            comboBox1.ValueMember = "ID_Tipo_Animal";
+            comboBox1.DisplayMember = "Tipo";
+            comboBox1.Refresh();
+        }
+
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -40,6 +57,27 @@ namespace PL.Pantallas.Adicionales
         {
             PL.Pantallas.Adicionales.Frm_Clientes_PL clientes = new Frm_Clientes_PL ();
             clientes.ShowDialog();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CedulaClienteBusquedabtn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgregarTipoMascotabtn_Click(object sender, EventArgs e)
+        {
+            PL.Pantallas.Extras.Frm_TipoAnimal_PL ta = new Frm_TipoAnimal_PL();
+            ta.ShowDialog();
+        }
+
+        private void buscarAnimalbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

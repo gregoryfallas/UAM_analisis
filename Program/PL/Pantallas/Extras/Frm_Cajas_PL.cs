@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL.Entidades;
 
 namespace PL.Pantallas.Extras
 {
     public partial class Frm_Cajas_PL : Form
     {
+        CAJAS Caja = new CAJAS();
         public Frm_Cajas_PL()
         {
             InitializeComponent();
@@ -24,9 +26,8 @@ namespace PL.Pantallas.Extras
 
         private void btn_AbrirCaja_Click(object sender, EventArgs e)
         {
-            int caja=1;
 
-            if (caja==1)
+            if (Caja.Estado==1)
             {
                 MessageBox.Show("Ya la Caja se encuentra abierta ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

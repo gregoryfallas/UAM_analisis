@@ -295,7 +295,7 @@
             this.Cantidad,
             this.Precio,
             this.Factura});
-            this.dtg_Proveedor.Location = new System.Drawing.Point(405, 242);
+            this.dtg_Proveedor.Location = new System.Drawing.Point(393, 242);
             this.dtg_Proveedor.Name = "dtg_Proveedor";
             this.dtg_Proveedor.Size = new System.Drawing.Size(644, 387);
             this.dtg_Proveedor.TabIndex = 18;

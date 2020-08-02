@@ -611,7 +611,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{681fc8bd-a5a3-4447-9c82-1a6347b11a2d}</Project>
+      <Project>{61a5d75e-e895-468b-8eb2-888873db5c5a}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">

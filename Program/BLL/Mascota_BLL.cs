@@ -1,16 +1,15 @@
-﻿using System;
+﻿using DAL;
+using DAL.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Entidades;
-using DAL;
+
 namespace BLL
 {
-    public class BL
+   public class Mascota_BLL
     {
-
-
 
         public static List<TIPO_ANIMAL> ConsultaTipoAnimal()
         {
@@ -28,9 +27,7 @@ namespace BLL
                 throw e;
             }
         }
-
-
-        //SEGUNDA FORMA
+        //SEGUNDA FORMA de hacerlo
         public static List<TIPO_ANIMAL> ListarTipos()
         {
 
@@ -48,7 +45,6 @@ namespace BLL
             }
 
         }
-
 
 
     }

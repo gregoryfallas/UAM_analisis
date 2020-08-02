@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
 using PL.Pantallas.Extras;
-using BLL;
 using DAL.Entidades;
-
+using BLL;
 
 namespace PL.Pantallas.Adicionales
 {
@@ -25,8 +24,8 @@ namespace PL.Pantallas.Adicionales
 
         private void CargarCombos()
         {
-            List<TIPO_ANIMAL> lstresultado = BL.ConsultaTipoAnimal();
-         
+            List<TIPO_ANIMAL> lstresultado = Mascota_BLL.ConsultaTipoAnimal();
+        
             this.comboBox1.DataSource = lstresultado;
             comboBox1.ValueMember = "ID_Tipo_Animal";
             comboBox1.DisplayMember = "Tipo";

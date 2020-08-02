@@ -116,6 +116,7 @@
             this.Name = "Frm_Cajas_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CAJAS";
+            this.Load += new System.EventHandler(this.Frm_Cajas_PL_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

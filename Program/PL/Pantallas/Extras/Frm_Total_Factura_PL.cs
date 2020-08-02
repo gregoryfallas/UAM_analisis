@@ -62,6 +62,7 @@ namespace PL.Pantallas.Extras
             e.Graphics.DrawString("---Veterinaria El Bosque----",font,Brushes.Black,new RectangleF(x,y+=40,ancho,20));
             e.Graphics.DrawString("Factura#:", font, Brushes.Black, new RectangleF(x, y+= 40, ancho, 20));
             e.Graphics.DrawString("IDCliente:", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
+            e.Graphics.DrawString("Cliente:", font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
             e.Graphics.DrawString("FechaFactura:", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
             
 

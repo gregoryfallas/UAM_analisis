@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtg_Clientes = new System.Windows.Forms.DataGridView();
+            this.txt_SubTotal = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdb_Contado = new System.Windows.Forms.RadioButton();
             this.rdb_Credito = new System.Windows.Forms.RadioButton();
@@ -56,6 +59,7 @@
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.btn_Orden = new System.Windows.Forms.Button();
             this.gb_Datos = new System.Windows.Forms.GroupBox();
+            this.btn_Buscar = new System.Windows.Forms.Button();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
@@ -65,16 +69,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Orden = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_inicio = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_SubTotal = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +89,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.dtg_Clientes);
             this.panel1.Controls.Add(this.txt_SubTotal);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.groupBox2);
@@ -106,6 +110,38 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 715);
             this.panel1.TabIndex = 1;
+            // 
+            // dtg_Clientes
+            // 
+            this.dtg_Clientes.BackgroundColor = System.Drawing.Color.Gray;
+            this.dtg_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Clientes.GridColor = System.Drawing.Color.Black;
+            this.dtg_Clientes.Location = new System.Drawing.Point(12, 256);
+            this.dtg_Clientes.Name = "dtg_Clientes";
+            this.dtg_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Clientes.Size = new System.Drawing.Size(568, 135);
+            this.dtg_Clientes.TabIndex = 30;
+            this.dtg_Clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Clientes_CellContentClick);
+            // 
+            // txt_SubTotal
+            // 
+            this.txt_SubTotal.Location = new System.Drawing.Point(827, 637);
+            this.txt_SubTotal.Name = "txt_SubTotal";
+            this.txt_SubTotal.ReadOnly = true;
+            this.txt_SubTotal.Size = new System.Drawing.Size(117, 30);
+            this.txt_SubTotal.TabIndex = 29;
+            this.txt_SubTotal.Text = "¢";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(686, 641);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 30);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Sub Total:";
             // 
             // groupBox2
             // 
@@ -435,6 +471,7 @@
             // 
             // gb_Datos
             // 
+            this.gb_Datos.Controls.Add(this.btn_Buscar);
             this.gb_Datos.Controls.Add(this.txt_Fecha_Doc);
             this.gb_Datos.Controls.Add(this.label7);
             this.gb_Datos.Controls.Add(this.txt_Nombre);
@@ -451,6 +488,18 @@
             this.gb_Datos.TabIndex = 21;
             this.gb_Datos.TabStop = false;
             this.gb_Datos.Text = "Documento";
+            // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Buscar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Buscar.Location = new System.Drawing.Point(278, 29);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(96, 38);
+            this.btn_Buscar.TabIndex = 12;
+            this.btn_Buscar.Text = "BUSCAR";
+            this.btn_Buscar.UseVisualStyleBackColor = true;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // txt_Fecha_Doc
             // 
@@ -550,52 +599,10 @@
             this.Precio,
             this.Descuento,
             this.Total});
-            this.dataGridView1.Location = new System.Drawing.Point(18, 322);
+            this.dataGridView1.Location = new System.Drawing.Point(18, 397);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(791, 307);
+            this.dataGridView1.Size = new System.Drawing.Size(562, 306);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.btn_inicio);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1100, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(169, 715);
-            this.panel2.TabIndex = 2;
-            // 
-            // btn_inicio
-            // 
-            this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
-            this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(43, 637);
-            this.btn_inicio.Name = "btn_inicio";
-            this.btn_inicio.Size = new System.Drawing.Size(92, 41);
-            this.btn_inicio.TabIndex = 11;
-            this.btn_inicio.Text = "Inicio";
-            this.btn_inicio.UseVisualStyleBackColor = false;
-            this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(686, 641);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 30);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Sub Total:";
-            // 
-            // txt_SubTotal
-            // 
-            this.txt_SubTotal.Location = new System.Drawing.Point(827, 637);
-            this.txt_SubTotal.Name = "txt_SubTotal";
-            this.txt_SubTotal.ReadOnly = true;
-            this.txt_SubTotal.Size = new System.Drawing.Size(117, 30);
-            this.txt_SubTotal.TabIndex = 29;
-            this.txt_SubTotal.Text = "¢";
             // 
             // Nombre
             // 
@@ -622,6 +629,28 @@
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.btn_inicio);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1100, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(169, 715);
+            this.panel2.TabIndex = 2;
+            // 
+            // btn_inicio
+            // 
+            this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_inicio.Location = new System.Drawing.Point(43, 637);
+            this.btn_inicio.Name = "btn_inicio";
+            this.btn_inicio.Size = new System.Drawing.Size(92, 41);
+            this.btn_inicio.TabIndex = 11;
+            this.btn_inicio.Text = "Inicio";
+            this.btn_inicio.UseVisualStyleBackColor = false;
+            this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
+            // 
             // Frm_Contado_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,6 +664,7 @@
             this.Load += new System.EventHandler(this.Frm_Contado_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.grp_FormaPago.ResumeLayout(false);
@@ -697,5 +727,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Button btn_Buscar;
+        private System.Windows.Forms.DataGridView dtg_Clientes;
     }
 }

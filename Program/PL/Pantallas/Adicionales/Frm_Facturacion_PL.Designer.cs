@@ -108,6 +108,7 @@
             // tsb_Contado
             // 
             this.tsb_Contado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Contado.Enabled = false;
             this.tsb_Contado.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Contado.Image")));
             this.tsb_Contado.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Contado.Name = "tsb_Contado";
@@ -130,6 +131,7 @@
             // tsb_Credito
             // 
             this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Credito.Enabled = false;
             this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
             this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Credito.Name = "tsb_Credito";
@@ -152,6 +154,7 @@
             // tsb_Express
             // 
             this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_Express.Enabled = false;
             this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
             this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Express.Name = "tsb_Express";

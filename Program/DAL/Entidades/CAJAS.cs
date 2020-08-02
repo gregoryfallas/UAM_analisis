@@ -17,7 +17,8 @@ namespace DAL.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CAJAS()
         {
-            this.COBROS = new HashSet<COBROS>();
+            this.COBROS = new HashSet<COBROS>();           
+
         }
     
         public int ID_Caja { get; set; }

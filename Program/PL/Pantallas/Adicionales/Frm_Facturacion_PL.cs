@@ -10,11 +10,15 @@ using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
 using PL.Pantallas.Extras;
+using DAL.Entidades;
+using DAL;
 
 namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Facturacion_PL : Form
     {
+        DA Obj_DAL = new DA();
+
         public Frm_Facturacion_PL()
         {
             InitializeComponent();
@@ -22,7 +26,7 @@ namespace PL.Pantallas.Adicionales
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+           this.Dispose();
           
         }
                     
@@ -31,31 +35,28 @@ namespace PL.Pantallas.Adicionales
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-            byte caja=1;
-            if (caja==1)
-            {
-                tsb_Contado.Enabled = true;
-                tsb_Credito.Enabled = true;
-                tsb_Express.Enabled = true;
-            }
-            else
-            {
-                tsb_Contado.Enabled = false;
-                tsb_Credito.Enabled = false;
-                tsb_Express.Enabled = false;
-            }
+            
+
+           
+
+
+           
+           
         }
 
         private void tsb_Contado_Click(object sender, EventArgs e)
         {
+            DA Obj_DAL = new DA();
             Frm_Contado_PL Contado = new Frm_Contado_PL();
             Contado.ShowDialog();
         }
 
         private void tsb_Cajas_Click(object sender, EventArgs e)
         {
-            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();
+            DA Obj_DAL = new DA();
+            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();            
             Cajas.ShowDialog();
+            
         }
 
         private void tsb_Credito_Click(object sender, EventArgs e)

@@ -11,9 +11,14 @@ namespace DAL
 {
     public class DA
     {
+        private int _iPrueba;
+
+
         #region Atributos 
         private string cadenaconexion = Properties.Settings.Default.Conexion;
         private SqlConnection objconexion;
+
+        public int iPrueba { get => _iPrueba; set => _iPrueba = value; }
         #endregion
 
         #region Constructor
@@ -136,13 +141,112 @@ namespace DAL
 
             return lstresultados;
         }
-        
+
         #endregion
 
 
+        #region CLIENTES
+        public List<CLIENTES> ConsultarClientes(SQLSentencia P_Peticion)
+        {
+            List<CLIENTES> lstresultados = new List<CLIENTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CLIENTES tipo = new CLIENTES();
+
+                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Cedula = item.ItemArray[1].ToString();
+                        tipo.Nombre= item.ItemArray[2].ToString();
+                        tipo.Apellido_1= item.ItemArray[3].ToString();
+                        tipo.Apellido_2= item.ItemArray[4].ToString();                       
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+        #endregion
+
+        #region ARTICULOS
+
+        public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
+        {
+            List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                       ARTICULOS tipo = new ARTICULOS();
+
+                        tipo.ID_Articulos=Convert.ToInt32(item.ItemArray[0].ToString());              
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Descripcion= item.ItemArray[2].ToString();
+                        tipo.Precio= Convert.ToDecimal(item.ItemArray[3].ToString());
+                        tipo.Estado= Convert.ToInt32(item.ItemArray[4].ToString());
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
 
 
+        #endregion
 
 
 

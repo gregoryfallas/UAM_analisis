@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL.Entidades;
 
 namespace PL.Pantallas.Extras
 {
@@ -50,11 +52,63 @@ namespace PL.Pantallas.Extras
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
             txt_Fecha_Doc.Text = DateTime.Now.ToShortDateString();
+
+            Cargar();
         }
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            Cargar();
+
+
+
+        }
+       
+        private void Cargar ()
+        {
+
+            Clientes_BLL Clientes = new Clientes_BLL();
+
+            CLIENTES Persona = new CLIENTES();
+
+            List<CLIENTES> LS = Clientes_BLL.ConsultarClientes(txt_Cliente.Text.Trim());
+
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("Cedula");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Primer_Apellido");
+            dt.Columns.Add("Segundo_Apellido");           
+
+            foreach (CLIENTES item in LS)
+            {
+                dt.Rows.Add
+                    (
+                    item.Cedula,
+                    item.Nombre,
+                    item.Apellido_1,
+                    item.Apellido_2              
+                    );
+            }
+
+            dtg_Clientes.DataSource = null;
+            dtg_Clientes.Refresh();
+            dtg_Clientes.DataSource = dt;
+            dtg_Clientes.Refresh();
+
+          
+
+
+        }
+
+        private void dtg_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_Nombre.Text = dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }

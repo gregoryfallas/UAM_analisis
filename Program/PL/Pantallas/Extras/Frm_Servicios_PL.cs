@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Adicionales;
+using BLL;
+using DAL.Entidades;
 
 namespace PL.Pantallas.Extras
 {
@@ -21,6 +23,32 @@ namespace PL.Pantallas.Extras
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void Frm_Servicios_PL_Load(object sender, EventArgs e)
+        {
+            Cargar();
+        }
+
+        private void Cargar()
+        {
+            Articulos articulos = new Articulos();
+
+           
+            List<ARTICULOS> LS = Articulos.ConsultarArticulos(tsb_Buscar.Text.Trim());
+
+            dtg_Articulos.DataSource = null;
+            dtg_Articulos.Refresh();
+            dtg_Articulos.DataSource = LS;
+            dtg_Articulos.Refresh();
+
+
+         
+        }
+
+        private void tsb_Buscar_Click(object sender, EventArgs e)
+        {
+            Cargar();
         }
     }
 }

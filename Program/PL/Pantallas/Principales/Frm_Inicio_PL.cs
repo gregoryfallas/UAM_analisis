@@ -38,9 +38,9 @@ namespace PL.Pantallas.Principales
 
         private void ts_Facturacion_Click(object sender, EventArgs e)
         {
+            Frm_Facturacion_PL Factura = new Frm_Facturacion_PL();        
            
-            Frm_Facturacion_PL factura = new Frm_Facturacion_PL();
-           factura.ShowDialog();
+           Factura.ShowDialog();
 
         }
 

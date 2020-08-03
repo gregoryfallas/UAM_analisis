@@ -28,43 +28,70 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Servicios_PL_Load(object sender, EventArgs e)
         {
-            CargarDatos();
+            Cargar2();
         }
 
-        private void CargarDatos()
+        //private void CargarDatos()
+        //{
+        //    Articulos_BLL Productos = new Articulos_BLL();
+
+        //    List<ARTICULOS> LS = Articulos_BLL.ConsultarArticulos(txt_Codigo.Text.Trim());
+
+        //    DataTable dt = new DataTable();
+
+        //    dt.Columns.Add("ID_Articulo");
+        //    dt.Columns.Add("Nombre");
+        //    dt.Columns.Add("Descripcion");
+        //    dt.Columns.Add("Precio");
+
+        //    foreach (ARTICULOS item in LS)
+        //    {
+        //        dt.Rows.Add
+        //            (
+        //            item.ID_Articulos,
+        //            item.Nombre,
+        //            item.Descripcion,
+        //            item.Precio
+        //            );
+        //    }
+
+        //    dtg_Articulos.DataSource = null;
+        //    dtg_Articulos.Refresh();
+        //    dtg_Articulos.DataSource = dt;
+        //    dtg_Articulos.Refresh();
+
+        //}
+
+
+
+        private void Cargar2()
         {
-            Articulos_BLL Productos = new Articulos_BLL();
-
-            List<ARTICULOS> LS = Articulos_BLL.ConsultarArticulos(txt_Codigo.Text.Trim());
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("ID_Articulo");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Descripcion");
-            dt.Columns.Add("Precio");
-
-            foreach (ARTICULOS item in LS)
+                                 
+            try
             {
-                dt.Rows.Add
-                    (
-                    item.ID_Articulos,
-                    item.Nombre,
-                    item.Descripcion,
-                    item.Precio
-                    );
-            }
+                
+                this.dtg_Articulos.DataSource = null;
+                this.dtg_Articulos.Refresh();
+                string a = txt_Nombre.Text.Trim();                           
+                this.dtg_Articulos.DataSource = Articulos_BLL.ConsultarInventarioArticulos(a);
+                this.dtg_Articulos.Refresh();
 
-            dtg_Cosas.DataSource = null;
-            dtg_Cosas.Refresh();
-            dtg_Cosas.DataSource = dt;
-            dtg_Cosas.Refresh();
+            }
+            catch (Exception)
+            {
+                               
+                throw;
+            }
+                       
+
 
         }
+                          
+
 
         private void tsb_Buscar_Click(object sender, EventArgs e)
         {
-            CargarDatos();
+            Cargar2();
         }
     }
 }

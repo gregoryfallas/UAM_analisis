@@ -36,10 +36,6 @@ namespace PL.Pantallas.Extras
         private void btn_AbrirCaja_Click(object sender, EventArgs e)
         {
            
-            Obj_DAL.iCaja = Obj_DAL.iCaja+1;
-
-            Obj_DAL.Ijona = Obj_DAL.Ijona + 1;
-
           
 
             btn_AbrirCaja.Enabled = false;
@@ -55,7 +51,7 @@ namespace PL.Pantallas.Extras
             }
             else
             {
-                Obj_DAL.iPrueba = 0;
+                
             }
 
         }
@@ -63,7 +59,7 @@ namespace PL.Pantallas.Extras
         private void btn_CerrarCaja_Click(object sender, EventArgs e)
         {
 
-            Obj_DAL.iCaja = 0;
+           
             btn_CerrarCaja.Enabled = false;
 
             if (MessageBox.Show("¿Desea Cerrar Caja?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -79,7 +75,7 @@ namespace PL.Pantallas.Extras
             }
             else
             {
-                Obj_DAL.iPrueba = 0;
+                
             }
 
 
@@ -94,16 +90,16 @@ namespace PL.Pantallas.Extras
         private void Frm_Cajas_PL_Load(object sender, EventArgs e)
         {
            
-            if (Obj_DAL.iCaja == 0)
-            {
-                btn_CerrarCaja.Enabled = false;
-                btn_AbrirCaja.Enabled = true;
-            }
-            else
-            {
-                btn_CerrarCaja.Enabled = true;
-                btn_AbrirCaja.Enabled = false;
-            }
+            //if ()
+            //{
+            //    btn_CerrarCaja.Enabled = false;
+            //    btn_AbrirCaja.Enabled = true;
+            //}
+            //else
+            //{
+            //    btn_CerrarCaja.Enabled = true;
+            //    btn_AbrirCaja.Enabled = false;
+            //}
             
 
 

@@ -11,18 +11,14 @@ namespace DAL
 {
     public class DA
     {
-        private int _iPrueba;
-        private int _iCaja;
-        private int ijona;
+
+
 
 
         #region Atributos 
         private string cadenaconexion = Properties.Settings.Default.Conexion;
-        private SqlConnection objconexion;
+        private SqlConnection objconexion;        
 
-        public int iPrueba { get => _iPrueba; set => _iPrueba = value; }
-        public int iCaja { get => _iCaja; set => _iCaja = value; }
-        public int Ijona { get => ijona; set => ijona = value; }
         #endregion
 
         #region Constructor
@@ -200,40 +196,73 @@ namespace DAL
 
         #region ARTICULOS
 
-        public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
+        //public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
+        //{
+        //    List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+
+        //        //ASigna los valores del QUERY a ejecutar en SQL
+        //        cmd.Connection = objconexion; //ASigna conexion
+        //        cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+        //        cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+        //        if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+        //            cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+        //        SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+        //        objconsultar.Fill(dt);
+
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            foreach (DataRow item in dt.Rows)
+        //            {
+        //               ARTICULOS tipo = new ARTICULOS();
+
+        //                tipo.ID_Articulos=Convert.ToInt32(item.ItemArray[0].ToString());              
+        //                tipo.Nombre = item.ItemArray[1].ToString();
+        //                tipo.Descripcion= item.ItemArray[2].ToString();
+        //                tipo.Precio= Convert.ToDecimal(item.ItemArray[3].ToString());
+        //                tipo.Estado= Convert.ToInt32(item.ItemArray[4].ToString());
+
+        //                lstresultados.Add(tipo);
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+
+        //    return lstresultados;
+        //}
+
+
+
+        public DataTable consultarInventarioConArticulos(SQLSentencia peticion)
         {
-            List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+            //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
             try
             {
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
-                //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
-                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
-                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
-                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
-                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
 
-                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
-                objconsultar.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataRow item in dt.Rows)
-                    {
-                       ARTICULOS tipo = new ARTICULOS();
-
-                        tipo.ID_Articulos=Convert.ToInt32(item.ItemArray[0].ToString());              
-                        tipo.Nombre = item.ItemArray[1].ToString();
-                        tipo.Descripcion= item.ItemArray[2].ToString();
-                        tipo.Precio= Convert.ToDecimal(item.ItemArray[3].ToString());
-                        tipo.Estado= Convert.ToInt32(item.ItemArray[4].ToString());
-
-                        lstresultados.Add(tipo);
-                    }
-                }
+                da.Fill(dt);
 
             }
             catch (Exception ex)
@@ -244,12 +273,22 @@ namespace DAL
             {
                 this.CERRAR();
             }
+            return dt;
 
-            return lstresultados;
+
+
         }
 
 
-         public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia  peticion)
+
+
+
+
+
+
+
+
+        public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia  peticion)
         {
           //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();

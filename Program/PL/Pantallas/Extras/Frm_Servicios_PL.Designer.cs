@@ -29,30 +29,47 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.dtg_Articulos = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tsb_Buscar = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Confirmar = new System.Windows.Forms.Button();
-            this.dtg_Cosas = new System.Windows.Forms.DataGridView();
-            this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_Cosas)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.txt_Codigo);
-            this.panel1.Controls.Add(this.dtg_Cosas);
+            this.panel1.Controls.Add(this.txt_Nombre);
+            this.panel1.Controls.Add(this.dtg_Articulos);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(455, 383);
             this.panel1.TabIndex = 0;
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(112, 3);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.txt_Nombre.TabIndex = 3;
+            // 
+            // dtg_Articulos
+            // 
+            this.dtg_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Articulos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dtg_Articulos.Location = new System.Drawing.Point(0, 25);
+            this.dtg_Articulos.Name = "dtg_Articulos";
+            this.dtg_Articulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Articulos.Size = new System.Drawing.Size(446, 358);
+            this.dtg_Articulos.TabIndex = 2;
             // 
             // toolStrip1
             // 
@@ -104,23 +121,6 @@
             this.btn_Confirmar.UseVisualStyleBackColor = true;
             this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
-            // dtg_Cosas
-            // 
-            this.dtg_Cosas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_Cosas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dtg_Cosas.Location = new System.Drawing.Point(0, 25);
-            this.dtg_Cosas.Name = "dtg_Cosas";
-            this.dtg_Cosas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Cosas.Size = new System.Drawing.Size(446, 358);
-            this.dtg_Cosas.TabIndex = 2;
-            // 
-            // txt_Codigo
-            // 
-            this.txt_Codigo.Location = new System.Drawing.Point(96, 3);
-            this.txt_Codigo.Name = "txt_Codigo";
-            this.txt_Codigo.Size = new System.Drawing.Size(100, 20);
-            this.txt_Codigo.TabIndex = 3;
-            // 
             // Frm_Servicios_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,10 +135,10 @@
             this.Load += new System.EventHandler(this.Frm_Servicios_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_Cosas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -151,7 +151,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton tsb_Buscar;
         private System.Windows.Forms.Button btn_Confirmar;
-        private System.Windows.Forms.DataGridView dtg_Cosas;
-        private System.Windows.Forms.TextBox txt_Codigo;
+        private System.Windows.Forms.DataGridView dtg_Articulos;
+        private System.Windows.Forms.TextBox txt_Nombre;
     }
 }

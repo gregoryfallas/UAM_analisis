@@ -19,6 +19,9 @@ namespace PL.Pantallas.Adicionales
     {
         DA Obj_DAL = new DA();
 
+        
+
+
         public Frm_Facturacion_PL()
         {
             InitializeComponent();
@@ -35,25 +38,19 @@ namespace PL.Pantallas.Adicionales
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-            
-
-           
-
-
-           
            
         }
 
         private void tsb_Contado_Click(object sender, EventArgs e)
         {
-            DA Obj_DAL = new DA();
+            
             Frm_Contado_PL Contado = new Frm_Contado_PL();
             Contado.ShowDialog();
         }
 
         private void tsb_Cajas_Click(object sender, EventArgs e)
         {
-            DA Obj_DAL = new DA();
+            
             Frm_Cajas_PL Cajas = new Frm_Cajas_PL();            
             Cajas.ShowDialog();
             

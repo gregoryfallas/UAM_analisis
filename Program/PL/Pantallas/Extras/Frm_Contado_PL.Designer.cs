@@ -105,7 +105,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.ForeColor = System.Drawing.Color.White;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 715);
@@ -116,7 +116,7 @@
             this.dtg_Clientes.BackgroundColor = System.Drawing.Color.Gray;
             this.dtg_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Clientes.GridColor = System.Drawing.Color.Black;
-            this.dtg_Clientes.Location = new System.Drawing.Point(12, 256);
+            this.dtg_Clientes.Location = new System.Drawing.Point(18, 256);
             this.dtg_Clientes.Name = "dtg_Clientes";
             this.dtg_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Clientes.Size = new System.Drawing.Size(568, 135);

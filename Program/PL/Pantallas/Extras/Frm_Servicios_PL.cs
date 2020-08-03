@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using PL.Pantallas.Adicionales;
 using BLL;
 using DAL.Entidades;
+using DAL;
 
 namespace PL.Pantallas.Extras
 {
@@ -27,28 +28,43 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Servicios_PL_Load(object sender, EventArgs e)
         {
-            Cargar();
+            CargarDatos();
         }
 
-        private void Cargar()
+        private void CargarDatos()
         {
-            Articulos articulos = new Articulos();
+            Articulos_BLL Productos = new Articulos_BLL();
 
-           
-            List<ARTICULOS> LS = Articulos.ConsultarArticulos(tsb_Buscar.Text.Trim());
+            List<ARTICULOS> LS = Articulos_BLL.ConsultarArticulos(txt_Codigo.Text.Trim());
 
-            dtg_Articulos.DataSource = null;
-            dtg_Articulos.Refresh();
-            dtg_Articulos.DataSource = LS;
-            dtg_Articulos.Refresh();
+            DataTable dt = new DataTable();
 
+            dt.Columns.Add("ID_Articulo");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Descripcion");
+            dt.Columns.Add("Precio");
 
-         
+            foreach (ARTICULOS item in LS)
+            {
+                dt.Rows.Add
+                    (
+                    item.ID_Articulos,
+                    item.Nombre,
+                    item.Descripcion,
+                    item.Precio
+                    );
+            }
+
+            dtg_Cosas.DataSource = null;
+            dtg_Cosas.Refresh();
+            dtg_Cosas.DataSource = dt;
+            dtg_Cosas.Refresh();
+
         }
 
         private void tsb_Buscar_Click(object sender, EventArgs e)
         {
-            Cargar();
+            CargarDatos();
         }
     }
 }

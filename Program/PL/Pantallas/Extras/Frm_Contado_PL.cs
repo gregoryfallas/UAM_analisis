@@ -74,8 +74,6 @@ namespace PL.Pantallas.Extras
 
             Clientes_BLL Clientes = new Clientes_BLL();
 
-            CLIENTES Persona = new CLIENTES();
-
             List<CLIENTES> LS = Clientes_BLL.ConsultarClientes(txt_Cliente.Text.Trim());
 
             DataTable dt = new DataTable();
@@ -101,7 +99,7 @@ namespace PL.Pantallas.Extras
             dtg_Clientes.DataSource = dt;
             dtg_Clientes.Refresh();
 
-          
+           
 
 
         }

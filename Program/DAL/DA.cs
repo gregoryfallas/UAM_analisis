@@ -12,6 +12,8 @@ namespace DAL
     public class DA
     {
         private int _iPrueba;
+        private int _iCaja;
+        private int ijona;
 
 
         #region Atributos 
@@ -19,6 +21,8 @@ namespace DAL
         private SqlConnection objconexion;
 
         public int iPrueba { get => _iPrueba; set => _iPrueba = value; }
+        public int iCaja { get => _iCaja; set => _iCaja = value; }
+        public int Ijona { get => ijona; set => ijona = value; }
         #endregion
 
         #region Constructor

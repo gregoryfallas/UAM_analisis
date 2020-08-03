@@ -9,9 +9,8 @@ using System.Data.SqlClient;
 
 namespace BLL
 {
-    public class Articulos
+    public class Articulos_BLL
     {
-
         public static List<ARTICULOS> ConsultarArticulos(string Nombre)
         {
 
@@ -34,6 +33,15 @@ namespace BLL
                 throw e;
             }
         }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@ namespace BLL
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_PRODUCTOS @Nombre";
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_Articulos @Nombre";
                 SqlParameter paramC = new SqlParameter();
                 paramC.Value = Nombre;
                 paramC.ParameterName = "@Nombre";

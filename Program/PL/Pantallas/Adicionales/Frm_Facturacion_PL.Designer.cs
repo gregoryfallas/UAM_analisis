@@ -117,6 +117,7 @@
             // 
             // toolStripLabel2
             // 
+            this.toolStripLabel2.Enabled = false;
             this.toolStripLabel2.ForeColor = System.Drawing.Color.Black;
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(63, 22);

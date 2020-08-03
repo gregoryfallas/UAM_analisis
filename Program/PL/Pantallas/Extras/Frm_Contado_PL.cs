@@ -17,6 +17,8 @@ namespace PL.Pantallas.Extras
         public Frm_Contado_PL()
         {
             InitializeComponent();
+            Cargar();
+
         }
 
         private void btn_Agregar_Click(object sender, EventArgs e)

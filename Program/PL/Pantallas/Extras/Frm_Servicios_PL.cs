@@ -27,7 +27,7 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Servicios_PL_Load(object sender, EventArgs e)
         {
-            Cargar();
+            Cargar2();
         }
 
         private void Cargar()
@@ -46,9 +46,48 @@ namespace PL.Pantallas.Extras
          
         }
 
+
+        private void Cargar2()
+        {
+           
+
+            try
+            {
+
+                this.dtg_Articulos.DataSource = null;
+                this.dtg_Articulos.Refresh();
+                string a = buscaArticulostxt.Text.Trim();
+
+
+                this.dtg_Articulos.DataSource = Articulos.ConsultarInventarioArticulos(a);
+                this.dtg_Articulos.Refresh();
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
+        }
+
+
+
         private void tsb_Buscar_Click(object sender, EventArgs e)
         {
             Cargar();
+        }
+
+        private void tsb_Codigo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buscar_btn_Click(object sender, EventArgs e)
+        {
+            Cargar2();
         }
     }
 }

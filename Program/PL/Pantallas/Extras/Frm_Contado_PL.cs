@@ -66,7 +66,7 @@ namespace PL.Pantallas.Extras
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             Cargar();
-
+        
 
 
         }
@@ -102,10 +102,7 @@ namespace PL.Pantallas.Extras
             dtg_Clientes.Refresh();
             dtg_Clientes.DataSource = dt;
             dtg_Clientes.Refresh();
-
-          
-
-
+            
         }
 
         private void dtg_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

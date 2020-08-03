@@ -36,6 +36,8 @@
             this.tsb_Buscar = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.buscaArticulostxt = new System.Windows.Forms.TextBox();
+            this.buscar_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -45,12 +47,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.buscar_btn);
+            this.panel1.Controls.Add(this.buscaArticulostxt);
             this.panel1.Controls.Add(this.dtg_Articulos);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(455, 383);
+            this.panel1.Size = new System.Drawing.Size(811, 383);
             this.panel1.TabIndex = 0;
             // 
             // dtg_Articulos
@@ -60,7 +64,7 @@
             this.dtg_Articulos.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtg_Articulos.Location = new System.Drawing.Point(0, 25);
             this.dtg_Articulos.Name = "dtg_Articulos";
-            this.dtg_Articulos.Size = new System.Drawing.Size(448, 358);
+            this.dtg_Articulos.Size = new System.Drawing.Size(666, 358);
             this.dtg_Articulos.TabIndex = 1;
             // 
             // toolStrip1
@@ -71,7 +75,7 @@
             this.tsb_Buscar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(455, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(811, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -86,6 +90,7 @@
             this.tsb_Codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tsb_Codigo.Name = "tsb_Codigo";
             this.tsb_Codigo.Size = new System.Drawing.Size(200, 25);
+            this.tsb_Codigo.Click += new System.EventHandler(this.tsb_Codigo_Click);
             // 
             // tsb_Buscar
             // 
@@ -102,9 +107,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.btn_Confirmar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(452, 0);
+            this.panel2.Location = new System.Drawing.Point(808, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(110, 383);
+            this.panel2.Size = new System.Drawing.Size(132, 383);
             this.panel2.TabIndex = 1;
             // 
             // btn_Confirmar
@@ -113,18 +118,35 @@
             this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Confirmar.FlatAppearance.BorderSize = 0;
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.Location = new System.Drawing.Point(27, 315);
+            this.btn_Confirmar.Location = new System.Drawing.Point(41, 303);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(61, 56);
             this.btn_Confirmar.TabIndex = 0;
             this.btn_Confirmar.UseVisualStyleBackColor = true;
             this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
+            // buscaArticulostxt
+            // 
+            this.buscaArticulostxt.Location = new System.Drawing.Point(672, 48);
+            this.buscaArticulostxt.Name = "buscaArticulostxt";
+            this.buscaArticulostxt.Size = new System.Drawing.Size(120, 20);
+            this.buscaArticulostxt.TabIndex = 2;
+            // 
+            // buscar_btn
+            // 
+            this.buscar_btn.Location = new System.Drawing.Point(690, 89);
+            this.buscar_btn.Name = "buscar_btn";
+            this.buscar_btn.Size = new System.Drawing.Size(75, 23);
+            this.buscar_btn.TabIndex = 3;
+            this.buscar_btn.Text = "button1";
+            this.buscar_btn.UseVisualStyleBackColor = true;
+            this.buscar_btn.Click += new System.EventHandler(this.buscar_btn_Click);
+            // 
             // Frm_Servicios_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 383);
+            this.ClientSize = new System.Drawing.Size(940, 383);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -152,5 +174,7 @@
         private System.Windows.Forms.ToolStripButton tsb_Buscar;
         private System.Windows.Forms.DataGridView dtg_Articulos;
         private System.Windows.Forms.Button btn_Confirmar;
+        private System.Windows.Forms.Button buscar_btn;
+        private System.Windows.Forms.TextBox buscaArticulostxt;
     }
 }

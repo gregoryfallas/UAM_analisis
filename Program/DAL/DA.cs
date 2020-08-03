@@ -245,7 +245,7 @@ namespace DAL
         }
 
 
-         public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia  peticion)
+         public DataTable consultarInventarioConArticulos(SQLSentencia  peticion)
         {
           //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
@@ -260,12 +260,7 @@ namespace DAL
                 SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
                 da.Fill(dt);
-
-             
-
-             
-               
-                    
+                
             }
             catch (Exception ex)
             {

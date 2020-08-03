@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL.Entidades;
 using DAL;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BLL
 {
@@ -35,6 +36,28 @@ namespace BLL
             }
         }
 
+
+
+        public static DataTable ConsultarInventarioArticulos(string Nombre)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIO '" + Nombre+ "'";
+                
+
+
+                DA acceso = new DA();
+                return acceso.consultarInventarioConArticulos(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
 

@@ -32,6 +32,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.estadoClientecbo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -57,7 +58,6 @@
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Crear = new System.Windows.Forms.Button();
-            this.estadoClientecbo = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -121,12 +121,23 @@
             this.groupBox2.Controls.Add(this.textBox5);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(38, 28);
+            this.groupBox2.Location = new System.Drawing.Point(38, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(949, 561);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Clientes";
+            // 
+            // estadoClientecbo
+            // 
+            this.estadoClientecbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.estadoClientecbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estadoClientecbo.ForeColor = System.Drawing.Color.White;
+            this.estadoClientecbo.FormattingEnabled = true;
+            this.estadoClientecbo.Location = new System.Drawing.Point(141, 233);
+            this.estadoClientecbo.Name = "estadoClientecbo";
+            this.estadoClientecbo.Size = new System.Drawing.Size(139, 31);
+            this.estadoClientecbo.TabIndex = 93;
             // 
             // label1
             // 
@@ -175,7 +186,7 @@
             this.Distritocbo.FormattingEnabled = true;
             this.Distritocbo.Location = new System.Drawing.Point(125, 119);
             this.Distritocbo.Name = "Distritocbo";
-            this.Distritocbo.Size = new System.Drawing.Size(172, 31);
+            this.Distritocbo.Size = new System.Drawing.Size(138, 31);
             this.Distritocbo.TabIndex = 14;
             // 
             // Cantoncbo
@@ -185,8 +196,9 @@
             this.Cantoncbo.FormattingEnabled = true;
             this.Cantoncbo.Location = new System.Drawing.Point(125, 78);
             this.Cantoncbo.Name = "Cantoncbo";
-            this.Cantoncbo.Size = new System.Drawing.Size(172, 31);
+            this.Cantoncbo.Size = new System.Drawing.Size(138, 31);
             this.Cantoncbo.TabIndex = 13;
+            this.Cantoncbo.SelectedIndexChanged += new System.EventHandler(this.Cantoncbo_SelectedIndexChanged);
             // 
             // Provinciacbo
             // 
@@ -195,8 +207,9 @@
             this.Provinciacbo.FormattingEnabled = true;
             this.Provinciacbo.Location = new System.Drawing.Point(126, 44);
             this.Provinciacbo.Name = "Provinciacbo";
-            this.Provinciacbo.Size = new System.Drawing.Size(171, 31);
+            this.Provinciacbo.Size = new System.Drawing.Size(137, 31);
             this.Provinciacbo.TabIndex = 12;
+            this.Provinciacbo.SelectedIndexChanged += new System.EventHandler(this.Provinciacbo_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -275,11 +288,12 @@
             this.buscarClientebtn.FlatAppearance.BorderSize = 0;
             this.buscarClientebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buscarClientebtn.ForeColor = System.Drawing.Color.Black;
-            this.buscarClientebtn.Location = new System.Drawing.Point(842, 62);
+            this.buscarClientebtn.Location = new System.Drawing.Point(842, 48);
             this.buscarClientebtn.Name = "buscarClientebtn";
             this.buscarClientebtn.Size = new System.Drawing.Size(44, 24);
             this.buscarClientebtn.TabIndex = 17;
             this.buscarClientebtn.UseVisualStyleBackColor = true;
+            this.buscarClientebtn.Click += new System.EventHandler(this.buscarClientebtn_Click);
             // 
             // textBox2
             // 
@@ -297,7 +311,7 @@
             this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.White;
-            this.textBox6.Location = new System.Drawing.Point(613, 60);
+            this.textBox6.Location = new System.Drawing.Point(613, 46);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(223, 26);
             this.textBox6.TabIndex = 16;
@@ -317,16 +331,16 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(507, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(507, 78);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(405, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(405, 259);
             this.dataGridView1.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(539, 63);
+            this.label6.Location = new System.Drawing.Point(539, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 23);
             this.label6.TabIndex = 15;
@@ -400,16 +414,6 @@
             this.btn_Crear.Size = new System.Drawing.Size(50, 40);
             this.btn_Crear.TabIndex = 88;
             this.btn_Crear.UseVisualStyleBackColor = true;
-            // 
-            // estadoClientecbo
-            // 
-            this.estadoClientecbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.estadoClientecbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.estadoClientecbo.FormattingEnabled = true;
-            this.estadoClientecbo.Location = new System.Drawing.Point(141, 233);
-            this.estadoClientecbo.Name = "estadoClientecbo";
-            this.estadoClientecbo.Size = new System.Drawing.Size(110, 31);
-            this.estadoClientecbo.TabIndex = 93;
             // 
             // Frm_Clientes_PL
             // 

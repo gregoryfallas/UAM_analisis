@@ -27,21 +27,21 @@ namespace PL.Pantallas.Adicionales
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Adicionales.Form_Agregar_Nueva_Vacante_PL agregar = new Adicionales.Form_Agregar_Nueva_Vacante_PL();
+            Adicionales.Form_Crear_Reclutamiento agregar = new Adicionales.Form_Crear_Reclutamiento();
             agregar.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Adicionales.Form_Ingresar_Postulantes_PL reclu = new Adicionales.Form_Ingresar_Postulantes_PL();
+            Adicionales.Form_Ingresar_Participantes reclu = new Adicionales.Form_Ingresar_Participantes();
             reclu.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Adicionales.Form_Consultar_Postulantes consultar = new Adicionales.Form_Consultar_Postulantes();
+            Adicionales.Form_Consulta_Roles consultar = new Adicionales.Form_Consulta_Roles();
             consultar.ShowDialog();
         }
     }

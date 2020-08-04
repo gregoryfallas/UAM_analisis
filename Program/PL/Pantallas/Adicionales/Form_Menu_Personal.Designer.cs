@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnCreacionRoles = new System.Windows.Forms.Button();
+            this.btnConsultaRoles = new System.Windows.Forms.Button();
+            this.btnCreacionPersonal = new System.Windows.Forms.Button();
+            this.btnCreacionUsuarios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -40,44 +42,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnCreacionRoles);
+            this.panel1.Controls.Add(this.btnConsultaRoles);
+            this.panel1.Controls.Add(this.btnCreacionPersonal);
+            this.panel1.Controls.Add(this.btnCreacionUsuarios);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(426, 138);
+            this.panel1.Size = new System.Drawing.Size(426, 180);
             this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(27, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 56);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Creación de Personal";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(166, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 56);
-            this.button2.TabIndex = 38;
-            this.button2.Text = "Creación de Usuarios";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.button3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(294, 0);
+            this.panel2.Location = new System.Drawing.Point(249, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(98, 138);
+            this.panel2.Size = new System.Drawing.Size(98, 180);
             this.panel2.TabIndex = 2;
             // 
             // button3
@@ -91,11 +73,51 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // btnCreacionRoles
+            // 
+            this.btnCreacionRoles.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreacionRoles.Location = new System.Drawing.Point(29, 89);
+            this.btnCreacionRoles.Name = "btnCreacionRoles";
+            this.btnCreacionRoles.Size = new System.Drawing.Size(90, 56);
+            this.btnCreacionRoles.TabIndex = 45;
+            this.btnCreacionRoles.Text = "Creación de Roles";
+            this.btnCreacionRoles.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultaRoles
+            // 
+            this.btnConsultaRoles.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaRoles.Location = new System.Drawing.Point(125, 89);
+            this.btnConsultaRoles.Name = "btnConsultaRoles";
+            this.btnConsultaRoles.Size = new System.Drawing.Size(90, 56);
+            this.btnConsultaRoles.TabIndex = 44;
+            this.btnConsultaRoles.Text = "Consulta de Roles";
+            this.btnConsultaRoles.UseVisualStyleBackColor = true;
+            // 
+            // btnCreacionPersonal
+            // 
+            this.btnCreacionPersonal.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreacionPersonal.Location = new System.Drawing.Point(29, 27);
+            this.btnCreacionPersonal.Name = "btnCreacionPersonal";
+            this.btnCreacionPersonal.Size = new System.Drawing.Size(90, 56);
+            this.btnCreacionPersonal.TabIndex = 43;
+            this.btnCreacionPersonal.Text = "Creación de Personal";
+            this.btnCreacionPersonal.UseVisualStyleBackColor = true;
+            // 
+            // btnCreacionUsuarios
+            // 
+            this.btnCreacionUsuarios.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreacionUsuarios.Location = new System.Drawing.Point(125, 27);
+            this.btnCreacionUsuarios.Name = "btnCreacionUsuarios";
+            this.btnCreacionUsuarios.Size = new System.Drawing.Size(90, 56);
+            this.btnCreacionUsuarios.TabIndex = 42;
+            this.btnCreacionUsuarios.Text = "Creación de Usuarios";
+            this.btnCreacionUsuarios.UseVisualStyleBackColor = true;
+            // 
             // Form_Menu_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 138);
+            this.ClientSize = new System.Drawing.Size(347, 180);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -111,9 +133,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCreacionRoles;
+        private System.Windows.Forms.Button btnConsultaRoles;
+        private System.Windows.Forms.Button btnCreacionPersonal;
+        private System.Windows.Forms.Button btnCreacionUsuarios;
     }
 }

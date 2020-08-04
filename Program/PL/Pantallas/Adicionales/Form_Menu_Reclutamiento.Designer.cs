@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnIngresarPruebas = new System.Windows.Forms.Button();
+            this.btnCrearReclutamiento = new System.Windows.Forms.Button();
+            this.btnIngresarParticipantes = new System.Windows.Forms.Button();
+            this.btnConsultarPruebas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -41,56 +42,24 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnIngresarPruebas);
+            this.panel1.Controls.Add(this.btnCrearReclutamiento);
+            this.panel1.Controls.Add(this.btnIngresarParticipantes);
+            this.panel1.Controls.Add(this.btnConsultarPruebas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(506, 150);
+            this.panel1.Size = new System.Drawing.Size(506, 217);
             this.panel1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(30, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 56);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Agregar Nueva Vacante";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(153, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 56);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Ingresar Postulantes";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(276, 39);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 56);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Consultar Postulantes";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(402, 0);
+            this.panel2.Location = new System.Drawing.Point(274, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(111, 150);
+            this.panel2.Size = new System.Drawing.Size(111, 217);
             this.panel2.TabIndex = 2;
             // 
             // button4
@@ -104,11 +73,51 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // btnIngresarPruebas
+            // 
+            this.btnIngresarPruebas.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresarPruebas.Location = new System.Drawing.Point(30, 111);
+            this.btnIngresarPruebas.Name = "btnIngresarPruebas";
+            this.btnIngresarPruebas.Size = new System.Drawing.Size(100, 78);
+            this.btnIngresarPruebas.TabIndex = 48;
+            this.btnIngresarPruebas.Text = "Ingresar Pruebas";
+            this.btnIngresarPruebas.UseVisualStyleBackColor = true;
+            // 
+            // btnCrearReclutamiento
+            // 
+            this.btnCrearReclutamiento.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearReclutamiento.Location = new System.Drawing.Point(30, 23);
+            this.btnCrearReclutamiento.Name = "btnCrearReclutamiento";
+            this.btnCrearReclutamiento.Size = new System.Drawing.Size(100, 78);
+            this.btnCrearReclutamiento.TabIndex = 47;
+            this.btnCrearReclutamiento.Text = "Crear Reclutamiento";
+            this.btnCrearReclutamiento.UseVisualStyleBackColor = true;
+            // 
+            // btnIngresarParticipantes
+            // 
+            this.btnIngresarParticipantes.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresarParticipantes.Location = new System.Drawing.Point(136, 23);
+            this.btnIngresarParticipantes.Name = "btnIngresarParticipantes";
+            this.btnIngresarParticipantes.Size = new System.Drawing.Size(100, 78);
+            this.btnIngresarParticipantes.TabIndex = 46;
+            this.btnIngresarParticipantes.Text = "Ingresar Participantes";
+            this.btnIngresarParticipantes.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultarPruebas
+            // 
+            this.btnConsultarPruebas.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarPruebas.Location = new System.Drawing.Point(136, 111);
+            this.btnConsultarPruebas.Name = "btnConsultarPruebas";
+            this.btnConsultarPruebas.Size = new System.Drawing.Size(100, 78);
+            this.btnConsultarPruebas.TabIndex = 45;
+            this.btnConsultarPruebas.Text = "Consultar Pruebas de Participantes";
+            this.btnConsultarPruebas.UseVisualStyleBackColor = true;
+            // 
             // Form_Menu_Reclutamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 150);
+            this.ClientSize = new System.Drawing.Size(385, 217);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -124,10 +133,11 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnIngresarPruebas;
+        private System.Windows.Forms.Button btnCrearReclutamiento;
+        private System.Windows.Forms.Button btnIngresarParticipantes;
+        private System.Windows.Forms.Button btnConsultarPruebas;
     }
 }

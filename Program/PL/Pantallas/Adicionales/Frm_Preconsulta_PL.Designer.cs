@@ -34,7 +34,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AgregarMascota = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -48,11 +47,12 @@
             this.AgregarRecetabtn = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,15 +60,15 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel1.Controls.Add(this.btn_Inicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(777, 0);
+            this.panel1.Location = new System.Drawing.Point(843, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 461);
+            this.panel1.Size = new System.Drawing.Size(180, 643);
             this.panel1.TabIndex = 1;
             // 
             // btn_Inicio
             // 
             this.btn_Inicio.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Inicio.Location = new System.Drawing.Point(39, 386);
+            this.btn_Inicio.Location = new System.Drawing.Point(37, 533);
             this.btn_Inicio.Name = "btn_Inicio";
             this.btn_Inicio.Size = new System.Drawing.Size(117, 35);
             this.btn_Inicio.TabIndex = 45;
@@ -79,25 +79,21 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.AgregarRecetabtn);
-            this.panel2.Controls.Add(this.textBox3);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(779, 461);
+            this.panel2.Size = new System.Drawing.Size(848, 643);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(441, 60);
+            this.label8.Location = new System.Drawing.Point(474, 51);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(117, 23);
             this.label8.TabIndex = 30;
@@ -107,14 +103,13 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(445, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(478, 77);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(301, 178);
+            this.dataGridView1.Size = new System.Drawing.Size(281, 138);
             this.dataGridView1.TabIndex = 29;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.AgregarMascota);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.textBox4);
@@ -127,32 +122,19 @@
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(28, 92);
+            this.groupBox1.Location = new System.Drawing.Point(27, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(348, 215);
+            this.groupBox1.Size = new System.Drawing.Size(421, 300);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mascota";
-            // 
-            // AgregarMascota
-            // 
-            this.AgregarMascota.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.AgregarMascota.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AgregarMascota.FlatAppearance.BorderSize = 0;
-            this.AgregarMascota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AgregarMascota.Location = new System.Drawing.Point(220, 28);
-            this.AgregarMascota.Name = "AgregarMascota";
-            this.AgregarMascota.Size = new System.Drawing.Size(41, 32);
-            this.AgregarMascota.TabIndex = 28;
-            this.AgregarMascota.UseVisualStyleBackColor = true;
-            this.AgregarMascota.Click += new System.EventHandler(this.AgregarMascota_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 33);
+            this.label6.Location = new System.Drawing.Point(36, 51);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(22, 23);
             this.label6.TabIndex = 24;
@@ -163,18 +145,18 @@
             this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.White;
-            this.textBox5.Location = new System.Drawing.Point(91, 69);
+            this.textBox5.Location = new System.Drawing.Point(102, 87);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.Size = new System.Drawing.Size(115, 26);
             this.textBox5.TabIndex = 27;
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(91, 30);
+            this.textBox4.Location = new System.Drawing.Point(102, 48);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.Size = new System.Drawing.Size(115, 26);
             this.textBox4.TabIndex = 25;
             // 
             // label7
@@ -182,7 +164,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(6, 69);
+            this.label7.Location = new System.Drawing.Point(36, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 23);
             this.label7.TabIndex = 26;
@@ -193,7 +175,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 134);
+            this.label3.Location = new System.Drawing.Point(36, 131);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 23);
             this.label3.TabIndex = 15;
@@ -204,9 +186,9 @@
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(91, 168);
+            this.textBox2.Location = new System.Drawing.Point(102, 175);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 25);
+            this.textBox2.Size = new System.Drawing.Size(115, 25);
             this.textBox2.TabIndex = 18;
             // 
             // textBox1
@@ -214,9 +196,9 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(91, 132);
+            this.textBox1.Location = new System.Drawing.Point(102, 131);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.Size = new System.Drawing.Size(115, 26);
             this.textBox1.TabIndex = 16;
             // 
             // label4
@@ -224,7 +206,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(6, 170);
+            this.label4.Location = new System.Drawing.Point(36, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 23);
             this.label4.TabIndex = 17;
@@ -235,7 +217,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(197, 132);
+            this.label2.Location = new System.Drawing.Point(36, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 23);
             this.label2.TabIndex = 13;
@@ -245,9 +227,9 @@
             // 
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(254, 131);
+            this.comboBox1.Location = new System.Drawing.Point(102, 217);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 31);
+            this.comboBox1.Size = new System.Drawing.Size(115, 31);
             this.comboBox1.TabIndex = 14;
             // 
             // AgregarRecetabtn
@@ -256,7 +238,7 @@
             this.AgregarRecetabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AgregarRecetabtn.FlatAppearance.BorderSize = 0;
             this.AgregarRecetabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AgregarRecetabtn.Location = new System.Drawing.Point(469, 354);
+            this.AgregarRecetabtn.Location = new System.Drawing.Point(128, 561);
             this.AgregarRecetabtn.Name = "AgregarRecetabtn";
             this.AgregarRecetabtn.Size = new System.Drawing.Size(42, 36);
             this.AgregarRecetabtn.TabIndex = 23;
@@ -266,10 +248,10 @@
             // 
             this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox3.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(129, 328);
+            this.textBox3.Location = new System.Drawing.Point(139, 362);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(247, 93);
+            this.textBox3.Size = new System.Drawing.Size(309, 109);
             this.textBox3.TabIndex = 20;
             // 
             // label5
@@ -277,28 +259,33 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(24, 328);
+            this.label5.Location = new System.Drawing.Point(35, 363);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 23);
             this.label5.TabIndex = 19;
             this.label5.Text = "Observaciones";
             // 
-            // label1
+            // groupBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(21, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 38);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Pre Consulta";
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(28, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(795, 509);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pre Consulta";
             // 
             // Frm_Preconsulta_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 461);
+            this.ClientSize = new System.Drawing.Size(1023, 643);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -307,10 +294,11 @@
             this.Text = "Preconsulta";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +315,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button AgregarRecetabtn;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -337,6 +324,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button AgregarMascota;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

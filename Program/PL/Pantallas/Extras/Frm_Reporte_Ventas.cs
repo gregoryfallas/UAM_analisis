@@ -21,8 +21,7 @@ namespace PL.Pantallas.Extras
         private void btn_Regresar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Tesoreria_PL Tesoreria = new Frm_Tesoreria_PL();
-            Tesoreria.ShowDialog();
+            
         }
     }
 }

@@ -14,16 +14,17 @@ namespace PL.Pantallas.Extras
 {
     public partial class Frm_Contado_PL : Form
     {
+
+
         public Frm_Contado_PL()
         {
             InitializeComponent();
-            Cargar();
+           Cargar();
 
         }
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-
             Frm_Servicios_PL servicios = new Frm_Servicios_PL();
             servicios.ShowDialog();
         }
@@ -66,9 +67,7 @@ namespace PL.Pantallas.Extras
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             Cargar();
-
-
-
+                       
         }
        
         private void Cargar ()
@@ -110,5 +109,36 @@ namespace PL.Pantallas.Extras
         {
             txt_Nombre.Text = dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
         }
+
+
+        private void CargarDatos()
+        {
+            try
+            {
+
+                this.dtg_Factura.DataSource = null;
+                this.dtg_Factura.Refresh();
+                string a = txt_Nombre.Text.Trim();
+                this.dtg_Factura.DataSource = Articulos_BLL.ConsultarInventarioArticulos(a);
+                this.dtg_Factura.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

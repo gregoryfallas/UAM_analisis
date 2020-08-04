@@ -51,25 +51,27 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(455, 383);
+            this.panel1.Size = new System.Drawing.Size(661, 482);
             this.panel1.TabIndex = 0;
             // 
             // txt_Nombre
             // 
             this.txt_Nombre.Location = new System.Drawing.Point(112, 3);
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.txt_Nombre.Size = new System.Drawing.Size(176, 20);
             this.txt_Nombre.TabIndex = 3;
             // 
             // dtg_Articulos
             // 
+            this.dtg_Articulos.AllowUserToAddRows = false;
             this.dtg_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Articulos.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtg_Articulos.Location = new System.Drawing.Point(0, 25);
             this.dtg_Articulos.Name = "dtg_Articulos";
             this.dtg_Articulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Articulos.Size = new System.Drawing.Size(446, 358);
+            this.dtg_Articulos.Size = new System.Drawing.Size(650, 457);
             this.dtg_Articulos.TabIndex = 2;
+            this.dtg_Articulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Articulos_CellContentClick);
             // 
             // toolStrip1
             // 
@@ -78,7 +80,7 @@
             this.tsb_Buscar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(455, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(661, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -103,9 +105,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.btn_Confirmar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(452, 0);
+            this.panel2.Location = new System.Drawing.Point(656, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(110, 383);
+            this.panel2.Size = new System.Drawing.Size(110, 482);
             this.panel2.TabIndex = 1;
             // 
             // btn_Confirmar
@@ -114,7 +116,7 @@
             this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Confirmar.FlatAppearance.BorderSize = 0;
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.Location = new System.Drawing.Point(27, 315);
+            this.btn_Confirmar.Location = new System.Drawing.Point(25, 400);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(61, 56);
             this.btn_Confirmar.TabIndex = 0;
@@ -125,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 383);
+            this.ClientSize = new System.Drawing.Size(766, 482);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -151,7 +153,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton tsb_Buscar;
         private System.Windows.Forms.Button btn_Confirmar;
-        private System.Windows.Forms.DataGridView dtg_Articulos;
         private System.Windows.Forms.TextBox txt_Nombre;
+        public System.Windows.Forms.DataGridView dtg_Articulos;
     }
 }

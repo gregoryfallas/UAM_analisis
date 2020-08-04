@@ -290,7 +290,6 @@ C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Fr
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Reporte_Compras_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Reporte_Ventas.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Revision_Planilla_PL.resources
-C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Servicios_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_TipoAnimal_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Total_Factura_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Principales.Frm_Inicio_PL.resources

@@ -14,6 +14,18 @@ namespace DAL.Entidades
     
     public partial class ARTICULOS
     {
+        private decimal cantidad = 0;
+        private decimal importe = 0;
+        private decimal dprecio = 0;
+        private decimal subtotal = 0;
+        private decimal temporal_descuento = 0;
+        private decimal impuesto = 0;
+        private decimal descuento = 0;
+
+
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ARTICULOS()
         {
@@ -31,5 +43,14 @@ namespace DAL.Entidades
         public virtual ICollection<ARTICULOS_PROVEEDOR> ARTICULOS_PROVEEDOR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INVENTARIO> INVENTARIO { get; set; }
+
+
+        public decimal Cantidad { get => cantidad; set => cantidad = value; }
+        public decimal Importe { get => importe; set => importe = value; }
+        public decimal Dprecio { get => dprecio; set => dprecio = value; }
+        public decimal Subtotal { get => subtotal; set => subtotal = value; }
+        public decimal Temporal_descuento { get => temporal_descuento; set => temporal_descuento = value; }
+        public decimal Impuesto { get => impuesto; set => impuesto = value; }
+        public decimal Descuento { get => descuento; set => descuento = value; }
     }
 }

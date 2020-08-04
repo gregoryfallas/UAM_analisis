@@ -9,11 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Extras;
 using System.Drawing.Printing;
+using DAL;
+using DAL.Entidades;
 
 namespace PL.Pantallas.Extras
 {
     public partial class Frm_Total_Factura_PL : Form
     {
+        ARTICULOS Obj_Dal = new ARTICULOS();
+        FACTURA_COMPRA fact = new FACTURA_COMPRA();
+        FACTURAS facturas = new FACTURAS();
+
+
         public Frm_Total_Factura_PL()
         {
             InitializeComponent();
@@ -31,7 +38,7 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Total_Factura_PL_Load(object sender, EventArgs e)
         {
-            
+            txt_Total.Text = Obj_Dal.Dprecio.ToString();
         }
 
         private void gpb_Metodo_Enter(object sender, EventArgs e)

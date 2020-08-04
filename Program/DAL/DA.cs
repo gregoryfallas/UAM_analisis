@@ -279,14 +279,7 @@ namespace DAL
 
         }
 
-
-
-
-
-
-
-
-
+                     
 
         public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia  peticion)
         {

@@ -44,14 +44,14 @@
             this.rdb_Contado = new System.Windows.Forms.RadioButton();
             this.rdb_Credito = new System.Windows.Forms.RadioButton();
             this.dtg_Articulos = new System.Windows.Forms.DataGridView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Impuesto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dtg_Clientes = new System.Windows.Forms.DataGridView();
             this.txt_SubTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gp_cantidades = new System.Windows.Forms.GroupBox();
             this.txt_Descuento = new System.Windows.Forms.TextBox();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
@@ -83,7 +83,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gp_cantidades.SuspendLayout();
             this.gb_Datos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Factura)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,14 +103,14 @@
             this.panel1.Controls.Add(this.btn_Orden);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.dtg_Articulos);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txt_Impuesto);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.dtg_Clientes);
             this.panel1.Controls.Add(this.txt_SubTotal);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txt_Total);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.gp_cantidades);
             this.panel1.Controls.Add(this.gb_Datos);
             this.panel1.Controls.Add(this.dtg_Factura);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -118,14 +118,14 @@
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1356, 777);
+            this.panel1.Size = new System.Drawing.Size(1261, 713);
             this.panel1.TabIndex = 1;
             // 
             // btn_Buscar
             // 
             this.btn_Buscar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Buscar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Buscar.Location = new System.Drawing.Point(708, 225);
+            this.btn_Buscar.Location = new System.Drawing.Point(704, 191);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(140, 38);
             this.btn_Buscar.TabIndex = 12;
@@ -136,7 +136,7 @@
             // btn_Productos
             // 
             this.btn_Productos.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Productos.Location = new System.Drawing.Point(704, 495);
+            this.btn_Productos.Location = new System.Drawing.Point(704, 417);
             this.btn_Productos.Name = "btn_Productos";
             this.btn_Productos.Size = new System.Drawing.Size(171, 38);
             this.btn_Productos.TabIndex = 35;
@@ -147,7 +147,7 @@
             // txt_Producto
             // 
             this.txt_Producto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Producto.Location = new System.Drawing.Point(890, 498);
+            this.txt_Producto.Location = new System.Drawing.Point(881, 419);
             this.txt_Producto.Name = "txt_Producto";
             this.txt_Producto.Size = new System.Drawing.Size(200, 30);
             this.txt_Producto.TabIndex = 34;
@@ -157,10 +157,10 @@
             this.txt_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Cliente.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Cliente.ForeColor = System.Drawing.Color.White;
-            this.txt_Cliente.Location = new System.Drawing.Point(878, 228);
+            this.txt_Cliente.Location = new System.Drawing.Point(850, 195);
             this.txt_Cliente.Name = "txt_Cliente";
             this.txt_Cliente.Size = new System.Drawing.Size(203, 26);
-            this.txt_Cliente.TabIndex = 7;
+            this.txt_Cliente.TabIndex = 1;
             this.txt_Cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // grp_FormaPago
@@ -169,7 +169,7 @@
             this.grp_FormaPago.Controls.Add(this.rdb_Tarjeta);
             this.grp_FormaPago.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_FormaPago.ForeColor = System.Drawing.Color.White;
-            this.grp_FormaPago.Location = new System.Drawing.Point(708, 534);
+            this.grp_FormaPago.Location = new System.Drawing.Point(714, 590);
             this.grp_FormaPago.Name = "grp_FormaPago";
             this.grp_FormaPago.Size = new System.Drawing.Size(111, 112);
             this.grp_FormaPago.TabIndex = 26;
@@ -181,7 +181,7 @@
             this.rdb_Efectivo.AutoSize = true;
             this.rdb_Efectivo.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdb_Efectivo.ForeColor = System.Drawing.Color.White;
-            this.rdb_Efectivo.Location = new System.Drawing.Point(6, 25);
+            this.rdb_Efectivo.Location = new System.Drawing.Point(9, 25);
             this.rdb_Efectivo.Name = "rdb_Efectivo";
             this.rdb_Efectivo.Size = new System.Drawing.Size(85, 31);
             this.rdb_Efectivo.TabIndex = 1;
@@ -208,7 +208,7 @@
             this.btn_Confirmar.FlatAppearance.BorderSize = 0;
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(1261, 711);
+            this.btn_Confirmar.Location = new System.Drawing.Point(1185, 625);
             this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
@@ -255,7 +255,7 @@
             this.groupBox2.Controls.Add(this.rdb_Credito);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(708, 656);
+            this.groupBox2.Location = new System.Drawing.Point(714, 472);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 112);
             this.groupBox2.TabIndex = 27;
@@ -295,32 +295,32 @@
             this.dtg_Articulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dtg_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Articulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Articulos.Location = new System.Drawing.Point(708, 269);
+            this.dtg_Articulos.Location = new System.Drawing.Point(704, 246);
             this.dtg_Articulos.Name = "dtg_Articulos";
             this.dtg_Articulos.ReadOnly = true;
             this.dtg_Articulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Articulos.Size = new System.Drawing.Size(623, 220);
+            this.dtg_Articulos.Size = new System.Drawing.Size(541, 159);
             this.dtg_Articulos.TabIndex = 33;
             this.dtg_Articulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Articulos_CellContentClick);
             // 
-            // textBox2
+            // txt_Impuesto
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(1101, 652);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(117, 30);
-            this.textBox2.TabIndex = 32;
-            this.textBox2.Text = "13";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Impuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Impuesto.ForeColor = System.Drawing.Color.White;
+            this.txt_Impuesto.Location = new System.Drawing.Point(1009, 546);
+            this.txt_Impuesto.MaxLength = 5;
+            this.txt_Impuesto.Name = "txt_Impuesto";
+            this.txt_Impuesto.ReadOnly = true;
+            this.txt_Impuesto.Size = new System.Drawing.Size(117, 30);
+            this.txt_Impuesto.TabIndex = 32;
+            this.txt_Impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(981, 652);
+            this.label9.Location = new System.Drawing.Point(891, 546);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 30);
             this.label9.TabIndex = 31;
@@ -340,7 +340,7 @@
             this.dtg_Clientes.Name = "dtg_Clientes";
             this.dtg_Clientes.ReadOnly = true;
             this.dtg_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Clientes.Size = new System.Drawing.Size(627, 207);
+            this.dtg_Clientes.Size = new System.Drawing.Size(541, 159);
             this.dtg_Clientes.TabIndex = 30;
             this.dtg_Clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Clientes_CellContentClick);
             // 
@@ -348,7 +348,7 @@
             // 
             this.txt_SubTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_SubTotal.ForeColor = System.Drawing.Color.White;
-            this.txt_SubTotal.Location = new System.Drawing.Point(1101, 607);
+            this.txt_SubTotal.Location = new System.Drawing.Point(1009, 490);
             this.txt_SubTotal.MaxLength = 5;
             this.txt_SubTotal.Name = "txt_SubTotal";
             this.txt_SubTotal.ReadOnly = true;
@@ -361,7 +361,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(988, 607);
+            this.label8.Location = new System.Drawing.Point(891, 490);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 30);
             this.label8.TabIndex = 28;
@@ -372,12 +372,11 @@
             this.txt_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Total.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Total.ForeColor = System.Drawing.Color.White;
-            this.txt_Total.Location = new System.Drawing.Point(1101, 693);
+            this.txt_Total.Location = new System.Drawing.Point(1009, 605);
             this.txt_Total.MaxLength = 5;
-            this.txt_Total.Multiline = true;
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(117, 62);
+            this.txt_Total.Size = new System.Drawing.Size(129, 35);
             this.txt_Total.TabIndex = 27;
             this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -386,33 +385,33 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(972, 705);
+            this.label5.Location = new System.Drawing.Point(876, 604);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 30);
             this.label5.TabIndex = 12;
             this.label5.Text = "Total Factura:";
             // 
-            // groupBox1
+            // gp_cantidades
             // 
-            this.groupBox1.Controls.Add(this.txt_Descuento);
-            this.groupBox1.Controls.Add(this.btn_Guardar);
-            this.groupBox1.Controls.Add(this.txt_Cantidad);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.btn_Eliminar);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btn_Agregar);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txt_Precio);
-            this.groupBox1.Controls.Add(this.txt_Importe);
-            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(5, 246);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(564, 199);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Producto-Servicio";
+            this.gp_cantidades.Controls.Add(this.txt_Descuento);
+            this.gp_cantidades.Controls.Add(this.btn_Guardar);
+            this.gp_cantidades.Controls.Add(this.txt_Cantidad);
+            this.gp_cantidades.Controls.Add(this.label10);
+            this.gp_cantidades.Controls.Add(this.btn_Eliminar);
+            this.gp_cantidades.Controls.Add(this.label3);
+            this.gp_cantidades.Controls.Add(this.btn_Agregar);
+            this.gp_cantidades.Controls.Add(this.label11);
+            this.gp_cantidades.Controls.Add(this.label12);
+            this.gp_cantidades.Controls.Add(this.txt_Precio);
+            this.gp_cantidades.Controls.Add(this.txt_Importe);
+            this.gp_cantidades.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gp_cantidades.ForeColor = System.Drawing.Color.White;
+            this.gp_cantidades.Location = new System.Drawing.Point(5, 246);
+            this.gp_cantidades.Name = "gp_cantidades";
+            this.gp_cantidades.Size = new System.Drawing.Size(564, 199);
+            this.gp_cantidades.TabIndex = 22;
+            this.gp_cantidades.TabStop = false;
+            this.gp_cantidades.Text = "Producto-Servicio";
             // 
             // txt_Descuento
             // 
@@ -422,9 +421,11 @@
             this.txt_Descuento.Location = new System.Drawing.Point(206, 77);
             this.txt_Descuento.Name = "txt_Descuento";
             this.txt_Descuento.Size = new System.Drawing.Size(92, 26);
-            this.txt_Descuento.TabIndex = 8;
+            this.txt_Descuento.TabIndex = 5;
             this.txt_Descuento.Text = "0";
             this.txt_Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Descuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Descuento_KeyPress);
+            this.txt_Descuento.Leave += new System.EventHandler(this.txt_Descuento_Leave);
             // 
             // btn_Guardar
             // 
@@ -448,8 +449,9 @@
             this.txt_Cantidad.Location = new System.Drawing.Point(22, 77);
             this.txt_Cantidad.Name = "txt_Cantidad";
             this.txt_Cantidad.Size = new System.Drawing.Size(155, 26);
-            this.txt_Cantidad.TabIndex = 7;
+            this.txt_Cantidad.TabIndex = 4;
             this.txt_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cantidad_KeyPress);
             this.txt_Cantidad.Leave += new System.EventHandler(this.txt_Cantidad_Leave);
             // 
             // label10
@@ -575,8 +577,9 @@
             this.txt_Fecha_Doc.ForeColor = System.Drawing.Color.White;
             this.txt_Fecha_Doc.Location = new System.Drawing.Point(185, 158);
             this.txt_Fecha_Doc.Name = "txt_Fecha_Doc";
+            this.txt_Fecha_Doc.ReadOnly = true;
             this.txt_Fecha_Doc.Size = new System.Drawing.Size(220, 26);
-            this.txt_Fecha_Doc.TabIndex = 11;
+            this.txt_Fecha_Doc.TabIndex = 3;
             // 
             // label7
             // 
@@ -596,8 +599,9 @@
             this.txt_Nombre.ForeColor = System.Drawing.Color.White;
             this.txt_Nombre.Location = new System.Drawing.Point(0, 71);
             this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.ReadOnly = true;
             this.txt_Nombre.Size = new System.Drawing.Size(279, 26);
-            this.txt_Nombre.TabIndex = 8;
+            this.txt_Nombre.TabIndex = 1;
             this.txt_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
@@ -631,7 +635,7 @@
             this.txt_Orden.Name = "txt_Orden";
             this.txt_Orden.ReadOnly = true;
             this.txt_Orden.Size = new System.Drawing.Size(155, 26);
-            this.txt_Orden.TabIndex = 1;
+            this.txt_Orden.TabIndex = 2;
             this.txt_Orden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dtg_Factura
@@ -653,37 +657,42 @@
             this.dtg_Factura.Name = "dtg_Factura";
             this.dtg_Factura.ReadOnly = true;
             this.dtg_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Factura.Size = new System.Drawing.Size(631, 306);
+            this.dtg_Factura.Size = new System.Drawing.Size(541, 220);
             this.dtg_Factura.TabIndex = 16;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 96;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
             this.Cantidad.Width = 101;
             // 
             // Precio
             // 
             this.Precio.HeaderText = "Precio";
             this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
             this.Precio.Width = 80;
             // 
             // Descuento
             // 
             this.Descuento.HeaderText = "Descuento%";
             this.Descuento.Name = "Descuento";
+            this.Descuento.ReadOnly = true;
             this.Descuento.Width = 124;
             // 
             // Total
             // 
             this.Total.HeaderText = "Total";
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             this.Total.Width = 74;
             // 
             // panel2
@@ -691,16 +700,16 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.btn_inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1356, 0);
+            this.panel2.Location = new System.Drawing.Point(1261, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(116, 777);
+            this.panel2.Size = new System.Drawing.Size(106, 713);
             this.panel2.TabIndex = 2;
             // 
             // btn_inicio
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(12, 724);
+            this.btn_inicio.Location = new System.Drawing.Point(6, 641);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(92, 41);
             this.btn_inicio.TabIndex = 11;
@@ -712,7 +721,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1472, 777);
+            this.ClientSize = new System.Drawing.Size(1367, 713);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Contado_PL";
@@ -727,8 +736,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gp_cantidades.ResumeLayout(false);
+            this.gp_cantidades.PerformLayout();
             this.gb_Datos.ResumeLayout(false);
             this.gb_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Factura)).EndInit();
@@ -740,7 +749,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gp_cantidades;
         private System.Windows.Forms.TextBox txt_Descuento;
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox txt_Cantidad;
@@ -783,7 +792,7 @@
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.DataGridView dtg_Clientes;
         public System.Windows.Forms.TextBox txt_Precio;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Impuesto;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.DataGridView dtg_Factura;
         public System.Windows.Forms.DataGridView dtg_Articulos;

@@ -18,6 +18,7 @@ namespace PL.Pantallas.Extras
         ARTICULOS Obj_Dal = new ARTICULOS();
         FACTURA_COMPRA fact = new FACTURA_COMPRA();
         FACTURAS facturas = new FACTURAS();
+        string nombre;
 
         public Frm_Contado_PL()
         {
@@ -29,32 +30,42 @@ namespace PL.Pantallas.Extras
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            double imp=0.13;   
+            double imp=0.13;
 
-            dtg_Factura.Rows.Add(new string[] {
+            if (Obj_Dal.Cantidad>0)
+            {
+                dtg_Factura.Rows.Add(new string[] {
              Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(Obj_Dal.Cantidad),
             Convert.ToString(dtg_Articulos[3, dtg_Articulos.CurrentRow.Index].Value),
-            Convert.ToString(Obj_Dal.Descuento),
+            Convert.ToString(Obj_Dal.Temporal_descuento),
             Convert.ToString(Obj_Dal.Importe)});
 
-            for (int i = 0; i < dtg_Factura.RowCount ; i++)
-            {
-                Obj_Dal.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                for (int i = 0; i < dtg_Factura.RowCount; i++)
+                {
+                    Obj_Dal.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                }
+
+                txt_SubTotal.Text = ("¢") + Obj_Dal.Subtotal.ToString();
+                Obj_Dal.Impuesto = Obj_Dal.Subtotal * Convert.ToDecimal(0.13);
+                facturas.Total = Obj_Dal.Subtotal + Obj_Dal.Impuesto;
+                txt_Impuesto.Text = ("¢") + Obj_Dal.Impuesto.ToString();
+                txt_Total.Text = ("¢") + facturas.Total.ToString();
+                Obj_Dal.Dprecio = facturas.Total;
+
+                Obj_Dal.Subtotal = 0;
+
+                LimpiarCampos();
             }
-            txt_SubTotal.Text = Obj_Dal.Subtotal.ToString();
+            else
+            {
+                MessageBox.Show("¡Tiene que seleccionar una cantidad!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Cantidad.Focus();
+            }
 
 
-            Obj_Dal.Impuesto = Obj_Dal.Subtotal * Convert.ToDecimal(0.13);
-            facturas.Total = Obj_Dal.Subtotal + Obj_Dal.Impuesto;
 
-            txt_Total.Text = ("¢")+facturas.Total.ToString();
-
-            Obj_Dal.Dprecio = facturas.Total;
-
-             Obj_Dal.Subtotal = 0;
-             
-            LimpiarCampos();
+            
             
 
             }
@@ -63,8 +74,44 @@ namespace PL.Pantallas.Extras
         {
             if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
-                factura.ShowDialog();
+                if (txt_Nombre.Text==string.Empty)
+                {
+                    MessageBox.Show("¡Tiene que seleccionar un Cliente!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }                
+                else
+                {
+                    if (facturas.Total < 1)
+                    {
+                        MessageBox.Show("¡Tiene que seleccionar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    else
+                    {
+                        if (rdb_Contado.Checked==false && rdb_Credito.Checked==false)
+                        {
+                            MessageBox.Show("¡Tiene que seleccionar un metodo de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            if (rdb_Efectivo.Checked==false && rdb_Tarjeta.Checked==false)
+                            {
+                                MessageBox.Show("¡Tiene que seleccionar una forma de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
+                                factura.ShowDialog();
+                            }
+                        }
+                            
+                    }
+                    
+                }
+                
+
+
+
+
             }
         }
 
@@ -87,9 +134,9 @@ namespace PL.Pantallas.Extras
 
             fact.Fecha = DateTime.Today;
             txt_Fecha_Doc.Text = fact.Fecha.ToString();
-
             Cargar();
-            Cargar2();
+            Cargar2();            
+
         }
 
         private void btn_inicio_Click(object sender, EventArgs e)
@@ -161,7 +208,9 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_Nombre.Text = dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
+            
+            nombre= dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
+            txt_Nombre.Text = nombre;
         }
 
 
@@ -201,28 +250,21 @@ namespace PL.Pantallas.Extras
 
         private void txt_Cantidad_Leave(object sender, EventArgs e)
         {
+            
             if (txt_Cantidad.Text==string.Empty)
             {
                 MessageBox.Show ("Debe digitar una cantidad");
+                txt_Cantidad.Focus();
             }
             else
             {
-                if (Obj_Dal.Descuento >= 1)
-                {
-                    Obj_Dal.Descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
+                                  
                     Obj_Dal.Cantidad= Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                    Obj_Dal.Temporal_descuento = (Obj_Dal.Precio* Obj_Dal.Cantidad) * Obj_Dal.Descuento;
-                    Obj_Dal.Importe = Obj_Dal.Importe - Obj_Dal.Temporal_descuento;
-                    txt_Importe.Text = Obj_Dal.Importe.ToString();
-                }
-                else
-                {
-                    Obj_Dal.Descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
-                    Obj_Dal.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
                     Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
+                    Obj_Dal.Descuento = Obj_Dal.Importe * Obj_Dal.Temporal_descuento / 100;
+                    Obj_Dal.Importe = Obj_Dal.Importe - Obj_Dal.Descuento;                    
                     txt_Importe.Text = Obj_Dal.Importe.ToString();
-                }
-                
+                                
             }           
         }
 
@@ -235,21 +277,51 @@ namespace PL.Pantallas.Extras
 
         }
 
+        private void txt_Descuento_Leave(object sender, EventArgs e)
+        {
+            Obj_Dal.Temporal_descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
 
+            if (Obj_Dal.Temporal_descuento >= 1)
+            {
 
+                Obj_Dal.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
+                Obj_Dal.Descuento = Obj_Dal.Importe * Obj_Dal.Temporal_descuento / 100;
+                Obj_Dal.Importe = Obj_Dal.Importe - Obj_Dal.Descuento;
+                txt_Importe.Text = Obj_Dal.Importe.ToString();
+            }
+            else
+            {
 
+                Obj_Dal.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
+                txt_Importe.Text = Obj_Dal.Importe.ToString();
+            }
 
+        }
 
+        private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
+        private void txt_Descuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

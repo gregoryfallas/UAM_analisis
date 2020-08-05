@@ -34,6 +34,7 @@
             this.btn_CerrarCaja = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btn_AbrirCaja);
             this.groupBox1.Controls.Add(this.btn_CerrarCaja);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,6 +108,14 @@
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(178, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 23);
+            this.label1.TabIndex = 2;
+            // 
             // Frm_Cajas_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +129,7 @@
             this.Load += new System.EventHandler(this.Frm_Cajas_PL_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -132,5 +143,6 @@
         private System.Windows.Forms.Button btn_CerrarCaja;
         private System.Windows.Forms.Button btn_AbrirCaja;
         private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.Label label1;
     }
 }

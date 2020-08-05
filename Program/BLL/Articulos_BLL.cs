@@ -57,9 +57,18 @@ namespace BLL
 
         
 
+        public void AbrirCaja (ref DA Obj_DAL)
+        {
+            Obj_DAL.ITemporal = 1;
 
 
+        }
+        public void CerrarCaja(ref DA Obj_DAL)
+        {
+            Obj_DAL.ITemporal = 0;
 
+
+        }
 
 
 

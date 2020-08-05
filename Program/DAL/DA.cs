@@ -11,13 +11,17 @@ namespace DAL
 {
     public class DA
     {
-
+        private int _iTemporal;
+        private int _iPrueba;
 
 
 
         #region Atributos 
         private string cadenaconexion = Properties.Settings.Default.Conexion;
-        private SqlConnection objconexion;        
+        private SqlConnection objconexion;
+
+        public int ITemporal { get => _iTemporal; set => _iTemporal = value; }
+        public int IPrueba { get => _iPrueba; set => _iPrueba = value; }
 
         #endregion
 

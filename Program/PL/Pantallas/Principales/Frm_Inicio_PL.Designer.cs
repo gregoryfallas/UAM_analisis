@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Inicio_PL));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
@@ -78,6 +79,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -372,7 +378,7 @@
             // 
             this.ts_Personal.Image = global::PL.Properties.Resources.personal;
             this.ts_Personal.Name = "ts_Personal";
-            this.ts_Personal.Size = new System.Drawing.Size(180, 22);
+            this.ts_Personal.Size = new System.Drawing.Size(150, 22);
             this.ts_Personal.Text = "Personal";
             this.ts_Personal.Click += new System.EventHandler(this.ts_Personal_Click);
             // 
@@ -380,7 +386,7 @@
             // 
             this.ts_Reclutamiento.Image = global::PL.Properties.Resources.reclutamiento;
             this.ts_Reclutamiento.Name = "ts_Reclutamiento";
-            this.ts_Reclutamiento.Size = new System.Drawing.Size(180, 22);
+            this.ts_Reclutamiento.Size = new System.Drawing.Size(150, 22);
             this.ts_Reclutamiento.Text = "Reclutamiento";
             this.ts_Reclutamiento.Click += new System.EventHandler(this.ts_Reclutamiento_Click);
             // 
@@ -388,7 +394,7 @@
             // 
             this.ts_Nomina.Image = global::PL.Properties.Resources.factu;
             this.ts_Nomina.Name = "ts_Nomina";
-            this.ts_Nomina.Size = new System.Drawing.Size(180, 22);
+            this.ts_Nomina.Size = new System.Drawing.Size(150, 22);
             this.ts_Nomina.Text = "Pago de Nomina";
             this.ts_Nomina.Click += new System.EventHandler(this.ts_Nomina_Click);
             // 
@@ -396,7 +402,7 @@
             // 
             this.ts_Vacaciones.Image = global::PL.Properties.Resources.vacaciones;
             this.ts_Vacaciones.Name = "ts_Vacaciones";
-            this.ts_Vacaciones.Size = new System.Drawing.Size(180, 22);
+            this.ts_Vacaciones.Size = new System.Drawing.Size(150, 22);
             this.ts_Vacaciones.Text = "Vacaciones";
             this.ts_Vacaciones.Click += new System.EventHandler(this.ts_Vacaciones_Click);
             // 
@@ -431,7 +437,7 @@
             // 
             this.ts_Promociones.Image = global::PL.Properties.Resources.compras__1_;
             this.ts_Promociones.Name = "ts_Promociones";
-            this.ts_Promociones.Size = new System.Drawing.Size(180, 22);
+            this.ts_Promociones.Size = new System.Drawing.Size(131, 22);
             this.ts_Promociones.Text = "Promociones";
             this.ts_Promociones.Click += new System.EventHandler(this.ts_Promociones_Click);
             // 
@@ -439,7 +445,7 @@
             // 
             this.ts_Campañas.Image = global::PL.Properties.Resources.campañas;
             this.ts_Campañas.Name = "ts_Campañas";
-            this.ts_Campañas.Size = new System.Drawing.Size(180, 22);
+            this.ts_Campañas.Size = new System.Drawing.Size(131, 22);
             this.ts_Campañas.Text = "Campañas";
             this.ts_Campañas.Click += new System.EventHandler(this.ts_Campañas_Click);
             // 
@@ -447,7 +453,7 @@
             // 
             this.ts_Anuncios.Image = global::PL.Properties.Resources.megafono;
             this.ts_Anuncios.Name = "ts_Anuncios";
-            this.ts_Anuncios.Size = new System.Drawing.Size(180, 22);
+            this.ts_Anuncios.Size = new System.Drawing.Size(131, 22);
             this.ts_Anuncios.Text = "Anuncios";
             this.ts_Anuncios.Click += new System.EventHandler(this.ts_Anuncios_Click);
             // 
@@ -558,12 +564,66 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label4.Location = new System.Drawing.Point(18, 567);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 22);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Hora:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label5.Location = new System.Drawing.Point(12, 540);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 22);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Fecha:";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.lblFecha.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblFecha.Location = new System.Drawing.Point(74, 542);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(96, 20);
+            this.lblFecha.TabIndex = 11;
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHora
+            // 
+            this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
+            this.lblHora.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lblHora.Location = new System.Drawing.Point(74, 569);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(81, 20);
+            this.lblHora.TabIndex = 12;
+            this.lblHora.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Frm_Inicio_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(72)))), ((int)(((byte)(88)))));
             this.ClientSize = new System.Drawing.Size(1350, 641);
+            this.Controls.Add(this.lblHora);
+            this.Controls.Add(this.lblFecha);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -578,6 +638,7 @@
             this.Name = "Frm_Inicio_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Veterinaria El Bosque";
+            this.Load += new System.EventHandler(this.Frm_Inicio_PL_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -640,5 +701,10 @@
         private System.Windows.Forms.ToolStripMenuItem ts_Cliente;
         private System.Windows.Forms.ToolStripMenuItem ts_Cita;
         private System.Windows.Forms.ToolStripMenuItem ts_Animal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Timer timer1;
     }
 }

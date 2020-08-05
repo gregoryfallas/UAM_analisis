@@ -14,6 +14,7 @@ namespace PL.Pantallas.Principales
 {
     public partial class Frm_Inicio_PL : Form
     {
+        int EnviarFecha = 0;
         public Frm_Inicio_PL()
         {
             InitializeComponent();
@@ -193,6 +194,26 @@ namespace PL.Pantallas.Principales
             this.Hide();
             Frm_Animal_PL Animal = new Frm_Animal_PL();
             Animal.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            switch (EnviarFecha)
+            {
+                case 0: CapturarFechaSistema(); break;
+            }
+        }
+
+        private void CapturarFechaSistema()
+        {
+            lblFecha.Text = DateTime.Now.ToShortDateString();
+            lblHora.Text = DateTime.Now.ToShortTimeString();
+        }
+
+        private void Frm_Inicio_PL_Load(object sender, EventArgs e)
+        {
+            timer1.Interval = 500;
+            timer1.Start();
         }
     }
 }

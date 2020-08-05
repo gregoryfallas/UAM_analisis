@@ -12,15 +12,15 @@ using PL.Pantallas.Principales;
 using PL.Pantallas.Extras;
 using DAL.Entidades;
 using DAL;
+using BLL;
 
 namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Facturacion_PL : Form
     {
-        DA Obj_DAL = new DA();
-
-        
-
+        DA Obj_Dal = new DA();
+        CAJAS caja = new CAJAS();
+        Articulos_BLL Obj_BLL = new Articulos_BLL();
 
         public Frm_Facturacion_PL()
         {
@@ -29,31 +29,44 @@ namespace PL.Pantallas.Adicionales
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-           this.Dispose();
+            this.Hide();
           
         }
-                    
-
-        
+            
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-           
+
+
+
+
+
+
+
+
+
+            //if (label1.Text=="si")
+            //{
+            //    tsb_Credito.Enabled = true;
+            //}
+            //else
+            //{
+            //    tsb_Credito.Enabled =false;
+            //}
         }
 
         private void tsb_Contado_Click(object sender, EventArgs e)
         {
-            
             Frm_Contado_PL Contado = new Frm_Contado_PL();
             Contado.ShowDialog();
         }
 
         private void tsb_Cajas_Click(object sender, EventArgs e)
         {
-            
-            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();            
-            Cajas.ShowDialog();
-            
+            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();
+             Cajas.ShowDialog();
+           
+
         }
 
         private void tsb_Credito_Click(object sender, EventArgs e)

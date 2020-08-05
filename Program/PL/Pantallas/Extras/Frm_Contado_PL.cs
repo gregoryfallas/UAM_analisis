@@ -131,8 +131,8 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-
-            fact.Fecha = DateTime.Today;
+            DateTime hoy = DateTime.Now;
+            fact.Fecha = hoy;
             txt_Fecha_Doc.Text = fact.Fecha.ToString();
             Cargar();
             Cargar2();            

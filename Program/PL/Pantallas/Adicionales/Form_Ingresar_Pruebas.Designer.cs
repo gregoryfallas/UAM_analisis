@@ -30,13 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnatras = new System.Windows.Forms.Button();
@@ -50,18 +48,16 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(678, 201);
+            this.panel1.Size = new System.Drawing.Size(678, 188);
             this.panel1.TabIndex = 3;
             // 
             // label6
@@ -74,13 +70,6 @@
             this.label6.Size = new System.Drawing.Size(63, 23);
             this.label6.TabIndex = 31;
             this.label6.Text = "Nombre:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(95, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 20);
-            this.textBox4.TabIndex = 27;
             // 
             // textBox3
             // 
@@ -122,17 +111,6 @@
             this.label12.TabIndex = 11;
             this.label12.Text = "Descripción:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 92);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 23);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Nota:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -153,7 +131,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(300, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(124, 201);
+            this.panel2.Size = new System.Drawing.Size(124, 188);
             this.panel2.TabIndex = 4;
             // 
             // btnatras
@@ -190,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 201);
+            this.ClientSize = new System.Drawing.Size(424, 188);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form_Ingresar_Pruebas";
@@ -206,13 +184,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnatras;

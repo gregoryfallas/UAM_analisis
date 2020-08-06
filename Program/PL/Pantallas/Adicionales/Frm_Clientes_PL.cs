@@ -16,15 +16,17 @@ namespace PL.Pantallas.Adicionales
     public partial class Frm_Clientes_PL : Form
     {
 
+        private int estado = 0;
         private int provincia_id = 0;
         private int canton_id = 0;
+        private int distrito_id = 0;
+
 
 
         public Frm_Clientes_PL()
         {
             InitializeComponent();
-            CargarCombosEstados();
-             CargarCombosProvincias();
+            
            
         }
 
@@ -48,7 +50,6 @@ namespace PL.Pantallas.Adicionales
             Provinciacbo.ValueMember = "ID_Provincias";
             Provinciacbo.DisplayMember = "Nombre";
             Provinciacbo.Refresh();
-
             CargarCombosCantones();
          
 
@@ -63,6 +64,68 @@ namespace PL.Pantallas.Adicionales
             Cantoncbo.DisplayMember = "Nombre";
             Cantoncbo.Refresh();
             CargarCombosDistritos();
+        }
+
+        private void cargarGridUsuarios()
+        {
+            Clientes_BLL c = new Clientes_BLL();
+            try
+            {
+              
+                
+
+                List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
+
+
+                DataTable dt = new DataTable();
+
+
+                dt.Columns.Add("ID");
+                dt.Columns.Add("Cedula");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("Primer_Apellido");
+                dt.Columns.Add("Segundo_Apellido");
+                dt.Columns.Add("Correo");
+                dt.Columns.Add("Telefono");
+                dt.Columns.Add("Id Provincia");
+                dt.Columns.Add("Id Canton");
+                dt.Columns.Add("Id Distrito");
+                dt.Columns.Add("Direccion");
+                dt.Columns.Add("Credito");
+                dt.Columns.Add("Estado");
+                foreach (CLIENTES item in lstusuarios)
+                {
+                    dt.Rows.Add
+                        (
+                        item.ID_Cliente,
+                        item.Cedula,
+                        item.Nombre,
+                        item.Apellido_1,
+                        item.Apellido_2,
+                        item.Correo,
+                        item.Telefono,
+                        item.ID_Provincias,
+                        item.ID_Cantones,
+                        item.ID_Distritos,
+                        item.Direccion,
+                        item.Credito,
+                        item.Estado
+                        );
+                }
+
+
+                this.dataGridView1.DataSource = null;
+                this.dataGridView1.Refresh();
+                this.dataGridView1.DataSource = dt;
+                this.dataGridView1.Refresh();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
 
 
@@ -90,15 +153,13 @@ namespace PL.Pantallas.Adicionales
 
         private void buscarClientebtn_Click(object sender, EventArgs e)
         {
-
+            cargarGridUsuarios();
         }
 
         private void Provinciacbo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
-           // textBox5.Text = provincia_id.ToString();
-
             CargarCombosCantones();
             
         }
@@ -111,9 +172,21 @@ namespace PL.Pantallas.Adicionales
         private void Cantoncbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.canton_id  = Convert.ToInt32(Cantoncbo.SelectedIndex) + 1;
-          //  textBox4.Text = canton_id.ToString();
-
             CargarCombosDistritos();
+        }
+
+        private void estadoClientecbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            estado = Convert.ToInt32(this.estadoClientecbo.SelectedIndex) ;
+        }
+
+        private void Frm_Clientes_PL_Load(object sender, EventArgs e)
+        {
+            CargarCombosEstados();
+            CargarCombosProvincias();
+            cargarGridUsuarios();
+
+
         }
     }
 }

@@ -146,6 +146,13 @@ namespace DAL
 
 
         #region CLIENTES
+
+        /// <summary>
+        /// Metodo para consultar los datos del cliente en la base de datos
+        /// </summary>
+        /// <param name="P_Peticion">Entidad Sentencia</param>
+        /// <returns>Lista de Entidades de Perfiles</returns>
+
         public List<CLIENTES> ConsultarClientes(SQLSentencia P_Peticion)
         {
             List<CLIENTES> lstresultados = new List<CLIENTES>();
@@ -192,6 +199,69 @@ namespace DAL
 
             return lstresultados;
         }
+
+        /// <summary>
+        /// Metodo para consultar los datos del cliente en la base de datos
+        /// </summary>
+        /// <param name="P_Peticion">Entidad Sentencia</param>
+        /// <returns>Lista de Entidades de Perfiles</returns>
+         public List<CLIENTES> ConsultarClientesPantallaClientes(SQLSentencia P_Peticion)
+        {
+            List<CLIENTES> lstresultados = new List<CLIENTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CLIENTES tipo = new CLIENTES();
+
+                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Cedula = item.ItemArray[1].ToString();
+                        tipo.Nombre = item.ItemArray[2].ToString();
+                        tipo.Apellido_1 = item.ItemArray[3].ToString();
+                        tipo.Apellido_2 = item.ItemArray[4].ToString();
+                        tipo.Correo= item.ItemArray[5].ToString();
+                        tipo.Telefono= item.ItemArray[6].ToString();
+                        tipo.ID_Provincias= Convert.ToInt32(item.ItemArray[7].ToString());
+                        tipo.ID_Cantones = Convert.ToInt32(item.ItemArray[8].ToString());
+                        tipo.ID_Distritos = Convert.ToInt32(item.ItemArray[9].ToString());
+                        tipo.Direccion=item.ItemArray[10].ToString();
+                        tipo.Credito= Convert.ToBoolean(item.ItemArray[11].ToString());
+                        tipo.Estado= Convert.ToInt32(item.ItemArray[12].ToString());
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
 
         /// <summary>
         /// Metodo para consultar los esatdos de la mascota en la base de datos

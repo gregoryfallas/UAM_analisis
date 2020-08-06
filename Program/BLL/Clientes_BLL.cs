@@ -35,6 +35,32 @@ namespace BLL
             }
         }
 
+
+        public static List<CLIENTES> ConsultarClientesPantallaCliente(string Cedula)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE @Cedula";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = Cedula;
+                paramC.ParameterName = "@Cedula";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarClientesPantallaClientes(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
         public static List<ESTADOS> ConsultaEstadosCliente()
         {
 

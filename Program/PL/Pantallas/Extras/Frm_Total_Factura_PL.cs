@@ -11,6 +11,7 @@ using PL.Pantallas.Extras;
 using System.Drawing.Printing;
 using DAL;
 using DAL.Entidades;
+using BLL;
 
 namespace PL.Pantallas.Extras
 {
@@ -28,33 +29,31 @@ namespace PL.Pantallas.Extras
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-                           
+
+            Frm_Contado_PL cont = new Frm_Contado_PL();
+
+
+            FACTURAS factura = new FACTURAS();
+
+            factura.ID_Cliente = 7/*Convert.ToInt32(cont.txt_NoCliente.Text)*/;
+            factura.ID_Caja =1 /*Convert.ToInt32(cont.txt_Caja.Text)*/;
+            factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+            factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            factura.Descripcion = "Compra";
+            factura.Total =3 /*Convert.ToDecimal(cont.txt_Total.Text)*/;
+            factura.Tipo_Pago = 1;
+            factura.Estado = 20;          
+              
+
+            Factura_BLL.agregarFactura(factura);                    
+          MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
 
         }
 
 
-            
-        
-
-        private void Frm_Total_Factura_PL_Load(object sender, EventArgs e)
-        {
-            txt_Total2.Text = Obj_Dal.Dprecio.ToString();
-        }
-
-        private void gpb_Metodo_Enter(object sender, EventArgs e)
-        {
-            
-           
-
-        }
-
-        
-
-        private void txt_Monto_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-        
 
         private void Imprimir_PrintPage(object sender,PrintPageEventArgs e)
         {
@@ -85,7 +84,7 @@ namespace PL.Pantallas.Extras
 
             }
             e.Graphics.DrawString("---SubTotal:", font, Brushes.Black, new RectangleF(x, y+= 30, ancho, 20));
-            e.Graphics.DrawString("---Total: ¢", font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
+            e.Graphics.DrawString("---Total: ¢"+facturas.Total, font, Brushes.Black, new RectangleF(x, y+= 20, ancho, 20));
             e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y+= 50, ancho, 20));
 
         }

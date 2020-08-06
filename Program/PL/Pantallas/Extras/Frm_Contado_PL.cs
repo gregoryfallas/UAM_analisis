@@ -17,7 +17,6 @@ namespace PL.Pantallas.Extras
     {
         int EnviarFecha = 0;
 
-
         ARTICULOS Obj_Dal = new ARTICULOS();        
         FACTURAS facturas = new FACTURAS();
         CLIENTES clientes = new CLIENTES();
@@ -27,9 +26,7 @@ namespace PL.Pantallas.Extras
 
         public Frm_Contado_PL()
         {
-            InitializeComponent();
-           Cargar();
-            Cargar2();
+            InitializeComponent();           
 
         }
 
@@ -49,14 +46,20 @@ namespace PL.Pantallas.Extras
                 for (int i = 0; i < dtg_Factura.RowCount; i++)
                 {
                     Obj_Dal.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                    
+                    Math.Round(Obj_Dal.Subtotal,2);                  
+
                 }
 
                 txt_SubTotal.Text = ("¢") + Obj_Dal.Subtotal.ToString();
                 Obj_Dal.Impuesto = Obj_Dal.Subtotal * Convert.ToDecimal(0.13);
-                facturas.Total = Obj_Dal.Subtotal + Obj_Dal.Impuesto;
+                Math.Round(Obj_Dal.Impuesto,2);
                 txt_Impuesto.Text = ("¢") + Obj_Dal.Impuesto.ToString();
+                facturas.Total = Obj_Dal.Subtotal + Obj_Dal.Impuesto;
+                Math.Round(facturas.Total, 2);
                 txt_Total.Text = ("¢") + facturas.Total.ToString();
-                Obj_Dal.Dprecio = facturas.Total;
+
+                //Obj_Dal.Dprecio = facturas.Total;
 
                 Obj_Dal.Subtotal = 0;
 
@@ -105,8 +108,9 @@ namespace PL.Pantallas.Extras
                             else
                             {
                                 Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
+                               
                                 factura.txt_Total2.Text = facturas.Total.ToString();
-                                factura.ShowDialog();
+                                factura.Show();
 
 
 
@@ -143,7 +147,9 @@ namespace PL.Pantallas.Extras
             timer1.Interval = 500;
             timer1.Start();     
             Cargar();
-            Cargar2();            
+            Cargar2();      
+            
+
 
         }
 
@@ -345,6 +351,30 @@ namespace PL.Pantallas.Extras
                 {
                     case 0: CapturarFechaSistema(); break;
                 }
+            
+        }
+
+        private void dtg_Factura_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtg_Factura.Rows.Count > 0)
+            {
+                Obj_Dal.Cantidad = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[1].Value.ToString());
+                Obj_Dal.Descuento = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[3].Value.ToString());
+                Obj_Dal.Importe = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[4].Value.ToString());
+                Obj_Dal.Precio= Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+
+
+                txt_Cantidad.Text = Obj_Dal.Cantidad.ToString();
+                txt_Descuento.Text = Obj_Dal.Descuento.ToString();
+                txt_Precio.Text = Obj_Dal.Precio.ToString();
+                txt_Importe.Text = Obj_Dal.Importe.ToString();
+
+            }
+
+        }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
             
         }
     }

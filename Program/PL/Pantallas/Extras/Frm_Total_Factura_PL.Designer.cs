@@ -110,7 +110,6 @@
             this.txt_Monto.Name = "txt_Monto";
             this.txt_Monto.Size = new System.Drawing.Size(208, 30);
             this.txt_Monto.TabIndex = 4;
-            this.txt_Monto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Monto_KeyPress);
             // 
             // label3
             // 
@@ -148,7 +147,6 @@
             // 
             this.txt_Factura.Location = new System.Drawing.Point(15, 46);
             this.txt_Factura.Name = "txt_Factura";
-            this.txt_Factura.ReadOnly = true;
             this.txt_Factura.Size = new System.Drawing.Size(100, 20);
             this.txt_Factura.TabIndex = 7;
             // 
@@ -204,7 +202,6 @@
             this.Name = "Frm_Total_Factura_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Total Factura";
-            this.Load += new System.EventHandler(this.Frm_Total_Factura_PL_Load);
             this.panel1.ResumeLayout(false);
             this.gpb_Factura.ResumeLayout(false);
             this.gpb_Factura.PerformLayout();

@@ -320,9 +320,15 @@ namespace DAL
         }
 
 
+        #endregion
 
 
-        
+
+        #endregion
+
+
+        #region 
+
 
 
 
@@ -331,9 +337,7 @@ namespace DAL
 
 
 
-
-
-        #endregion
 
     }
+
 }

@@ -81,6 +81,10 @@
             this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_NoCliente = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_Caja = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -263,7 +267,7 @@
             this.groupBox2.Size = new System.Drawing.Size(111, 112);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Método Pago";
+            this.groupBox2.Text = "Tipo Pago";
             // 
             // rdb_Contado
             // 
@@ -443,6 +447,7 @@
             this.btn_Guardar.Size = new System.Drawing.Size(42, 45);
             this.btn_Guardar.TabIndex = 8;
             this.btn_Guardar.UseVisualStyleBackColor = false;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // txt_Cantidad
             // 
@@ -558,6 +563,10 @@
             // 
             // gb_Datos
             // 
+            this.gb_Datos.Controls.Add(this.txt_Caja);
+            this.gb_Datos.Controls.Add(this.label4);
+            this.gb_Datos.Controls.Add(this.txt_NoCliente);
+            this.gb_Datos.Controls.Add(this.label1);
             this.gb_Datos.Controls.Add(this.txt_Fecha_Doc);
             this.gb_Datos.Controls.Add(this.label7);
             this.gb_Datos.Controls.Add(this.txt_Nombre);
@@ -601,7 +610,7 @@
             this.txt_Nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Nombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombre.ForeColor = System.Drawing.Color.White;
-            this.txt_Nombre.Location = new System.Drawing.Point(10, 71);
+            this.txt_Nombre.Location = new System.Drawing.Point(240, 71);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.ReadOnly = true;
             this.txt_Nombre.Size = new System.Drawing.Size(279, 26);
@@ -624,7 +633,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 45);
+            this.label2.Location = new System.Drawing.Point(236, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 1;
@@ -663,6 +672,7 @@
             this.dtg_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Factura.Size = new System.Drawing.Size(541, 220);
             this.dtg_Factura.TabIndex = 16;
+            this.dtg_Factura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Factura_CellClick);
             // 
             // Nombre
             // 
@@ -735,6 +745,50 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(16, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "IdClliente";
+            // 
+            // txt_NoCliente
+            // 
+            this.txt_NoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_NoCliente.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NoCliente.ForeColor = System.Drawing.Color.White;
+            this.txt_NoCliente.Location = new System.Drawing.Point(6, 71);
+            this.txt_NoCliente.Name = "txt_NoCliente";
+            this.txt_NoCliente.Size = new System.Drawing.Size(201, 26);
+            this.txt_NoCliente.TabIndex = 11;
+            this.txt_NoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(434, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 23);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "No.Caja";
+            // 
+            // txt_Caja
+            // 
+            this.txt_Caja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Caja.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Caja.ForeColor = System.Drawing.Color.White;
+            this.txt_Caja.Location = new System.Drawing.Point(418, 158);
+            this.txt_Caja.Name = "txt_Caja";
+            this.txt_Caja.Size = new System.Drawing.Size(90, 26);
+            this.txt_Caja.TabIndex = 13;
+            this.txt_Caja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Frm_Contado_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -781,7 +835,6 @@
         private System.Windows.Forms.Button btn_Confirmar;
         private System.Windows.Forms.Button btn_Orden;
         private System.Windows.Forms.GroupBox gb_Datos;
-        private System.Windows.Forms.TextBox txt_Fecha_Doc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.TextBox txt_Cliente;
@@ -818,5 +871,10 @@
         private System.Windows.Forms.Label lblNroCorrelativo;
         private System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.TextBox txt_Total;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txt_NoCliente;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txt_Caja;
+        public System.Windows.Forms.TextBox txt_Fecha_Doc;
     }
 }

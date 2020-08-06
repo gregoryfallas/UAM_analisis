@@ -39,5 +39,10 @@ namespace PL.Pantallas.Adicionales
         {
 
         }
+
+        private void buscarClientebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

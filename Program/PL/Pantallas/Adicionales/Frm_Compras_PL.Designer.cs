@@ -42,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gpb_Metodo = new System.Windows.Forms.GroupBox();
             this.rdb_Contado = new System.Windows.Forms.RadioButton();
-            this.rdb_Credito = new System.Windows.Forms.RadioButton();
             this.gpb_Opciones = new System.Windows.Forms.GroupBox();
             this.btn_Comprar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
@@ -212,7 +211,6 @@
             // gpb_Metodo
             // 
             this.gpb_Metodo.Controls.Add(this.rdb_Contado);
-            this.gpb_Metodo.Controls.Add(this.rdb_Credito);
             this.gpb_Metodo.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpb_Metodo.ForeColor = System.Drawing.Color.White;
             this.gpb_Metodo.Location = new System.Drawing.Point(625, 29);
@@ -227,26 +225,13 @@
             this.rdb_Contado.AutoSize = true;
             this.rdb_Contado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdb_Contado.ForeColor = System.Drawing.Color.White;
-            this.rdb_Contado.Location = new System.Drawing.Point(37, 38);
+            this.rdb_Contado.Location = new System.Drawing.Point(30, 59);
             this.rdb_Contado.Name = "rdb_Contado";
             this.rdb_Contado.Size = new System.Drawing.Size(80, 27);
             this.rdb_Contado.TabIndex = 7;
             this.rdb_Contado.TabStop = true;
             this.rdb_Contado.Text = "Contado";
             this.rdb_Contado.UseVisualStyleBackColor = true;
-            // 
-            // rdb_Credito
-            // 
-            this.rdb_Credito.AutoSize = true;
-            this.rdb_Credito.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Credito.ForeColor = System.Drawing.Color.White;
-            this.rdb_Credito.Location = new System.Drawing.Point(37, 84);
-            this.rdb_Credito.Name = "rdb_Credito";
-            this.rdb_Credito.Size = new System.Drawing.Size(72, 27);
-            this.rdb_Credito.TabIndex = 8;
-            this.rdb_Credito.TabStop = true;
-            this.rdb_Credito.Text = "Crédito";
-            this.rdb_Credito.UseVisualStyleBackColor = true;
             // 
             // gpb_Opciones
             // 
@@ -310,7 +295,7 @@
             this.Cantidad,
             this.Precio,
             this.Factura});
-            this.dtg_Proveedor.Location = new System.Drawing.Point(405, 242);
+            this.dtg_Proveedor.Location = new System.Drawing.Point(393, 242);
             this.dtg_Proveedor.Name = "dtg_Proveedor";
             this.dtg_Proveedor.Size = new System.Drawing.Size(644, 387);
             this.dtg_Proveedor.TabIndex = 18;
@@ -513,7 +498,6 @@
         private System.Windows.Forms.Button btn_Comprar;
         private System.Windows.Forms.GroupBox gpb_Metodo;
         private System.Windows.Forms.RadioButton rdb_Contado;
-        private System.Windows.Forms.RadioButton rdb_Credito;
         private System.Windows.Forms.Button btn_Editar;
         private System.Windows.Forms.GroupBox gpb_Opciones;
         private System.Windows.Forms.GroupBox gpb_Articulos;

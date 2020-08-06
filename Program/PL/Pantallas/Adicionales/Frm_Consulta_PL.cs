@@ -40,5 +40,10 @@ namespace PL.Pantallas.Adicionales
             Frm_Recetas_PL Recetas = new Frm_Recetas_PL();
             Recetas.ShowDialog();
         }
+
+        private void Frm_Consulta_PL_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

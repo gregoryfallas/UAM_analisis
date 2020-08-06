@@ -239,6 +239,24 @@
     <Compile Include="Pantallas\Adicionales\Frm_Tesoreria_PL.Designer.cs">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Cajas_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Cajas_PL.Designer.cs">
+      <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Contado_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Contado_PL.Designer.cs">
+      <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.Designer.cs">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +292,12 @@
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Servicios_PL.Designer.cs">
       <DependentUpon>Frm_Servicios_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.Designer.cs">
+      <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.cs">
       <SubType>Form</SubType>
@@ -388,6 +412,15 @@
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Tesoreria_PL.resx">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Cajas_PL.resx">
+      <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Contado_PL.resx">
+      <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Credito_PL.resx">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.resx">
       <DependentUpon>Frm_Cuentas_Cobrar_PL.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Servicios_PL.resx">
       <DependentUpon>Frm_Servicios_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_TipoAnimal_PL.resx">
+      <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Total_Factura_PL.resx">
       <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
@@ -572,6 +608,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Recursos\Clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{61a5d75e-e895-468b-8eb2-888873db5c5a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

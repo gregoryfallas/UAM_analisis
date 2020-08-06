@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
+using PL.Pantallas.Adicionales;
 
 namespace PL
 {
@@ -17,7 +18,8 @@ namespace PL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Frm_Login_PL());
+            //Application.Run(new Frm_Login_PL());
+            Application.Run(new Form_Crear_Reclutamiento());
         }
     }
 }

@@ -373,13 +373,10 @@ C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\bin\Debug\DAL.pdb
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\bin\Debug\DAL.dll.config
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\bin\Debug\EntityFramework.xml
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.csprojAssemblyReference.cache
-C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Agregar_Nueva_Vacante_PL.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Buscar_Nomina.resources
-C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Consultar_Postulantes.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Creacion_Personal_PL.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Creacion_Usuarios.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Crear_Nomina.resources
-C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Ingresar_Postulantes_PL.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Ingreso_Marcas_Manuales.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Marcar_PL.resources
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Menu_Personal.resources
@@ -423,3 +420,9 @@ C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CoreComp
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CopyComplete
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.exe
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.pdb
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Consultar_Pruebas_Participantes.resources
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Creacion_Roles.resources
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Crear_Reclutamiento.resources
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Consulta_Roles.resources
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Ingresar_Participantes.resources
+C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Ingresar_Pruebas.resources

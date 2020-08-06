@@ -244,6 +244,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SQLParametros.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

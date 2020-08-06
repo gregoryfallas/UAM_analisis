@@ -332,7 +332,142 @@ namespace DAL
         #endregion
 
 
+        #region Stephanie
 
+        #region Puestos
+        public int Ejecutar_Peticiones(SQLParametros P_Peticion)
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = P_Peticion.Peticion;
+
+                this.ABRIR();
+
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+        }
+
+        public List<PUESTOS> Consultar_Puestos(SQLParametros P_Peticion)
+        {
+
+            List<PUESTOS> lstresultados = new List<PUESTOS>();
+
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = P_Peticion.Peticion;
+
+
+                SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
+
+
+                DataTable dt = new DataTable();
+                objconsulta.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        PUESTOS u = new PUESTOS();
+
+
+                        u.ID_Puestos = Convert.ToInt32(fila.ItemArray[0].ToString());
+                        u.ID_Departamento = Convert.ToInt32(fila.ItemArray[1].ToString());
+                        u.Nombre = fila.ItemArray[2].ToString();
+                      //  u.Salario_Base = Convert.ToDecimal(fila.ItemArray[3].ToString());
+                      //  u.Descripcion = fila.ItemArray[4].ToString();
+                       
+
+                        lstresultados.Add(u);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+        #endregion
+
+
+        //public List<RECLUTAMIENTO> Consultar_Reclutamiento(SQLParametros P_Peticion)
+        //{
+
+        //    List<RECLUTAMIENTO> lstresultados = new List<RECLUTAMIENTO>();
+
+        //    try
+        //    {
+
+        //        SqlCommand cmd = new SqlCommand();
+
+        //        cmd.Connection = objconexion;
+        //        cmd.CommandType = System.Data.CommandType.Text;
+        //        cmd.CommandText = P_Peticion.Peticion;
+
+
+        //        SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
+
+
+        //        DataTable dt = new DataTable();
+        //        objconsulta.Fill(dt);
+
+        //        if (dt.Rows.Count > 0)
+        //        {
+
+        //            foreach (DataRow fila in dt.Rows)
+        //            {
+        //                RECLUTAMIENTO u = new RECLUTAMIENTO();
+
+
+        //                u.ID_Reclutamiento = Convert.ToInt32(fila.ItemArray[0].ToString());
+        //                u.ID_Puestos = Convert.ToInt32(fila.ItemArray[1].ToString());
+        //                u.Nombre = fila.ItemArray[2].ToString();
+        //                u.Descripcion = fila.ItemArray[3].ToString();
+        //                u.Estado = Convert.ToInt32(fila.ItemArray[4].ToString());
+
+
+
+        //                lstresultados.Add(u);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+
+        //    return lstresultados;
+        //}
+
+        #endregion
 
 
 

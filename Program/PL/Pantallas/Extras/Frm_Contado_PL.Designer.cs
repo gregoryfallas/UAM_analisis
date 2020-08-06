@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.btn_Productos = new System.Windows.Forms.Button();
@@ -77,7 +78,9 @@
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -580,6 +583,7 @@
             this.txt_Fecha_Doc.ReadOnly = true;
             this.txt_Fecha_Doc.Size = new System.Drawing.Size(220, 26);
             this.txt_Fecha_Doc.TabIndex = 3;
+            this.txt_Fecha_Doc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label7
             // 
@@ -597,7 +601,7 @@
             this.txt_Nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Nombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombre.ForeColor = System.Drawing.Color.White;
-            this.txt_Nombre.Location = new System.Drawing.Point(0, 71);
+            this.txt_Nombre.Location = new System.Drawing.Point(10, 71);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.ReadOnly = true;
             this.txt_Nombre.Size = new System.Drawing.Size(279, 26);
@@ -620,7 +624,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(6, 45);
+            this.label2.Location = new System.Drawing.Point(11, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 1;
@@ -698,12 +702,22 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.lblNroCorrelativo);
             this.panel2.Controls.Add(this.btn_inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(1261, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(106, 713);
             this.panel2.TabIndex = 2;
+            // 
+            // lblNroCorrelativo
+            // 
+            this.lblNroCorrelativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNroCorrelativo.ForeColor = System.Drawing.Color.Red;
+            this.lblNroCorrelativo.Location = new System.Drawing.Point(16, 28);
+            this.lblNroCorrelativo.Name = "lblNroCorrelativo";
+            this.lblNroCorrelativo.Size = new System.Drawing.Size(78, 23);
+            this.lblNroCorrelativo.TabIndex = 36;
             // 
             // btn_inicio
             // 
@@ -716,6 +730,10 @@
             this.btn_inicio.Text = "Inicio";
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Frm_Contado_PL
             // 
@@ -777,7 +795,6 @@
         private System.Windows.Forms.GroupBox grp_FormaPago;
         private System.Windows.Forms.RadioButton rdb_Efectivo;
         private System.Windows.Forms.RadioButton rdb_Tarjeta;
-        private System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rdb_Contado;
@@ -798,5 +815,8 @@
         public System.Windows.Forms.DataGridView dtg_Articulos;
         private System.Windows.Forms.TextBox txt_Producto;
         private System.Windows.Forms.Button btn_Productos;
+        private System.Windows.Forms.Label lblNroCorrelativo;
+        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.TextBox txt_Total;
     }
 }

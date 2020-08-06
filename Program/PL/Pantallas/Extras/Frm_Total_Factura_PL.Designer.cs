@@ -35,7 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Monto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_Total = new System.Windows.Forms.TextBox();
+            this.txt_Total2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,7 +64,7 @@
             this.gpb_Factura.Controls.Add(this.label2);
             this.gpb_Factura.Controls.Add(this.txt_Monto);
             this.gpb_Factura.Controls.Add(this.label3);
-            this.gpb_Factura.Controls.Add(this.txt_Total);
+            this.gpb_Factura.Controls.Add(this.txt_Total2);
             this.gpb_Factura.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpb_Factura.ForeColor = System.Drawing.Color.White;
             this.gpb_Factura.Location = new System.Drawing.Point(31, 24);
@@ -123,13 +123,13 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Cambio";
             // 
-            // txt_Total
+            // txt_Total2
             // 
-            this.txt_Total.Location = new System.Drawing.Point(69, 97);
-            this.txt_Total.Name = "txt_Total";
-            this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(208, 30);
-            this.txt_Total.TabIndex = 3;
+            this.txt_Total2.Location = new System.Drawing.Point(69, 97);
+            this.txt_Total2.Name = "txt_Total2";
+            this.txt_Total2.Size = new System.Drawing.Size(208, 30);
+            this.txt_Total2.TabIndex = 3;
+            this.txt_Total2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -223,12 +223,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_Cambio;
         private System.Windows.Forms.TextBox txt_Monto;
-        private System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Button btn_Confirmar;
         private System.Windows.Forms.GroupBox gpb_Factura;
         private System.Windows.Forms.Button btn_Imprimir;
         private System.Windows.Forms.TextBox txt_Factura;
         private System.Windows.Forms.Label label4;
         private System.Drawing.Printing.PrintDocument Imprimir;
+        public System.Windows.Forms.TextBox txt_Total2;
     }
 }

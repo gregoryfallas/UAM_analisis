@@ -22,4 +22,9 @@ namespace DAL.Entidades
         public virtual FACTURAS FACTURAS { get; set; }
         public virtual INVENTARIO INVENTARIO { get; set; }
     }
+
+
+
+
+
 }

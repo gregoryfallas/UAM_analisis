@@ -15,9 +15,14 @@ namespace PL.Pantallas.Extras
 {
     public partial class Frm_Contado_PL : Form
     {
-        ARTICULOS Obj_Dal = new ARTICULOS();
-        FACTURA_COMPRA fact = new FACTURA_COMPRA();
+        int EnviarFecha = 0;
+
+
+        ARTICULOS Obj_Dal = new ARTICULOS();        
         FACTURAS facturas = new FACTURAS();
+        CLIENTES clientes = new CLIENTES();
+      
+
         string nombre;
 
         public Frm_Contado_PL()
@@ -100,7 +105,11 @@ namespace PL.Pantallas.Extras
                             else
                             {
                                 Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
+                                factura.txt_Total2.Text = facturas.Total.ToString();
                                 factura.ShowDialog();
+
+
+
                             }
                         }
                             
@@ -131,9 +140,8 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-            DateTime hoy = DateTime.Now;
-            fact.Fecha = hoy;
-            txt_Fecha_Doc.Text = fact.Fecha.ToString();
+            timer1.Interval = 500;
+            timer1.Start();     
             Cargar();
             Cargar2();            
 
@@ -152,7 +160,6 @@ namespace PL.Pantallas.Extras
        
         private void Cargar ()
         {
-
             Clientes_BLL Clientes = new Clientes_BLL();
 
             List<CLIENTES> LS = Clientes_BLL.ConsultarClientes(txt_Cliente.Text.Trim());
@@ -322,6 +329,23 @@ namespace PL.Pantallas.Extras
             {
                 e.Handled = false;
             }
+        }
+
+               
+        
+
+        private void CapturarFechaSistema()
+        {
+            txt_Fecha_Doc.Text = DateTime.Now.ToShortDateString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {           
+                switch (EnviarFecha)
+                {
+                    case 0: CapturarFechaSistema(); break;
+                }
+            
         }
     }
 }

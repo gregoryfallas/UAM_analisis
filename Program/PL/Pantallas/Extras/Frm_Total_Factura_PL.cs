@@ -38,7 +38,7 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Total_Factura_PL_Load(object sender, EventArgs e)
         {
-            txt_Total.Text = Obj_Dal.Dprecio.ToString();
+            txt_Total2.Text = Obj_Dal.Dprecio.ToString();
         }
 
         private void gpb_Metodo_Enter(object sender, EventArgs e)

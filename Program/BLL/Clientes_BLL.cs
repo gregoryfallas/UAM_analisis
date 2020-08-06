@@ -12,6 +12,109 @@ namespace BLL
     public class Clientes_BLL
     {
 
+        
+
+        public static bool agregarCliente(CLIENTES cliente)
+        {
+            try
+            {
+
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','"+ cliente.Apellido_2 +"','"+cliente.Correo + "','" +cliente.Telefono  + "','"  +cliente.ID_Provincias+ "','" + cliente.ID_Cantones+ "','"+ cliente.ID_Distritos+ "','"+ cliente.Direccion+ "','" +cliente.Credito + "','"+cliente.Estado +   "'";
+
+
+
+                //SQLSentencia peticion = new SQLSentencia();
+                //peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES @ced, @nom, @ape1, @ape2, @correo, @tel, @provincia, @canton, @distrito, @dire , @credito, @est ";
+
+                //SqlParameter paramced = new SqlParameter();
+                //paramced.Value = cliente.Cedula;
+                //paramced.ParameterName = "@ced";
+                //paramced.SqlDbType = System.Data.SqlDbType.Int;
+
+                //SqlParameter paramNom = new SqlParameter();
+                //paramNom.Value = cliente.Nombre;
+                //paramNom.ParameterName = "@nom";
+                //paramNom.SqlDbType = System.Data.SqlDbType.VarChar;
+
+                //SqlParameter paramApe1 = new SqlParameter();
+                //paramApe1.Value = cliente.Apellido_1;
+                //paramApe1.ParameterName = "@ape1";
+                //paramApe1.SqlDbType = System.Data.SqlDbType.VarChar;
+
+                //SqlParameter paramApe2 = new SqlParameter();
+                //paramApe2.Value = cliente.Apellido_2;
+                //paramApe2.ParameterName = "@ape2";
+                //paramApe2.SqlDbType = System.Data.SqlDbType.VarChar;
+
+                //SqlParameter paramCorreo= new SqlParameter();
+                //paramCorreo.Value = cliente.Correo;
+                //paramCorreo.ParameterName = "@correo";
+                //paramCorreo.SqlDbType = System.Data.SqlDbType.VarChar;
+
+                //SqlParameter paramTel = new SqlParameter();
+                //paramTel.Value = cliente.Telefono;
+                //paramTel.ParameterName = "@tel";
+                //paramTel.SqlDbType = System.Data.SqlDbType.VarChar;
+
+                //SqlParameter paramProvincia = new SqlParameter();
+                //paramProvincia.Value = cliente.ID_Provincias;
+                //paramProvincia.ParameterName = "@provincia";
+                //paramProvincia.SqlDbType = System.Data.SqlDbType.Int;
+
+                //SqlParameter paramCanton = new SqlParameter();
+                //paramCanton.Value = cliente.ID_Cantones;
+                //paramCanton.ParameterName = "@canton";
+                //paramCanton.SqlDbType = System.Data.SqlDbType.Int;
+
+                //SqlParameter paramDistrito = new SqlParameter();
+                //paramDistrito.Value = cliente.ID_Distritos;
+                //paramDistrito.ParameterName = "@distrito";
+                //paramDistrito.SqlDbType = System.Data.SqlDbType.Int;
+
+
+                //SqlParameter paramDire = new SqlParameter();
+                //paramDire.Value = cliente.Direccion;
+                //paramDire.ParameterName = "@direc";
+                //paramDire.SqlDbType = System.Data.SqlDbType.VarChar;
+
+
+                //SqlParameter paramCredito= new SqlParameter();
+                //paramCredito.Value = cliente.Credito;
+                //paramCredito.ParameterName = "@credito";
+                //paramCredito.SqlDbType = System.Data.SqlDbType.Bit;
+
+
+                //SqlParameter paramEst = new SqlParameter();
+                //paramEst.Value = cliente.Estado;
+                //paramEst.ParameterName = "@est";
+                //paramEst.SqlDbType = System.Data.SqlDbType.Int;
+
+                //peticion.lstParametros.Add(paramced);
+                //peticion.lstParametros.Add(paramNom);
+                //peticion.lstParametros.Add(paramApe1);
+                //peticion.lstParametros.Add(paramApe2);
+                //peticion.lstParametros.Add(paramCorreo);
+                //peticion.lstParametros.Add(paramTel);
+                //peticion.lstParametros.Add(paramProvincia);
+                //peticion.lstParametros.Add(paramCanton);
+                //peticion.lstParametros.Add(paramDistrito);
+                //peticion.lstParametros.Add(paramDire);
+                //peticion.lstParametros.Add(paramCredito);
+                //peticion.lstParametros.Add(paramEst);
+
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
         public static List<CLIENTES> ConsultarClientes(string Cedula )
         {
 
@@ -140,13 +243,7 @@ namespace BLL
         }
 
 
-
-
-
-
-
-
-
+        
 
 
     }

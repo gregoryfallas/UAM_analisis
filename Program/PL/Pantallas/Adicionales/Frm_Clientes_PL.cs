@@ -19,9 +19,14 @@ namespace PL.Pantallas.Adicionales
         private int estado = 0;
         private int provincia_id = 0;
         private int canton_id = 0;
-        private int distrito_id = 0;
+        private string credito;
 
 
+        //values
+        private string id_Distritos;
+        private string id_Canton;
+        private string id_Provincia;
+        private string id_Estado;
 
         public Frm_Clientes_PL()
         {
@@ -139,6 +144,20 @@ namespace PL.Pantallas.Adicionales
             Distritocbo.Refresh();
         }
 
+
+        private void CargarComboCredito()
+        {
+
+               List<string> lista = new List<string>();
+               lista.Add("Si");
+               lista.Add("No");
+               comboBox1.DataSource = lista;
+         //    Distritocbo.ValueMember = "ID_Distritos";
+         //    Distritocbo.DisplayMember = "Nombre";
+         //    Distritocbo.Refresh();
+        }
+
+
         private void button4_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -160,6 +179,9 @@ namespace PL.Pantallas.Adicionales
         {
 
             this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
+          //  id_Provincia = Cantoncbo.SelectedValue.ToString();
+
+            //    textBox1.Text = provincia_id.ToString();
             CargarCombosCantones();
             
         }
@@ -172,21 +194,78 @@ namespace PL.Pantallas.Adicionales
         private void Cantoncbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.canton_id  = Convert.ToInt32(Cantoncbo.SelectedIndex) + 1;
+            id_Canton = Cantoncbo.SelectedValue.ToString();
+
+           
+
+            // id_Canton = Convert.ToInt32(Cantoncbo.SelectedValue.ToString());
+
             CargarCombosDistritos();
         }
 
         private void estadoClientecbo_SelectedIndexChanged(object sender, EventArgs e)
         {
             estado = Convert.ToInt32(this.estadoClientecbo.SelectedIndex) ;
+            //textBox7.Text = estadoClientecbo.SelectedValue.ToString();
+            id_Estado=estadoClientecbo.SelectedValue.ToString();
+
+
         }
+
+
 
         private void Frm_Clientes_PL_Load(object sender, EventArgs e)
         {
             CargarCombosEstados();
             CargarCombosProvincias();
             cargarGridUsuarios();
+            CargarComboCredito();
 
 
+        }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+            bool c ;
+            CLIENTES cliente = new CLIENTES();
+            cliente.Cedula = textBox2.Text.Trim();
+            cliente.Nombre = textBox1.Text.Trim();
+            cliente.Apellido_1 = Apellido1txt.Text.Trim();
+            cliente.Apellido_2 = textBox7.Text.Trim();
+            cliente.Correo = textBox5.Text.Trim();
+            cliente.Telefono = textBox3.Text.Trim();
+            cliente.ID_Provincias = provincia_id;
+            cliente.ID_Cantones = Convert.ToInt32(id_Canton);
+            cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
+            cliente.Direccion = textBox4.Text;
+            // cliente.Credito = false;
+            if (credito.ToString().Equals("Si"))
+                c = true;
+            else
+                c = false;
+            cliente.Credito = c;
+            cliente.Estado = Convert.ToInt32(id_Estado);
+            Clientes_BLL.agregarCliente(cliente);
+            MessageBox.Show("Cliente Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            cargarGridUsuarios();
+        }
+
+       
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            credito = comboBox1.SelectedValue.ToString();
+
+           
+        }
+
+        private void Distritocbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            // distrito_id = Convert.ToInt32(Distritocbo.SelectedIndex) + 1;
+            id_Distritos=Distritocbo.SelectedValue.ToString();
+            // textBox7.Text = Distritocbo.SelectedValue.ToString();
+            // id_Distritos = Convert.ToInt32(Distritocbo.SelectedValue.ToString());
         }
     }
 }

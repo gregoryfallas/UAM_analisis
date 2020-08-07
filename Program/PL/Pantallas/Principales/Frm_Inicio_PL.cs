@@ -38,7 +38,7 @@ namespace PL.Pantallas.Principales
 
         private void ts_Facturacion_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Frm_Facturacion_PL factura = new Frm_Facturacion_PL();
            factura.ShowDialog();
 
@@ -46,15 +46,14 @@ namespace PL.Pantallas.Principales
 
         private void ts_Compras_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Compras_PL compras = new Frm_Compras_PL();
+             Frm_Compras_PL compras = new Frm_Compras_PL();
             compras.ShowDialog();
 
         }
 
         private void ts_Tesoreria_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Frm_Tesoreria_PL tesoreria = new Frm_Tesoreria_PL();
             tesoreria.ShowDialog();
 

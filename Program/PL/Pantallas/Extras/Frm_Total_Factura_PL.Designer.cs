@@ -37,19 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdb_Efectivo = new System.Windows.Forms.RadioButton();
-            this.rdb_Tarjeta = new System.Windows.Forms.RadioButton();
+            this.txt_Factura = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btn_Imprimir = new System.Windows.Forms.Button();
-            this.gpb_Metodo = new System.Windows.Forms.GroupBox();
-            this.rdb_Contado = new System.Windows.Forms.RadioButton();
-            this.rdb_Credito = new System.Windows.Forms.RadioButton();
             this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.Imprimir = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.gpb_Factura.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.gpb_Metodo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -139,9 +134,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.txt_Factura);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.btn_Imprimir);
-            this.panel2.Controls.Add(this.gpb_Metodo);
             this.panel2.Controls.Add(this.btn_Confirmar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(390, 0);
@@ -149,42 +144,24 @@
             this.panel2.Size = new System.Drawing.Size(127, 424);
             this.panel2.TabIndex = 1;
             // 
-            // groupBox1
+            // txt_Factura
             // 
-            this.groupBox1.Controls.Add(this.rdb_Efectivo);
-            this.groupBox1.Controls.Add(this.rdb_Tarjeta);
-            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(8, 156);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(111, 112);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Método Pago";
+            this.txt_Factura.Location = new System.Drawing.Point(15, 46);
+            this.txt_Factura.Name = "txt_Factura";
+            this.txt_Factura.ReadOnly = true;
+            this.txt_Factura.Size = new System.Drawing.Size(100, 20);
+            this.txt_Factura.TabIndex = 7;
             // 
-            // rdb_Efectivo
+            // label4
             // 
-            this.rdb_Efectivo.AutoSize = true;
-            this.rdb_Efectivo.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Efectivo.ForeColor = System.Drawing.Color.White;
-            this.rdb_Efectivo.Location = new System.Drawing.Point(4, 19);
-            this.rdb_Efectivo.Name = "rdb_Efectivo";
-            this.rdb_Efectivo.Size = new System.Drawing.Size(85, 31);
-            this.rdb_Efectivo.TabIndex = 1;
-            this.rdb_Efectivo.Text = "Efectivo";
-            this.rdb_Efectivo.UseVisualStyleBackColor = true;
-            // 
-            // rdb_Tarjeta
-            // 
-            this.rdb_Tarjeta.AutoSize = true;
-            this.rdb_Tarjeta.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Tarjeta.ForeColor = System.Drawing.Color.White;
-            this.rdb_Tarjeta.Location = new System.Drawing.Point(6, 54);
-            this.rdb_Tarjeta.Name = "rdb_Tarjeta";
-            this.rdb_Tarjeta.Size = new System.Drawing.Size(81, 31);
-            this.rdb_Tarjeta.TabIndex = 2;
-            this.rdb_Tarjeta.Text = "Tarjeta";
-            this.rdb_Tarjeta.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(19, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 34);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "#Factura";
             // 
             // btn_Imprimir
             // 
@@ -197,45 +174,7 @@
             this.btn_Imprimir.Size = new System.Drawing.Size(75, 57);
             this.btn_Imprimir.TabIndex = 4;
             this.btn_Imprimir.UseVisualStyleBackColor = true;
-            // 
-            // gpb_Metodo
-            // 
-            this.gpb_Metodo.Controls.Add(this.rdb_Contado);
-            this.gpb_Metodo.Controls.Add(this.rdb_Credito);
-            this.gpb_Metodo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpb_Metodo.ForeColor = System.Drawing.Color.White;
-            this.gpb_Metodo.Location = new System.Drawing.Point(13, 12);
-            this.gpb_Metodo.Name = "gpb_Metodo";
-            this.gpb_Metodo.Size = new System.Drawing.Size(111, 112);
-            this.gpb_Metodo.TabIndex = 3;
-            this.gpb_Metodo.TabStop = false;
-            this.gpb_Metodo.Text = "Forma Pago";
-            this.gpb_Metodo.Enter += new System.EventHandler(this.gpb_Metodo_Enter);
-            // 
-            // rdb_Contado
-            // 
-            this.rdb_Contado.AutoSize = true;
-            this.rdb_Contado.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Contado.ForeColor = System.Drawing.Color.White;
-            this.rdb_Contado.Location = new System.Drawing.Point(4, 19);
-            this.rdb_Contado.Name = "rdb_Contado";
-            this.rdb_Contado.Size = new System.Drawing.Size(90, 31);
-            this.rdb_Contado.TabIndex = 1;
-            this.rdb_Contado.Text = "Contado";
-            this.rdb_Contado.UseVisualStyleBackColor = true;
-            // 
-            // rdb_Credito
-            // 
-            this.rdb_Credito.AutoSize = true;
-            this.rdb_Credito.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Credito.ForeColor = System.Drawing.Color.White;
-            this.rdb_Credito.Location = new System.Drawing.Point(6, 54);
-            this.rdb_Credito.Name = "rdb_Credito";
-            this.rdb_Credito.Size = new System.Drawing.Size(81, 31);
-            this.rdb_Credito.TabIndex = 2;
-            this.rdb_Credito.TabStop = true;
-            this.rdb_Credito.Text = "Crédito";
-            this.rdb_Credito.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 
             // btn_Confirmar
             // 
@@ -249,6 +188,10 @@
             this.btn_Confirmar.TabIndex = 0;
             this.btn_Confirmar.UseVisualStyleBackColor = true;
             this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
+            // Imprimir
+            // 
+            this.Imprimir.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.Imprimir_PrintPage);
             // 
             // Frm_Total_Factura_PL
             // 
@@ -266,10 +209,7 @@
             this.gpb_Factura.ResumeLayout(false);
             this.gpb_Factura.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.gpb_Metodo.ResumeLayout(false);
-            this.gpb_Metodo.PerformLayout();
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -285,13 +225,10 @@
         private System.Windows.Forms.TextBox txt_Monto;
         private System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Button btn_Confirmar;
-        private System.Windows.Forms.RadioButton rdb_Credito;
-        private System.Windows.Forms.RadioButton rdb_Contado;
-        private System.Windows.Forms.GroupBox gpb_Metodo;
         private System.Windows.Forms.GroupBox gpb_Factura;
         private System.Windows.Forms.Button btn_Imprimir;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdb_Efectivo;
-        private System.Windows.Forms.RadioButton rdb_Tarjeta;
+        private System.Windows.Forms.TextBox txt_Factura;
+        private System.Windows.Forms.Label label4;
+        private System.Drawing.Printing.PrintDocument Imprimir;
     }
 }

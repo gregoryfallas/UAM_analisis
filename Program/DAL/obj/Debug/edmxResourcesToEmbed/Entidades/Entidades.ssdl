@@ -1,0 +1,1906 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VETERINARIA_EL_BOSQUEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANUNCIOS">
+    <Key>
+      <PropertyRef Name="ID_Anuncios" />
+    </Key>
+    <Property Name="ID_Anuncios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ANUNCIOS_ENVIADOS">
+    <Key>
+      <PropertyRef Name="ID_Anuncios_Enviados" />
+    </Key>
+    <Property Name="ID_Anuncios_Enviados" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Anuncios" Type="int" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ARTICULOS">
+    <Key>
+      <PropertyRef Name="ID_Articulos" />
+    </Key>
+    <Property Name="ID_Articulos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ARTICULOS_PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID_Articulos_Proveedor" />
+    </Key>
+    <Property Name="ID_Articulos_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Proveedor" Type="int" Nullable="false" />
+    <Property Name="ID_Articulos" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAJAS">
+    <Key>
+      <PropertyRef Name="ID_Caja" />
+    </Key>
+    <Property Name="ID_Caja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAMPA_AS">
+    <Key>
+      <PropertyRef Name="ID_Campa_as" />
+    </Key>
+    <Property Name="ID_Campa_as" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+    <Property Name="Fecha_Fin" Type="date" Nullable="false" />
+    <Property Name="Cantidad_Pacientes" Type="varchar" MaxLength="50" />
+    <Property Name="ID_Distritos" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAMPA_AS_PARTICIPANTES">
+    <Key>
+      <PropertyRef Name="ID_Campa_as_Participantes" />
+    </Key>
+    <Property Name="ID_Campa_as_Participantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Campa_as" Type="int" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="CANTONES">
+    <Key>
+      <PropertyRef Name="ID_Cantones" />
+    </Key>
+    <Property Name="ID_Cantones" Type="int" Nullable="false" />
+    <Property Name="ID_Provincias" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CITAS">
+    <Key>
+      <PropertyRef Name="ID_Cita" />
+    </Key>
+    <Property Name="ID_Cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Mascota" Type="int" Nullable="false" />
+    <Property Name="ID_Consultorio" Type="int" Nullable="false" />
+    <Property Name="ID_Motivo_Cita" Type="int" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+    <Property Name="Fecha_Fin" Type="date" Nullable="false" />
+    <Property Name="Hora_Inicio" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Hora_Fin" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTES">
+    <Key>
+      <PropertyRef Name="ID_Cliente" />
+    </Key>
+    <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cedula" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido_1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido_2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" />
+    <Property Name="ID_Provincias" Type="int" Nullable="false" />
+    <Property Name="ID_Cantones" Type="int" Nullable="false" />
+    <Property Name="ID_Distritos" Type="int" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="150" />
+    <Property Name="Credito" Type="bit" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="COBROS">
+    <Key>
+      <PropertyRef Name="ID_Cobro" />
+    </Key>
+    <Property Name="ID_Cobro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Caja" Type="int" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="Metodo_Pago" Type="tinyint" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+  </EntityType>
+  <EntityType Name="CONSULTORIO">
+    <Key>
+      <PropertyRef Name="ID_Consultorio" />
+    </Key>
+    <Property Name="ID_Consultorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Tipo_Consultorio" Type="int" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CREDITOS">
+    <Key>
+      <PropertyRef Name="ID_Creditos" />
+    </Key>
+    <Property Name="ID_Creditos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="Monto_Anterior" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Monto_Actual" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="DEPARTAMENTOS">
+    <Key>
+      <PropertyRef Name="ID_Departamento" />
+    </Key>
+    <Property Name="ID_Departamento" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DESPACHO">
+    <Key>
+      <PropertyRef Name="ID_Despacho" />
+    </Key>
+    <Property Name="ID_Despacho" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_ARTICULOS">
+    <Key>
+      <PropertyRef Name="ID_Detalle_Articulos" />
+    </Key>
+    <Property Name="ID_Detalle_Articulos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="ID_Articulos" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DETALLE_SERVICIO">
+    <Key>
+      <PropertyRef Name="ID_Detalle_Servicio" />
+    </Key>
+    <Property Name="ID_Detalle_Servicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="ID_Servicios" Type="int" Nullable="false" />
+    <Property Name="ID_Cita" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="DISTRITOS">
+    <Key>
+      <PropertyRef Name="ID_Distritos" />
+    </Key>
+    <Property Name="ID_Distritos" Type="int" Nullable="false" />
+    <Property Name="ID_Cantones" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADOS">
+    <Key>
+      <PropertyRef Name="ID_Estados" />
+    </Key>
+    <Property Name="ID_Estados" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'VETERINARIA_EL_BOSQUE.dbo.ESTADOS_TABLAS' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="ESTADOS_TABLAS">
+    <Key>
+      <PropertyRef Name="ID_Estados" />
+      <PropertyRef Name="ID_Tabla" />
+    </Key>
+    <Property Name="ID_Estados" Type="int" Nullable="false" />
+    <Property Name="ID_Tabla" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURA_COMPRA">
+    <Key>
+      <PropertyRef Name="ID_Factura_Compra" />
+    </Key>
+    <Property Name="ID_Factura_Compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Solicitud_Compra" Type="int" Nullable="false" />
+    <Property Name="Numero_Factura" Type="int" Nullable="false" />
+    <Property Name="Referencia_Bancaria" Type="varchar" MaxLength="50" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURA_PROMOCION">
+    <Key>
+      <PropertyRef Name="ID_Factura_Promocion" />
+    </Key>
+    <Property Name="ID_Factura_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Promocion" Type="int" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FACTURAS">
+    <Key>
+      <PropertyRef Name="ID_Facturas" />
+    </Key>
+    <Property Name="ID_Facturas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" Nullable="false" />
+    <Property Name="ID_Caja" Type="int" Nullable="false" />
+    <Property Name="Numero_Factura" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Total" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Tipo_Pago" Type="tinyint" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="INVENTARIO">
+    <Key>
+      <PropertyRef Name="ID_Inventario" />
+    </Key>
+    <Property Name="ID_Inventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Articulos" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARCAS">
+    <Key>
+      <PropertyRef Name="ID_Marcas" />
+    </Key>
+    <Property Name="ID_Marcas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Tipo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="MASCOTAS">
+    <Key>
+      <PropertyRef Name="ID_Mascota" />
+    </Key>
+    <Property Name="ID_Mascota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cliente" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tipo_Animal" Type="int" Nullable="false" />
+    <Property Name="Raza" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sexo" Type="varchar" MaxLength="30" />
+    <Property Name="Edad" Type="int" />
+    <Property Name="Peso" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Tamaño" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="METODO_PAGO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" Nullable="false" />
+    <Property Name="Metodo" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOTIVO_CITA">
+    <Key>
+      <PropertyRef Name="ID_Motivo_Cita" />
+    </Key>
+    <Property Name="ID_Motivo_Cita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NOMINA">
+    <Key>
+      <PropertyRef Name="ID_Nomina" />
+    </Key>
+    <Property Name="ID_Nomina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+    <Property Name="Fecha_Fin" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NOMINA_PERSONAL">
+    <Key>
+      <PropertyRef Name="ID_Nomina_Personal" />
+    </Key>
+    <Property Name="ID_Nomina_Personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Nomina" Type="int" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Total_Horas" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Salario_Bruto" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Salario_Neto" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="OBSERVACIONES">
+    <Key>
+      <PropertyRef Name="ID_Observaciones" />
+    </Key>
+    <Property Name="ID_Observaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cita" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PARTICIPANTES">
+    <Key>
+      <PropertyRef Name="ID_Participantes" />
+    </Key>
+    <Property Name="ID_Participantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Reclutamiento" Type="int" Nullable="false" />
+    <Property Name="Cedula_" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido_1" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido_2" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="8" />
+    <Property Name="ID_Provincia" Type="int" Nullable="false" />
+    <Property Name="ID_Canton" Type="int" Nullable="false" />
+    <Property Name="ID_Distrito" Type="int" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="150" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONAL">
+    <Key>
+      <PropertyRef Name="ID_Personal" />
+    </Key>
+    <Property Name="ID_Personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Puesto" Type="int" />
+    <Property Name="Cedula" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido_1" Type="varchar" MaxLength="30" />
+    <Property Name="Apellido_2" Type="varchar" MaxLength="30" />
+    <Property Name="Salario_Hora" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Salario_Mensual" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Fecha_Contratacion" Type="date" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROMOCIONES">
+    <Key>
+      <PropertyRef Name="ID_Promocion" />
+    </Key>
+    <Property Name="ID_Promocion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="date" Nullable="false" />
+    <Property Name="Fecha_Fin" Type="date" Nullable="false" />
+    <Property Name="Descuento" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="ID_Proveedor" />
+    </Key>
+    <Property Name="ID_Proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PROVINCIAS">
+    <Key>
+      <PropertyRef Name="ID_Provincias" />
+    </Key>
+    <Property Name="ID_Provincias" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRUEBAS">
+    <Key>
+      <PropertyRef Name="ID_Pruebas" />
+    </Key>
+    <Property Name="ID_Pruebas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PRUEBAS_LABORATORIO">
+    <Key>
+      <PropertyRef Name="ID_Pruebas_Laboratorio" />
+    </Key>
+    <Property Name="ID_Pruebas_Laboratorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRUEBAS_PARTICIPANTES">
+    <Key>
+      <PropertyRef Name="ID_Pruebas_Participantes" />
+    </Key>
+    <Property Name="ID_Pruebas_Participantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Pruebas" Type="int" Nullable="false" />
+    <Property Name="ID_Participantes" Type="int" Nullable="false" />
+    <Property Name="Nota" Type="decimal" Precision="3" Scale="2" />
+  </EntityType>
+  <EntityType Name="PUESTOS">
+    <Key>
+      <PropertyRef Name="ID_Puestos" />
+    </Key>
+    <Property Name="ID_Puestos" Type="int" Nullable="false" />
+    <Property Name="ID_Departamento" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Salario_Base" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="RECETAS">
+    <Key>
+      <PropertyRef Name="ID_Receta" />
+    </Key>
+    <Property Name="ID_Receta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Cita" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RECLUTAMIENTO">
+    <Key>
+      <PropertyRef Name="ID_Reclutamiento" />
+    </Key>
+    <Property Name="ID_Reclutamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Puestos" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REQUISITOS_PARTICIPANTES">
+    <Key>
+      <PropertyRef Name="ID_Requisitos_Participantes" />
+    </Key>
+    <Property Name="ID_Requisitos_Participantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Requisitos" Type="int" Nullable="false" />
+    <Property Name="ID_Participantes" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="REQUISITOS_PUESTO">
+    <Key>
+      <PropertyRef Name="ID_Requisitos" />
+    </Key>
+    <Property Name="ID_Requisitos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Puestos" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RESULTADO_LABORATORIO">
+    <Key>
+      <PropertyRef Name="ID_Resultado_Laboratorio" />
+    </Key>
+    <Property Name="ID_Resultado_Laboratorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Pruebas_Laboratorio" Type="int" Nullable="false" />
+    <Property Name="ID_Cita" Type="int" Nullable="false" />
+    <Property Name="Resultado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ROLES">
+    <Key>
+      <PropertyRef Name="ID_Roles" />
+    </Key>
+    <Property Name="ID_Roles" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" />
+  </EntityType>
+  <EntityType Name="SERVICIOS">
+    <Key>
+      <PropertyRef Name="ID_Servicios" />
+    </Key>
+    <Property Name="ID_Servicios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SERVICIOS_EXPRESS">
+    <Key>
+      <PropertyRef Name="ID_Servicios" />
+    </Key>
+    <Property Name="ID_Servicios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOLICITUD_ARTICULOS">
+    <Key>
+      <PropertyRef Name="ID_Solicitud_Articulos" />
+    </Key>
+    <Property Name="ID_Solicitud_Articulos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Articulo_Proveedor" Type="int" Nullable="false" />
+    <Property Name="ID_Solicitud_Compra" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SOLICITUD_COMPRA">
+    <Key>
+      <PropertyRef Name="ID_Solicitud_Compra" />
+    </Key>
+    <Property Name="ID_Solicitud_Compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Encabezado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TABLAS">
+    <Key>
+      <PropertyRef Name="ID_Tabla" />
+    </Key>
+    <Property Name="ID_Tabla" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_ANIMAL">
+    <Key>
+      <PropertyRef Name="ID_Tipo_Animal" />
+    </Key>
+    <Property Name="ID_Tipo_Animal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_CONSULTORIO">
+    <Key>
+      <PropertyRef Name="ID_Tipo_Consultorio" />
+    </Key>
+    <Property Name="ID_Tipo_Consultorio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="CreateAt" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_MARCA">
+    <Key>
+      <PropertyRef Name="ID_Tipo" />
+    </Key>
+    <Property Name="ID_Tipo" Type="tinyint" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_PAGO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIO_ROL">
+    <Key>
+      <PropertyRef Name="ID_Usuario_Rol" />
+    </Key>
+    <Property Name="ID_Usuario_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Usuario" Type="int" Nullable="false" />
+    <Property Name="ID_Roles" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USUARIOS">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Pass" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Created_at" Type="datetime" Nullable="false" />
+    <Property Name="Last_Login" Type="varchar" MaxLength="20" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VACACIONES">
+    <Key>
+      <PropertyRef Name="ID_Vacaciones" />
+    </Key>
+    <Property Name="ID_Vacaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Personal" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="AnunciosAnunciosEnviados">
+    <End Role="ANUNCIOS" Type="Self.ANUNCIOS" Multiplicity="1" />
+    <End Role="ANUNCIOS_ENVIADOS" Type="Self.ANUNCIOS_ENVIADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ANUNCIOS">
+        <PropertyRef Name="ID_Anuncios" />
+      </Principal>
+      <Dependent Role="ANUNCIOS_ENVIADOS">
+        <PropertyRef Name="ID_Anuncios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientesAnunciosEnviados">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+    <End Role="ANUNCIOS_ENVIADOS" Type="Self.ANUNCIOS_ENVIADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="ANUNCIOS_ENVIADOS">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnunciosEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="ANUNCIOS" Type="Self.ANUNCIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="ANUNCIOS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticulosArticulosProveedor">
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+    <End Role="ARTICULOS_PROVEEDOR" Type="Self.ARTICULOS_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS">
+        <PropertyRef Name="ID_Articulos" />
+      </Principal>
+      <Dependent Role="ARTICULOS_PROVEEDOR">
+        <PropertyRef Name="ID_Articulos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticulosInventario">
+    <End Role="ARTICULOS" Type="Self.ARTICULOS" Multiplicity="1" />
+    <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS">
+        <PropertyRef Name="ID_Articulos" />
+      </Principal>
+      <Dependent Role="INVENTARIO">
+        <PropertyRef Name="ID_Articulos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ArticulosProveedorSolicitudArticulos">
+    <End Role="ARTICULOS_PROVEEDOR" Type="Self.ARTICULOS_PROVEEDOR" Multiplicity="1" />
+    <End Role="SOLICITUD_ARTICULOS" Type="Self.SOLICITUD_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ARTICULOS_PROVEEDOR">
+        <PropertyRef Name="ID_Articulos_Proveedor" />
+      </Principal>
+      <Dependent Role="SOLICITUD_ARTICULOS">
+        <PropertyRef Name="ID_Articulo_Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CajasCobros">
+    <End Role="CAJAS" Type="Self.CAJAS" Multiplicity="1" />
+    <End Role="COBROS" Type="Self.COBROS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAJAS">
+        <PropertyRef Name="ID_Caja" />
+      </Principal>
+      <Dependent Role="COBROS">
+        <PropertyRef Name="ID_Caja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CajasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="CAJAS" Type="Self.CAJAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="CAJAS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampanasCampanasParticipantes">
+    <End Role="CAMPA_AS" Type="Self.CAMPA_AS" Multiplicity="1" />
+    <End Role="CAMPA_AS_PARTICIPANTES" Type="Self.CAMPA_AS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAMPA_AS">
+        <PropertyRef Name="ID_Campa_as" />
+      </Principal>
+      <Dependent Role="CAMPA_AS_PARTICIPANTES">
+        <PropertyRef Name="ID_Campa_as" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampanasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="CAMPA_AS" Type="Self.CAMPA_AS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="CAMPA_AS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CantonesDistritos">
+    <End Role="CANTONES" Type="Self.CANTONES" Multiplicity="1" />
+    <End Role="DISTRITOS" Type="Self.DISTRITOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTONES">
+        <PropertyRef Name="ID_Cantones" />
+      </Principal>
+      <Dependent Role="DISTRITOS">
+        <PropertyRef Name="ID_Cantones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CitasDetalleServicio">
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="1" />
+    <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITAS">
+        <PropertyRef Name="ID_Cita" />
+      </Principal>
+      <Dependent Role="DETALLE_SERVICIO">
+        <PropertyRef Name="ID_Cita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CitasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="CITAS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CitasObservaciones">
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="1" />
+    <End Role="OBSERVACIONES" Type="Self.OBSERVACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITAS">
+        <PropertyRef Name="ID_Cita" />
+      </Principal>
+      <Dependent Role="OBSERVACIONES">
+        <PropertyRef Name="ID_Cita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CitasRecetas">
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="1" />
+    <End Role="RECETAS" Type="Self.RECETAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITAS">
+        <PropertyRef Name="ID_Cita" />
+      </Principal>
+      <Dependent Role="RECETAS">
+        <PropertyRef Name="ID_Cita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CitasResultadoLaboratorio">
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="1" />
+    <End Role="RESULTADO_LABORATORIO" Type="Self.RESULTADO_LABORATORIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITAS">
+        <PropertyRef Name="ID_Cita" />
+      </Principal>
+      <Dependent Role="RESULTADO_LABORATORIO">
+        <PropertyRef Name="ID_Cita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientesCampanasParticipantes">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+    <End Role="CAMPA_AS_PARTICIPANTES" Type="Self.CAMPA_AS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="CAMPA_AS_PARTICIPANTES">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientesCantones">
+    <End Role="CANTONES" Type="Self.CANTONES" Multiplicity="1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CANTONES">
+        <PropertyRef Name="ID_Cantones" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="ID_Cantones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientesEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientesFacturas">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="FACTURAS">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientesMascotas">
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="1" />
+    <End Role="MASCOTAS" Type="Self.MASCOTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTES">
+        <PropertyRef Name="ID_Cliente" />
+      </Principal>
+      <Dependent Role="MASCOTAS">
+        <PropertyRef Name="ID_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsultorioCitas">
+    <End Role="CONSULTORIO" Type="Self.CONSULTORIO" Multiplicity="1" />
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONSULTORIO">
+        <PropertyRef Name="ID_Consultorio" />
+      </Principal>
+      <Dependent Role="CITAS">
+        <PropertyRef Name="ID_Consultorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartamentosPuestos">
+    <End Role="DEPARTAMENTOS" Type="Self.DEPARTAMENTOS" Multiplicity="1" />
+    <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTAMENTOS">
+        <PropertyRef Name="ID_Departamento" />
+      </Principal>
+      <Dependent Role="PUESTOS">
+        <PropertyRef Name="ID_Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DespachoEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="DESPACHO" Type="Self.DESPACHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="DESPACHO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DistritosCampanas">
+    <End Role="DISTRITOS" Type="Self.DISTRITOS" Multiplicity="1" />
+    <End Role="CAMPA_AS" Type="Self.CAMPA_AS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITOS">
+        <PropertyRef Name="ID_Distritos" />
+      </Principal>
+      <Dependent Role="CAMPA_AS">
+        <PropertyRef Name="ID_Distritos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DistritosClientes">
+    <End Role="DISTRITOS" Type="Self.DISTRITOS" Multiplicity="1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISTRITOS">
+        <PropertyRef Name="ID_Distritos" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="ID_Distritos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EstadosTablasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="ESTADOS_TABLAS" Type="Self.ESTADOS_TABLAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="ESTADOS_TABLAS">
+        <PropertyRef Name="ID_Estados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasCobros">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="COBROS" Type="Self.COBROS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="COBROS">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasCreditos">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="CREDITOS" Type="Self.CREDITOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="CREDITOS">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasDespacho">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="DESPACHO" Type="Self.DESPACHO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="DESPACHO">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasDetalleArticulos">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="DETALLE_ARTICULOS" Type="Self.DETALLE_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="DETALLE_ARTICULOS">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasDetalleServicio">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="DETALLE_SERVICIO">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="FACTURAS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasFacturaPromocion">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="FACTURA_PROMOCION" Type="Self.FACTURA_PROMOCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="FACTURA_PROMOCION">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacturasServicioExpres">
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="1" />
+    <End Role="SERVICIOS_EXPRESS" Type="Self.SERVICIOS_EXPRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURAS">
+        <PropertyRef Name="ID_Facturas" />
+      </Principal>
+      <Dependent Role="SERVICIOS_EXPRESS">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventarioDetalleArticulos">
+    <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="1" />
+    <End Role="DETALLE_ARTICULOS" Type="Self.DETALLE_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVENTARIO">
+        <PropertyRef Name="ID_Inventario" />
+      </Principal>
+      <Dependent Role="DETALLE_ARTICULOS">
+        <PropertyRef Name="ID_Articulos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InventarioEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="INVENTARIO" Type="Self.INVENTARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="INVENTARIO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MascotaCitas">
+    <End Role="MASCOTAS" Type="Self.MASCOTAS" Multiplicity="1" />
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTAS">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="CITAS">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MascotasEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="MASCOTAS" Type="Self.MASCOTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="MASCOTAS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MetodoPagoFacturas">
+    <End Role="METODO_PAGO" Type="Self.METODO_PAGO" Multiplicity="1" />
+    <End Role="COBROS" Type="Self.COBROS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="METODO_PAGO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="COBROS">
+        <PropertyRef Name="Metodo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MotivoCitas">
+    <End Role="MOTIVO_CITA" Type="Self.MOTIVO_CITA" Multiplicity="1" />
+    <End Role="CITAS" Type="Self.CITAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MOTIVO_CITA">
+        <PropertyRef Name="ID_Motivo_Cita" />
+      </Principal>
+      <Dependent Role="CITAS">
+        <PropertyRef Name="ID_Motivo_Cita" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NominaNominaPersonal">
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="1" />
+    <End Role="NOMINA_PERSONAL" Type="Self.NOMINA_PERSONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NOMINA">
+        <PropertyRef Name="ID_Nomina" />
+      </Principal>
+      <Dependent Role="NOMINA_PERSONAL">
+        <PropertyRef Name="ID_Nomina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParticipantesEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="PARTICIPANTES" Type="Self.PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="PARTICIPANTES">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalCajas">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="CAJAS" Type="Self.CAJAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="CAJAS">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalConsultorio">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="CONSULTORIO" Type="Self.CONSULTORIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="CONSULTORIO">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="PERSONAL">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalMarcas">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="MARCAS" Type="Self.MARCAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="MARCAS">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalNominaPersonal">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="NOMINA_PERSONAL" Type="Self.NOMINA_PERSONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="NOMINA_PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalUsuarios">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalVacaciones">
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="1" />
+    <End Role="VACACIONES" Type="Self.VACACIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONAL">
+        <PropertyRef Name="ID_Personal" />
+      </Principal>
+      <Dependent Role="VACACIONES">
+        <PropertyRef Name="ID_Personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PromocionesEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="PROMOCIONES" Type="Self.PROMOCIONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="PROMOCIONES">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PromocionesFacturaPromocion">
+    <End Role="PROMOCIONES" Type="Self.PROMOCIONES" Multiplicity="1" />
+    <End Role="FACTURA_PROMOCION" Type="Self.FACTURA_PROMOCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROMOCIONES">
+        <PropertyRef Name="ID_Promocion" />
+      </Principal>
+      <Dependent Role="FACTURA_PROMOCION">
+        <PropertyRef Name="ID_Promocion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProveedoresArticulosProveedor">
+    <End Role="PROVEEDOR" Type="Self.PROVEEDOR" Multiplicity="1" />
+    <End Role="ARTICULOS_PROVEEDOR" Type="Self.ARTICULOS_PROVEEDOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="ID_Proveedor" />
+      </Principal>
+      <Dependent Role="ARTICULOS_PROVEEDOR">
+        <PropertyRef Name="ID_Proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinciaCantones">
+    <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="1" />
+    <End Role="CANTONES" Type="Self.CANTONES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCIAS">
+        <PropertyRef Name="ID_Provincias" />
+      </Principal>
+      <Dependent Role="CANTONES">
+        <PropertyRef Name="ID_Provincias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProvinciaClientes">
+    <End Role="PROVINCIAS" Type="Self.PROVINCIAS" Multiplicity="1" />
+    <End Role="CLIENTES" Type="Self.CLIENTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCIAS">
+        <PropertyRef Name="ID_Provincias" />
+      </Principal>
+      <Dependent Role="CLIENTES">
+        <PropertyRef Name="ID_Provincias" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PruebasLaboratorioResultadoLaboratorio">
+    <End Role="PRUEBAS_LABORATORIO" Type="Self.PRUEBAS_LABORATORIO" Multiplicity="1" />
+    <End Role="RESULTADO_LABORATORIO" Type="Self.RESULTADO_LABORATORIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRUEBAS_LABORATORIO">
+        <PropertyRef Name="ID_Pruebas_Laboratorio" />
+      </Principal>
+      <Dependent Role="RESULTADO_LABORATORIO">
+        <PropertyRef Name="ID_Pruebas_Laboratorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PuestosPersonal">
+    <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="0..1" />
+    <End Role="PERSONAL" Type="Self.PERSONAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTOS">
+        <PropertyRef Name="ID_Puestos" />
+      </Principal>
+      <Dependent Role="PERSONAL">
+        <PropertyRef Name="ID_Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PuestosRequisitosPuesto">
+    <End Role="PUESTOS" Type="Self.PUESTOS" Multiplicity="1" />
+    <End Role="REQUISITOS_PUESTO" Type="Self.REQUISITOS_PUESTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTOS">
+        <PropertyRef Name="ID_Puestos" />
+      </Principal>
+      <Dependent Role="REQUISITOS_PUESTO">
+        <PropertyRef Name="ID_Puestos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReclutamientolEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="RECLUTAMIENTO" Type="Self.RECLUTAMIENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="RECLUTAMIENTO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadoLaboratorioEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="0..1" />
+    <End Role="RESULTADO_LABORATORIO" Type="Self.RESULTADO_LABORATORIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="RESULTADO_LABORATORIO">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolesEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="0..1" />
+    <End Role="ROLES" Type="Self.ROLES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="ROLES">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolUsuariosRol">
+    <End Role="ROLES" Type="Self.ROLES" Multiplicity="1" />
+    <End Role="USUARIO_ROL" Type="Self.USUARIO_ROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROLES">
+        <PropertyRef Name="ID_Roles" />
+      </Principal>
+      <Dependent Role="USUARIO_ROL">
+        <PropertyRef Name="ID_Roles" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServicioExpressEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="SERVICIOS_EXPRESS" Type="Self.SERVICIOS_EXPRESS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="SERVICIOS_EXPRESS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiciosDetalleServicio">
+    <End Role="SERVICIOS" Type="Self.SERVICIOS" Multiplicity="1" />
+    <End Role="DETALLE_SERVICIO" Type="Self.DETALLE_SERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIOS">
+        <PropertyRef Name="ID_Servicios" />
+      </Principal>
+      <Dependent Role="DETALLE_SERVICIO">
+        <PropertyRef Name="ID_Servicios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudCompraEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="SOLICITUD_COMPRA" Type="Self.SOLICITUD_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="SOLICITUD_COMPRA">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudCompraFactura_Compra">
+    <End Role="SOLICITUD_COMPRA" Type="Self.SOLICITUD_COMPRA" Multiplicity="1" />
+    <End Role="FACTURA_COMPRA" Type="Self.FACTURA_COMPRA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD_COMPRA">
+        <PropertyRef Name="ID_Solicitud_Compra" />
+      </Principal>
+      <Dependent Role="FACTURA_COMPRA">
+        <PropertyRef Name="ID_Solicitud_Compra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SolicitudCompraSolicitudArticulos">
+    <End Role="SOLICITUD_COMPRA" Type="Self.SOLICITUD_COMPRA" Multiplicity="1" />
+    <End Role="SOLICITUD_ARTICULOS" Type="Self.SOLICITUD_ARTICULOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD_COMPRA">
+        <PropertyRef Name="ID_Solicitud_Compra" />
+      </Principal>
+      <Dependent Role="SOLICITUD_ARTICULOS">
+        <PropertyRef Name="ID_Solicitud_Compra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TablasTablasEstados">
+    <End Role="TABLAS" Type="Self.TABLAS" Multiplicity="1" />
+    <End Role="ESTADOS_TABLAS" Type="Self.ESTADOS_TABLAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLAS">
+        <PropertyRef Name="ID_Tabla" />
+      </Principal>
+      <Dependent Role="ESTADOS_TABLAS">
+        <PropertyRef Name="ID_Tabla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoAnimalMascotas">
+    <End Role="TIPO_ANIMAL" Type="Self.TIPO_ANIMAL" Multiplicity="1" />
+    <End Role="MASCOTAS" Type="Self.MASCOTAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_ANIMAL">
+        <PropertyRef Name="ID_Tipo_Animal" />
+      </Principal>
+      <Dependent Role="MASCOTAS">
+        <PropertyRef Name="Tipo_Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoConsultorioConsultorio">
+    <End Role="TIPO_CONSULTORIO" Type="Self.TIPO_CONSULTORIO" Multiplicity="1" />
+    <End Role="CONSULTORIO" Type="Self.CONSULTORIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_CONSULTORIO">
+        <PropertyRef Name="ID_Tipo_Consultorio" />
+      </Principal>
+      <Dependent Role="CONSULTORIO">
+        <PropertyRef Name="ID_Tipo_Consultorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoMarca_Marcas">
+    <End Role="TIPO_MARCA" Type="Self.TIPO_MARCA" Multiplicity="0..1" />
+    <End Role="MARCAS" Type="Self.MARCAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_MARCA">
+        <PropertyRef Name="ID_Tipo" />
+      </Principal>
+      <Dependent Role="MARCAS">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoPagoFacturas">
+    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
+    <End Role="FACTURAS" Type="Self.FACTURAS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_PAGO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURAS">
+        <PropertyRef Name="Tipo_Pago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosEstados">
+    <End Role="ESTADOS" Type="Self.ESTADOS" Multiplicity="1" />
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADOS">
+        <PropertyRef Name="ID_Estados" />
+      </Principal>
+      <Dependent Role="USUARIOS">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosUsuariosRol">
+    <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="1" />
+    <End Role="USUARIO_ROL" Type="Self.USUARIO_ROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIOS">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="USUARIO_ROL">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParticipantesPruebasParticipantes">
+    <End Role="PARTICIPANTES" Type="Self.PARTICIPANTES" Multiplicity="1" />
+    <End Role="PRUEBAS_PARTICIPANTES" Type="Self.PRUEBAS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARTICIPANTES">
+        <PropertyRef Name="ID_Participantes" />
+      </Principal>
+      <Dependent Role="PRUEBAS_PARTICIPANTES">
+        <PropertyRef Name="ID_Participantes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ParticipantesRequisitosParticipanes">
+    <End Role="PARTICIPANTES" Type="Self.PARTICIPANTES" Multiplicity="1" />
+    <End Role="REQUISITOS_PARTICIPANTES" Type="Self.REQUISITOS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARTICIPANTES">
+        <PropertyRef Name="ID_Participantes" />
+      </Principal>
+      <Dependent Role="REQUISITOS_PARTICIPANTES">
+        <PropertyRef Name="ID_Participantes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PruebasPruebasParticipantes">
+    <End Role="PRUEBAS" Type="Self.PRUEBAS" Multiplicity="1" />
+    <End Role="PRUEBAS_PARTICIPANTES" Type="Self.PRUEBAS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRUEBAS">
+        <PropertyRef Name="ID_Pruebas" />
+      </Principal>
+      <Dependent Role="PRUEBAS_PARTICIPANTES">
+        <PropertyRef Name="ID_Pruebas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ReclutamientoParticipantes">
+    <End Role="RECLUTAMIENTO" Type="Self.RECLUTAMIENTO" Multiplicity="1" />
+    <End Role="PARTICIPANTES" Type="Self.PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RECLUTAMIENTO">
+        <PropertyRef Name="ID_Reclutamiento" />
+      </Principal>
+      <Dependent Role="PARTICIPANTES">
+        <PropertyRef Name="ID_Reclutamiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RequisitosPuestoRequisitosParticipanes">
+    <End Role="REQUISITOS_PUESTO" Type="Self.REQUISITOS_PUESTO" Multiplicity="1" />
+    <End Role="REQUISITOS_PARTICIPANTES" Type="Self.REQUISITOS_PARTICIPANTES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REQUISITOS_PUESTO">
+        <PropertyRef Name="ID_Requisitos" />
+      </Principal>
+      <Dependent Role="REQUISITOS_PARTICIPANTES">
+        <PropertyRef Name="ID_Requisitos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VETERINARIA_EL_BOSQUEModelStoreContainer">
+    <EntitySet Name="ANUNCIOS" EntityType="Self.ANUNCIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ANUNCIOS_ENVIADOS" EntityType="Self.ANUNCIOS_ENVIADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ARTICULOS" EntityType="Self.ARTICULOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ARTICULOS_PROVEEDOR" EntityType="Self.ARTICULOS_PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAJAS" EntityType="Self.CAJAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAMPA_AS" EntityType="Self.CAMPA_AS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAMPA_AS_PARTICIPANTES" EntityType="Self.CAMPA_AS_PARTICIPANTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CANTONES" EntityType="Self.CANTONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CITAS" EntityType="Self.CITAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COBROS" EntityType="Self.COBROS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CONSULTORIO" EntityType="Self.CONSULTORIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CREDITOS" EntityType="Self.CREDITOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPARTAMENTOS" EntityType="Self.DEPARTAMENTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DESPACHO" EntityType="Self.DESPACHO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_ARTICULOS" EntityType="Self.DETALLE_ARTICULOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DETALLE_SERVICIO" EntityType="Self.DETALLE_SERVICIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISTRITOS" EntityType="Self.DISTRITOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADOS" EntityType="Self.ESTADOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURA_COMPRA" EntityType="Self.FACTURA_COMPRA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURA_PROMOCION" EntityType="Self.FACTURA_PROMOCION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FACTURAS" EntityType="Self.FACTURAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INVENTARIO" EntityType="Self.INVENTARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARCAS" EntityType="Self.MARCAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MASCOTAS" EntityType="Self.MASCOTAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="METODO_PAGO" EntityType="Self.METODO_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MOTIVO_CITA" EntityType="Self.MOTIVO_CITA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOMINA" EntityType="Self.NOMINA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NOMINA_PERSONAL" EntityType="Self.NOMINA_PERSONAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OBSERVACIONES" EntityType="Self.OBSERVACIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PARTICIPANTES" EntityType="Self.PARTICIPANTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERSONAL" EntityType="Self.PERSONAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROMOCIONES" EntityType="Self.PROMOCIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVEEDOR" EntityType="Self.PROVEEDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROVINCIAS" EntityType="Self.PROVINCIAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRUEBAS" EntityType="Self.PRUEBAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRUEBAS_LABORATORIO" EntityType="Self.PRUEBAS_LABORATORIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRUEBAS_PARTICIPANTES" EntityType="Self.PRUEBAS_PARTICIPANTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUESTOS" EntityType="Self.PUESTOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RECETAS" EntityType="Self.RECETAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RECLUTAMIENTO" EntityType="Self.RECLUTAMIENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REQUISITOS_PARTICIPANTES" EntityType="Self.REQUISITOS_PARTICIPANTES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REQUISITOS_PUESTO" EntityType="Self.REQUISITOS_PUESTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RESULTADO_LABORATORIO" EntityType="Self.RESULTADO_LABORATORIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SERVICIOS" EntityType="Self.SERVICIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SERVICIOS_EXPRESS" EntityType="Self.SERVICIOS_EXPRESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOLICITUD_ARTICULOS" EntityType="Self.SOLICITUD_ARTICULOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SOLICITUD_COMPRA" EntityType="Self.SOLICITUD_COMPRA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TABLAS" EntityType="Self.TABLAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_ANIMAL" EntityType="Self.TIPO_ANIMAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_CONSULTORIO" EntityType="Self.TIPO_CONSULTORIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_MARCA" EntityType="Self.TIPO_MARCA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO_ROL" EntityType="Self.USUARIO_ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VACACIONES" EntityType="Self.VACACIONES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ESTADOS_TABLAS" EntityType="Self.ESTADOS_TABLAS" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ESTADOS_TABLAS].[ID_Estados] AS [ID_Estados], 
+    [ESTADOS_TABLAS].[ID_Tabla] AS [ID_Tabla]
+    FROM [dbo].[ESTADOS_TABLAS] AS [ESTADOS_TABLAS]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="AnunciosAnunciosEnviados" Association="Self.AnunciosAnunciosEnviados">
+      <End Role="ANUNCIOS" EntitySet="ANUNCIOS" />
+      <End Role="ANUNCIOS_ENVIADOS" EntitySet="ANUNCIOS_ENVIADOS" />
+    </AssociationSet>
+    <AssociationSet Name="ClientesAnunciosEnviados" Association="Self.ClientesAnunciosEnviados">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="ANUNCIOS_ENVIADOS" EntitySet="ANUNCIOS_ENVIADOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnunciosEstados" Association="Self.FK_AnunciosEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="ANUNCIOS" EntitySet="ANUNCIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticulosArticulosProveedor" Association="Self.FK_ArticulosArticulosProveedor">
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+      <End Role="ARTICULOS_PROVEEDOR" EntitySet="ARTICULOS_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticulosInventario" Association="Self.FK_ArticulosInventario">
+      <End Role="ARTICULOS" EntitySet="ARTICULOS" />
+      <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ArticulosProveedorSolicitudArticulos" Association="Self.FK_ArticulosProveedorSolicitudArticulos">
+      <End Role="ARTICULOS_PROVEEDOR" EntitySet="ARTICULOS_PROVEEDOR" />
+      <End Role="SOLICITUD_ARTICULOS" EntitySet="SOLICITUD_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CajasCobros" Association="Self.FK_CajasCobros">
+      <End Role="CAJAS" EntitySet="CAJAS" />
+      <End Role="COBROS" EntitySet="COBROS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CajasEstados" Association="Self.FK_CajasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="CAJAS" EntitySet="CAJAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampanasCampanasParticipantes" Association="Self.FK_CampanasCampanasParticipantes">
+      <End Role="CAMPA_AS" EntitySet="CAMPA_AS" />
+      <End Role="CAMPA_AS_PARTICIPANTES" EntitySet="CAMPA_AS_PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampanasEstados" Association="Self.FK_CampanasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="CAMPA_AS" EntitySet="CAMPA_AS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CantonesDistritos" Association="Self.FK_CantonesDistritos">
+      <End Role="CANTONES" EntitySet="CANTONES" />
+      <End Role="DISTRITOS" EntitySet="DISTRITOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CitasDetalleServicio" Association="Self.FK_CitasDetalleServicio">
+      <End Role="CITAS" EntitySet="CITAS" />
+      <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CitasEstados" Association="Self.FK_CitasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="CITAS" EntitySet="CITAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CitasObservaciones" Association="Self.FK_CitasObservaciones">
+      <End Role="CITAS" EntitySet="CITAS" />
+      <End Role="OBSERVACIONES" EntitySet="OBSERVACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CitasRecetas" Association="Self.FK_CitasRecetas">
+      <End Role="CITAS" EntitySet="CITAS" />
+      <End Role="RECETAS" EntitySet="RECETAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CitasResultadoLaboratorio" Association="Self.FK_CitasResultadoLaboratorio">
+      <End Role="CITAS" EntitySet="CITAS" />
+      <End Role="RESULTADO_LABORATORIO" EntitySet="RESULTADO_LABORATORIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientesCampanasParticipantes" Association="Self.FK_ClientesCampanasParticipantes">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="CAMPA_AS_PARTICIPANTES" EntitySet="CAMPA_AS_PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientesCantones" Association="Self.FK_ClientesCantones">
+      <End Role="CANTONES" EntitySet="CANTONES" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientesEstados" Association="Self.FK_ClientesEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientesFacturas" Association="Self.FK_ClientesFacturas">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientesMascotas" Association="Self.FK_ClientesMascotas">
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+      <End Role="MASCOTAS" EntitySet="MASCOTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsultorioCitas" Association="Self.FK_ConsultorioCitas">
+      <End Role="CONSULTORIO" EntitySet="CONSULTORIO" />
+      <End Role="CITAS" EntitySet="CITAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartamentosPuestos" Association="Self.FK_DepartamentosPuestos">
+      <End Role="DEPARTAMENTOS" EntitySet="DEPARTAMENTOS" />
+      <End Role="PUESTOS" EntitySet="PUESTOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DespachoEstados" Association="Self.FK_DespachoEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="DESPACHO" EntitySet="DESPACHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DistritosCampanas" Association="Self.FK_DistritosCampanas">
+      <End Role="DISTRITOS" EntitySet="DISTRITOS" />
+      <End Role="CAMPA_AS" EntitySet="CAMPA_AS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DistritosClientes" Association="Self.FK_DistritosClientes">
+      <End Role="DISTRITOS" EntitySet="DISTRITOS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EstadosTablasEstados" Association="Self.FK_EstadosTablasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="ESTADOS_TABLAS" EntitySet="ESTADOS_TABLAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasCobros" Association="Self.FK_FacturasCobros">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="COBROS" EntitySet="COBROS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasCreditos" Association="Self.FK_FacturasCreditos">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="CREDITOS" EntitySet="CREDITOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasDespacho" Association="Self.FK_FacturasDespacho">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="DESPACHO" EntitySet="DESPACHO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasDetalleArticulos" Association="Self.FK_FacturasDetalleArticulos">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="DETALLE_ARTICULOS" EntitySet="DETALLE_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasDetalleServicio" Association="Self.FK_FacturasDetalleServicio">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasEstados" Association="Self.FK_FacturasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasFacturaPromocion" Association="Self.FK_FacturasFacturaPromocion">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="FACTURA_PROMOCION" EntitySet="FACTURA_PROMOCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacturasServicioExpres" Association="Self.FK_FacturasServicioExpres">
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+      <End Role="SERVICIOS_EXPRESS" EntitySet="SERVICIOS_EXPRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventarioDetalleArticulos" Association="Self.FK_InventarioDetalleArticulos">
+      <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+      <End Role="DETALLE_ARTICULOS" EntitySet="DETALLE_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InventarioEstados" Association="Self.FK_InventarioEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="INVENTARIO" EntitySet="INVENTARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MascotaCitas" Association="Self.FK_MascotaCitas">
+      <End Role="MASCOTAS" EntitySet="MASCOTAS" />
+      <End Role="CITAS" EntitySet="CITAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MascotasEstados" Association="Self.FK_MascotasEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="MASCOTAS" EntitySet="MASCOTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MetodoPagoFacturas" Association="Self.FK_MetodoPagoFacturas">
+      <End Role="METODO_PAGO" EntitySet="METODO_PAGO" />
+      <End Role="COBROS" EntitySet="COBROS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MotivoCitas" Association="Self.FK_MotivoCitas">
+      <End Role="MOTIVO_CITA" EntitySet="MOTIVO_CITA" />
+      <End Role="CITAS" EntitySet="CITAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NominaNominaPersonal" Association="Self.FK_NominaNominaPersonal">
+      <End Role="NOMINA" EntitySet="NOMINA" />
+      <End Role="NOMINA_PERSONAL" EntitySet="NOMINA_PERSONAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParticipantesEstados" Association="Self.FK_ParticipantesEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="PARTICIPANTES" EntitySet="PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalCajas" Association="Self.FK_PersonalCajas">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="CAJAS" EntitySet="CAJAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalConsultorio" Association="Self.FK_PersonalConsultorio">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="CONSULTORIO" EntitySet="CONSULTORIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalEstados" Association="Self.FK_PersonalEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalMarcas" Association="Self.FK_PersonalMarcas">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="MARCAS" EntitySet="MARCAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalNominaPersonal" Association="Self.FK_PersonalNominaPersonal">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="NOMINA_PERSONAL" EntitySet="NOMINA_PERSONAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalUsuarios" Association="Self.FK_PersonalUsuarios">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalVacaciones" Association="Self.FK_PersonalVacaciones">
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+      <End Role="VACACIONES" EntitySet="VACACIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PromocionesEstados" Association="Self.FK_PromocionesEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="PROMOCIONES" EntitySet="PROMOCIONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PromocionesFacturaPromocion" Association="Self.FK_PromocionesFacturaPromocion">
+      <End Role="PROMOCIONES" EntitySet="PROMOCIONES" />
+      <End Role="FACTURA_PROMOCION" EntitySet="FACTURA_PROMOCION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProveedoresArticulosProveedor" Association="Self.FK_ProveedoresArticulosProveedor">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ARTICULOS_PROVEEDOR" EntitySet="ARTICULOS_PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinciaCantones" Association="Self.FK_ProvinciaCantones">
+      <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+      <End Role="CANTONES" EntitySet="CANTONES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProvinciaClientes" Association="Self.FK_ProvinciaClientes">
+      <End Role="PROVINCIAS" EntitySet="PROVINCIAS" />
+      <End Role="CLIENTES" EntitySet="CLIENTES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PruebasLaboratorioResultadoLaboratorio" Association="Self.FK_PruebasLaboratorioResultadoLaboratorio">
+      <End Role="PRUEBAS_LABORATORIO" EntitySet="PRUEBAS_LABORATORIO" />
+      <End Role="RESULTADO_LABORATORIO" EntitySet="RESULTADO_LABORATORIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PuestosPersonal" Association="Self.FK_PuestosPersonal">
+      <End Role="PUESTOS" EntitySet="PUESTOS" />
+      <End Role="PERSONAL" EntitySet="PERSONAL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PuestosRequisitosPuesto" Association="Self.FK_PuestosRequisitosPuesto">
+      <End Role="PUESTOS" EntitySet="PUESTOS" />
+      <End Role="REQUISITOS_PUESTO" EntitySet="REQUISITOS_PUESTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReclutamientolEstados" Association="Self.FK_ReclutamientolEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="RECLUTAMIENTO" EntitySet="RECLUTAMIENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadoLaboratorioEstados" Association="Self.FK_ResultadoLaboratorioEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="RESULTADO_LABORATORIO" EntitySet="RESULTADO_LABORATORIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolesEstados" Association="Self.FK_RolesEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="ROLES" EntitySet="ROLES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolUsuariosRol" Association="Self.FK_RolUsuariosRol">
+      <End Role="ROLES" EntitySet="ROLES" />
+      <End Role="USUARIO_ROL" EntitySet="USUARIO_ROL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioExpressEstados" Association="Self.FK_ServicioExpressEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="SERVICIOS_EXPRESS" EntitySet="SERVICIOS_EXPRESS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiciosDetalleServicio" Association="Self.FK_ServiciosDetalleServicio">
+      <End Role="SERVICIOS" EntitySet="SERVICIOS" />
+      <End Role="DETALLE_SERVICIO" EntitySet="DETALLE_SERVICIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudCompraEstados" Association="Self.FK_SolicitudCompraEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="SOLICITUD_COMPRA" EntitySet="SOLICITUD_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudCompraFactura_Compra" Association="Self.FK_SolicitudCompraFactura_Compra">
+      <End Role="SOLICITUD_COMPRA" EntitySet="SOLICITUD_COMPRA" />
+      <End Role="FACTURA_COMPRA" EntitySet="FACTURA_COMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SolicitudCompraSolicitudArticulos" Association="Self.FK_SolicitudCompraSolicitudArticulos">
+      <End Role="SOLICITUD_COMPRA" EntitySet="SOLICITUD_COMPRA" />
+      <End Role="SOLICITUD_ARTICULOS" EntitySet="SOLICITUD_ARTICULOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TablasTablasEstados" Association="Self.FK_TablasTablasEstados">
+      <End Role="TABLAS" EntitySet="TABLAS" />
+      <End Role="ESTADOS_TABLAS" EntitySet="ESTADOS_TABLAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoAnimalMascotas" Association="Self.FK_TipoAnimalMascotas">
+      <End Role="TIPO_ANIMAL" EntitySet="TIPO_ANIMAL" />
+      <End Role="MASCOTAS" EntitySet="MASCOTAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoConsultorioConsultorio" Association="Self.FK_TipoConsultorioConsultorio">
+      <End Role="TIPO_CONSULTORIO" EntitySet="TIPO_CONSULTORIO" />
+      <End Role="CONSULTORIO" EntitySet="CONSULTORIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoMarca_Marcas" Association="Self.FK_TipoMarca_Marcas">
+      <End Role="TIPO_MARCA" EntitySet="TIPO_MARCA" />
+      <End Role="MARCAS" EntitySet="MARCAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoPagoFacturas" Association="Self.FK_TipoPagoFacturas">
+      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
+      <End Role="FACTURAS" EntitySet="FACTURAS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosEstados" Association="Self.FK_UsuariosEstados">
+      <End Role="ESTADOS" EntitySet="ESTADOS" />
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosUsuariosRol" Association="Self.FK_UsuariosUsuariosRol">
+      <End Role="USUARIOS" EntitySet="USUARIOS" />
+      <End Role="USUARIO_ROL" EntitySet="USUARIO_ROL" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipantesPruebasParticipantes" Association="Self.ParticipantesPruebasParticipantes">
+      <End Role="PARTICIPANTES" EntitySet="PARTICIPANTES" />
+      <End Role="PRUEBAS_PARTICIPANTES" EntitySet="PRUEBAS_PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="ParticipantesRequisitosParticipanes" Association="Self.ParticipantesRequisitosParticipanes">
+      <End Role="PARTICIPANTES" EntitySet="PARTICIPANTES" />
+      <End Role="REQUISITOS_PARTICIPANTES" EntitySet="REQUISITOS_PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="PruebasPruebasParticipantes" Association="Self.PruebasPruebasParticipantes">
+      <End Role="PRUEBAS" EntitySet="PRUEBAS" />
+      <End Role="PRUEBAS_PARTICIPANTES" EntitySet="PRUEBAS_PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="ReclutamientoParticipantes" Association="Self.ReclutamientoParticipantes">
+      <End Role="RECLUTAMIENTO" EntitySet="RECLUTAMIENTO" />
+      <End Role="PARTICIPANTES" EntitySet="PARTICIPANTES" />
+    </AssociationSet>
+    <AssociationSet Name="RequisitosPuestoRequisitosParticipanes" Association="Self.RequisitosPuestoRequisitosParticipanes">
+      <End Role="REQUISITOS_PUESTO" EntitySet="REQUISITOS_PUESTO" />
+      <End Role="REQUISITOS_PARTICIPANTES" EntitySet="REQUISITOS_PARTICIPANTES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

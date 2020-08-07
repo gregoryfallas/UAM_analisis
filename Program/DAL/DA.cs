@@ -66,7 +66,7 @@ namespace DAL
         /// </summary>
         /// <param name="peticion"></param>
         /// <returns></returns>
-        public bool ejecutarSentecia(SQLSentencia peticion)
+        public int ejecutarSentecia(SQLSentencia peticion)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace DAL
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                 this.ABRIR();
                 cmd.ExecuteNonQuery();
-                return true;
+                return cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -335,32 +335,32 @@ namespace DAL
         #region Stephanie
 
         #region Puestos
-        public int Ejecutar_Peticiones(SQLParametros P_Peticion)
-        {
-            try
-            {
+        //public int Ejecutar_Peticiones(SQLSentencia P_Peticion)
+        //{
+        //    try
+        //    {
 
-                SqlCommand cmd = new SqlCommand();
+        //        SqlCommand cmd = new SqlCommand();
 
-                cmd.Connection = objconexion;
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = P_Peticion.Peticion;
+        //        cmd.Connection = objconexion;
+        //        cmd.CommandType = System.Data.CommandType.Text;
+        //        cmd.CommandText = P_Peticion.Peticion;
 
-                this.ABRIR();
+        //        this.ABRIR();
 
-                return cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                this.CERRAR();
-            }
-        }
+        //        return cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+        //}
 
-        public List<PUESTOS> Consultar_Puestos(SQLParametros P_Peticion)
+        public List<PUESTOS> Consultar_Puestos(SQLSentencia P_Peticion)
         {
 
             List<PUESTOS> lstresultados = new List<PUESTOS>();
@@ -413,59 +413,146 @@ namespace DAL
         }
         #endregion
 
+        public List<RECLUTAMIENTO> Consultar_Reclutamiento(SQLSentencia P_Peticion)
+        {
 
-        //public List<RECLUTAMIENTO> Consultar_Reclutamiento(SQLParametros P_Peticion)
-        //{
+            List<RECLUTAMIENTO> lstresultados = new List<RECLUTAMIENTO>();
 
-        //    List<RECLUTAMIENTO> lstresultados = new List<RECLUTAMIENTO>();
+            try
+            {
 
-        //    try
-        //    {
+                SqlCommand cmd = new SqlCommand();
 
-        //        SqlCommand cmd = new SqlCommand();
-
-        //        cmd.Connection = objconexion;
-        //        cmd.CommandType = System.Data.CommandType.Text;
-        //        cmd.CommandText = P_Peticion.Peticion;
-
-
-        //        SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = P_Peticion.Peticion;
 
 
-        //        DataTable dt = new DataTable();
-        //        objconsulta.Fill(dt);
-
-        //        if (dt.Rows.Count > 0)
-        //        {
-
-        //            foreach (DataRow fila in dt.Rows)
-        //            {
-        //                RECLUTAMIENTO u = new RECLUTAMIENTO();
+                SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
 
 
-        //                u.ID_Reclutamiento = Convert.ToInt32(fila.ItemArray[0].ToString());
-        //                u.ID_Puestos = Convert.ToInt32(fila.ItemArray[1].ToString());
-        //                u.Nombre = fila.ItemArray[2].ToString();
-        //                u.Descripcion = fila.ItemArray[3].ToString();
-        //                u.Estado = Convert.ToInt32(fila.ItemArray[4].ToString());
+                DataTable dt = new DataTable();
+                objconsulta.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        RECLUTAMIENTO u = new RECLUTAMIENTO();
+
+
+                      //  u.ID_Reclutamiento = Convert.ToInt32(fila.ItemArray[0].ToString());
+                      //  u.ID_Puestos = Convert.ToInt32(fila.ItemArray[1].ToString());
+                        u.Nombre = fila.ItemArray[0].ToString();
+                        u.Descripcion = fila.ItemArray[1].ToString();
+                        u.Estado = Convert.ToInt32(fila.ItemArray[2].ToString());
 
 
 
-        //                lstresultados.Add(u);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        this.CERRAR();
-        //    }
+                        lstresultados.Add(u);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
 
-        //    return lstresultados;
-        //}
+            return lstresultados;
+        }
+
+        public List<ESTADOS> ConsultarTipoEstado(SQLSentencia P_Peticion)
+        {
+            List<ESTADOS> lstresultados = new List<ESTADOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ESTADOS est = new ESTADOS();
+
+                        est.ID_Estados = Convert.ToInt32(item.ItemArray[0].ToString());
+                        est.Nombre = item.ItemArray[1].ToString();
+                        lstresultados.Add(est);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<PUESTOS> ConsultarTipoPuesto(SQLSentencia P_Peticion)
+        {
+            List<PUESTOS> lstresultados = new List<PUESTOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PUESTOS depa = new PUESTOS();
+
+                        depa.ID_Puestos = Convert.ToInt32(item.ItemArray[0].ToString());
+                        depa.Nombre = item.ItemArray[1].ToString();
+                        lstresultados.Add(depa);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
         #endregion
 

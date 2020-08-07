@@ -18,7 +18,7 @@ namespace BLL
         {
             try
             {
-                SQLParametros objpeticion = new SQLParametros();
+                SQLSentencia objpeticion = new SQLSentencia();
                // objpeticion.Peticion = @"SELECT ID_Puestos, ID_Departamento, Nombre, Salario_Base, Descripcion FROM PUESTOS";
                 objpeticion.Peticion = @"SELECT ID_Puestos, ID_Departamento, Nombre FROM PUESTOS";
 
@@ -34,33 +34,7 @@ namespace BLL
             
         }
 
-        //public static bool VerificarPuestos(PUESTOS P_Puesto)
-        //{
-        //    try
-        //    {
-        //        SQLParametros objpeticion = new SQLParametros();
-        //        objpeticion.Peticion = @"SELECT ID_Puestos, ID_Departamento, Nombre, Salario_Base, Descripcion FROM PUESTOS";
-        //        objpeticion.Peticion += @"WHERE ID_Puestos = '" + P_Puesto.ID_Puestos + "' AND ";
-        //        objpeticion.Peticion += @"ID_Departamento = '" + P_Puesto.ID_Departamento + "' AND ";
-        //        objpeticion.Peticion += @"Nombre = '" + P_Puesto.Nombre + "'";
-        //        objpeticion.Peticion += @"Salario_Base = '" + P_Puesto.Salario_Base + "'";
-        //        objpeticion.Peticion += @"Descripcion = '" + P_Puesto.Descripcion + "'";
-
-
-
-        //        DA objacceso = new DA();
-        //        List<PUESTOS> lstresultados = objacceso.Consultar_Puestos(objpeticion);
-
-        //        if (lstresultados.Count > 0)
-        //            return true;
-        //        else
-        //            return false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+       
 
         #endregion
 
@@ -70,13 +44,25 @@ namespace BLL
         {
             try
             {
-                SQLParametros objpeticion = new SQLParametros();
-
-                objpeticion.Peticion = @"INSERT INTO RECLUTAMIENTO VALUES ('" + m_reclutamiento.ID_Reclutamiento + "','" + m_reclutamiento.ID_Puestos + "','" + m_reclutamiento.Nombre + "','" + m_reclutamiento.Descripcion + m_reclutamiento.Estado + "')";
-               // objpeticion.Peticion = @"INSERT INTO RECLUTAMIENTO VALUES ('" + m_reclutamiento.Nombre + "','" + m_reclutamiento.Descripcion + m_reclutamiento.Estado + "')";
-
-                DA objacceso = new DA();
-                return objacceso.Ejecutar_Peticiones(objpeticion);
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_AGREGAR_RECLUTAMIENTO @Nombre, @Descripcion, @Estado";
+                SqlParameter paramreclu = new SqlParameter();
+                paramreclu.Value = m_reclutamiento.Nombre;
+                paramreclu.ParameterName = "@Nombre";
+                paramreclu.SqlDbType = System.Data.SqlDbType.VarChar;
+                SqlParameter paramdesc = new SqlParameter();
+                paramdesc.Value = m_reclutamiento.Descripcion;
+                paramdesc.ParameterName = "@Descripcion";
+                paramdesc.SqlDbType = System.Data.SqlDbType.VarChar;
+                SqlParameter paramEstado = new SqlParameter();
+                paramEstado.Value = m_reclutamiento.Estado;
+                paramEstado.ParameterName = "@Estado";
+                paramEstado.SqlDbType = System.Data.SqlDbType.Int;
+                peticion.lstParametros.Add(paramreclu);
+                peticion.lstParametros.Add(paramdesc);
+                peticion.lstParametros.Add(paramEstado);
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
             }
             catch (Exception ex)
             {
@@ -84,7 +70,88 @@ namespace BLL
             }
         }
 
-        #endregion 
+
+        public static List<ESTADOS> ConsultaEstados()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_PA_Tipo_Estado ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarTipoEstado(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        //SEGUNDA FORMA de hacerlo
+        //public static List<ESTADOS> ListarEstado()
+        //{
+
+        //    try
+        //    {
+        //        SQLSentencia sentencia = new SQLSentencia();
+        //        sentencia.Peticion = @"SELECT ID_Estados ,Nombre  FROM ESTADOS";
+
+        //        DA objacceso = new DA();
+        //        return objacceso.ConsultarTipoEstado(sentencia);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+
+        //}
+
+        public static List<PUESTOS> ConsultaPuesto()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_PA_Tipo_Cargo ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarTipoPuesto(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool VerificarReclutamiento(RECLUTAMIENTO R_Recluta)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+                objpeticion.Peticion = @"SELECT Nombre, Descripcion, Estado FROM Reclutamiento";
+               // objpeticion.Peticion += @"WHERE ID_Reclutamiento = '" + R_Recluta.ID_Reclutamiento + "' AND ";
+               // objpeticion.Peticion += @"ID_Puesto = '" + R_Recluta.ID_Puestos + "' AND ";
+                objpeticion.Peticion += @"WHERE Nombre = '" + R_Recluta.Nombre + "'";
+                objpeticion.Peticion += @"Descripcion = '" + R_Recluta.Descripcion + "'";
+                objpeticion.Peticion += @"Estado = '" + R_Recluta.Estado + "'";
+
+
+
+                DA objacceso = new DA();
+                List<RECLUTAMIENTO> lstresultados = objacceso.Consultar_Reclutamiento(objpeticion);
+
+                if (lstresultados.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
 
     }
 }

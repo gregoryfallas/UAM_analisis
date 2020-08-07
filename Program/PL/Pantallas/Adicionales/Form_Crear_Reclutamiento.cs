@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL.Entidades;
+using System.Data.SqlClient;
 
 namespace PL.Pantallas.Adicionales
 {
-    //public List<PUESTOS> lstresultado { get; set; }
+   // public List<RECLUTAMIENTO> lstresultado { get; set; }
     //public bool EsError { get; set; }
 
 
@@ -21,10 +22,40 @@ namespace PL.Pantallas.Adicionales
         public Form_Crear_Reclutamiento()
         {
             InitializeComponent();
-            //lstresultado = new List<PUESTOS>();
+         //   lstresultado = new List<RECLUTAMIENTO>();
+            CargarCombos();
+            CargarCombos2();
         }
 
+        private void limpiar()
+        {
 
+           // txtid.Text = string.Empty;
+            cboidpuestos.Text = string.Empty;
+           // txtnombre.Text = string.Empty;
+           txtdescripcion.Text = string.Empty;
+            cboestado.Text = string.Empty;
+
+        }
+        private void CargarCombos()
+        {
+            List<ESTADOS> lstresultado = R_Humanos.ConsultaEstados();
+
+            this.cboestado.DataSource = lstresultado;
+            cboestado.ValueMember = "ID_Estados";
+            cboestado.DisplayMember = "Nombre";
+            cboestado.Refresh();
+        }
+
+        private void CargarCombos2()
+        {
+            List<PUESTOS> lstresultado = R_Humanos.ConsultaPuesto();
+
+            this.cboidpuestos.DataSource = lstresultado;
+            cboidpuestos.ValueMember = "ID_Puestos";
+            cboidpuestos.DisplayMember = "Nombre";
+            cboidpuestos.Refresh();
+        }
 
         //private bool VerificarExistenciaCodigo()
         //{
@@ -57,55 +88,49 @@ namespace PL.Pantallas.Adicionales
             atras.ShowDialog();
         }
 
-        private void btnmostrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<PUESTOS> lstresultado = R_Humanos.Consultar_Puestos();
+        //private void btnmostrar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<PUESTOS> lstresultado = R_Humanos.Consultar_Puestos();
 
-                this.dgvpuestos.DataSource = lstresultado;
-                this.dgvpuestos.Refresh();
-            }
-            catch (Exception ex)
-            {
+        //        this.dgvpuestos.DataSource = lstresultado;
+        //        this.dgvpuestos.Refresh();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message);
-            }
-        }
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void btncrear_Click(object sender, EventArgs e)
         {
+           
             try
             {
-                //if (!EsError)
-                //{
-                //    if (VerificarExistenciaCodigo())
-                //    {
-                //        MessageBox.Show("El código digitado ya existe en base de datos, por favor cambiarlo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //        return;
-                //    }
-                
-                    RECLUTAMIENTO m = new RECLUTAMIENTO();
+               
 
-                   m.ID_Reclutamiento = Convert.ToInt32(txtid.Text.Trim());
-                    m.ID_Puestos = Convert.ToInt32(txtidpuesto.Text.Trim());
-                    m.Nombre = txtnombre.Text.Trim();
-                    m.Descripcion = txtdescripcion.Text.Trim();
-                    m.Estado = Convert.ToInt32(txtestado.Text.Trim());
+                RECLUTAMIENTO m = new RECLUTAMIENTO();
+
+           
+                  m.Nombre = cboidpuestos.Text.Trim();
+                m.Descripcion = txtdescripcion.Text.Trim();
+            m.Estado = Convert.ToInt32(cboestado.Text.Trim());
 
 
-                    R_Humanos.AgregarReclutamiento(m);
-                    MessageBox.Show("Reclutamiento Creado");
-                   // limpiar();
+            R_Humanos.AgregarReclutamiento(m);
+            MessageBox.Show("Reclutamiento Creado");
+            limpiar();
 
-                    txtid.Focus();
-                
-            }
+            cboidpuestos.Focus();
+
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+}
 
         private void btnenviar_Click(object sender, EventArgs e)
         {

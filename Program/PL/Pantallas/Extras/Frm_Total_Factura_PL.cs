@@ -20,6 +20,7 @@ namespace PL.Pantallas.Extras
         ARTICULOS Obj_Dal = new ARTICULOS();
         FACTURA_COMPRA fact = new FACTURA_COMPRA();
         FACTURAS facturas = new FACTURAS();
+       
 
 
         public Frm_Total_Factura_PL()
@@ -101,6 +102,31 @@ namespace PL.Pantallas.Extras
             this.Hide();
 
         }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 

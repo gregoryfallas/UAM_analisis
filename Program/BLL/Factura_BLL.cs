@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL.Entidades;
 using System.Data.SqlClient;
 using DAL;
+using System.Data;
 
 namespace BLL
 {
@@ -83,26 +84,31 @@ namespace BLL
 
 
 
+        public static bool NumeroFactura(FACTURAS factura)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_GENERAR_NOFACTURA @Numero_Factura";
+                SqlParameter paramIDFacturas = new SqlParameter();
+                paramIDFacturas.Value = factura.Numero_Factura;
+                paramIDFacturas.ParameterName = "@Numero_Factura";
+                paramIDFacturas.SqlDbType = System.Data.SqlDbType.Int;
 
 
+                peticion.lstParametros.Add(paramIDFacturas);
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+        
     }
 }

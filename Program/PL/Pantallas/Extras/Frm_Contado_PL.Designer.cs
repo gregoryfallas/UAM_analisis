@@ -65,6 +65,10 @@
             this.txt_Precio = new System.Windows.Forms.TextBox();
             this.txt_Importe = new System.Windows.Forms.TextBox();
             this.gb_Datos = new System.Windows.Forms.GroupBox();
+            this.txt_Caja = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_NoCliente = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
@@ -81,10 +85,7 @@
             this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_NoCliente = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_Caja = new System.Windows.Forms.TextBox();
+            this.lbl_Factura = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -582,6 +583,50 @@
             this.gb_Datos.TabStop = false;
             this.gb_Datos.Text = "Documento";
             // 
+            // txt_Caja
+            // 
+            this.txt_Caja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Caja.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Caja.ForeColor = System.Drawing.Color.White;
+            this.txt_Caja.Location = new System.Drawing.Point(418, 158);
+            this.txt_Caja.Name = "txt_Caja";
+            this.txt_Caja.Size = new System.Drawing.Size(90, 26);
+            this.txt_Caja.TabIndex = 13;
+            this.txt_Caja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(434, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 23);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "No.Caja";
+            // 
+            // txt_NoCliente
+            // 
+            this.txt_NoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_NoCliente.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NoCliente.ForeColor = System.Drawing.Color.White;
+            this.txt_NoCliente.Location = new System.Drawing.Point(6, 71);
+            this.txt_NoCliente.Name = "txt_NoCliente";
+            this.txt_NoCliente.Size = new System.Drawing.Size(201, 26);
+            this.txt_NoCliente.TabIndex = 11;
+            this.txt_NoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(16, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 23);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "IdClliente";
+            // 
             // txt_Fecha_Doc
             // 
             this.txt_Fecha_Doc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
@@ -712,6 +757,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.lbl_Factura);
             this.panel2.Controls.Add(this.lblNroCorrelativo);
             this.panel2.Controls.Add(this.btn_inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -745,49 +791,15 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
+            // lbl_Factura
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 23);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "IdClliente";
-            // 
-            // txt_NoCliente
-            // 
-            this.txt_NoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_NoCliente.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NoCliente.ForeColor = System.Drawing.Color.White;
-            this.txt_NoCliente.Location = new System.Drawing.Point(6, 71);
-            this.txt_NoCliente.Name = "txt_NoCliente";
-            this.txt_NoCliente.Size = new System.Drawing.Size(201, 26);
-            this.txt_NoCliente.TabIndex = 11;
-            this.txt_NoCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(434, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 23);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "No.Caja";
-            // 
-            // txt_Caja
-            // 
-            this.txt_Caja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Caja.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Caja.ForeColor = System.Drawing.Color.White;
-            this.txt_Caja.Location = new System.Drawing.Point(418, 158);
-            this.txt_Caja.Name = "txt_Caja";
-            this.txt_Caja.Size = new System.Drawing.Size(90, 26);
-            this.txt_Caja.TabIndex = 13;
-            this.txt_Caja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lbl_Factura.BackColor = System.Drawing.Color.White;
+            this.lbl_Factura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Factura.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Factura.Location = new System.Drawing.Point(16, 28);
+            this.lbl_Factura.Name = "lbl_Factura";
+            this.lbl_Factura.Size = new System.Drawing.Size(78, 23);
+            this.lbl_Factura.TabIndex = 3;
             // 
             // Frm_Contado_PL
             // 
@@ -876,5 +888,6 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txt_Caja;
         public System.Windows.Forms.TextBox txt_Fecha_Doc;
+        private System.Windows.Forms.Label lbl_Factura;
     }
 }

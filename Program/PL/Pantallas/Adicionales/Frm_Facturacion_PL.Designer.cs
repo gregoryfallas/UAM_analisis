@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Facturacion_PL));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_Cajas = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -45,7 +46,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,6 +63,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 641);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(139, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 27);
+            this.label1.TabIndex = 24;
             // 
             // toolStrip1
             // 
@@ -133,7 +141,6 @@
             // tsb_Credito
             // 
             this.tsb_Credito.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Credito.Enabled = false;
             this.tsb_Credito.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Credito.Image")));
             this.tsb_Credito.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Credito.Name = "tsb_Credito";
@@ -156,7 +163,6 @@
             // tsb_Express
             // 
             this.tsb_Express.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Express.Enabled = false;
             this.tsb_Express.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Express.Image")));
             this.tsb_Express.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_Express.Name = "tsb_Express";
@@ -196,14 +202,6 @@
             this.btn_inicio.Text = "Inicio";
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(139, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 27);
-            this.label1.TabIndex = 24;
             // 
             // Frm_Facturacion_PL
             // 

@@ -17,9 +17,13 @@ namespace PL.Pantallas.Extras
     {
         int EnviarFecha = 0;
 
-        ARTICULOS Obj_Dal = new ARTICULOS();        
+        Articulos_BLL Obj_BLL = new Articulos_BLL();
+        DA Obj_Dal = new DA();
+
+        ARTICULOS ART = new ARTICULOS();        
         FACTURAS facturas = new FACTURAS();
         CLIENTES clientes = new CLIENTES();
+        
       
 
         string nombre;
@@ -34,34 +38,34 @@ namespace PL.Pantallas.Extras
         {
             double imp=0.13;
 
-            if (Obj_Dal.Cantidad>0)
+            if (ART.Cantidad>0)
             {
                 dtg_Factura.Rows.Add(new string[] {
              Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
-             Convert.ToString(Obj_Dal.Cantidad),
+             Convert.ToString(ART.Cantidad),
             Convert.ToString(dtg_Articulos[3, dtg_Articulos.CurrentRow.Index].Value),
-            Convert.ToString(Obj_Dal.Temporal_descuento),
-            Convert.ToString(Obj_Dal.Importe)});
+            Convert.ToString(ART.Temporal_descuento),
+            Convert.ToString(ART.Importe)});
 
                 for (int i = 0; i < dtg_Factura.RowCount; i++)
                 {
-                    Obj_Dal.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                    ART.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
                     
-                    Math.Round(Obj_Dal.Subtotal,2);                  
+                    Math.Round(ART.Subtotal,2);                  
 
                 }
 
-                txt_SubTotal.Text = ("¢") + Obj_Dal.Subtotal.ToString();
-                Obj_Dal.Impuesto = Obj_Dal.Subtotal * Convert.ToDecimal(0.13);
-                Math.Round(Obj_Dal.Impuesto,2);
-                txt_Impuesto.Text = ("¢") + Obj_Dal.Impuesto.ToString();
-                facturas.Total = Obj_Dal.Subtotal + Obj_Dal.Impuesto;
+                txt_SubTotal.Text = ("¢") + ART.Subtotal.ToString();
+                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
+                Math.Round(ART.Impuesto,2);
+                txt_Impuesto.Text = ("¢") + ART.Impuesto.ToString();
+                facturas.Total = ART.Subtotal + ART.Impuesto;
                 Math.Round(facturas.Total, 2);
                 txt_Total.Text = ("¢") + facturas.Total.ToString();
 
                 //Obj_Dal.Dprecio = facturas.Total;
 
-                Obj_Dal.Subtotal = 0;
+                ART.Subtotal = 0;
 
                 LimpiarCampos();
             }
@@ -77,6 +81,7 @@ namespace PL.Pantallas.Extras
             
 
             }
+
 
             private void btn_Confirmar_Click(object sender, EventArgs e)
         {
@@ -128,6 +133,7 @@ namespace PL.Pantallas.Extras
             }
         }
 
+
         private void btn_Orden_Click(object sender, EventArgs e)
         {
 
@@ -142,21 +148,27 @@ namespace PL.Pantallas.Extras
             }
         }
 
+
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-            timer1.Interval = 500;
-            timer1.Start();     
-            Cargar();
-            Cargar2();      
             
 
 
+            timer1.Interval = 500;
+            timer1.Start();     
+            Cargar();
+            Cargar2();
+
+
+
         }
+
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
@@ -164,6 +176,7 @@ namespace PL.Pantallas.Extras
                        
         }
        
+
         private void Cargar ()
         {
             Clientes_BLL Clientes = new Clientes_BLL();
@@ -196,6 +209,7 @@ namespace PL.Pantallas.Extras
 
         }
 
+
         private void Cargar2()
         {
 
@@ -221,7 +235,6 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             nombre= dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
             txt_Nombre.Text = nombre;
         }
@@ -247,6 +260,7 @@ namespace PL.Pantallas.Extras
 
         }
 
+
         private void btn_Productos_Click(object sender, EventArgs e)
         {
             Cargar2();
@@ -255,8 +269,8 @@ namespace PL.Pantallas.Extras
         private void dtg_Articulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            Obj_Dal.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[3].Value.ToString());
-            txt_Precio.Text = Obj_Dal.Precio.ToString();
+            ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[3].Value.ToString());
+            txt_Precio.Text = ART.Precio.ToString();
         }
 
         
@@ -272,14 +286,15 @@ namespace PL.Pantallas.Extras
             else
             {
                                   
-                    Obj_Dal.Cantidad= Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                    Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
-                    Obj_Dal.Descuento = Obj_Dal.Importe * Obj_Dal.Temporal_descuento / 100;
-                    Obj_Dal.Importe = Obj_Dal.Importe - Obj_Dal.Descuento;                    
-                    txt_Importe.Text = Obj_Dal.Importe.ToString();
+                    ART.Cantidad= Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                    ART.Importe = ART.Precio * ART.Cantidad;
+                    ART.Descuento = ART.Importe * ART.Temporal_descuento / 100;
+                    ART.Importe = ART.Importe - ART.Descuento;                    
+                    txt_Importe.Text = ART.Importe.ToString();
                                 
             }           
         }
+
 
         private void LimpiarCampos()
         {
@@ -290,28 +305,30 @@ namespace PL.Pantallas.Extras
 
         }
 
+
         private void txt_Descuento_Leave(object sender, EventArgs e)
         {
-            Obj_Dal.Temporal_descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
+            ART.Temporal_descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
 
-            if (Obj_Dal.Temporal_descuento >= 1)
+            if (ART.Temporal_descuento >= 1)
             {
 
-                Obj_Dal.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
-                Obj_Dal.Descuento = Obj_Dal.Importe * Obj_Dal.Temporal_descuento / 100;
-                Obj_Dal.Importe = Obj_Dal.Importe - Obj_Dal.Descuento;
-                txt_Importe.Text = Obj_Dal.Importe.ToString();
+                ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                ART.Importe = ART.Precio * ART.Cantidad;
+                ART.Descuento = ART.Importe * ART.Temporal_descuento / 100;
+               ART.Importe = ART.Importe - ART.Descuento;
+                txt_Importe.Text = ART.Importe.ToString();
             }
             else
             {
 
-                Obj_Dal.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                Obj_Dal.Importe = Obj_Dal.Precio * Obj_Dal.Cantidad;
-                txt_Importe.Text = Obj_Dal.Importe.ToString();
+                ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                ART.Importe = ART.Precio * ART.Cantidad;
+                txt_Importe.Text = ART.Importe.ToString();
             }
 
         }
+
 
         private void txt_Cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -325,6 +342,7 @@ namespace PL.Pantallas.Extras
             }
         }
 
+
         private void txt_Descuento_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar))
@@ -336,14 +354,13 @@ namespace PL.Pantallas.Extras
                 e.Handled = false;
             }
         }
-
-               
-        
+                             
 
         private void CapturarFechaSistema()
         {
             txt_Fecha_Doc.Text = DateTime.Now.ToShortDateString();
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {           
@@ -354,24 +371,26 @@ namespace PL.Pantallas.Extras
             
         }
 
+
         private void dtg_Factura_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtg_Factura.Rows.Count > 0)
             {
-                Obj_Dal.Cantidad = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[1].Value.ToString());
-                Obj_Dal.Descuento = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[3].Value.ToString());
-                Obj_Dal.Importe = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[4].Value.ToString());
-                Obj_Dal.Precio= Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                ART.Cantidad = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[1].Value.ToString());
+                ART.Descuento = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[3].Value.ToString());
+                ART.Importe = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[4].Value.ToString());
+                ART.Precio= Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
 
 
-                txt_Cantidad.Text = Obj_Dal.Cantidad.ToString();
-                txt_Descuento.Text = Obj_Dal.Descuento.ToString();
-                txt_Precio.Text = Obj_Dal.Precio.ToString();
-                txt_Importe.Text = Obj_Dal.Importe.ToString();
+                txt_Cantidad.Text = ART.Cantidad.ToString();
+                txt_Descuento.Text = ART.Descuento.ToString();
+                txt_Precio.Text = ART.Precio.ToString();
+                txt_Importe.Text = ART.Importe.ToString();
 
             }
 
         }
+
 
         private void btn_Guardar_Click(object sender, EventArgs e)
         {

@@ -21,13 +21,19 @@ namespace PL.Pantallas.Extras
     {
         DA Obj_Dal = new DA();
         Articulos_BLL Obj_BLL = new Articulos_BLL();
-
+        
+        CAJAS Cajas = new CAJAS();
+      
 
         public Frm_Cajas_PL()
         {
-            InitializeComponent();          
-        
+            InitializeComponent();
+            
         }
+
+
+        
+
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {           
@@ -36,24 +42,25 @@ namespace PL.Pantallas.Extras
 
         private void btn_AbrirCaja_Click(object sender, EventArgs e)
         {
+            
 
-            Obj_BLL.AbrirCaja(ref Obj_Dal);
-            MetodoCajas();  
+            Obj_Dal.IPrueba = 1;
 
+            Obj_BLL.Cajas(ref Obj_Dal);
+
+            MetodoCajas();
         }
 
         private void btn_CerrarCaja_Click(object sender, EventArgs e)
         {
-            Obj_BLL.CerrarCaja(ref Obj_Dal);
-
-            MetodoCajas();                  
-            //Frm_Facturacion_PL boton = new Frm_Facturacion_PL();
-            //label1.Text = "no";
-            //boton.label1.Text = label1.Text;
-            //this.Hide();
-            //boton.ShowDialog();
 
 
+
+            Obj_Dal.IPrueba = 0;
+
+            Obj_BLL.Cajas(ref Obj_Dal);
+
+            MetodoCajas();
 
         }
 
@@ -63,24 +70,40 @@ namespace PL.Pantallas.Extras
 
 
         private void Frm_Cajas_PL_Load(object sender, EventArgs e)
-        {                                             
-            if (Obj_Dal.IPrueba == 1)
+        {
+
+
+            CAJAS CAJITA = new CAJAS();
+            List<CAJAS> resultado = new List<CAJAS>();
+            resultado= Articulos_BLL.ConsultarCajas(1);
+
+            foreach (var li in resultado) {
+                CAJITA.ID_Caja = li.ID_Caja;
+                CAJITA.Estado = li.Estado;
+            }
+
+
+            if (CAJITA.Estado==22)
             {
-                btn_CerrarCaja.Enabled = true;
-                btn_AbrirCaja.Enabled = false;
+                btn_AbrirCaja.Enabled = true;
+                btn_CerrarCaja.Enabled = false;
             }
             else
             {
-                btn_CerrarCaja.Enabled = false;
-                btn_AbrirCaja.Enabled = true;
-            }           
+                btn_AbrirCaja.Enabled = false;
+                btn_CerrarCaja.Enabled = true;
+            }
+
         }
 
 
 
         public void MetodoCajas()
         {
-            if (Obj_Dal.ITemporal == 1)
+
+            Obj_BLL.Cajas(ref Obj_Dal);
+
+            if (Obj_Dal.ITemporal== 1)
             {
                 if (MessageBox.Show("¿Desea abrir Caja?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -88,8 +111,9 @@ namespace PL.Pantallas.Extras
 
                     btn_CerrarCaja.Enabled = true;
                     btn_AbrirCaja.Enabled = false;
-                    
-                    Obj_Dal.IPrueba = Obj_Dal.ITemporal;
+
+                    Articulos_BLL.ModificarCajas(1, 38);
+
 
                 }   
             }
@@ -105,6 +129,8 @@ namespace PL.Pantallas.Extras
                     btn_CerrarCaja.Enabled = false;
                     btn_AbrirCaja.Enabled = true;                    
                     Obj_Dal.IPrueba = Obj_Dal.ITemporal;
+
+                    Articulos_BLL.ModificarCajas(1, 22);
 
                 }
             }

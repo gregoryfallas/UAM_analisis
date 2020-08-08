@@ -13,33 +13,33 @@ using System.Data.SqlClient;
 
 namespace PL.Pantallas.Adicionales
 {
-   // public List<RECLUTAMIENTO> lstresultado { get; set; }
-    //public bool EsError { get; set; }
+   
 
 
     public partial class Form_Crear_Reclutamiento : Form
     {
+        private int puestos = 0;
+        private string nombrepuesto;
+        private string nombreEstado;
+
+
+        private int est = 0;
+        private int idestado = 0;
+        public List<RECLUTAMIENTO> lstresultado { get; set; }
+        public bool EsError { get; set; }
         public Form_Crear_Reclutamiento()
         {
+            lstresultado = new List<RECLUTAMIENTO>();
             InitializeComponent();
-         //   lstresultado = new List<RECLUTAMIENTO>();
             CargarCombos();
-            CargarCombos2();
+         
+            CargarCombos3();
         }
 
-        private void limpiar()
-        {
 
-           // txtid.Text = string.Empty;
-            cboidpuestos.Text = string.Empty;
-           // txtnombre.Text = string.Empty;
-           txtdescripcion.Text = string.Empty;
-            cboestado.Text = string.Empty;
-
-        }
         private void CargarCombos()
         {
-            List<ESTADOS> lstresultado = R_Humanos.ConsultaEstados();
+            List<ESTADOS> lstresultado = R_Humanos.ConsultaTipoEstado();
 
             this.cboestado.DataSource = lstresultado;
             cboestado.ValueMember = "ID_Estados";
@@ -47,37 +47,21 @@ namespace PL.Pantallas.Adicionales
             cboestado.Refresh();
         }
 
-        private void CargarCombos2()
-        {
-            List<PUESTOS> lstresultado = R_Humanos.ConsultaPuesto();
+      
 
-            this.cboidpuestos.DataSource = lstresultado;
-            cboidpuestos.ValueMember = "ID_Puestos";
-            cboidpuestos.DisplayMember = "Nombre";
-            cboidpuestos.Refresh();
+        private void CargarCombos3()
+        {
+            List<PUESTOS> lstresultado = R_Humanos.ConsultaTipoCargo();
+
+            this.cbonombre.DataSource = lstresultado;
+            cbonombre.ValueMember = "ID_Puestos";
+            cbonombre.DisplayMember = "Nombre";
+            cbonombre.Refresh();
         }
 
-        //private bool VerificarExistenciaCodigo()
+        //private void averguarestado()
         //{
-        //    bool L_resultado = false;
-
-        //    try
-        //    {
-        //        foreach (PUESTOS item in lstresultado)
-        //        {
-        //            if (item.ID_Puestos == Convert.ToInt32(txtid.Text.Trim()))
-        //            {
-        //                L_resultado = true; // Es igual a encontro el codigo
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-
-        //    return L_resultado;
+        //    if
         //}
 
 
@@ -88,53 +72,73 @@ namespace PL.Pantallas.Adicionales
             atras.ShowDialog();
         }
 
-        //private void btnmostrar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<PUESTOS> lstresultado = R_Humanos.Consultar_Puestos();
-
-        //        this.dgvpuestos.DataSource = lstresultado;
-        //        this.dgvpuestos.Refresh();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+       
 
         private void btncrear_Click(object sender, EventArgs e)
         {
-           
             try
             {
-               
+                    RECLUTAMIENTO p = new RECLUTAMIENTO();
 
-                RECLUTAMIENTO m = new RECLUTAMIENTO();
+                // p.ID_Puestos = Convert.ToInt32(cboidpuesto.Text.Trim());
+                p.ID_Puestos = puestos;
+                p.Nombre = nombrepuesto;
+                    p.Descripcion = txtdescripcion.Text.Trim();
+                    p.Estado = Convert.ToInt32(cboestado.Text.Trim());
+                   
 
-           
-                  m.Nombre = cboidpuestos.Text.Trim();
-                m.Descripcion = txtdescripcion.Text.Trim();
-            m.Estado = Convert.ToInt32(cboestado.Text.Trim());
-
-
-            R_Humanos.AgregarReclutamiento(m);
-            MessageBox.Show("Reclutamiento Creado");
-            limpiar();
-
-            cboidpuestos.Focus();
-
-        }
+                    R_Humanos.AgregarReclutamiento(p);
+                    MessageBox.Show("Recluta agregado");
+                  
+                
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-}
+
+        }
 
         private void btnenviar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Enviado a Marketing para lanzar vacante.");
+        }
+
+        private void cbonombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // textBox1.Text = cbonombre.SelectedIndex.ToString(); 
+            puestos = Convert.ToInt32(cbonombre.SelectedIndex) + 1;
+            // textBox1.Text = puestos.ToString();
+            //  nombrepuesto = cbonombre.;
+            // txtdescripcion.Text = cbonombre.SelectedValue.ToString();
+            // txtdescripcion.Text = cbonombre.DisplayMember.ToString();
+           // txtdescripcion.Text = cbonombre.SelectedText.ToString();
+
+        }
+
+        private void cbonombre_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // nombrepuesto
+            // txtdescripcion.Text = cbonombre.Text.ToString();
+            nombrepuesto = cbonombre.Text.ToString();
+        }
+
+        private void cboestado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //textBox1.Text = cboestado.SelectedValue.ToString();
+            textBox1.Text = cboestado.SelectedValue.ToString();
+        }
+
+        private void cboestado_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //  this.nombreEstado = cboestado
+            // textBox1.Text = cboestado.SelectedValue.ToString()
+            int st = 0;
+           // st = Convert.ToInt32(nombreEstado);
+            st = Convert.ToInt32(cboestado.SelectedValue.ToString());
+           
+           
+            textBox1.Text = st.ToString();
         }
     }
 }

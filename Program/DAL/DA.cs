@@ -334,137 +334,7 @@ namespace DAL
 
         #region Stephanie
 
-        #region Puestos
-        //public int Ejecutar_Peticiones(SQLSentencia P_Peticion)
-        //{
-        //    try
-        //    {
-
-        //        SqlCommand cmd = new SqlCommand();
-
-        //        cmd.Connection = objconexion;
-        //        cmd.CommandType = System.Data.CommandType.Text;
-        //        cmd.CommandText = P_Peticion.Peticion;
-
-        //        this.ABRIR();
-
-        //        return cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        this.CERRAR();
-        //    }
-        //}
-
-        public List<PUESTOS> Consultar_Puestos(SQLSentencia P_Peticion)
-        {
-
-            List<PUESTOS> lstresultados = new List<PUESTOS>();
-
-            try
-            {
-
-                SqlCommand cmd = new SqlCommand();
-
-                cmd.Connection = objconexion;
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = P_Peticion.Peticion;
-
-
-                SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
-
-
-                DataTable dt = new DataTable();
-                objconsulta.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-
-                    foreach (DataRow fila in dt.Rows)
-                    {
-                        PUESTOS u = new PUESTOS();
-
-
-                        u.ID_Puestos = Convert.ToInt32(fila.ItemArray[0].ToString());
-                        u.ID_Departamento = Convert.ToInt32(fila.ItemArray[1].ToString());
-                        u.Nombre = fila.ItemArray[2].ToString();
-                      //  u.Salario_Base = Convert.ToDecimal(fila.ItemArray[3].ToString());
-                      //  u.Descripcion = fila.ItemArray[4].ToString();
-                       
-
-                        lstresultados.Add(u);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                this.CERRAR();
-            }
-
-            return lstresultados;
-        }
-        #endregion
-
-        public List<RECLUTAMIENTO> Consultar_Reclutamiento(SQLSentencia P_Peticion)
-        {
-
-            List<RECLUTAMIENTO> lstresultados = new List<RECLUTAMIENTO>();
-
-            try
-            {
-
-                SqlCommand cmd = new SqlCommand();
-
-                cmd.Connection = objconexion;
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = P_Peticion.Peticion;
-
-
-                SqlDataAdapter objconsulta = new SqlDataAdapter(cmd);
-
-
-                DataTable dt = new DataTable();
-                objconsulta.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-
-                    foreach (DataRow fila in dt.Rows)
-                    {
-                        RECLUTAMIENTO u = new RECLUTAMIENTO();
-
-
-                      //  u.ID_Reclutamiento = Convert.ToInt32(fila.ItemArray[0].ToString());
-                      //  u.ID_Puestos = Convert.ToInt32(fila.ItemArray[1].ToString());
-                        u.Nombre = fila.ItemArray[0].ToString();
-                        u.Descripcion = fila.ItemArray[1].ToString();
-                        u.Estado = Convert.ToInt32(fila.ItemArray[2].ToString());
-
-
-
-                        lstresultados.Add(u);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                this.CERRAR();
-            }
-
-            return lstresultados;
-        }
+        #region Reclutamiento 
 
         public List<ESTADOS> ConsultarTipoEstado(SQLSentencia P_Peticion)
         {
@@ -489,11 +359,12 @@ namespace DAL
                 {
                     foreach (DataRow item in dt.Rows)
                     {
-                        ESTADOS est = new ESTADOS();
+                        ESTADOS tipo = new ESTADOS();
 
-                        est.ID_Estados = Convert.ToInt32(item.ItemArray[0].ToString());
-                        est.Nombre = item.ItemArray[1].ToString();
-                        lstresultados.Add(est);
+                        tipo.ID_Estados = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                     
+                        lstresultados.Add(tipo);
                     }
                 }
 
@@ -510,7 +381,7 @@ namespace DAL
             return lstresultados;
         }
 
-        public List<PUESTOS> ConsultarTipoPuesto(SQLSentencia P_Peticion)
+        public List<PUESTOS> ConsultarTipoCargo(SQLSentencia P_Peticion)
         {
             List<PUESTOS> lstresultados = new List<PUESTOS>();
             DataTable dt = new DataTable();
@@ -533,11 +404,12 @@ namespace DAL
                 {
                     foreach (DataRow item in dt.Rows)
                     {
-                        PUESTOS depa = new PUESTOS();
+                        PUESTOS tipo = new PUESTOS();
 
-                        depa.ID_Puestos = Convert.ToInt32(item.ItemArray[0].ToString());
-                        depa.Nombre = item.ItemArray[1].ToString();
-                        lstresultados.Add(depa);
+                        tipo.ID_Puestos = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
                     }
                 }
 
@@ -553,6 +425,56 @@ namespace DAL
 
             return lstresultados;
         }
+
+        public List<DEPARTAMENTOS> ConsultarTipoPuestos(SQLSentencia P_Peticion)
+        {
+            List<DEPARTAMENTOS> lstresultados = new List<DEPARTAMENTOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        DEPARTAMENTOS tipo = new DEPARTAMENTOS();
+
+                        tipo.ID_Departamento = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        #endregion
+
+
+
 
         #endregion
 

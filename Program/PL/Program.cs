@@ -20,6 +20,7 @@ namespace PL
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Frm_Login_PL());
             Application.Run(new Form_Crear_Reclutamiento());
+            //Application.Run(new Form_Ingresar_Pruebas());
         }
     }
 }

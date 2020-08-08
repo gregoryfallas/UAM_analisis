@@ -82,10 +82,12 @@
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_Factura = new System.Windows.Forms.Label();
             this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_Factura = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btn_Imprimir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -100,6 +102,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.btn_Imprimir);
             this.panel1.Controls.Add(this.btn_Buscar);
             this.panel1.Controls.Add(this.btn_Productos);
             this.panel1.Controls.Add(this.txt_Producto);
@@ -216,7 +219,7 @@
             this.btn_Confirmar.FlatAppearance.BorderSize = 0;
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(1185, 625);
+            this.btn_Confirmar.Location = new System.Drawing.Point(1185, 515);
             this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
@@ -315,7 +318,7 @@
             // 
             this.txt_Impuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Impuesto.ForeColor = System.Drawing.Color.White;
-            this.txt_Impuesto.Location = new System.Drawing.Point(1009, 546);
+            this.txt_Impuesto.Location = new System.Drawing.Point(1035, 571);
             this.txt_Impuesto.MaxLength = 5;
             this.txt_Impuesto.Name = "txt_Impuesto";
             this.txt_Impuesto.ReadOnly = true;
@@ -326,11 +329,11 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(891, 546);
+            this.label9.Location = new System.Drawing.Point(886, 565);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 30);
+            this.label9.Size = new System.Drawing.Size(130, 38);
             this.label9.TabIndex = 31;
             this.label9.Text = "Impuesto%";
             // 
@@ -356,7 +359,7 @@
             // 
             this.txt_SubTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_SubTotal.ForeColor = System.Drawing.Color.White;
-            this.txt_SubTotal.Location = new System.Drawing.Point(1009, 490);
+            this.txt_SubTotal.Location = new System.Drawing.Point(1035, 515);
             this.txt_SubTotal.MaxLength = 5;
             this.txt_SubTotal.Name = "txt_SubTotal";
             this.txt_SubTotal.ReadOnly = true;
@@ -367,11 +370,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(891, 490);
+            this.label8.Location = new System.Drawing.Point(886, 509);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 30);
+            this.label8.Size = new System.Drawing.Size(120, 38);
             this.label8.TabIndex = 28;
             this.label8.Text = "Sub Total:";
             // 
@@ -380,7 +383,7 @@
             this.txt_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Total.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Total.ForeColor = System.Drawing.Color.White;
-            this.txt_Total.Location = new System.Drawing.Point(1009, 605);
+            this.txt_Total.Location = new System.Drawing.Point(1035, 626);
             this.txt_Total.MaxLength = 5;
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.ReadOnly = true;
@@ -391,11 +394,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(876, 604);
+            this.label5.Location = new System.Drawing.Point(871, 623);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 30);
+            this.label5.Size = new System.Drawing.Size(158, 38);
             this.label5.TabIndex = 12;
             this.label5.Text = "Total Factura:";
             // 
@@ -488,6 +491,7 @@
             this.btn_Eliminar.Size = new System.Drawing.Size(46, 45);
             this.btn_Eliminar.TabIndex = 10;
             this.btn_Eliminar.UseVisualStyleBackColor = false;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // label3
             // 
@@ -757,7 +761,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.lbl_Factura);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.txt_Factura);
             this.panel2.Controls.Add(this.lblNroCorrelativo);
             this.panel2.Controls.Add(this.btn_inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -765,6 +770,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(106, 713);
             this.panel2.TabIndex = 2;
+            // 
+            // txt_Factura
+            // 
+            this.txt_Factura.BackColor = System.Drawing.Color.White;
+            this.txt_Factura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Factura.ForeColor = System.Drawing.Color.Red;
+            this.txt_Factura.Location = new System.Drawing.Point(16, 42);
+            this.txt_Factura.Name = "txt_Factura";
+            this.txt_Factura.Size = new System.Drawing.Size(78, 23);
+            this.txt_Factura.TabIndex = 3;
             // 
             // lblNroCorrelativo
             // 
@@ -791,15 +806,30 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbl_Factura
+            // label13
             // 
-            this.lbl_Factura.BackColor = System.Drawing.Color.White;
-            this.lbl_Factura.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Factura.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Factura.Location = new System.Drawing.Point(16, 28);
-            this.lbl_Factura.Name = "lbl_Factura";
-            this.lbl_Factura.Size = new System.Drawing.Size(78, 23);
-            this.lbl_Factura.TabIndex = 3;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(26, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 23);
+            this.label13.TabIndex = 37;
+            this.label13.Text = "Factura";
+            // 
+            // btn_Imprimir
+            // 
+            this.btn_Imprimir.BackgroundImage = global::PL.Properties.Resources.print;
+            this.btn_Imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Imprimir.Enabled = false;
+            this.btn_Imprimir.FlatAppearance.BorderSize = 0;
+            this.btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Imprimir.Location = new System.Drawing.Point(1183, 615);
+            this.btn_Imprimir.Name = "btn_Imprimir";
+            this.btn_Imprimir.Size = new System.Drawing.Size(75, 57);
+            this.btn_Imprimir.TabIndex = 36;
+            this.btn_Imprimir.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 
             // Frm_Contado_PL
             // 
@@ -826,6 +856,7 @@
             this.gb_Datos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Factura)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -888,6 +919,8 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txt_Caja;
         public System.Windows.Forms.TextBox txt_Fecha_Doc;
-        private System.Windows.Forms.Label lbl_Factura;
+        private System.Windows.Forms.Label txt_Factura;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btn_Imprimir;
     }
 }

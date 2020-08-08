@@ -20,10 +20,9 @@ namespace PL.Pantallas.Extras
     public partial class Frm_Cajas_PL : Form
     {
         DA Obj_Dal = new DA();
-        Articulos_BLL Obj_BLL = new Articulos_BLL();
-        
+        Articulos_BLL Obj_BLL = new Articulos_BLL();        
         CAJAS Cajas = new CAJAS();
-      
+        
 
         public Frm_Cajas_PL()
         {
@@ -43,25 +42,23 @@ namespace PL.Pantallas.Extras
         private void btn_AbrirCaja_Click(object sender, EventArgs e)
         {
             
-
             Obj_Dal.IPrueba = 1;
 
             Obj_BLL.Cajas(ref Obj_Dal);
 
-            MetodoCajas();
+            MetodoCajas();            
+            
         }
 
         private void btn_CerrarCaja_Click(object sender, EventArgs e)
         {
-
-
-
+                       
             Obj_Dal.IPrueba = 0;
 
             Obj_BLL.Cajas(ref Obj_Dal);
 
             MetodoCajas();
-
+            
         }
 
 
@@ -71,8 +68,7 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Cajas_PL_Load(object sender, EventArgs e)
         {
-
-
+            
             CAJAS CAJITA = new CAJAS();
             List<CAJAS> resultado = new List<CAJAS>();
             resultado= Articulos_BLL.ConsultarCajas(1);
@@ -100,6 +96,7 @@ namespace PL.Pantallas.Extras
 
         public void MetodoCajas()
         {
+                        
 
             Obj_BLL.Cajas(ref Obj_Dal);
 
@@ -113,8 +110,7 @@ namespace PL.Pantallas.Extras
                     btn_AbrirCaja.Enabled = false;
 
                     Articulos_BLL.ModificarCajas(1, 38);
-
-
+                    
                 }   
             }
             else
@@ -131,7 +127,7 @@ namespace PL.Pantallas.Extras
                     Obj_Dal.IPrueba = Obj_Dal.ITemporal;
 
                     Articulos_BLL.ModificarCajas(1, 22);
-
+                   
                 }
             }
 

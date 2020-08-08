@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using BLL;
 using DAL.Entidades;
 using DAL;
+using System.Drawing.Printing;
 
 namespace PL.Pantallas.Extras
 {
     public partial class Frm_Contado_PL : Form
     {
         int EnviarFecha = 0;
+        public static int cont_fila = 0;
 
         Articulos_BLL Obj_BLL = new Articulos_BLL();
         DA Obj_Dal = new DA();
@@ -36,9 +38,9 @@ namespace PL.Pantallas.Extras
 
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
-            double imp=0.13;
+            ART.Subtotal = 0;
 
-            if (ART.Cantidad>0)
+            if (ART.Cantidad>=1)
             {
                 dtg_Factura.Rows.Add(new string[] {
              Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
@@ -49,7 +51,7 @@ namespace PL.Pantallas.Extras
 
                 for (int i = 0; i < dtg_Factura.RowCount; i++)
                 {
-                    ART.Subtotal += decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                    ART.Subtotal = ART.Subtotal+ decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
                     
                     Math.Round(ART.Subtotal,2);                  
 
@@ -65,7 +67,9 @@ namespace PL.Pantallas.Extras
 
                 //Obj_Dal.Dprecio = facturas.Total;
 
-                ART.Subtotal = 0;
+               
+
+                cont_fila++;
 
                 LimpiarCampos();
             }
@@ -112,11 +116,25 @@ namespace PL.Pantallas.Extras
                             }
                             else
                             {
-                                Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
-                               
-                                factura.txt_Total2.Text = facturas.Total.ToString();
-                                factura.Show();
+                                
 
+                                Frm_Contado_PL cont = new Frm_Contado_PL();
+                                FACTURAS factura = new FACTURAS();
+
+                                factura.ID_Cliente = 7/*Convert.ToInt32(cont.txt_NoCliente.Text)*/;
+                                factura.ID_Caja = 1 /*Convert.ToInt32(cont.txt_Caja.Text)*/;
+                                factura.Numero_Factura = 7; /*Convert.ToInt32(txt_Factura.Text);*/
+                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                                factura.Descripcion = "Compra";
+                                factura.Total = 3 /*Convert.ToDecimal(cont.txt_Total.Text)*/;
+                                factura.Tipo_Pago = 1;
+                                factura.Estado = 20;
+
+
+                                Factura_BLL.agregarFactura(factura);
+                                MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                btn_Imprimir.Enabled = true;
 
 
                             }
@@ -395,6 +413,79 @@ namespace PL.Pantallas.Extras
         private void btn_Guardar_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btn_Imprimir_Click(object sender, EventArgs e)
+        {
+
+            PrintDocument printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += Imprimir_PrintPage;
+            printDocument1.Print();
+
+            MessageBox.Show("Factura generada con exito");
+            this.Hide();
+        }
+
+        private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+
+            Font font = new Font("Arial", 14);
+            int ancho = 350;
+            int y = 20;
+            int x = 250;
+
+            e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("Factura#:", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("IDCliente:", font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));            
+            e.Graphics.DrawString("FechaFactura:"+txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+
+            e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            foreach (DataRow row in dt.Rows)
+            {
+
+                e.Graphics.DrawString(row["Codigo"].ToString() + dtg_Factura.SelectedRows[0].Cells[1].Value.ToString() +
+                 row["Detalle"].ToString() + dtg_Factura.SelectedRows[0].Cells[2].Value.ToString() +
+                 row["Cantidad"].ToString() + dtg_Factura.SelectedRows[0].Cells[3].Value.ToString() +
+                 row["Precio Total"].ToString()
+               , font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+            }
+            e.Graphics.DrawString("---SubTotal: "+txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Total: " + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+
+        }
+
+        
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            if (cont_fila > 0)
+            {
+                
+                ART.Subtotal= ART.Subtotal- (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[4].Value.ToString()));
+                txt_SubTotal.Text = ART.Subtotal.ToString();
+                facturas.Total = facturas.Total - ART.Impuesto - (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[4].Value.ToString()));
+                txt_Total.Text = facturas.Total.ToString();
+                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
+                txt_Impuesto.Text= ART.Impuesto.ToString();
+                
+
+                dtg_Factura.Rows.RemoveAt(dtg_Factura.CurrentRow.Index);
+
+                cont_fila--;
+
+            }
+
+
+
         }
     }
 }

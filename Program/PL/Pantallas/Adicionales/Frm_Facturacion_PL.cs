@@ -22,13 +22,15 @@ namespace PL.Pantallas.Adicionales
         CAJAS caja = new CAJAS();
         Articulos_BLL Obj_BLL = new Articulos_BLL();
 
+       
+
         public Frm_Facturacion_PL()
         {
             InitializeComponent();
-           
+            
         }
 
-        int puntos;
+     
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
@@ -39,7 +41,8 @@ namespace PL.Pantallas.Adicionales
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-            
+
+
         }
 
         private void tsb_Contado_Click(object sender, EventArgs e)

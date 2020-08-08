@@ -293,12 +293,6 @@
     <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.Designer.cs">
       <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.Designer.cs">
-      <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Principales\Frm_Inicio_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,9 +426,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_TipoAnimal_PL.resx">
       <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Extras\Frm_Total_Factura_PL.resx">
-      <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Principales\Frm_Inicio_PL.resx">
       <DependentUpon>Frm_Inicio_PL.cs</DependentUpon>

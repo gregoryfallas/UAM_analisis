@@ -234,15 +234,15 @@
         private System.Windows.Forms.ToolStripButton tsb_Cajas;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsb_Contado;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton tsb_Credito;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton tsb_Express;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ToolStripButton tsb_Contado;
+        public System.Windows.Forms.ToolStripButton tsb_Credito;
+        public System.Windows.Forms.ToolStripButton tsb_Express;
     }
 }

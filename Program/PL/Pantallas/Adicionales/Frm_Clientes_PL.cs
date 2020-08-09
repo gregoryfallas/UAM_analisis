@@ -27,7 +27,7 @@ namespace PL.Pantallas.Adicionales
         private string id_Canton;
         private string id_Provincia;
         private string id_Estado;
-
+        private string ced;
         public Frm_Clientes_PL()
         {
             InitializeComponent();
@@ -224,9 +224,53 @@ namespace PL.Pantallas.Adicionales
 
         }
 
-        private void btn_Guardar_Click(object sender, EventArgs e)
+        //private void btn_Guardar_Click(object sender, EventArgs e)
+        //{
+        //    bool c ;
+        //    CLIENTES cliente = new CLIENTES();
+        //    cliente.Cedula = textBox2.Text.Trim();
+        //    cliente.Nombre = textBox1.Text.Trim();
+        //    cliente.Apellido_1 = Apellido1txt.Text.Trim();
+        //    cliente.Apellido_2 = textBox7.Text.Trim();
+        //    cliente.Correo = textBox5.Text.Trim();
+        //    cliente.Telefono = textBox3.Text.Trim();
+        //    cliente.ID_Provincias = provincia_id;
+        //    cliente.ID_Cantones = Convert.ToInt32(id_Canton);
+        //    cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
+        //    cliente.Direccion = textBox4.Text;
+        //    // cliente.Credito = false;
+        //    if (credito.ToString().Equals("Si"))
+        //        c = true;
+        //    else
+        //        c = false;
+        //    cliente.Credito = c;
+        //    cliente.Estado = Convert.ToInt32(id_Estado);
+        //    Clientes_BLL.agregarCliente(cliente);
+        //    MessageBox.Show("Cliente Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    cargarGridUsuarios();
+        //}
+
+       
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool c ;
+            credito = comboBox1.SelectedValue.ToString();
+
+           
+        }
+
+        private void Distritocbo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            // distrito_id = Convert.ToInt32(Distritocbo.SelectedIndex) + 1;
+            id_Distritos=Distritocbo.SelectedValue.ToString();
+            // textBox7.Text = Distritocbo.SelectedValue.ToString();
+            // id_Distritos = Convert.ToInt32(Distritocbo.SelectedValue.ToString());
+        }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+            bool c;
             CLIENTES cliente = new CLIENTES();
             cliente.Cedula = textBox2.Text.Trim();
             cliente.Nombre = textBox1.Text.Trim();
@@ -250,22 +294,39 @@ namespace PL.Pantallas.Adicionales
             cargarGridUsuarios();
         }
 
-       
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            credito = comboBox1.SelectedValue.ToString();
 
-           
         }
 
-        private void Distritocbo_SelectedIndexChanged(object sender, EventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Hizo click en una fila no permitida", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                ced= dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
+        }
 
-            // distrito_id = Convert.ToInt32(Distritocbo.SelectedIndex) + 1;
-            id_Distritos=Distritocbo.SelectedValue.ToString();
-            // textBox7.Text = Distritocbo.SelectedValue.ToString();
-            // id_Distritos = Convert.ToInt32(Distritocbo.SelectedValue.ToString());
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+              
+                Clientes_BLL.eliminarCliente(ced);
+                MessageBox.Show("Usuario eliminado");
+                cargarGridUsuarios();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

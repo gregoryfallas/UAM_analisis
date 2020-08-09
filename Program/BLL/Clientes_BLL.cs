@@ -243,7 +243,30 @@ namespace BLL
         }
 
 
-        
+
+        public static bool eliminarCliente(string ced)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC PA_Clientes_Eliminar @ced";
+                SqlParameter ids = new SqlParameter();
+                ids.Value = ced;
+                ids.ParameterName = "@ced";
+                ids.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(ids);
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
 
 
     }

@@ -460,6 +460,67 @@ namespace DAL
             return lstresultados;
         }
 
+
+        /// <summary>
+        /// Metodo para consultar el id del Canton en la base de datos
+        /// </summary>
+        /// <param name="P_Peticion">Entidad Sentencia</param>
+        /// <returns>Lista de Entidades de Perfiles</returns>
+        public List<CANTONES> ConsultarIdCanton(SQLSentencia P_Peticion)
+        {
+            List<CANTONES> lstresultados = new List<CANTONES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CANTONES tipo = new CANTONES();
+                        tipo.ID_Cantones = Convert.ToInt32(item.ItemArray[0].ToString());
+
+                        
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
 
         #region ARTICULOS

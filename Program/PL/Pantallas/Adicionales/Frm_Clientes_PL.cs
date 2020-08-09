@@ -152,10 +152,7 @@ namespace PL.Pantallas.Adicionales
                lista.Add("Si");
                lista.Add("No");
                comboBox1.DataSource = lista;
-         //    Distritocbo.ValueMember = "ID_Distritos";
-         //    Distritocbo.DisplayMember = "Nombre";
-         //    Distritocbo.Refresh();
-        }
+         }
 
 
         private void button4_Click(object sender, EventArgs e)
@@ -193,13 +190,19 @@ namespace PL.Pantallas.Adicionales
 
         private void Cantoncbo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.canton_id  = Convert.ToInt32(Cantoncbo.SelectedIndex) + 1;
+          //  this.canton_id  = Convert.ToInt32(Cantoncbo.SelectedIndex) + 1;
             id_Canton = Cantoncbo.SelectedValue.ToString();
+            //textBox1.Text = id_Canton;
+            string nombreCanton= Cantoncbo.Text;
+            List<CANTONES> ls = Clientes_BLL.ConsultarCanton(nombreCanton);
+            CANTONES c = new CANTONES();
+            foreach (CANTONES item in ls)
+            {
+                c.ID_Cantones = item.ID_Cantones;
+                
+            }
 
-           
-
-            // id_Canton = Convert.ToInt32(Cantoncbo.SelectedValue.ToString());
-
+            canton_id = c.ID_Cantones;
             CargarCombosDistritos();
         }
 
@@ -207,7 +210,7 @@ namespace PL.Pantallas.Adicionales
         {
             estado = Convert.ToInt32(this.estadoClientecbo.SelectedIndex) ;
             //textBox7.Text = estadoClientecbo.SelectedValue.ToString();
-            id_Estado=estadoClientecbo.SelectedValue.ToString();
+           id_Estado=estadoClientecbo.SelectedValue.ToString();
 
 
         }
@@ -279,7 +282,7 @@ namespace PL.Pantallas.Adicionales
             cliente.Correo = textBox5.Text.Trim();
             cliente.Telefono = textBox3.Text.Trim();
             cliente.ID_Provincias = provincia_id;
-            cliente.ID_Cantones = Convert.ToInt32(id_Canton);
+            cliente.ID_Cantones = canton_id;
             cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
             cliente.Direccion = textBox4.Text;
             // cliente.Credito = false;
@@ -307,7 +310,42 @@ namespace PL.Pantallas.Adicionales
             }
             else
             {
-                ced= dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBox1.Text= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBox2.Text= dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                ced = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                Apellido1txt.Text= dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                textBox7.Text= dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                textBox5.Text= dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                textBox3.Text= dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //estados
+                int ides = 0;
+                ides = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString());
+                if (ides == 5)
+                    estadoClientecbo.Text = "Activo";
+                else
+                    estadoClientecbo.Text = "Vetado";
+
+                //credito
+                bool c;
+                c= Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString());
+                if (c)
+                    comboBox1.Text = "Si";
+                        else
+                    comboBox1.Text = "No";
+                
+                textBox4.Text= dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
+                
+                // cliente.Credito = false;
+                //if (credito.ToString().Equals("Si"))
+                //    c = true;
+                //else
+                //    c = false;
+                //cliente.Credito = c;
+                //cliente.Estado = Convert.ToInt32(id_Estado);
+                
+              //  ced = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
             }
         }
 
@@ -327,6 +365,11 @@ namespace PL.Pantallas.Adicionales
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

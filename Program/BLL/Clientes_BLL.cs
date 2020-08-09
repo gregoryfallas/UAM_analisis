@@ -21,9 +21,7 @@ namespace BLL
 
                 SQLSentencia peticion = new SQLSentencia();
                 peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','"+ cliente.Apellido_2 +"','"+cliente.Correo + "','" +cliente.Telefono  + "','"  +cliente.ID_Provincias+ "','" + cliente.ID_Cantones+ "','"+ cliente.ID_Distritos+ "','"+ cliente.Direccion+ "','" +cliente.Credito + "','"+cliente.Estado +   "'";
-
-
-
+                
                 //SQLSentencia peticion = new SQLSentencia();
                 //peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES @ced, @nom, @ape1, @ape2, @correo, @tel, @provincia, @canton, @distrito, @dire , @credito, @est ";
 
@@ -265,6 +263,49 @@ namespace BLL
             }
 
         }
+
+        public static bool modificarCliente(CLIENTES cliente)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC PA_Clientes_Modificar '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','" + cliente.Apellido_2 + "','" + cliente.Correo + "','" + cliente.Telefono + "','" + cliente.ID_Provincias + "','" + cliente.ID_Cantones + "','" + cliente.ID_Distritos + "','" + cliente.Direccion + "','" + cliente.Credito + "','" + cliente.Estado + "'";
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public static List<CANTONES> ConsultarCanton(string nombreCanton)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_IdCanton @nombreCanton";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = nombreCanton;
+                paramC.ParameterName = "@nombreCanton";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarIdCanton(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
 
 
 

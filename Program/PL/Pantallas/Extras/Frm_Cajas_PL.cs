@@ -20,7 +20,7 @@ namespace PL.Pantallas.Extras
     public partial class Frm_Cajas_PL : Form
     {
         DA Obj_Dal = new DA();
-        Articulos_BLL Obj_BLL = new Articulos_BLL();        
+        Cajas_BLL Obj_BLL = new Cajas_BLL();        
         CAJAS Cajas = new CAJAS();
         
 
@@ -71,7 +71,7 @@ namespace PL.Pantallas.Extras
             
             CAJAS CAJITA = new CAJAS();
             List<CAJAS> resultado = new List<CAJAS>();
-            resultado= Articulos_BLL.ConsultarCajas(1);
+            resultado= Cajas_BLL.ConsultarCajas(1);
 
             foreach (var li in resultado) {
                 CAJITA.ID_Caja = li.ID_Caja;
@@ -109,7 +109,7 @@ namespace PL.Pantallas.Extras
                     btn_CerrarCaja.Enabled = true;
                     btn_AbrirCaja.Enabled = false;
 
-                    Articulos_BLL.ModificarCajas(1, 38);
+                    Cajas_BLL.ModificarCajas(1, 38);
                     
                 }   
             }
@@ -126,7 +126,7 @@ namespace PL.Pantallas.Extras
                     btn_AbrirCaja.Enabled = true;                    
                     Obj_Dal.IPrueba = Obj_Dal.ITemporal;
 
-                    Articulos_BLL.ModificarCajas(1, 22);
+                    Cajas_BLL.ModificarCajas(1, 22);
                    
                 }
             }

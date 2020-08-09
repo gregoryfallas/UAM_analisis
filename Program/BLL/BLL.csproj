@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articulos_BLL.cs" />
+    <Compile Include="Cajas_BLL.cs" />
     <Compile Include="Clientes_BLL.cs" />
     <Compile Include="Factura_BLL.cs" />
     <Compile Include="Mascota_BLL.cs" />

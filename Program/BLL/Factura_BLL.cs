@@ -83,32 +83,52 @@ namespace BLL
 
 
 
-
-        public static bool NumeroFactura(FACTURAS factura)
+        public static List<FACTURAS> ConsultarNoFacturas()
         {
+
             try
             {
-                SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_GENERAR_NOFACTURA @Numero_Factura";
-                SqlParameter paramIDFacturas = new SqlParameter();
-                paramIDFacturas.Value = factura.Numero_Factura;
-                paramIDFacturas.ParameterName = "@Numero_Factura";
-                paramIDFacturas.SqlDbType = System.Data.SqlDbType.Int;
-
-
-                peticion.lstParametros.Add(paramIDFacturas);
-
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_NoFactura";               
                 DA acceso = new DA();
-                return acceso.ejecutarSentecia(peticion);
+                return acceso.ConsultarNoFacturas(sentencia);
+
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
         }
 
 
-        
-        
+
+
+
+        //public static bool NumeroFactura(FACTURAS factura)
+        //{
+        //    try
+        //    {
+        //        SQLSentencia peticion = new SQLSentencia();
+        //        peticion.Peticion = @"EXEC SP_GENERAR_NOFACTURA @Numero_Factura";
+        //        SqlParameter paramIDFacturas = new SqlParameter();
+        //        paramIDFacturas.Value = factura.Numero_Factura;
+        //        paramIDFacturas.ParameterName = "@Numero_Factura";
+        //        paramIDFacturas.SqlDbType = System.Data.SqlDbType.Int;
+
+
+        //        peticion.lstParametros.Add(paramIDFacturas);
+
+        //        DA acceso = new DA();
+        //        return acceso.ejecutarSentecia(peticion);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+
+
+
+
     }
 }

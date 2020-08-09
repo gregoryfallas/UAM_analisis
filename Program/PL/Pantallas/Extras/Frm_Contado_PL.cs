@@ -19,8 +19,8 @@ namespace PL.Pantallas.Extras
         int EnviarFecha = 0;
         public static int cont_fila = 0;
 
-        Articulos_BLL Obj_BLL = new Articulos_BLL();
-        DA Obj_Dal = new DA();
+        Articulos_BLL Obj_BLL = new Articulos_BLL();       
+        DA Obj_Dal = new DA();        
 
         ARTICULOS ART = new ARTICULOS();        
         FACTURAS facturas = new FACTURAS();
@@ -29,6 +29,8 @@ namespace PL.Pantallas.Extras
       
 
         string nombre;
+        string cedula;
+        string idCliente;
 
         public Frm_Contado_PL()
         {
@@ -43,9 +45,9 @@ namespace PL.Pantallas.Extras
             if (ART.Cantidad>=1)
             {
                 dtg_Factura.Rows.Add(new string[] {
-             Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
+             Convert.ToString(dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(ART.Cantidad),
-            Convert.ToString(dtg_Articulos[3, dtg_Articulos.CurrentRow.Index].Value),
+            Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
             Convert.ToString(ART.Temporal_descuento),
             Convert.ToString(ART.Importe)});
 
@@ -63,7 +65,7 @@ namespace PL.Pantallas.Extras
                 txt_Impuesto.Text = ("¢") + ART.Impuesto.ToString();
                 facturas.Total = ART.Subtotal + ART.Impuesto;
                 Math.Round(facturas.Total, 2);
-                txt_Total.Text = ("¢") + facturas.Total.ToString();
+                txt_Total.Text =  facturas.Total.ToString();
 
                 //Obj_Dal.Dprecio = facturas.Total;
 
@@ -121,12 +123,12 @@ namespace PL.Pantallas.Extras
                                 Frm_Contado_PL cont = new Frm_Contado_PL();
                                 FACTURAS factura = new FACTURAS();
 
-                                factura.ID_Cliente = 7/*Convert.ToInt32(cont.txt_NoCliente.Text)*/;
+                                factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);/*Convert.ToInt32(cont.txt_NoCliente.Text)*/;
                                 factura.ID_Caja = 1 /*Convert.ToInt32(cont.txt_Caja.Text)*/;
-                                factura.Numero_Factura = 7; /*Convert.ToInt32(txt_Factura.Text);*/
+                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text); /*Convert.ToInt32(txt_Factura.Text);*/
                                 factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                                 factura.Descripcion = "Compra";
-                                factura.Total = 3 /*Convert.ToDecimal(cont.txt_Total.Text)*/;
+                                factura.Total = Convert.ToDecimal(txt_Total.Text); /*Convert.ToDecimal(cont.txt_Total.Text)*/;
                                 factura.Tipo_Pago = 1;
                                 factura.Estado = 20;
 
@@ -169,15 +171,16 @@ namespace PL.Pantallas.Extras
 
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-            
-
-
+        
             timer1.Interval = 500;
             timer1.Start();     
             Cargar();
             Cargar2();
+            CargarNoFactura();
 
-
+           
+           
+           
 
         }
 
@@ -190,7 +193,7 @@ namespace PL.Pantallas.Extras
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            Cargar();
+            
                        
         }
        
@@ -204,9 +207,13 @@ namespace PL.Pantallas.Extras
             DataTable dt = new DataTable();
 
             dt.Columns.Add("Cedula");
-            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Nombre");            
             dt.Columns.Add("Primer_Apellido");
-            dt.Columns.Add("Segundo_Apellido");           
+            dt.Columns.Add("Segundo_Apellido");
+            dt.Columns.Add("IdCliente");
+            dt.Columns.Add();
+
+            
 
             foreach (CLIENTES item in LS)
             {
@@ -215,15 +222,16 @@ namespace PL.Pantallas.Extras
                     item.Cedula,
                     item.Nombre,
                     item.Apellido_1,
-                    item.Apellido_2              
+                    item.Apellido_2,
+                    item.ID_Cliente
                     );
             }
 
+            
             dtg_Clientes.DataSource = null;
             dtg_Clientes.Refresh();
             dtg_Clientes.DataSource = dt;
-            dtg_Clientes.Refresh();
-                     
+            dtg_Clientes.Refresh();                     
 
         }
 
@@ -251,12 +259,6 @@ namespace PL.Pantallas.Extras
 
         }
 
-        private void dtg_Clientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            nombre= dtg_Clientes.CurrentRow.Cells[1].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[2].Value.ToString()+" "+ dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
-            txt_Nombre.Text = nombre;
-        }
-
 
         private void CargarDatos()
         {
@@ -279,19 +281,6 @@ namespace PL.Pantallas.Extras
         }
 
 
-        private void btn_Productos_Click(object sender, EventArgs e)
-        {
-            Cargar2();
-        }
-
-        private void dtg_Articulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[3].Value.ToString());
-            txt_Precio.Text = ART.Precio.ToString();
-        }
-
-        
 
         private void txt_Cantidad_Leave(object sender, EventArgs e)
         {
@@ -439,26 +428,26 @@ namespace PL.Pantallas.Extras
             int x = 250;
 
             e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-            e.Graphics.DrawString("Factura#:", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-            e.Graphics.DrawString("IDCliente:", font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("Factura#:"+txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("IDCliente:"+txt_idCliente.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
             e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));            
-            e.Graphics.DrawString("FechaFactura:"+txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("FechaFactura: "+txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
 
             e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
             foreach (DataRow row in dt.Rows)
             {
 
-                e.Graphics.DrawString(row["Codigo"].ToString() + dtg_Factura.SelectedRows[0].Cells[1].Value.ToString() +
-                 row["Detalle"].ToString() + dtg_Factura.SelectedRows[0].Cells[2].Value.ToString() +
-                 row["Cantidad"].ToString() + dtg_Factura.SelectedRows[0].Cells[3].Value.ToString() +
-                 row["Precio Total"].ToString()
+                e.Graphics.DrawString(row["Nombre"].ToString() +" "+
+                 row["Cantidad"].ToString() +" " +
+                 row["Precio"].ToString() + " "+
+                 row["Total"].ToString()
                , font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
             }
             e.Graphics.DrawString("---SubTotal: "+txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Total: " + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Total:"+"¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
 
         }
@@ -487,5 +476,85 @@ namespace PL.Pantallas.Extras
 
 
         }
+
+        private void txt_Cliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txt_Producto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void btn_BuscarCliente_Click(object sender, EventArgs e)
+        {
+            Cargar();
+        }
+
+        private void btn_Productos_Click_1(object sender, EventArgs e)
+        {
+            Cargar2();
+        }
+
+        private void dtg_Clientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            nombre = dtg_Clientes.CurrentRow.Cells[1].Value.ToString() + " " + dtg_Clientes.CurrentRow.Cells[2].Value.ToString() + " " + dtg_Clientes.CurrentRow.Cells[3].Value.ToString();
+            txt_Nombre.Text = nombre;
+
+            cedula= dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
+            txt_NoCliente.Text = cedula;
+
+            idCliente= dtg_Clientes.CurrentRow.Cells[4].Value.ToString();
+            txt_idCliente.Text = idCliente;
+
+        }
+
+        private void dtg_Articulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
+            txt_Precio.Text = ART.Precio.ToString();
+        }
+
+        private void CargarNoFactura()
+        {
+           Factura_BLL Factura = new Factura_BLL();
+
+            List<FACTURAS> LS = Factura_BLL.ConsultarNoFacturas();
+
+            FACTURAS factura = new FACTURAS();
+            
+          
+            foreach (var li in LS)
+            {
+
+                factura.Numero_Factura=li.Numero_Factura;
+                factura.Numero_Factura = factura.Numero_Factura + 1;
+               txt_Factura.Text = factura.Numero_Factura.ToString();
+            }
+
+
+
+
+        }
+
+
+
+
+
     }
 }

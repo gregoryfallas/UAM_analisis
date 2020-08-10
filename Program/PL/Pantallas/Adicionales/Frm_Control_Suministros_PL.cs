@@ -14,7 +14,8 @@ namespace PL.Pantallas.Adicionales
     public partial class Frm_Control_Suministros_PL : Form
     {
         Articulos Articulos = new Articulos();
-        
+        private readonly DataGridView sp_todoinventario;
+
         public Frm_Control_Suministros_PL()
         {
             InitializeComponent();
@@ -30,7 +31,8 @@ namespace PL.Pantallas.Adicionales
 
         private void dataGridV_controlsuministros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridV_controlsuministros = Articulos.ConsultarArticulos();
+            //dataGridV_controlsuministros = Articulos.ConsultarArticulos();
+            dataGridV_controlsuministros = sp_todoinventario;
         }
 
         private void dataGrid_controlmeosdediez_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -40,7 +42,7 @@ namespace PL.Pantallas.Adicionales
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridV_controlsuministros = Articulos.ConsultarArticulos();
+            //dataGridV_controlsuministros = Articulos.ConsultarArticulos();
             //sp Control_Suministros_menosdiez
         }
     }

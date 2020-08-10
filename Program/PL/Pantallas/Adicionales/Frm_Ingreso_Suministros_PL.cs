@@ -24,10 +24,5 @@ namespace PL.Pantallas.Adicionales
             Frm_Inicio_PL inicio = new Frm_Inicio_PL();
             inicio.ShowDialog();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

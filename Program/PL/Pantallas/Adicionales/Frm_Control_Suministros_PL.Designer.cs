@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.dataGrid_controlmeosdediez = new System.Windows.Forms.DataGridView();
             this.label16 = new System.Windows.Forms.Label();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.dataGridV_controlsuministros = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_controlmeosdediez)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridV_controlsuministros)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,9 +46,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.dataGridView11);
+            this.panel1.Controls.Add(this.dataGrid_controlmeosdediez);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.dataGridView9);
+            this.panel1.Controls.Add(this.dataGridV_controlsuministros);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -56,14 +56,14 @@
             this.panel1.Size = new System.Drawing.Size(753, 475);
             this.panel1.TabIndex = 0;
             // 
-            // dataGridView11
+            // dataGrid_controlmeosdediez
             // 
-            this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(431, 65);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.Size = new System.Drawing.Size(269, 318);
-            this.dataGridView11.TabIndex = 131;
+            this.dataGrid_controlmeosdediez.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dataGrid_controlmeosdediez.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_controlmeosdediez.Location = new System.Drawing.Point(431, 65);
+            this.dataGrid_controlmeosdediez.Name = "dataGrid_controlmeosdediez";
+            this.dataGrid_controlmeosdediez.Size = new System.Drawing.Size(269, 341);
+            this.dataGrid_controlmeosdediez.TabIndex = 131;
             // 
             // label16
             // 
@@ -76,14 +76,15 @@
             this.label16.TabIndex = 130;
             this.label16.Text = "Menos de 10 unidades";
             // 
-            // dataGridView9
+            // dataGridV_controlsuministros
             // 
-            this.dataGridView9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Location = new System.Drawing.Point(33, 65);
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.Size = new System.Drawing.Size(297, 318);
-            this.dataGridView9.TabIndex = 127;
+            this.dataGridV_controlsuministros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dataGridV_controlsuministros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridV_controlsuministros.Location = new System.Drawing.Point(33, 65);
+            this.dataGridV_controlsuministros.Name = "dataGridV_controlsuministros";
+            this.dataGridV_controlsuministros.Size = new System.Drawing.Size(297, 341);
+            this.dataGridV_controlsuministros.TabIndex = 127;
+            this.dataGridV_controlsuministros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridV_controlsuministros_CellContentClick);
             // 
             // label5
             // 
@@ -92,9 +93,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(58, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 20);
+            this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 104;
-            this.label5.Text = "Control de Insumos de Oficina";
+            this.label5.Text = "Control Totales";
             // 
             // panel2
             // 
@@ -140,8 +141,8 @@
             this.Text = "Control Suministros";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_controlmeosdediez)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridV_controlsuministros)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -150,9 +151,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.DataGridView dataGrid_controlmeosdediez;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView dataGridView9;
+        private System.Windows.Forms.DataGridView dataGridV_controlsuministros;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_Inicio;

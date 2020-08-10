@@ -42,8 +42,6 @@ namespace BLL
             {
                 SQLSentencia sentencia = new SQLSentencia();
                 sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIO '" + Nombre+ "'";
-                
-
 
                 DA acceso = new DA();
                 return acceso.consultarInventarioConArticulos(sentencia);

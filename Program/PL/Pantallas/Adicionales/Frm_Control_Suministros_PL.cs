@@ -37,7 +37,7 @@ namespace PL.Pantallas.Adicionales
 
         private void dataGrid_controlmeosdediez_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGrid_controlmeosdediez = //sp Control_Suministros_menosdiez
+            //dataGrid_controlmeosdediez = this.
         }
 
         private void button1_Click(object sender, EventArgs e)

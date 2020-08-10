@@ -67,12 +67,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ep_sqlDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Agregar_Nueva_Vacante_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -649,15 +643,6 @@
       <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SQLQuery1ep.sql.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SQLQuery1ep.sql_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SQLQuery1ep.sql.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

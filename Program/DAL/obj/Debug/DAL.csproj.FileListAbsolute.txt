@@ -22,3 +22,15 @@ C:\Users\Geiner\Desktop\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CoreCompil
 C:\Users\Geiner\Desktop\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Geiner\Desktop\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
 C:\Users\Geiner\Desktop\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\DAL.dll.config
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\DAL.dll
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\DAL.pdb
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
+C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb

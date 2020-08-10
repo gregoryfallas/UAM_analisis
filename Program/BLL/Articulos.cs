@@ -12,6 +12,7 @@ namespace BLL
 {
     public class Articulos
     {
+
         public static List<ARTICULOS> ConsultarArticulos(string Nombre)
         {
 
@@ -54,9 +55,6 @@ namespace BLL
             }
         }
 
-        public static implicit operator System.Windows.Forms.DataGridView(Articulos v)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

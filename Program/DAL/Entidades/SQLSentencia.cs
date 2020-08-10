@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,12 @@ namespace DAL.Entidades
 {
     public class SQLSentencia
     {
-       
+
         #region Propiedades
         public string Peticion { get; set; }
         public List<SqlParameter> lstParametros { get; set; }
         #endregion
+
 
         #region Constructor
         public SQLSentencia()
@@ -21,6 +23,7 @@ namespace DAL.Entidades
             Peticion = string.Empty;
             lstParametros = new List<SqlParameter>();
         }
+
 
         #endregion
     }

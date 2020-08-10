@@ -94,7 +94,7 @@
             this.dataGridV_controlsuministros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridV_controlsuministros.Location = new System.Drawing.Point(33, 65);
             this.dataGridV_controlsuministros.Name = "dataGridV_controlsuministros";
-            this.dataGridV_controlsuministros.Size = new System.Drawing.Size(297, 341);
+            this.dataGridV_controlsuministros.Size = new System.Drawing.Size(364, 341);
             this.dataGridV_controlsuministros.TabIndex = 127;
             this.dataGridV_controlsuministros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridV_controlsuministros_CellContentClick);
             // 
@@ -103,7 +103,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(58, 30);
+            this.label5.Location = new System.Drawing.Point(144, 30);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 104;

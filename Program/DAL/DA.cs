@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    
+     
+
 
     public class DA
     {
@@ -515,10 +516,10 @@ namespace DAL
             return lstresultados;
         }
 
-
-         public DataTable consultarInventarioConArticulos(SQLSentencia  peticion)
+       
+         public DataTable consultarInventarioConArticulos(SQLSentencia peticion)
         {
-          //  List<Caso> listaResultado = new List<Caso>();
+            //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
             try
             {
@@ -527,11 +528,12 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
-                cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                 SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
+
                 da.Fill(dt);
-                
+
             }
             catch (Exception ex)
             {
@@ -543,21 +545,11 @@ namespace DAL
             }
             return dt;
 
-        }
 
-
-
-
-
-
+         }
 
 
         #endregion
-
-
-
-
-
 
         #endregion
 

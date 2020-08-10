@@ -35,11 +35,6 @@ namespace BLL
             }
         }
 
-        public System.Windows.Forms.DataGridView ConsultarArticulos()
-        {
-            throw new NotImplementedException();
-        }
-
         public static DataTable ConsultarInventarioArticulos(string Nombre)
         {
 

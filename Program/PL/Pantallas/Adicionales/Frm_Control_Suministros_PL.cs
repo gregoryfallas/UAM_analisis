@@ -32,5 +32,16 @@ namespace PL.Pantallas.Adicionales
         {
             dataGridV_controlsuministros = Articulos.ConsultarArticulos();
         }
+
+        private void dataGrid_controlmeosdediez_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //dataGrid_controlmeosdediez = //sp Control_Suministros_menosdiez
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridV_controlsuministros = Articulos.ConsultarArticulos();
+            //sp Control_Suministros_menosdiez
+        }
     }
 }

@@ -64,6 +64,7 @@
             this.dataGrid_controlmeosdediez.Name = "dataGrid_controlmeosdediez";
             this.dataGrid_controlmeosdediez.Size = new System.Drawing.Size(269, 341);
             this.dataGrid_controlmeosdediez.TabIndex = 131;
+            this.dataGrid_controlmeosdediez.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_controlmeosdediez_CellContentClick);
             // 
             // label16
             // 
@@ -127,6 +128,7 @@
             this.button1.TabIndex = 46;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Frm_Control_Suministros_PL
             // 

@@ -22,11 +22,12 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
+        //private int est = 0;
+        //private int idestado = 0;
 
-        private int est = 0;
-        private int idestado = 0;
         public List<RECLUTAMIENTO> lstresultado { get; set; }
         public bool EsError { get; set; }
+
         public Form_Crear_Reclutamiento()
         {
             lstresultado = new List<RECLUTAMIENTO>();
@@ -59,11 +60,6 @@ namespace PL.Pantallas.Adicionales
             cbonombre.Refresh();
         }
 
-        //private void averguarestado()
-        //{
-        //    if
-        //}
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -84,10 +80,11 @@ namespace PL.Pantallas.Adicionales
                 p.ID_Puestos = puestos;
                 p.Nombre = nombrepuesto;
                     p.Descripcion = txtdescripcion.Text.Trim();
-                    p.Estado = Convert.ToInt32(cboestado.Text.Trim());
-                   
+                //  p.Estado = Convert.ToInt32(cboestado.Text.Trim());
+                p.Estado = Convert.ToInt32(nombreEstado);
 
-                    R_Humanos.AgregarReclutamiento(p);
+
+                R_Humanos.AgregarReclutamiento(p);
                     MessageBox.Show("Recluta agregado");
                   
                 
@@ -126,19 +123,13 @@ namespace PL.Pantallas.Adicionales
         private void cboestado_SelectedIndexChanged(object sender, EventArgs e)
         {
             //textBox1.Text = cboestado.SelectedValue.ToString();
-            textBox1.Text = cboestado.SelectedValue.ToString();
+            //textBox1.Text = cboestado.SelectedValue.ToString();
         }
 
         private void cboestado_SelectedValueChanged(object sender, EventArgs e)
         {
-            //  this.nombreEstado = cboestado
-            // textBox1.Text = cboestado.SelectedValue.ToString()
-            int st = 0;
-           // st = Convert.ToInt32(nombreEstado);
-            st = Convert.ToInt32(cboestado.SelectedValue.ToString());
-           
-           
-            textBox1.Text = st.ToString();
+            //textBox1.Text = cboestado.SelectedValue.ToString();
+            nombreEstado = cboestado.SelectedValue.ToString();
         }
     }
 }

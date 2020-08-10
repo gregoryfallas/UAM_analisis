@@ -116,12 +116,15 @@
             // 
             // btnmodificar
             // 
+            this.btnmodificar.BackgroundImage = global::PL.Properties.Resources.editar;
+            this.btnmodificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmodificar.FlatAppearance.BorderSize = 0;
+            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmodificar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmodificar.Location = new System.Drawing.Point(251, 177);
             this.btnmodificar.Name = "btnmodificar";
-            this.btnmodificar.Size = new System.Drawing.Size(93, 44);
+            this.btnmodificar.Size = new System.Drawing.Size(93, 55);
             this.btnmodificar.TabIndex = 34;
-            this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -141,7 +144,7 @@
             this.btnagregar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregar.Location = new System.Drawing.Point(21, 177);
             this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(76, 44);
+            this.btnagregar.Size = new System.Drawing.Size(76, 55);
             this.btnagregar.TabIndex = 33;
             this.btnagregar.UseVisualStyleBackColor = true;
             this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
@@ -160,10 +163,12 @@
             // 
             this.btnatras.BackgroundImage = global::PL.Properties.Resources.logout_128;
             this.btnatras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnatras.FlatAppearance.BorderSize = 0;
+            this.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnatras.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnatras.Location = new System.Drawing.Point(33, 177);
+            this.btnatras.Location = new System.Drawing.Point(32, 177);
             this.btnatras.Name = "btnatras";
-            this.btnatras.Size = new System.Drawing.Size(51, 44);
+            this.btnatras.Size = new System.Drawing.Size(52, 55);
             this.btnatras.TabIndex = 47;
             this.btnatras.UseVisualStyleBackColor = true;
             // 

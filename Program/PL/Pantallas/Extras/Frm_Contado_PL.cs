@@ -60,16 +60,11 @@ namespace PL.Pantallas.Extras
                 }
 
                 txt_SubTotal.Text = ("¢") + ART.Subtotal.ToString();
-                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
-                Math.Round(ART.Impuesto,2);
+                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);                
                 txt_Impuesto.Text = ("¢") + ART.Impuesto.ToString();
-                facturas.Total = ART.Subtotal + ART.Impuesto;
-                Math.Round(facturas.Total, 2);
+                facturas.Total = ART.Subtotal + ART.Impuesto;                
                 txt_Total.Text =  facturas.Total.ToString();
-
-                //Obj_Dal.Dprecio = facturas.Total;
-
-               
+                            
 
                 cont_fila++;
 
@@ -123,20 +118,38 @@ namespace PL.Pantallas.Extras
                                 Frm_Contado_PL cont = new Frm_Contado_PL();
                                 FACTURAS factura = new FACTURAS();
 
-                                factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);/*Convert.ToInt32(cont.txt_NoCliente.Text)*/;
-                                factura.ID_Caja = 1 /*Convert.ToInt32(cont.txt_Caja.Text)*/;
-                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text); /*Convert.ToInt32(txt_Factura.Text);*/
-                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                                factura.Descripcion = "Compra";
-                                factura.Total = Convert.ToDecimal(txt_Total.Text); /*Convert.ToDecimal(cont.txt_Total.Text)*/;
-                                factura.Tipo_Pago = 1;
-                                factura.Estado = 20;
+                                factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
+                                factura.ID_Caja = 1 ;
+                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text); 
+                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());                               
+                                factura.Total = Convert.ToDecimal(txt_Total.Text);
+                              
 
+                                if (rdb_Contado.Checked==true)
+                                {
+                                    factura.Tipo_Pago = 1;
+                                }
+                                else
+                                {
+                                    factura.Tipo_Pago = 2;
+                                }
+                                if (rdb_Efectivo.Checked==true)
+                                {
+                                    factura.Descripcion = "Compra Efectivo";
+                                }
+                                else
+                                {
+                                    factura.Descripcion = "Compra Tarjeta";
+                                }
+                                                                
+                                factura.Estado = 20;
 
                                 Factura_BLL.agregarFactura(factura);
                                 MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 btn_Imprimir.Enabled = true;
+                                
+
 
 
                             }
@@ -179,8 +192,6 @@ namespace PL.Pantallas.Extras
             CargarNoFactura();
 
            
-           
-           
 
         }
 
@@ -211,7 +222,7 @@ namespace PL.Pantallas.Extras
             dt.Columns.Add("Primer_Apellido");
             dt.Columns.Add("Segundo_Apellido");
             dt.Columns.Add("IdCliente");
-            dt.Columns.Add();
+           
 
             
 
@@ -299,15 +310,16 @@ namespace PL.Pantallas.Extras
                     ART.Importe = ART.Importe - ART.Descuento;                    
                     txt_Importe.Text = ART.Importe.ToString();
                                 
-            }           
+            }
+            
         }
 
 
         private void LimpiarCampos()
         {
-            txt_Cantidad.Text = "";
-            txt_Precio.Text = "";
-            txt_Importe.Text = "";
+            txt_Cantidad.Text = string.Empty;
+            txt_Precio.Text = string.Empty;
+            txt_Importe.Text = string.Empty;
             txt_Descuento.Text = "0";
 
         }
@@ -395,7 +407,7 @@ namespace PL.Pantallas.Extras
                 txt_Importe.Text = ART.Importe.ToString();
 
             }
-
+            
         }
 
 
@@ -419,8 +431,7 @@ namespace PL.Pantallas.Extras
 
         private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
         {
-            DataTable dt = new DataTable();
-
+            DataTable dt = new DataTable();           
 
             Font font = new Font("Arial", 14);
             int ancho = 350;
@@ -435,24 +446,58 @@ namespace PL.Pantallas.Extras
 
 
             e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-            foreach (DataRow row in dt.Rows)
+
+
+
+            foreach (DataGridViewColumn columna in this.dtg_Factura.Columns)
             {
 
-                e.Graphics.DrawString(row["Nombre"].ToString() +" "+
-                 row["Cantidad"].ToString() +" " +
-                 row["Precio"].ToString() + " "+
-                 row["Total"].ToString()
-               , font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+                DataColumn col = new DataColumn(columna.Name);
+
+
+                dt.Columns.Add(col);
+
 
             }
-            e.Graphics.DrawString("---SubTotal: "+txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            string nombre;
+            string cantidad;
+            string precio;
+            string descuento;
+            string total;
+
+            foreach (DataGridViewRow row in dtg_Factura.Rows)
+            {
+
+                DataRow dr = dt.NewRow();
+                dr[0] = row.Cells[0].Value.ToString();
+                dr[1] = row.Cells[1].Value.ToString();
+                dr[2] = row.Cells[2].Value.ToString();
+                dr[3] = row.Cells[3].Value.ToString();
+                dr[4] = row.Cells[4].Value.ToString();
+
+
+                nombre = dr[0].ToString();
+                cantidad = dr[1].ToString();
+                precio = dr[2].ToString();
+                descuento = dr[3].ToString();
+                total = dr[4].ToString();
+
+                e.Graphics.DrawString(nombre+" "+cantidad+" "+precio+" "+descuento+" "+total, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+                
+
+            }
+            e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Total:"+"¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+
+
+            LimpiarCamposFactura();
 
         }
 
-        
+
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
@@ -461,16 +506,26 @@ namespace PL.Pantallas.Extras
                 
                 ART.Subtotal= ART.Subtotal- (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[4].Value.ToString()));
                 txt_SubTotal.Text = ART.Subtotal.ToString();
-                facturas.Total = facturas.Total - ART.Impuesto - (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[4].Value.ToString()));
-                txt_Total.Text = facturas.Total.ToString();
                 ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
-                txt_Impuesto.Text= ART.Impuesto.ToString();
-                
-
+                txt_Impuesto.Text = ART.Impuesto.ToString();
                 dtg_Factura.Rows.RemoveAt(dtg_Factura.CurrentRow.Index);
 
                 cont_fila--;
 
+                if (cont_fila == 0)
+                {
+                    txt_Total.Text = "0";
+                }
+                else
+                {
+                    facturas.Total = facturas.Total - ART.Subtotal - ART.Impuesto;
+                    txt_Total.Text = facturas.Total.ToString();
+                }
+                
+                     
+               
+               
+                
             }
 
 
@@ -553,7 +608,22 @@ namespace PL.Pantallas.Extras
         }
 
 
+        private void LimpiarCamposFactura()
+        {
+            txt_Cantidad.Text = "";
+            txt_Cliente.Text= "";
+            txt_Descuento.Text= "";
+            txt_Importe.Text= "";
+            txt_Nombre.Text= "";
+            txt_Precio.Text= "";
+            txt_Producto.Text= "";
+            txt_SubTotal.Text= "";
+            txt_Total.Text= "";     
+            txt_Impuesto.Text= "";
+            dtg_Factura.DataSource = null;
 
+
+        }
 
 
     }

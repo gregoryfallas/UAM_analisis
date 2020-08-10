@@ -68,6 +68,7 @@
             this.txt_Precio = new System.Windows.Forms.TextBox();
             this.txt_Importe = new System.Windows.Forms.TextBox();
             this.gb_Datos = new System.Windows.Forms.GroupBox();
+            this.txt_idCliente = new System.Windows.Forms.TextBox();
             this.txt_NoCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
@@ -83,12 +84,11 @@
             this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.txt_Factura = new System.Windows.Forms.TextBox();
-            this.txt_idCliente = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -127,12 +127,12 @@
             this.panel1.Controls.Add(this.gp_cantidades);
             this.panel1.Controls.Add(this.gb_Datos);
             this.panel1.Controls.Add(this.dtg_Factura);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1255, 713);
+            this.panel1.Size = new System.Drawing.Size(1367, 713);
             this.panel1.TabIndex = 1;
             // 
             // label15
@@ -631,6 +631,16 @@
             this.gb_Datos.TabStop = false;
             this.gb_Datos.Text = "Documento";
             // 
+            // txt_idCliente
+            // 
+            this.txt_idCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_idCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_idCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_idCliente.Location = new System.Drawing.Point(438, 156);
+            this.txt_idCliente.Name = "txt_idCliente";
+            this.txt_idCliente.Size = new System.Drawing.Size(62, 32);
+            this.txt_idCliente.TabIndex = 41;
+            // 
             // txt_NoCliente
             // 
             this.txt_NoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
@@ -738,11 +748,11 @@
             this.Descuento,
             this.Total});
             this.dtg_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Factura.Location = new System.Drawing.Point(5, 462);
+            this.dtg_Factura.Location = new System.Drawing.Point(12, 462);
             this.dtg_Factura.Name = "dtg_Factura";
             this.dtg_Factura.ReadOnly = true;
             this.dtg_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Factura.Size = new System.Drawing.Size(541, 220);
+            this.dtg_Factura.Size = new System.Drawing.Size(557, 220);
             this.dtg_Factura.TabIndex = 16;
             this.dtg_Factura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Factura_CellClick);
             // 
@@ -788,11 +798,21 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.lblNroCorrelativo);
             this.panel2.Controls.Add(this.btn_inicio);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1255, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(112, 713);
             this.panel2.TabIndex = 2;
+            // 
+            // txt_Factura
+            // 
+            this.txt_Factura.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Factura.ForeColor = System.Drawing.Color.Red;
+            this.txt_Factura.Location = new System.Drawing.Point(6, 35);
+            this.txt_Factura.Name = "txt_Factura";
+            this.txt_Factura.Size = new System.Drawing.Size(100, 26);
+            this.txt_Factura.TabIndex = 41;
+            this.txt_Factura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label13
             // 
@@ -829,26 +849,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // txt_Factura
-            // 
-            this.txt_Factura.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Factura.ForeColor = System.Drawing.Color.Red;
-            this.txt_Factura.Location = new System.Drawing.Point(6, 35);
-            this.txt_Factura.Name = "txt_Factura";
-            this.txt_Factura.Size = new System.Drawing.Size(100, 26);
-            this.txt_Factura.TabIndex = 41;
-            this.txt_Factura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txt_idCliente
-            // 
-            this.txt_idCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_idCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_idCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_idCliente.Location = new System.Drawing.Point(438, 156);
-            this.txt_idCliente.Name = "txt_idCliente";
-            this.txt_idCliente.Size = new System.Drawing.Size(62, 32);
-            this.txt_idCliente.TabIndex = 41;
             // 
             // Frm_Contado_PL
             // 

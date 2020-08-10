@@ -45,6 +45,7 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
+            this.cb_Deshabilitar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cb_Deshabilitar);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txt_Cliente);
             this.groupBox1.Controls.Add(this.cb_Credito);
@@ -133,6 +135,7 @@
             this.cb_Credito.TabIndex = 16;
             this.cb_Credito.Text = "Habilitar Crédito";
             this.cb_Credito.UseVisualStyleBackColor = true;
+            this.cb_Credito.Click += new System.EventHandler(this.cb_Credito_Click);
             // 
             // txt_Telefono
             // 
@@ -262,6 +265,16 @@
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
+            // cb_Deshabilitar
+            // 
+            this.cb_Deshabilitar.AutoSize = true;
+            this.cb_Deshabilitar.Location = new System.Drawing.Point(10, 170);
+            this.cb_Deshabilitar.Name = "cb_Deshabilitar";
+            this.cb_Deshabilitar.Size = new System.Drawing.Size(182, 27);
+            this.cb_Deshabilitar.TabIndex = 19;
+            this.cb_Deshabilitar.Text = "Deshabilitar Crédito";
+            this.cb_Deshabilitar.UseVisualStyleBackColor = true;
+            // 
             // Frm_Credito_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -301,5 +314,6 @@
         private System.Windows.Forms.DataGridView dtg_Clientes;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_Cliente;
+        private System.Windows.Forms.CheckBox cb_Deshabilitar;
     }
 }

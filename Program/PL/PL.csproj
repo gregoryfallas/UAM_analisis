@@ -601,5 +601,23 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\facturacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\credito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\express.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\abierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\cerrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\Descuento.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,8 +47,33 @@ namespace PL.Pantallas.Adicionales
 
         private void tsb_Contado_Click(object sender, EventArgs e)
         {
-            Frm_Contado_PL Contado = new Frm_Contado_PL();
-            Contado.ShowDialog();
+            
+
+
+            CAJAS CAJITA = new CAJAS();
+            List<CAJAS> resultado = new List<CAJAS>();
+            resultado = Cajas_BLL.ConsultarCajas(1);
+
+            foreach (var li in resultado)
+            {
+                CAJITA.ID_Caja = li.ID_Caja;
+                CAJITA.Estado = li.Estado;
+            }
+
+
+            if (CAJITA.Estado == 22)
+            {
+                MessageBox.Show("Debe ABRIR primeramente la caja","¡¡¡Atención!!!",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Frm_Contado_PL Contado = new Frm_Contado_PL();
+                Contado.ShowDialog();
+            }
+
+
+
+
         }
 
         private void tsb_Cajas_Click(object sender, EventArgs e)

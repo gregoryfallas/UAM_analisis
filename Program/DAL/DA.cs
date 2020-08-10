@@ -181,8 +181,8 @@ namespace DAL
                         tipo.Apellido_1= item.ItemArray[3].ToString();
                         tipo.Apellido_2= item.ItemArray[4].ToString();    
                         tipo.Correo= item.ItemArray[5].ToString();
-                        tipo.Telefono=item.ItemArray[6].ToString();
-                        tipo.ID_Provincias= Convert.ToInt32(item.ItemArray[7].ToString());
+                        tipo.Telefono=item.ItemArray[6].ToString();                        
+                        tipo.Credito= Convert.ToInt32(item.ItemArray[7].ToString());
 
                         lstresultados.Add(tipo);
                     }
@@ -379,6 +379,56 @@ namespace DAL
 
             return lstresultados;
         }
+
+
+
+
+        public List<CLIENTES>ModificaCreditos(SQLSentencia P_Peticion)
+        {
+            List<CLIENTES> lstresultados = new List<CLIENTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CLIENTES tipo = new CLIENTES();
+
+                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Credito= Convert.ToInt32(item.ItemArray[1].ToString());
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
 
 
 

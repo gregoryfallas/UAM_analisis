@@ -65,7 +65,7 @@ namespace PL.Pantallas.Extras
             dt.Columns.Add("Segundo_Apellido");
             dt.Columns.Add("Correo");
             dt.Columns.Add("Teléfono");
-            dt.Columns.Add("Id Provincia");
+            dt.Columns.Add("Credito");
 
 
 
@@ -79,8 +79,7 @@ namespace PL.Pantallas.Extras
                     item.Apellido_2,
                     item.Correo,
                     item.Telefono,
-                    item.ID_Provincias
-                
+                    item.Credito             
                     );
             }
 
@@ -124,5 +123,35 @@ namespace PL.Pantallas.Extras
                 e.Handled = false;
             }
         }
+
+        private void cb_Credito_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Se ha habilitado el crédito","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            txt_Cedula.Text = string.Empty;
+            txt_Nombre.Text= string.Empty;
+            txt_Correo.Text= string.Empty;
+            txt_Telefono.Text= string.Empty;
+            cb_Credito.Checked = false;
+
+                       
+            //CLIENTES Credito= new CLIENTES();
+
+            //Credito.ID_Cliente = dtg_Clientes.dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
+            //factura.ID_Caja = 1;
+            //factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+            //factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            //factura.Total = Convert.ToDecimal(txt_Total.Text);
+
+            //Factura_BLL.agregarFactura(factura);
+
+
+        }
+
+
+
+
+
+
     }
     }

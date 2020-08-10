@@ -34,7 +34,7 @@ namespace DAL.Entidades
         public int ID_Cantones { get; set; }
         public int ID_Distritos { get; set; }
         public string Direccion { get; set; }
-        public Nullable<bool> Credito { get; set; }
+        public int Credito { get; set; }
         public int Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

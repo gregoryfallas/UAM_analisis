@@ -17,10 +17,11 @@ namespace PL.Pantallas.Adicionales
         public Frm_Control_Suministros_PL()
         {
             InitializeComponent();
-            Cargar2();
+            CARGAR_INVENTARIO_TOTAL();
+            CARGAR_INVENTARIO_MENOR_CANTIDAD();
         }
 
-        private void Cargar2()
+        private void CARGAR_INVENTARIO_TOTAL()
         {
     
             try
@@ -38,11 +39,27 @@ namespace PL.Pantallas.Adicionales
                 throw;
             }
 
+        }
 
+        private void CARGAR_INVENTARIO_MENOR_CANTIDAD()
+        {
+            try
+            {
+                this.dataGrid_controlmeosdediez.DataSource = null;
+                this.dataGrid_controlmeosdediez.Refresh();
 
+                this.dataGrid_controlmeosdediez.DataSource = Suministros_BLL.SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD();
+                this.dataGrid_controlmeosdediez.Refresh();
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
         }
+        //SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD()
 
         private void btn_Inicio_Click(object sender, EventArgs e)
         {
@@ -51,20 +68,10 @@ namespace PL.Pantallas.Adicionales
             inicio.ShowDialog();
         }
 
-        private void dataGridV_controlsuministros_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //dataGridV_controlsuministros = 
-          
-        }
-
-        private void dataGrid_controlmeosdediez_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //dataGrid_controlmeosdediez = 
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            //dataGridV_controlsuministros =
+            CARGAR_INVENTARIO_MENOR_CANTIDAD();
+            CARGAR_INVENTARIO_TOTAL();
           
         }
     }

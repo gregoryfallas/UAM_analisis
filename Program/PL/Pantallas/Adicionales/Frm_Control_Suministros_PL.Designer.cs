@@ -71,18 +71,17 @@
             // 
             this.dataGrid_controlmeosdediez.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dataGrid_controlmeosdediez.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_controlmeosdediez.Location = new System.Drawing.Point(431, 65);
+            this.dataGrid_controlmeosdediez.Location = new System.Drawing.Point(33, 269);
             this.dataGrid_controlmeosdediez.Name = "dataGrid_controlmeosdediez";
-            this.dataGrid_controlmeosdediez.Size = new System.Drawing.Size(269, 341);
+            this.dataGrid_controlmeosdediez.Size = new System.Drawing.Size(648, 140);
             this.dataGrid_controlmeosdediez.TabIndex = 131;
-            this.dataGrid_controlmeosdediez.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_controlmeosdediez_CellContentClick);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(481, 30);
+            this.label16.Location = new System.Drawing.Point(29, 235);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(170, 20);
             this.label16.TabIndex = 130;
@@ -92,18 +91,17 @@
             // 
             this.dataGridV_controlsuministros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dataGridV_controlsuministros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridV_controlsuministros.Location = new System.Drawing.Point(33, 65);
+            this.dataGridV_controlsuministros.Location = new System.Drawing.Point(33, 55);
             this.dataGridV_controlsuministros.Name = "dataGridV_controlsuministros";
-            this.dataGridV_controlsuministros.Size = new System.Drawing.Size(364, 341);
+            this.dataGridV_controlsuministros.Size = new System.Drawing.Size(648, 154);
             this.dataGridV_controlsuministros.TabIndex = 127;
-            this.dataGridV_controlsuministros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridV_controlsuministros_CellContentClick);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(144, 30);
+            this.label5.Location = new System.Drawing.Point(29, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 20);
             this.label5.TabIndex = 104;

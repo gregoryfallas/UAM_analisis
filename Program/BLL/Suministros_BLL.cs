@@ -26,11 +26,28 @@ namespace BLL
 
             }
             catch (Exception e)
+
             {
                 throw e;
             }
         }
 
+        public static DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD";
 
+                DA acceso = new DA();
+                return acceso.consultarInventarioConArticulos(sentencia);
+
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
     }
 }

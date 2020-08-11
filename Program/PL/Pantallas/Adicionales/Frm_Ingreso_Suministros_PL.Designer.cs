@@ -33,42 +33,42 @@
             this.btn_Crear = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_cant = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tb_descrip = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
+            this.tb_idformulario = new System.Windows.Forms.TextBox();
+            this.dataGrid_ingresosumi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tb_idproveedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tb_idarticulo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ingresosumi)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.tb_idproveedor);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.tb_idarticulo);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Crear);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.tb_cant);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tb_descrip);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dataGridView11);
+            this.panel1.Controls.Add(this.tb_idformulario);
+            this.panel1.Controls.Add(this.dataGrid_ingresosumi);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -101,6 +101,7 @@
             this.btn_Crear.Size = new System.Drawing.Size(50, 40);
             this.btn_Crear.TabIndex = 169;
             this.btn_Crear.UseVisualStyleBackColor = false;
+            this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
             // 
             // button2
             // 
@@ -126,13 +127,13 @@
             this.label12.TabIndex = 165;
             this.label12.Text = "Resumen";
             // 
-            // textBox3
+            // tb_cant
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox3.Location = new System.Drawing.Point(416, 45);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 164;
+            this.tb_cant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_cant.Location = new System.Drawing.Point(416, 45);
+            this.tb_cant.Name = "tb_cant";
+            this.tb_cant.Size = new System.Drawing.Size(120, 20);
+            this.tb_cant.TabIndex = 164;
             // 
             // label9
             // 
@@ -156,13 +157,13 @@
             this.label8.TabIndex = 162;
             this.label8.Text = "Cantidad:";
             // 
-            // textBox2
+            // tb_descrip
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(223, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 158;
+            this.tb_descrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_descrip.Location = new System.Drawing.Point(223, 45);
+            this.tb_descrip.Name = "tb_descrip";
+            this.tb_descrip.Size = new System.Drawing.Size(120, 20);
+            this.tb_descrip.TabIndex = 158;
             // 
             // label6
             // 
@@ -175,22 +176,22 @@
             this.label6.TabIndex = 157;
             this.label6.Text = "Id Formulario Pedido:";
             // 
-            // textBox1
+            // tb_idformulario
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox1.Location = new System.Drawing.Point(29, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 156;
+            this.tb_idformulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_idformulario.Location = new System.Drawing.Point(29, 46);
+            this.tb_idformulario.Name = "tb_idformulario";
+            this.tb_idformulario.Size = new System.Drawing.Size(135, 20);
+            this.tb_idformulario.TabIndex = 156;
             // 
-            // dataGridView11
+            // dataGrid_ingresosumi
             // 
-            this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(35, 219);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.Size = new System.Drawing.Size(626, 224);
-            this.dataGridView11.TabIndex = 155;
+            this.dataGrid_ingresosumi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dataGrid_ingresosumi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_ingresosumi.Location = new System.Drawing.Point(35, 219);
+            this.dataGrid_ingresosumi.Name = "dataGrid_ingresosumi";
+            this.dataGrid_ingresosumi.Size = new System.Drawing.Size(626, 224);
+            this.dataGrid_ingresosumi.TabIndex = 155;
             // 
             // panel2
             // 
@@ -213,13 +214,13 @@
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
             // 
-            // textBox6
+            // tb_idproveedor
             // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox6.Location = new System.Drawing.Point(229, 131);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(120, 20);
-            this.textBox6.TabIndex = 176;
+            this.tb_idproveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_idproveedor.Location = new System.Drawing.Point(229, 131);
+            this.tb_idproveedor.Name = "tb_idproveedor";
+            this.tb_idproveedor.Size = new System.Drawing.Size(120, 20);
+            this.tb_idproveedor.TabIndex = 176;
             // 
             // label1
             // 
@@ -243,13 +244,13 @@
             this.label2.TabIndex = 174;
             this.label2.Text = "Id Proveedor:";
             // 
-            // textBox7
+            // tb_idarticulo
             // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox7.Location = new System.Drawing.Point(29, 131);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(135, 20);
-            this.textBox7.TabIndex = 173;
+            this.tb_idarticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_idarticulo.Location = new System.Drawing.Point(29, 131);
+            this.tb_idarticulo.Name = "tb_idarticulo";
+            this.tb_idarticulo.Size = new System.Drawing.Size(135, 20);
+            this.tb_idarticulo.TabIndex = 173;
             // 
             // Frm_Ingreso_Suministros_PL
             // 
@@ -264,7 +265,7 @@
             this.Text = "Ingreso Suministros";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ingresosumi)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -276,19 +277,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_cant;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tb_descrip;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView11;
+        private System.Windows.Forms.TextBox tb_idformulario;
+        private System.Windows.Forms.DataGridView dataGrid_ingresosumi;
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button btn_Crear;
         private System.Windows.Forms.Button btn_Modificar;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tb_idproveedor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tb_idarticulo;
     }
 }

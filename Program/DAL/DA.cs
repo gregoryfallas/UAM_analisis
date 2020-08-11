@@ -571,8 +571,53 @@ namespace DAL
             return dt;
         }
 
-        #endregion
+        public DataTable SP_CREAR_ingreso_suministro(SQLSentencia peticion)
+        {
+            List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = peticion.Peticion; //ASigna peticion recibida
+
+                if (peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                       ARTICULOS tipo = new ARTICULOS();
+
+                        tipo.ID_Articulos = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Descripcion = item.ItemArray[2].ToString();
+                       
+                      
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
     }
+    #endregion
 }
 #endregion

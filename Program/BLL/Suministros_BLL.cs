@@ -49,5 +49,26 @@ namespace BLL
                 throw e;
             }
         }
+
+        public static DataTable SP_CREAR_ingreso_suministro
+        {
+            get
+            {
+                try
+                {
+                    SQLSentencia sentencia = new SQLSentencia();
+                    sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro";
+
+                    DA acceso = new DA();
+                    //return acceso.consultarInventarioConArticulos(sentencia);
+
+                }
+                catch (Exception e)
+
+                {
+                    throw e;
+                }
+            }
+        }
     }
 }

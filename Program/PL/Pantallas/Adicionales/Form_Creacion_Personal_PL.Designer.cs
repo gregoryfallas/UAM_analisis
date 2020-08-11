@@ -58,7 +58,6 @@
             this.txtcedula = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtprueba = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +66,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.txtprueba);
             this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.btnagregar);
             this.panel1.Controls.Add(this.groupBox1);
@@ -103,6 +101,7 @@
             this.btnagregar.Size = new System.Drawing.Size(86, 65);
             this.btnagregar.TabIndex = 45;
             this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // groupBox1
             // 
@@ -149,6 +148,8 @@
             this.cboidpuesto.Name = "cboidpuesto";
             this.cboidpuesto.Size = new System.Drawing.Size(204, 31);
             this.cboidpuesto.TabIndex = 63;
+            this.cboidpuesto.SelectedIndexChanged += new System.EventHandler(this.cboidpuesto_SelectedIndexChanged);
+            this.cboidpuesto.SelectedValueChanged += new System.EventHandler(this.cboidpuesto_SelectedValueChanged);
             // 
             // txttelefono
             // 
@@ -253,6 +254,7 @@
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(204, 31);
             this.cboestado.TabIndex = 53;
+            this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // txtapellido2
             // 
@@ -416,16 +418,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtprueba
-            // 
-            this.txtprueba.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.txtprueba.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprueba.ForeColor = System.Drawing.Color.White;
-            this.txtprueba.Location = new System.Drawing.Point(255, 3);
-            this.txtprueba.Name = "txtprueba";
-            this.txtprueba.Size = new System.Drawing.Size(204, 26);
-            this.txtprueba.TabIndex = 64;
-            // 
             // Form_Creacion_Personal_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,7 +430,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creacion Personal";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -478,6 +469,5 @@
         private System.Windows.Forms.TextBox txtapellido2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboidpuesto;
-        private System.Windows.Forms.TextBox txtprueba;
     }
 }

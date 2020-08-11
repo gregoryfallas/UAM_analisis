@@ -66,7 +66,7 @@ namespace DAL
         /// </summary>
         /// <param name="peticion"></param>
         /// <returns></returns>
-        public int ejecutarSentecia(SQLSentencia peticion)
+        public bool ejecutarSentecia(SQLSentencia peticion)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace DAL
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                 this.ABRIR();
                 cmd.ExecuteNonQuery();
-                return cmd.ExecuteNonQuery();
+                return true;
             }
             catch (Exception ex)
             {

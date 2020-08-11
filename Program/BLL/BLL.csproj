@@ -44,6 +44,7 @@
     <Compile Include="Articulos_BLL.cs" />
     <Compile Include="Cajas_BLL.cs" />
     <Compile Include="Clientes_BLL.cs" />
+    <Compile Include="Cls_Cobros_BLL.cs" />
     <Compile Include="Credito_BLL.cs" />
     <Compile Include="Factura_BLL.cs" />
     <Compile Include="Mascota_BLL.cs" />

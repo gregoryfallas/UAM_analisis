@@ -89,5 +89,11 @@ namespace PL.Pantallas.Adicionales
             Frm_Credito_PL Credito = new Frm_Credito_PL();
             Credito.ShowDialog();
         }
+
+        private void tsb_Cobros_Click(object sender, EventArgs e)
+        {
+            Cobros_PL Cobros = new Cobros_PL();
+            Cobros.ShowDialog();
+        }
     }
 }

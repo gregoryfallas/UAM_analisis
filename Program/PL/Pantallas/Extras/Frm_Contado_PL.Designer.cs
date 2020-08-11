@@ -807,6 +807,7 @@
             // 
             // txt_Factura
             // 
+            this.txt_Factura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.txt_Factura.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Factura.ForeColor = System.Drawing.Color.Red;
             this.txt_Factura.Location = new System.Drawing.Point(6, 35);

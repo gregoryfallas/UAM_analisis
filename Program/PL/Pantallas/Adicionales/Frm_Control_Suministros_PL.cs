@@ -59,7 +59,6 @@ namespace PL.Pantallas.Adicionales
             }
 
         }
-        //SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD()
 
         private void btn_Inicio_Click(object sender, EventArgs e)
         {

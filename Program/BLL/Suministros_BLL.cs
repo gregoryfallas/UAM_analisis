@@ -13,14 +13,15 @@ namespace BLL
 {
     public class Suministros_BLL
     {
+
         public static DataTable ConsultarInventarioArticulos()
         {
-                       
+            #region            
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
                 sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIOTOTAL";
-                
+
                 DA acceso = new DA();
                 return acceso.consultarInventarioConArticulos(sentencia);
 
@@ -31,9 +32,10 @@ namespace BLL
                 throw e;
             }
         }
-
+        #endregion
         public static DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD()
         {
+            #region
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
@@ -49,26 +51,7 @@ namespace BLL
                 throw e;
             }
         }
-
-        public static DataTable SP_CREAR_ingreso_suministro
-        {
-            get
-            {
-                try
-                {
-                    SQLSentencia sentencia = new SQLSentencia();
-                    sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro";
-
-                    DA acceso = new DA();
-                    //return acceso.consultarInventarioConArticulos(sentencia);
-
-                }
-                catch (Exception e)
-
-                {
-                    throw e;
-                }
-            }
-        }
+        #endregion
+       
     }
 }

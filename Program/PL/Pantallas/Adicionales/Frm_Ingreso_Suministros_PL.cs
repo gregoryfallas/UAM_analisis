@@ -71,8 +71,10 @@ namespace PL.Pantallas.Adicionales
                 CargarDataGridGruas();
                 cargarBoxChoferes();
 
-            ID_Solicitud_Articulos =   
-			ID_Articulo_Proveedor
+            Articulo ingreso = new 
+                ID_Solicitud_Articulos = new ID_Solicitud_Articulos
+
+            ID_Articulo_Proveedor
 			ID_Solicitud_Compra 
 			Cantidad ,
 			Descripcion

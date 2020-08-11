@@ -341,6 +341,7 @@
             this.rdb_Credito.TabIndex = 2;
             this.rdb_Credito.Text = "Crédito";
             this.rdb_Credito.UseVisualStyleBackColor = true;
+            this.rdb_Credito.Click += new System.EventHandler(this.rdb_Credito_Click);
             // 
             // dtg_Articulos
             // 
@@ -838,7 +839,7 @@
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(6, 641);
+            this.btn_inicio.Location = new System.Drawing.Point(9, 639);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(92, 41);
             this.btn_inicio.TabIndex = 11;

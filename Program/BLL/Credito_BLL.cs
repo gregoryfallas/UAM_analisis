@@ -19,20 +19,20 @@ namespace BLL
             try
             {
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"SP_MODIFICAR_CREDITOS @idCliente,@Credito";
-                SqlParameter paramIdCliente = new SqlParameter();
-                paramIdCliente.Value = cliente.ID_Cliente;
-                paramIdCliente.ParameterName = "@idCliente";
-                paramIdCliente.SqlDbType = System.Data.SqlDbType.Int;
+                peticion.Peticion = @"SP_MODIFICAR_CREDITOS @Cedula,@Credito";
+                SqlParameter paramCedula = new SqlParameter();
+                paramCedula.Value = cliente.Cedula;
+                paramCedula.ParameterName = "@Cedula";
+                paramCedula.SqlDbType = System.Data.SqlDbType.VarChar;
 
                 SqlParameter paramCredito = new SqlParameter();
                 paramCredito.Value = cliente.Credito;
                 paramCredito.ParameterName = "@Credito";
-                paramCredito.SqlDbType = System.Data.SqlDbType.Bit;
+                paramCredito.SqlDbType = System.Data.SqlDbType.Int;
 
                 
 
-                peticion.lstParametros.Add(paramIdCliente);
+                peticion.lstParametros.Add(paramCedula);
                 peticion.lstParametros.Add(paramCredito);
                 
                 DA acceso = new DA();

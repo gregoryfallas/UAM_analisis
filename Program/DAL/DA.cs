@@ -380,9 +380,7 @@ namespace DAL
             return lstresultados;
         }
 
-
-
-
+               
         public List<CLIENTES>ModificaCreditos(SQLSentencia P_Peticion)
         {
             List<CLIENTES> lstresultados = new List<CLIENTES>();
@@ -408,7 +406,7 @@ namespace DAL
                     {
                         CLIENTES tipo = new CLIENTES();
 
-                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Cedula = item.ItemArray[0].ToString();
                         tipo.Credito= Convert.ToInt32(item.ItemArray[1].ToString());
 
                         lstresultados.Add(tipo);

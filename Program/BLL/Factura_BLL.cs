@@ -103,30 +103,42 @@ namespace BLL
 
 
 
+        public static bool agregarDetalleFactura(DETALLE_ARTICULOS detalle)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_INSERTAR_DETALLE_ARTICULOS @idFactura,@idArticulos,@idCantidad";
+                SqlParameter paramIdFactura = new SqlParameter();
+                paramIdFactura.Value = detalle.ID_Factura;
+                paramIdFactura.ParameterName = "@idFactura";
+                paramIdFactura.SqlDbType = System.Data.SqlDbType.Int;
 
-        //public static bool NumeroFactura(FACTURAS factura)
-        //{
-        //    try
-        //    {
-        //        SQLSentencia peticion = new SQLSentencia();
-        //        peticion.Peticion = @"EXEC SP_GENERAR_NOFACTURA @Numero_Factura";
-        //        SqlParameter paramIDFacturas = new SqlParameter();
-        //        paramIDFacturas.Value = factura.Numero_Factura;
-        //        paramIDFacturas.ParameterName = "@Numero_Factura";
-        //        paramIDFacturas.SqlDbType = System.Data.SqlDbType.Int;
+                SqlParameter paramIdArticulos = new SqlParameter();
+                paramIdArticulos.Value = detalle.ID_Articulos;
+                paramIdArticulos.ParameterName = "@idArticulos";
+                paramIdArticulos.SqlDbType = System.Data.SqlDbType.Int;
 
+                SqlParameter paramIdCantidad = new SqlParameter();
+                paramIdCantidad.Value = detalle.Cantidad;
+                paramIdCantidad.ParameterName = "@idCantidad";
+                paramIdCantidad.SqlDbType = System.Data.SqlDbType.Decimal;
 
-        //        peticion.lstParametros.Add(paramIDFacturas);
+                
 
-        //        DA acceso = new DA();
-        //        return acceso.ejecutarSentecia(peticion);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+                peticion.lstParametros.Add(paramIdFactura);
+                peticion.lstParametros.Add(paramIdArticulos);
+                peticion.lstParametros.Add(paramIdCantidad);
+               
 
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 

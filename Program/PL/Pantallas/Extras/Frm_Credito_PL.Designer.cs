@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtg_Clientes = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cb_Deshabilitar = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_Cliente = new System.Windows.Forms.TextBox();
             this.cb_Credito = new System.Windows.Forms.CheckBox();
@@ -45,7 +46,6 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
-            this.cb_Deshabilitar = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Clientes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -104,6 +104,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
+            // 
+            // cb_Deshabilitar
+            // 
+            this.cb_Deshabilitar.AutoSize = true;
+            this.cb_Deshabilitar.Location = new System.Drawing.Point(10, 170);
+            this.cb_Deshabilitar.Name = "cb_Deshabilitar";
+            this.cb_Deshabilitar.Size = new System.Drawing.Size(182, 27);
+            this.cb_Deshabilitar.TabIndex = 19;
+            this.cb_Deshabilitar.Text = "Deshabilitar Crédito";
+            this.cb_Deshabilitar.UseVisualStyleBackColor = true;
+            this.cb_Deshabilitar.Click += new System.EventHandler(this.cb_Deshabilitar_Click);
             // 
             // label5
             // 
@@ -264,16 +275,6 @@
             this.btn_inicio.Text = "Inicio";
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
-            // 
-            // cb_Deshabilitar
-            // 
-            this.cb_Deshabilitar.AutoSize = true;
-            this.cb_Deshabilitar.Location = new System.Drawing.Point(10, 170);
-            this.cb_Deshabilitar.Name = "cb_Deshabilitar";
-            this.cb_Deshabilitar.Size = new System.Drawing.Size(182, 27);
-            this.cb_Deshabilitar.TabIndex = 19;
-            this.cb_Deshabilitar.Text = "Deshabilitar Crédito";
-            this.cb_Deshabilitar.UseVisualStyleBackColor = true;
             // 
             // Frm_Credito_PL
             // 

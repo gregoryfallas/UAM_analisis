@@ -11,6 +11,7 @@ using BLL;
 using DAL.Entidades;
 using DAL;
 using System.Drawing.Printing;
+using System.Data.SqlClient;
 
 namespace PL.Pantallas.Extras
 {
@@ -78,6 +79,7 @@ namespace PL.Pantallas.Extras
 
 
 
+
             
             
 
@@ -117,6 +119,7 @@ namespace PL.Pantallas.Extras
 
                                 Frm_Contado_PL cont = new Frm_Contado_PL();
                                 FACTURAS factura = new FACTURAS();
+                                DETALLE_ARTICULOS detalle = new DETALLE_ARTICULOS();
 
                                 factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
                                 factura.ID_Caja = 1 ;
@@ -142,9 +145,19 @@ namespace PL.Pantallas.Extras
                                     factura.Descripcion = "Compra Tarjeta";
                                 }
                                                                 
-                                factura.Estado = 20;
+                                factura.Estado = 1;
 
                                 Factura_BLL.agregarFactura(factura);
+
+                                
+
+                                    
+                                }
+
+                               
+
+
+
                                 MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 btn_Imprimir.Enabled = true;
@@ -163,7 +176,7 @@ namespace PL.Pantallas.Extras
 
 
 
-            }
+            
         }
 
 
@@ -577,6 +590,13 @@ namespace PL.Pantallas.Extras
             idCliente= dtg_Clientes.CurrentRow.Cells[4].Value.ToString();
             txt_idCliente.Text = idCliente;
 
+            rdb_Credito.Checked =false;
+            rdb_Contado.Checked = false;
+            rdb_Efectivo.Checked = false;
+            rdb_Tarjeta.Checked = false;
+
+
+
         }
 
         private void dtg_Articulos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -625,6 +645,53 @@ namespace PL.Pantallas.Extras
 
         }
 
+        private void rdb_Credito_Click(object sender, EventArgs e)
+        {
 
+            string tempcedula;
+            string tempcredito;
+
+            CLIENTES consulta = new CLIENTES();
+            List<CLIENTES> resultado = new List<CLIENTES>();
+            resultado = Clientes_BLL.ConsultarClientes(txt_Cliente.Text);
+
+            tempcedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
+
+
+
+            foreach (var li in resultado)
+            {
+                consulta.Cedula = li.Cedula;
+
+                if (tempcedula==li.Cedula)
+                {
+                    tempcredito = li.Credito.ToString();
+
+                    if (tempcredito =="1")
+                    {
+                        MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cliente NO cuenta con crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+
+                
+                //consulta.Credito = li.Credito;
+            }
+
+
+            
+
+
+
+
+
+
+
+
+        }
     }
 }

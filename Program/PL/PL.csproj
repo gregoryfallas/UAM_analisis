@@ -239,6 +239,12 @@
     <Compile Include="Pantallas\Adicionales\Frm_Tesoreria_PL.Designer.cs">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Extras\Cobros_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Cobros_PL.Designer.cs">
+      <DependentUpon>Cobros_PL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cajas_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -399,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Tesoreria_PL.resx">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Cobros_PL.resx">
+      <DependentUpon>Cobros_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cajas_PL.resx">
       <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>

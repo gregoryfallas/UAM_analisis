@@ -126,32 +126,53 @@ namespace PL.Pantallas.Extras
 
         private void cb_Credito_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Se ha habilitado el crédito","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            if (MessageBox.Show("¿Desea Habilitar el crédito?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MessageBox.Show("Se ha habilitado el crédito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            txt_Cedula.Text = string.Empty;
-            txt_Nombre.Text= string.Empty;
-            txt_Correo.Text= string.Empty;
-            txt_Telefono.Text= string.Empty;
-            cb_Credito.Checked = false;
+                txt_Cedula.Text = string.Empty;
+                txt_Nombre.Text = string.Empty;
+                txt_Correo.Text = string.Empty;
+                txt_Telefono.Text = string.Empty;
+                cb_Credito.Checked = false;
+                
+                CLIENTES Credito = new CLIENTES();
 
-                       
-            //CLIENTES Credito= new CLIENTES();
-
-            //Credito.ID_Cliente = dtg_Clientes.dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
-            //factura.ID_Caja = 1;
-            //factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
-            //factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //factura.Total = Convert.ToDecimal(txt_Total.Text);
-
-            //Factura_BLL.agregarFactura(factura);
-
+                Credito.Cedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
+                Credito.Credito = 1;
+                
+                Credito_BLL.ModificaCreditos(Credito);
+            }
 
         }
 
+        private void cb_Deshabilitar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Deshabilitar el crédito?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                MessageBox.Show("Se ha deshabilitado el crédito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txt_Cedula.Text = string.Empty;
+                txt_Nombre.Text = string.Empty;
+                txt_Correo.Text = string.Empty;
+                txt_Telefono.Text = string.Empty;
+               cb_Deshabilitar.Checked = false;
+
+
+                CLIENTES Credito = new CLIENTES();
+
+                Credito.Cedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
+                Credito.Credito = 0;
+
+
+                Credito_BLL.ModificaCreditos(Credito);
+
+            }
 
 
 
-
-
+                
+        }
     }
     }

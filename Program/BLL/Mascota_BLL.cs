@@ -2,6 +2,7 @@
 using DAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,49 @@ namespace BLL
             }
 
         }
+
+
+
+        public static bool agregarMascota(MASCOTAS mascota)
+        {
+            try
+            {
+
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CREAR_MASCOTA '" + mascota.ID_Cliente + "','" + mascota.Nombre + "','" + mascota.Tipo_Animal+ "','" + mascota.Raza + "','" + mascota.Sexo + "','" + mascota.Estado +  "'";
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<MASCOTAS> ConsultarMascota(string Nombre)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_Mascotas @Nombre";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = Nombre;
+                paramC.ParameterName = "@Nombre";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarMascotas(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
 
 
     }

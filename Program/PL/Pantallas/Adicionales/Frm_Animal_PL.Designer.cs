@@ -460,6 +460,7 @@
             this.btn_Agregar.Size = new System.Drawing.Size(37, 33);
             this.btn_Agregar.TabIndex = 27;
             this.btn_Agregar.UseVisualStyleBackColor = true;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // btn_Eliminar
             // 

@@ -26,6 +26,8 @@ namespace PL.Pantallas.Adicionales
         private string id_Distritos;
         private string id_Canton;
         private string id_Provincia;
+        private string Nombre_Provincia;
+
         private string id_Estado;
         private string ced;
         public Frm_Clientes_PL()
@@ -117,8 +119,6 @@ namespace PL.Pantallas.Adicionales
                         item.Estado
                         );
                 }
-
-
                 this.dataGridView1.DataSource = null;
                 this.dataGridView1.Refresh();
                 this.dataGridView1.DataSource = dt;
@@ -176,12 +176,21 @@ namespace PL.Pantallas.Adicionales
         {
 
             this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
-          //  id_Provincia = Cantoncbo.SelectedValue.ToString();
 
-            //    textBox1.Text = provincia_id.ToString();
+
+            
             CargarCombosCantones();
             
         }
+
+        private void nombreProvincia(int id) {
+            Nombre_Provincia="a";
+
+ 
+
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -318,6 +327,12 @@ namespace PL.Pantallas.Adicionales
                 textBox7.Text= dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 textBox5.Text= dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 textBox3.Text= dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                
+                
+                
+                //Canton
+                
+                
                 //estados
                 int ides = 0;
                 ides = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString());
@@ -336,25 +351,14 @@ namespace PL.Pantallas.Adicionales
                 
                 textBox4.Text= dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
                 
-                // cliente.Credito = false;
-                //if (credito.ToString().Equals("Si"))
-                //    c = true;
-                //else
-                //    c = false;
-                //cliente.Credito = c;
-                //cliente.Estado = Convert.ToInt32(id_Estado);
-                
-              //  ced = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-
+             
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {
-
-              
+            { 
                 Clientes_BLL.eliminarCliente(ced);
                 MessageBox.Show("Usuario eliminado");
                 cargarGridUsuarios();

@@ -60,16 +60,6 @@ namespace PL.Pantallas.Adicionales
             cbonombre.Refresh();
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Adicionales.Form_Menu_Reclutamiento atras = new Adicionales.Form_Menu_Reclutamiento();
-            atras.ShowDialog();
-        }
-
-       
-
         private void btncrear_Click(object sender, EventArgs e)
         {
             try
@@ -98,7 +88,7 @@ namespace PL.Pantallas.Adicionales
 
         private void btnenviar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Enviado a Marketing para lanzar vacante.");
+            MessageBox.Show("Información enviado a Marketing para lanzar vacante.");
         }
 
         private void cbonombre_SelectedIndexChanged(object sender, EventArgs e)

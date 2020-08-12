@@ -24,18 +24,28 @@ namespace PL.Pantallas.Adicionales
             inicio.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void creaciónDePersonalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Adicionales.Form_Creacion_Personal_PL personal = new Adicionales.Form_Creacion_Personal_PL();
             personal.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void creaciónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Adicionales.Form_Creacion_Usuarios usuario = new Adicionales.Form_Creacion_Usuarios();
             usuario.ShowDialog();
+        }
+
+        private void creaciónDeRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Adicionales.Form_Creacion_Roles roles = new Adicionales.Form_Creacion_Roles();
+            roles.ShowDialog();
+        }
+
+        private void consultaDeRolesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Adicionales.Form_Consulta_Roles croles = new Adicionales.Form_Consulta_Roles();
+            croles.ShowDialog();
         }
     }
 }

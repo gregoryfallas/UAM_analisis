@@ -255,5 +255,72 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static bool AgregarNomina(NOMINA N_nomina)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_NOMINA @Nombre, @Fecha_Inicio, @Fecha_Fin, @Descripcion";
+
+                //Crear los parametros
+                SqlParameter parametroNombre = new SqlParameter();
+                parametroNombre.ParameterName = "@Nombre";
+                parametroNombre.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroNombre.Value = N_nomina.Nombre;
+
+                SqlParameter parametroFechaI = new SqlParameter();
+                parametroFechaI.ParameterName = "@Fecha_Inicio";
+                parametroFechaI.SqlDbType = System.Data.SqlDbType.Date;
+                parametroFechaI.Value = N_nomina.Fecha_Inicio;
+
+                SqlParameter parametroFechaF = new SqlParameter();
+                parametroFechaF.ParameterName = "@Fecha_Fin";
+                parametroFechaF.SqlDbType = System.Data.SqlDbType.Date;
+                parametroFechaF.Value = N_nomina.Fecha_Fin;
+
+                SqlParameter parametroDescripcion = new SqlParameter();
+                parametroDescripcion.ParameterName = "@Descripcion";
+                parametroDescripcion.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroDescripcion.Value = N_nomina.Descripcion;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroNombre);
+                objpeticion.lstParametros.Add(parametroFechaI);
+                objpeticion.lstParametros.Add(parametroFechaF);
+
+                objpeticion.lstParametros.Add(parametroDescripcion);
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PERSONAL> ConsultarTablaPersonal()
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+                objpeticion.Peticion = @"SELECT * FROM PERSONAL";
+
+                /*ID_Personal, ID_Puesto, Cedula, Nombre, Apellido_1, 
+                                        Apellido_2, Salario_Hora, Salario_Mensual, Fecha_Contratacion, 
+                                        Estado, Direccion, Correo_Electronico, Telefono*/
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarTablaPersonal(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

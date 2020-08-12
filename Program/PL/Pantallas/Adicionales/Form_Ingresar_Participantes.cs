@@ -17,11 +17,5 @@ namespace PL.Pantallas.Adicionales
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Adicionales.Form_Menu_Reclutamiento atras = new Adicionales.Form_Menu_Reclutamiento();
-            atras.ShowDialog();
-        }
     }
 }

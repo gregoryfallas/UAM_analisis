@@ -473,7 +473,65 @@ namespace DAL
 
         #endregion
 
+        #region NOMINA
 
+        public List<PERSONAL> ConsultarTablaPersonal(SQLSentencia P_Peticion)
+        {
+            List<PERSONAL> lstresultados = new List<PERSONAL>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PERSONAL tabla = new PERSONAL();
+
+                        tabla.ID_Personal = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.ID_Puesto = Convert.ToInt32(item.ItemArray[1].ToString());
+                        tabla.Cedula = item.ItemArray[2].ToString();
+                        tabla.Nombre = item.ItemArray[3].ToString();
+                        tabla.Apellido_1 = item.ItemArray[4].ToString();
+                        tabla.Apellido_2 = item.ItemArray[5].ToString();
+                        tabla.Salario_Hora = Convert.ToDecimal(item.ItemArray[6].ToString());
+                        tabla.Salario_Mensual = Convert.ToDecimal(item.ItemArray[7].ToString());
+                        tabla.Fecha_Contratacion = Convert.ToDateTime(item.ItemArray[8].ToString());
+                        tabla.Estado = Convert.ToInt32(item.ItemArray[9].ToString());
+                        tabla.Direccion = item.ItemArray[10].ToString();
+                        tabla.Correo_Electronico = item.ItemArray[11].ToString();
+                        tabla.Telefono = item.ItemArray[12].ToString();
+
+                        lstresultados.Add(tabla);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        #endregion
 
 
         #endregion

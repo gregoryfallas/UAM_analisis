@@ -38,10 +38,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnagregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnatras = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -54,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(678, 256);
+            this.panel1.Size = new System.Drawing.Size(678, 238);
             this.panel1.TabIndex = 3;
             // 
             // groupBox1
@@ -121,9 +119,9 @@
             this.btnmodificar.FlatAppearance.BorderSize = 0;
             this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmodificar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmodificar.Location = new System.Drawing.Point(251, 177);
+            this.btnmodificar.Location = new System.Drawing.Point(297, 177);
             this.btnmodificar.Name = "btnmodificar";
-            this.btnmodificar.Size = new System.Drawing.Size(93, 55);
+            this.btnmodificar.Size = new System.Drawing.Size(47, 39);
             this.btnmodificar.TabIndex = 34;
             this.btnmodificar.UseVisualStyleBackColor = true;
             // 
@@ -144,7 +142,7 @@
             this.btnagregar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnagregar.Location = new System.Drawing.Point(21, 177);
             this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(76, 55);
+            this.btnagregar.Size = new System.Drawing.Size(51, 39);
             this.btnagregar.TabIndex = 33;
             this.btnagregar.UseVisualStyleBackColor = true;
             this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
@@ -152,40 +150,27 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.btnatras);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(432, 0);
+            this.panel2.Location = new System.Drawing.Point(369, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(105, 256);
+            this.panel2.Size = new System.Drawing.Size(72, 238);
             this.panel2.TabIndex = 4;
-            // 
-            // btnatras
-            // 
-            this.btnatras.BackgroundImage = global::PL.Properties.Resources.logout_128;
-            this.btnatras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnatras.FlatAppearance.BorderSize = 0;
-            this.btnatras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnatras.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnatras.Location = new System.Drawing.Point(32, 177);
-            this.btnatras.Name = "btnatras";
-            this.btnatras.Size = new System.Drawing.Size(52, 55);
-            this.btnatras.TabIndex = 47;
-            this.btnatras.UseVisualStyleBackColor = true;
             // 
             // Form_Ingresar_Pruebas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 256);
+            this.ClientSize = new System.Drawing.Size(441, 238);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_Ingresar_Pruebas";
-            this.Text = "Ingresar Pruebas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -199,7 +184,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnatras;
         private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.Button btnagregar;
         private System.Windows.Forms.GroupBox groupBox1;

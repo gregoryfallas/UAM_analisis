@@ -24,23 +24,20 @@ namespace PL.Pantallas.Adicionales
             inicio.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void crearNóminaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Adicionales.Form_Crear_Nomina crear = new Adicionales.Form_Crear_Nomina();
             crear.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buscarNóminaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Adicionales.Form_Buscar_Nomina buscar = new Adicionales.Form_Buscar_Nomina();
             buscar.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ingresoDeMarcasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Adicionales.Form_Ingreso_Marcas_Manuales marcar = new Adicionales.Form_Ingreso_Marcas_Manuales();
             marcar.ShowDialog();
         }

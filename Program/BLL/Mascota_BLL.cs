@@ -89,6 +89,27 @@ namespace BLL
             }
         }
 
+        public static bool eliminarMascota(int idMascota)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_Mascotas_Eliminar @idMascota";
+                SqlParameter ids = new SqlParameter();
+                ids.Value = idMascota;
+                ids.ParameterName = "@idMascota";
+                ids.SqlDbType = System.Data.SqlDbType.Int;
+                sentencia.lstParametros.Add(ids);
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
 
 
     }

@@ -19,6 +19,8 @@ namespace PL.Pantallas.Adicionales
 
         private int idTipoAnimal = 0;
         private int idCliente = 0;
+        private int idMascota = 0;
+
         private int estadoInicial = 29;
 
         private string sexo ;
@@ -78,26 +80,7 @@ namespace PL.Pantallas.Adicionales
         }
 
 
-        private void SexoMascota()
-        {
-            if (radioButton1.Checked)
-                sexo = "Hembra";
-            else if (radioButton2.Checked)
-                sexo = "Macho";
-           
-        }
-
-
-
-        private void AgregarTipoMascotabtn_Click(object sender, EventArgs e)
-        {
-            PL.Pantallas.Extras.Frm_TipoAnimal_PL ta = new Frm_TipoAnimal_PL();
-            ta.ShowDialog();
-        }
-
-        private void buscarAnimalbtn_Click(object sender, EventArgs e)
-        {
-        
+        private void cargarGridMascotas() {
             try
             {
                 List<MASCOTAS> lstusuarios = Mascota_BLL.ConsultarMascota(this.buscarAnimaltxt.Text.Trim());
@@ -121,7 +104,7 @@ namespace PL.Pantallas.Adicionales
                         item.Nombre,
                         item.Tipo_Animal,
                         item.Raza,
-                        item.Estado
+                        item.Sexo
                         );
                 }
                 this.dataGridView1.DataSource = null;
@@ -136,6 +119,73 @@ namespace PL.Pantallas.Adicionales
             }
 
 
+
+
+        }
+
+        private void SexoMascota()
+        {
+            if (radioButton1.Checked)
+                sexo = "Hembra";
+            else if (radioButton2.Checked)
+                sexo = "Macho";
+           
+        }
+
+
+
+
+
+
+
+        private void AgregarTipoMascotabtn_Click(object sender, EventArgs e)
+        {
+            PL.Pantallas.Extras.Frm_TipoAnimal_PL ta = new Frm_TipoAnimal_PL();
+            ta.ShowDialog();
+        }
+
+        private void buscarAnimalbtn_Click(object sender, EventArgs e)
+        {
+
+            this.cargarGridMascotas();
+            //try
+            //{
+            //    List<MASCOTAS> lstusuarios = Mascota_BLL.ConsultarMascota(this.buscarAnimaltxt.Text.Trim());
+
+
+            //    DataTable dt = new DataTable();
+
+
+            //    dt.Columns.Add("ID");
+            //    dt.Columns.Add("ID CLIENTEa");
+            //    dt.Columns.Add("Nombre");
+            //    dt.Columns.Add("TIPO");
+            //    dt.Columns.Add("RAZA");
+            //    dt.Columns.Add("SEXO");
+            //    foreach (MASCOTAS item in lstusuarios)
+            //    {
+            //        dt.Rows.Add
+            //            (
+            //            item.ID_Mascota,
+            //            item.ID_Cliente,
+            //            item.Nombre,
+            //            item.Tipo_Animal,
+            //            item.Raza,
+            //            item.Sexo
+            //            );
+            //    }
+            //    this.dataGridView1.DataSource = null;
+            //    this.dataGridView1.Refresh();
+            //    this.dataGridView1.DataSource = dt;
+            //    this.dataGridView1.Refresh();
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,6 +194,14 @@ namespace PL.Pantallas.Adicionales
             idTipoAnimal = comboBox1.SelectedIndex+1;
            // animaltxt.Text = idTipoAnimal.ToString();
         }
+
+
+
+
+
+
+
+
 
         private void buscarClientebtn_Click(object sender, EventArgs e)
         {
@@ -225,6 +283,29 @@ namespace PL.Pantallas.Adicionales
             // cargarGridUsuarios();
 
             
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Mascota_BLL.eliminarMascota(idMascota);
+                MessageBox.Show("Mascota eliminado");
+                cargarGridMascotas();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            idMascota=Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+         
         }
     }
 }

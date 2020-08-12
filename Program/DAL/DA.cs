@@ -168,12 +168,17 @@ namespace DAL
                     {
                         MASCOTAS tipo = new MASCOTAS();
 
+                       
+                  
+
+
+
                         tipo.ID_Mascota = Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.ID_Cliente= Convert.ToInt32(item.ItemArray[1].ToString());
                         tipo.Nombre=item.ItemArray[2].ToString();
                         tipo.Tipo_Animal= Convert.ToInt32(item.ItemArray[3].ToString());
                         tipo.Raza=item.ItemArray[4].ToString();
-                        tipo.Estado= Convert.ToInt32(item.ItemArray[5].ToString());
+                        tipo.Sexo= item.ItemArray[5].ToString();
                          lstresultados.Add(tipo);
                     }
                 }

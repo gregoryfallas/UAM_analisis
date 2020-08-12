@@ -168,7 +168,7 @@ namespace PL.Pantallas.Extras
                                 facturas.Descripcion = "Compra Tarjeta";
                             }
 
-                            Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),20);                             
+                            Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),1);                             
 
                             //facturas.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
                             facturas.Estado = 21;

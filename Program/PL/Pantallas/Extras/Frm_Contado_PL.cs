@@ -57,7 +57,7 @@ namespace PL.Pantallas.Extras
 
                 for (int i = 0; i < dtg_Factura.RowCount; i++)
                 {
-                    ART.Subtotal = ART.Subtotal+ decimal.Parse(dtg_Factura.Rows[i].Cells[4].Value.ToString());
+                    ART.Subtotal = ART.Subtotal+ decimal.Parse(dtg_Factura.Rows[i].Cells[5].Value.ToString());
                     
                     Math.Round(ART.Subtotal,2);                  
 
@@ -79,59 +79,106 @@ namespace PL.Pantallas.Extras
                 MessageBox.Show("¡Tiene que seleccionar una cantidad!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txt_Cantidad.Focus();
             }
-
-
-
-
             
-            
-
             }
 
 
             private void btn_Confirmar_Click(object sender, EventArgs e)
         {
+            Frm_Contado_PL cont = new Frm_Contado_PL();
+            FACTURAS factura = new FACTURAS();
+            DETALLE_ARTICULOS detalle = new DETALLE_ARTICULOS();
+
+
             if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (txt_Nombre.Text==string.Empty)
                 {
-                    MessageBox.Show("¡Tiene que seleccionar un Cliente!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show("¡Debe de seleccionar un Cliente!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 }                
                 else
                 {
-                    if (facturas.Total < 0)
+                    if (facturas.Total < 1)
                     {
-                        MessageBox.Show("¡Tiene que seleccionar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("¡Debe de ingresar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     else
                     {
                         if (rdb_Contado.Checked==false && rdb_Credito.Checked==false)
                         {
-                            MessageBox.Show("¡Tiene que seleccionar un metodo de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("¡Debe de seleccionar un tipo de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            if (rdb_Efectivo.Checked==false && rdb_Tarjeta.Checked==false)
+
+                            if (txt_Descripcion.Text==string.Empty)
                             {
-                                MessageBox.Show("¡Tiene que seleccionar una forma de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                if (MessageBox.Show("¿Desea agregar una descripción a la factura?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    txt_Descripcion.Focus();
+                                    factura.Descripcion = txt_Descripcion.Text;
+
+                                }
+                                else
+                                {
+                                    
+                                    factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
+                                    factura.ID_Caja = 1;
+                                    factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+                                    factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                                    factura.Total = Convert.ToDecimal(txt_Total.Text);
+                                    factura.Descripcion = "Sin descripción";
+                                    factura.Estado = 1;
+                                    if (rdb_Contado.Checked == true)
+                                    {
+                                        factura.Tipo_Pago = 1;
+                                    }
+                                    else
+                                    {
+                                        factura.Tipo_Pago = 2;
+                                    }
+
+                                   
+
+                                    bool result = Factura_BLL.agregarFactura(factura);
+
+                                    ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                    if (result == true)
+                                    {
+                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                        {
+                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                            ListArticulos.Add(obj_Articulos);
+
+                                        }
+                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                                                        
+                                }
                             }
+
                             else
                             {
-                                
-
-                                Frm_Contado_PL cont = new Frm_Contado_PL();
-                                FACTURAS factura = new FACTURAS();
-                                DETALLE_ARTICULOS detalle = new DETALLE_ARTICULOS();
 
                                 factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
-                                factura.ID_Caja = 1 ;
-                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text); 
-                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());                               
+                                factura.ID_Caja = 1;
+                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                                 factura.Total = Convert.ToDecimal(txt_Total.Text);
-                              
-
-                                if (rdb_Contado.Checked==true)
+                                factura.Descripcion = txt_Descripcion.Text;
+                                factura.Estado = 1;
+                                if (rdb_Contado.Checked == true)
                                 {
                                     factura.Tipo_Pago = 1;
                                 }
@@ -139,27 +186,15 @@ namespace PL.Pantallas.Extras
                                 {
                                     factura.Tipo_Pago = 2;
                                 }
-                                if (rdb_Efectivo.Checked==true)
-                                {
-                                    factura.Descripcion = "Compra Efectivo";
-                                }
-                                else
-                                {
-                                    factura.Descripcion = "Compra Tarjeta";
-                                }
-                                                                
-                                factura.Estado = 1;
 
-                                bool result = Factura_BLL.agregarFactura(factura); 
-
-
+                                bool result = Factura_BLL.agregarFactura(factura);
 
                                 ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
                                 if (result == true)
                                 {
                                     List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
-                                    
-                                    for (int line = 0; line <=dtg_Factura.Rows.Count - 1; line++)
+
+                                    for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
                                     {
                                         DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
 
@@ -167,44 +202,24 @@ namespace PL.Pantallas.Extras
                                         obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
                                         obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
 
-                                        
+
                                         ListArticulos.Add(obj_Articulos);
-                                      
+
                                     }
                                     Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+                                    MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 }
-
-                         
-                               
-
-                                    
-                                }
-
-                               
-
-
-
-                                MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                btn_Imprimir.Enabled = true;
-                                
-
-
-
                             }
-                        }
-                            
-                    }
-                    
+                               
+                         }                              
+
+                     }
                 }
-                
-
-
-
-
+                            
+            }                             
             
-        }
-
+     }
 
         private void btn_Orden_Click(object sender, EventArgs e)
         {
@@ -457,15 +472,7 @@ namespace PL.Pantallas.Extras
 
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
-
-            PrintDocument printDocument1 = new PrintDocument();
-            PrinterSettings ps = new PrinterSettings();
-            printDocument1.PrinterSettings = ps;
-            printDocument1.PrintPage += Imprimir_PrintPage;
-            printDocument1.Print();
-
-            MessageBox.Show("Factura generada con exito");
-            this.Hide();
+            
         }
 
         private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
@@ -617,12 +624,9 @@ namespace PL.Pantallas.Extras
             txt_idCliente.Text = idCliente;
 
             rdb_Credito.Checked =false;
-            rdb_Contado.Checked = false;
-            rdb_Efectivo.Checked = false;
-            rdb_Tarjeta.Checked = false;
+            rdb_Contado.Checked = false;           
 
-
-
+            
         }
 
         private void dtg_Articulos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -720,6 +724,6 @@ namespace PL.Pantallas.Extras
 
         }
 
-       
+        
     }
 }

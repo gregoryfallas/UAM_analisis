@@ -19,11 +19,16 @@ namespace DAL.Entidades
         public int ID_Articulos { get; set; }
         public decimal Cantidad { get; set; }
     
-        public virtual FACTURAS FACTURAS { get; set; }
-        public virtual INVENTARIO INVENTARIO { get; set; }
+        //public virtual FACTURAS FACTURAS { get; set; }
+        //public virtual INVENTARIO INVENTARIO { get; set; }
+
+
+
+        public List<DETALLE_ARTICULOS> ListArticulos;
+
     }
 
-
+    
 
 
 

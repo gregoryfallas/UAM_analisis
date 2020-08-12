@@ -26,6 +26,8 @@ namespace PL.Pantallas.Extras
         ARTICULOS ART = new ARTICULOS();        
         FACTURAS facturas = new FACTURAS();
         CLIENTES clientes = new CLIENTES();
+        DETALLE_ARTICULOS Detalle = new DETALLE_ARTICULOS();
+
         
       
 
@@ -46,6 +48,7 @@ namespace PL.Pantallas.Extras
             if (ART.Cantidad>=1)
             {
                 dtg_Factura.Rows.Add(new string[] {
+              Convert.ToString(dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(ART.Cantidad),
             Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
@@ -96,7 +99,7 @@ namespace PL.Pantallas.Extras
                 }                
                 else
                 {
-                    if (facturas.Total < 1)
+                    if (facturas.Total < 0)
                     {
                         MessageBox.Show("¡Tiene que seleccionar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -147,9 +150,32 @@ namespace PL.Pantallas.Extras
                                                                 
                                 factura.Estado = 1;
 
-                                Factura_BLL.agregarFactura(factura);
+                                bool result = Factura_BLL.agregarFactura(factura); 
 
-                                
+
+
+                                ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                if (result == true)
+                                {
+                                    List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+                                    
+                                    for (int line = 0; line <=dtg_Factura.Rows.Count - 1; line++)
+                                    {
+                                        DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                        obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                        obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                        obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+                                        
+                                        ListArticulos.Add(obj_Articulos);
+                                      
+                                    }
+                                    Factura_BLL.agregarDetalleFactura(ListArticulos);
+                                }
+
+                         
+                               
 
                                     
                                 }
@@ -408,10 +434,10 @@ namespace PL.Pantallas.Extras
         {
             if (dtg_Factura.Rows.Count > 0)
             {
-                ART.Cantidad = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[1].Value.ToString());
-                ART.Descuento = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[3].Value.ToString());
-                ART.Importe = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[4].Value.ToString());
-                ART.Precio= Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                ART.Cantidad = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                ART.Descuento = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[4].Value.ToString());
+                ART.Importe = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[5].Value.ToString());
+                ART.Precio= Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[3].Value.ToString());
 
 
                 txt_Cantidad.Text = ART.Cantidad.ToString();

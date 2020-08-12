@@ -78,17 +78,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Orden = new System.Windows.Forms.TextBox();
             this.dtg_Factura = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lblNroCorrelativo = new System.Windows.Forms.Label();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.IdArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdArti = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.grp_FormaPago.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -743,54 +745,20 @@
             this.dtg_Factura.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dtg_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Factura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Cantidad,
+            this.IdArti,
+            this.nom,
+            this.cant,
             this.Precio,
-            this.Descuento,
-            this.Total});
+            this.descuento,
+            this.total});
             this.dtg_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtg_Factura.Location = new System.Drawing.Point(12, 462);
             this.dtg_Factura.Name = "dtg_Factura";
             this.dtg_Factura.ReadOnly = true;
             this.dtg_Factura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Factura.Size = new System.Drawing.Size(557, 220);
+            this.dtg_Factura.Size = new System.Drawing.Size(612, 220);
             this.dtg_Factura.TabIndex = 16;
             this.dtg_Factura.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Factura_CellClick);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 96;
-            // 
-            // Cantidad
-            // 
-            this.Cantidad.HeaderText = "Cantidad";
-            this.Cantidad.Name = "Cantidad";
-            this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 101;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 80;
-            // 
-            // Descuento
-            // 
-            this.Descuento.HeaderText = "Descuento%";
-            this.Descuento.Name = "Descuento";
-            this.Descuento.ReadOnly = true;
-            this.Descuento.Width = 124;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 74;
             // 
             // panel2
             // 
@@ -851,6 +819,53 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // IdArticulo
+            // 
+            this.IdArticulo.HeaderText = "IdArticulo";
+            this.IdArticulo.Name = "IdArticulo";
+            // 
+            // IdArti
+            // 
+            this.IdArti.HeaderText = "IdArticulo";
+            this.IdArti.Name = "IdArti";
+            this.IdArti.ReadOnly = true;
+            this.IdArti.Width = 105;
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nombre";
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            this.nom.Width = 96;
+            // 
+            // cant
+            // 
+            this.cant.HeaderText = "Cantidad";
+            this.cant.Name = "cant";
+            this.cant.ReadOnly = true;
+            this.cant.Width = 101;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 80;
+            // 
+            // descuento
+            // 
+            this.descuento.HeaderText = "Descuento";
+            this.descuento.Name = "descuento";
+            this.descuento.ReadOnly = true;
+            this.descuento.Width = 111;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 74;
             // 
             // Frm_Contado_PL
             // 
@@ -918,11 +933,6 @@
         private System.Windows.Forms.RadioButton rdb_Credito;
         private System.Windows.Forms.TextBox txt_SubTotal;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridView dtg_Clientes;
         public System.Windows.Forms.TextBox txt_Precio;
         private System.Windows.Forms.TextBox txt_Impuesto;
@@ -944,5 +954,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txt_Factura;
         private System.Windows.Forms.TextBox txt_idCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdArti;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descuento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }

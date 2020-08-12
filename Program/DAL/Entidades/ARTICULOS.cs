@@ -21,6 +21,7 @@ namespace DAL.Entidades
         private decimal temporal_descuento = 0;
         private decimal impuesto = 0;
         private decimal descuento = 0;
+       
 
 
 
@@ -52,5 +53,9 @@ namespace DAL.Entidades
         public decimal Temporal_descuento { get => temporal_descuento; set => temporal_descuento = value; }
         public decimal Impuesto { get => impuesto; set => impuesto = value; }
         public decimal Descuento { get => descuento; set => descuento = value; }
+       
+
+      
+
     }
 }

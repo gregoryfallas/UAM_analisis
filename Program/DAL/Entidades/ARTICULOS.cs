@@ -14,13 +14,13 @@ namespace DAL.Entidades
     
     public partial class ARTICULOS
     {
-        private decimal cantidad = 0;
-        private decimal importe = 0;
-        private decimal dprecio = 0;
-        private decimal subtotal = 0;
-        private decimal temporal_descuento = 0;
-        private decimal impuesto = 0;
-        private decimal descuento = 0;
+        private decimal cantidad ;
+        private decimal importe ;
+        private decimal dprecio;
+        private decimal subtotal ;
+        private decimal temporal_descuento;
+        private decimal impuesto ;
+        private decimal descuento ;
        
 
 

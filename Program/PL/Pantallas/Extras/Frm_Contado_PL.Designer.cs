@@ -34,6 +34,7 @@
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_Productos = new System.Windows.Forms.Button();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.btn_BuscarCliente = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_Producto = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.gp_cantidades = new System.Windows.Forms.GroupBox();
             this.txt_Descuento = new System.Windows.Forms.TextBox();
-            this.btn_Guardar = new System.Windows.Forms.Button();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btn_Eliminar = new System.Windows.Forms.Button();
@@ -81,7 +81,6 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -106,14 +105,10 @@
             this.panel1.Controls.Add(this.txt_Descripcion);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.btn_Productos);
-            this.panel1.Controls.Add(this.btn_Confirmar);
             this.panel1.Controls.Add(this.btn_BuscarCliente);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.txt_Producto);
             this.panel1.Controls.Add(this.txt_Cliente);
-            this.panel1.Controls.Add(this.btn_Recetas);
-            this.panel1.Controls.Add(this.btn_Promociones);
-            this.panel1.Controls.Add(this.btn_Orden);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.dtg_Articulos);
             this.panel1.Controls.Add(this.txt_Impuesto);
@@ -139,7 +134,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(677, 601);
+            this.label4.Location = new System.Drawing.Point(710, 601);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 23);
             this.label4.TabIndex = 42;
@@ -147,10 +142,10 @@
             // 
             // txt_Descripcion
             // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(657, 626);
+            this.txt_Descripcion.Location = new System.Drawing.Point(657, 627);
             this.txt_Descripcion.Multiline = true;
             this.txt_Descripcion.Name = "txt_Descripcion";
-            this.txt_Descripcion.Size = new System.Drawing.Size(174, 62);
+            this.txt_Descripcion.Size = new System.Drawing.Size(251, 62);
             this.txt_Descripcion.TabIndex = 41;
             // 
             // label15
@@ -176,6 +171,22 @@
             this.btn_Productos.TabIndex = 39;
             this.btn_Productos.UseVisualStyleBackColor = true;
             this.btn_Productos.Click += new System.EventHandler(this.btn_Productos_Click_1);
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Confirmar.Location = new System.Drawing.Point(23, 540);
+            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Confirmar.TabIndex = 9;
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
             // btn_BuscarCliente
             // 
@@ -226,7 +237,7 @@
             // btn_Recetas
             // 
             this.btn_Recetas.ForeColor = System.Drawing.Color.Black;
-            this.btn_Recetas.Location = new System.Drawing.Point(598, 199);
+            this.btn_Recetas.Location = new System.Drawing.Point(20, 380);
             this.btn_Recetas.Name = "btn_Recetas";
             this.btn_Recetas.Size = new System.Drawing.Size(75, 55);
             this.btn_Recetas.TabIndex = 24;
@@ -236,9 +247,9 @@
             // btn_Promociones
             // 
             this.btn_Promociones.ForeColor = System.Drawing.Color.Black;
-            this.btn_Promociones.Location = new System.Drawing.Point(575, 133);
+            this.btn_Promociones.Location = new System.Drawing.Point(19, 267);
             this.btn_Promociones.Name = "btn_Promociones";
-            this.btn_Promociones.Size = new System.Drawing.Size(121, 49);
+            this.btn_Promociones.Size = new System.Drawing.Size(75, 49);
             this.btn_Promociones.TabIndex = 25;
             this.btn_Promociones.Text = "Promociones";
             this.btn_Promociones.UseVisualStyleBackColor = true;
@@ -249,9 +260,9 @@
             this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Orden.FlatAppearance.BorderSize = 0;
             this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Orden.Location = new System.Drawing.Point(588, 28);
+            this.btn_Orden.Location = new System.Drawing.Point(20, 133);
             this.btn_Orden.Name = "btn_Orden";
-            this.btn_Orden.Size = new System.Drawing.Size(99, 81);
+            this.btn_Orden.Size = new System.Drawing.Size(80, 67);
             this.btn_Orden.TabIndex = 6;
             this.btn_Orden.UseVisualStyleBackColor = true;
             this.btn_Orden.Click += new System.EventHandler(this.btn_Orden_Click);
@@ -303,7 +314,7 @@
             this.dtg_Articulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dtg_Articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Articulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Articulos.Location = new System.Drawing.Point(704, 246);
+            this.dtg_Articulos.Location = new System.Drawing.Point(643, 246);
             this.dtg_Articulos.Name = "dtg_Articulos";
             this.dtg_Articulos.ReadOnly = true;
             this.dtg_Articulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -315,7 +326,7 @@
             // 
             this.txt_Impuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Impuesto.ForeColor = System.Drawing.Color.White;
-            this.txt_Impuesto.Location = new System.Drawing.Point(1030, 546);
+            this.txt_Impuesto.Location = new System.Drawing.Point(1108, 575);
             this.txt_Impuesto.MaxLength = 5;
             this.txt_Impuesto.Name = "txt_Impuesto";
             this.txt_Impuesto.ReadOnly = true;
@@ -328,7 +339,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(881, 540);
+            this.label9.Location = new System.Drawing.Point(959, 569);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(130, 38);
             this.label9.TabIndex = 31;
@@ -344,7 +355,7 @@
             this.dtg_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Clientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtg_Clientes.GridColor = System.Drawing.Color.Black;
-            this.dtg_Clientes.Location = new System.Drawing.Point(704, 12);
+            this.dtg_Clientes.Location = new System.Drawing.Point(643, 12);
             this.dtg_Clientes.Name = "dtg_Clientes";
             this.dtg_Clientes.ReadOnly = true;
             this.dtg_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -356,7 +367,7 @@
             // 
             this.txt_SubTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_SubTotal.ForeColor = System.Drawing.Color.White;
-            this.txt_SubTotal.Location = new System.Drawing.Point(1030, 490);
+            this.txt_SubTotal.Location = new System.Drawing.Point(1108, 519);
             this.txt_SubTotal.MaxLength = 5;
             this.txt_SubTotal.Name = "txt_SubTotal";
             this.txt_SubTotal.ReadOnly = true;
@@ -369,7 +380,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(881, 484);
+            this.label8.Location = new System.Drawing.Point(959, 513);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(120, 38);
             this.label8.TabIndex = 28;
@@ -380,7 +391,7 @@
             this.txt_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Total.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Total.ForeColor = System.Drawing.Color.White;
-            this.txt_Total.Location = new System.Drawing.Point(1030, 601);
+            this.txt_Total.Location = new System.Drawing.Point(1108, 630);
             this.txt_Total.MaxLength = 5;
             this.txt_Total.Name = "txt_Total";
             this.txt_Total.ReadOnly = true;
@@ -393,7 +404,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(866, 598);
+            this.label5.Location = new System.Drawing.Point(944, 627);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(158, 38);
             this.label5.TabIndex = 12;
@@ -402,7 +413,6 @@
             // gp_cantidades
             // 
             this.gp_cantidades.Controls.Add(this.txt_Descuento);
-            this.gp_cantidades.Controls.Add(this.btn_Guardar);
             this.gp_cantidades.Controls.Add(this.txt_Cantidad);
             this.gp_cantidades.Controls.Add(this.label10);
             this.gp_cantidades.Controls.Add(this.btn_Eliminar);
@@ -434,21 +444,6 @@
             this.txt_Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_Descuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Descuento_KeyPress);
             this.txt_Descuento.Leave += new System.EventHandler(this.txt_Descuento_Leave);
-            // 
-            // btn_Guardar
-            // 
-            this.btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Guardar.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.btn_Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Guardar.FlatAppearance.BorderSize = 0;
-            this.btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Guardar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Guardar.Location = new System.Drawing.Point(376, 126);
-            this.btn_Guardar.Name = "btn_Guardar";
-            this.btn_Guardar.Size = new System.Drawing.Size(42, 45);
-            this.btn_Guardar.TabIndex = 8;
-            this.btn_Guardar.UseVisualStyleBackColor = false;
-            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // txt_Cantidad
             // 
@@ -509,7 +504,7 @@
             this.btn_Agregar.FlatAppearance.BorderSize = 0;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Agregar.Location = new System.Drawing.Point(299, 126);
+            this.btn_Agregar.Location = new System.Drawing.Point(390, 126);
             this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(43, 45);
@@ -751,22 +746,6 @@
             this.total.ReadOnly = true;
             this.total.Width = 74;
             // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(1174, 631);
-            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Confirmar.TabIndex = 9;
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
@@ -774,6 +753,10 @@
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.lblNroCorrelativo);
             this.panel2.Controls.Add(this.btn_inicio);
+            this.panel2.Controls.Add(this.btn_Confirmar);
+            this.panel2.Controls.Add(this.btn_Orden);
+            this.panel2.Controls.Add(this.btn_Promociones);
+            this.panel2.Controls.Add(this.btn_Recetas);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(1255, 0);
             this.panel2.Name = "panel2";
@@ -782,12 +765,13 @@
             // 
             // txt_Factura
             // 
-            this.txt_Factura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.txt_Factura.Font = new System.Drawing.Font("Baskerville Old Face", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Factura.BackColor = System.Drawing.Color.White;
+            this.txt_Factura.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Factura.ForeColor = System.Drawing.Color.Red;
             this.txt_Factura.Location = new System.Drawing.Point(6, 35);
             this.txt_Factura.Name = "txt_Factura";
-            this.txt_Factura.Size = new System.Drawing.Size(100, 26);
+            this.txt_Factura.ReadOnly = true;
+            this.txt_Factura.Size = new System.Drawing.Size(100, 31);
             this.txt_Factura.TabIndex = 41;
             this.txt_Factura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -815,7 +799,7 @@
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(9, 639);
+            this.btn_inicio.Location = new System.Drawing.Point(8, 648);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(92, 41);
             this.btn_inicio.TabIndex = 11;
@@ -865,7 +849,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox gp_cantidades;
         private System.Windows.Forms.TextBox txt_Descuento;
-        private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox txt_Cantidad;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;

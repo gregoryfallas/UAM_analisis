@@ -29,25 +29,46 @@ namespace PL.Pantallas.Extras
         DETALLE_ARTICULOS Detalle = new DETALLE_ARTICULOS();
 
         
-      
+
 
         string nombre;
         string cedula;
         string idCliente;
+      
 
         public Frm_Contado_PL()
         {
             InitializeComponent();           
 
         }
-
+      
+        
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
+
+           
             ART.Subtotal = 0;
 
-            if (ART.Cantidad>=1)
+            
+
+            if (txt_Cantidad.Text==string.Empty || txt_Precio.Text == string.Empty)
             {
-                dtg_Factura.Rows.Add(new string[] {
+
+                MessageBox.Show("¡Debe ingresar un producto y cantidad !", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+            }
+            else
+            {
+                ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text);
+                
+                ART.Importe = ART.Precio * ART.Cantidad;
+                txt_Importe.Text = ART.Importe.ToString(); ;
+                
+
+                if (ART.Importe > 0)
+                {
+                    dtg_Factura.Rows.Add(new string[] {
               Convert.ToString(dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value),
              Convert.ToString(ART.Cantidad),
@@ -55,33 +76,31 @@ namespace PL.Pantallas.Extras
             Convert.ToString(ART.Temporal_descuento),
             Convert.ToString(ART.Importe)});
 
-                for (int i = 0; i < dtg_Factura.RowCount; i++)
-                {
-                    ART.Subtotal = ART.Subtotal+ decimal.Parse(dtg_Factura.Rows[i].Cells[5].Value.ToString());
-                    
-                    Math.Round(ART.Subtotal,2);                  
+                    for (int i = 0; i < dtg_Factura.RowCount; i++)
+                    {
+                        ART.Subtotal = ART.Subtotal + decimal.Parse(dtg_Factura.Rows[i].Cells[5].Value.ToString());
+
+                        Math.Round(ART.Subtotal, 2);
+
+                    }
+
+                    txt_SubTotal.Text = ("¢") + ART.Subtotal.ToString();
+                    ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
+                    txt_Impuesto.Text = ("¢") + ART.Impuesto.ToString();
+                    facturas.Total = ART.Subtotal + ART.Impuesto;
+                    txt_Total.Text = facturas.Total.ToString();
+
+
+                    cont_fila++;
+
+                    LimpiarCampos();
 
                 }
 
-                txt_SubTotal.Text = ("¢") + ART.Subtotal.ToString();
-                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);                
-                txt_Impuesto.Text = ("¢") + ART.Impuesto.ToString();
-                facturas.Total = ART.Subtotal + ART.Impuesto;                
-                txt_Total.Text =  facturas.Total.ToString();
-                            
 
-                cont_fila++;
 
-                LimpiarCampos();
             }
-            else
-            {
-                MessageBox.Show("¡Tiene que seleccionar una cantidad!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt_Cantidad.Focus();
-            }
-            
-            }
-
+        }
 
             private void btn_Confirmar_Click(object sender, EventArgs e)
         {
@@ -163,6 +182,9 @@ namespace PL.Pantallas.Extras
                                         Factura_BLL.agregarDetalleFactura(ListArticulos);
 
                                         MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        LimpiarCamposFactura();
+                                        CargarNoFactura();
                                     }
                                                                         
                                 }
@@ -350,21 +372,7 @@ namespace PL.Pantallas.Extras
         private void txt_Cantidad_Leave(object sender, EventArgs e)
         {
             
-            if (txt_Cantidad.Text==string.Empty)
-            {
-                MessageBox.Show ("Debe digitar una cantidad");
-                txt_Cantidad.Focus();
-            }
-            else
-            {
-                                  
-                    ART.Cantidad= Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                    ART.Importe = ART.Precio * ART.Cantidad;
-                    ART.Descuento = ART.Importe * ART.Temporal_descuento / 100;
-                    ART.Importe = ART.Importe - ART.Descuento;                    
-                    txt_Importe.Text = ART.Importe.ToString();
-                                
-            }
+           
             
         }
 
@@ -464,115 +472,43 @@ namespace PL.Pantallas.Extras
             
         }
 
-
-        private void btn_Guardar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btn_Imprimir_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            DataTable dt = new DataTable();           
-
-            Font font = new Font("Arial", 14);
-            int ancho = 350;
-            int y = 20;
-            int x = 250;
-
-            e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-            e.Graphics.DrawString("Factura#:"+txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-            e.Graphics.DrawString("IDCliente:"+txt_idCliente.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-            e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));            
-            e.Graphics.DrawString("FechaFactura: "+txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-
-
-            e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-
-
-
-            foreach (DataGridViewColumn columna in this.dtg_Factura.Columns)
-            {
-
-
-                DataColumn col = new DataColumn(columna.Name);
-
-
-                dt.Columns.Add(col);
-
-
-            }
-            string nombre;
-            string cantidad;
-            string precio;
-            string descuento;
-            string total;
-
-            foreach (DataGridViewRow row in dtg_Factura.Rows)
-            {
-
-                DataRow dr = dt.NewRow();
-                dr[0] = row.Cells[0].Value.ToString();
-                dr[1] = row.Cells[1].Value.ToString();
-                dr[2] = row.Cells[2].Value.ToString();
-                dr[3] = row.Cells[3].Value.ToString();
-                dr[4] = row.Cells[4].Value.ToString();
-
-
-                nombre = dr[0].ToString();
-                cantidad = dr[1].ToString();
-                precio = dr[2].ToString();
-                descuento = dr[3].ToString();
-                total = dr[4].ToString();
-
-                e.Graphics.DrawString(nombre+" "+cantidad+" "+precio+" "+descuento+" "+total, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-                
-
-            }
-            e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
-
-
-            LimpiarCamposFactura();
-
-        }
-
-
+        
 
         private void btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (cont_fila > 0)
+             try
             {
-                
-                ART.Subtotal= ART.Subtotal- (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[4].Value.ToString()));
-                txt_SubTotal.Text = ART.Subtotal.ToString();
-                ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
-                txt_Impuesto.Text = ART.Impuesto.ToString();
-                dtg_Factura.Rows.RemoveAt(dtg_Factura.CurrentRow.Index);
 
-                cont_fila--;
+                if (cont_fila >= 0)
+                {
 
-                if (cont_fila == 0)
-                {
-                    txt_Total.Text = "0";
-                }
-                else
-                {
-                    facturas.Total = facturas.Total - ART.Subtotal - ART.Impuesto;
+                    ART.Subtotal = ART.Subtotal - (Convert.ToDecimal(dtg_Factura.CurrentRow.Cells[5].Value.ToString()));
+                    txt_SubTotal.Text = ART.Subtotal.ToString();
+                    ART.Impuesto = ART.Subtotal * Convert.ToDecimal(0.13);
+                    txt_Impuesto.Text = ART.Impuesto.ToString();
+                    dtg_Factura.Rows.RemoveAt(dtg_Factura.CurrentRow.Index);
+                    facturas.Total = ART.Subtotal + ART.Impuesto;
                     txt_Total.Text = facturas.Total.ToString();
+
+                    cont_fila--;
+
+                    txt_Cantidad.Text = "";
+                    txt_Importe.Text = "";
+                    txt_Precio.Text = "";
+                    txt_Descuento.Text = "0";
+
+
                 }
-                
-                     
-               
-               
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No hay líneas de productos por eliminar");
                 
             }
+
+
+
+
 
 
 
@@ -660,6 +596,7 @@ namespace PL.Pantallas.Extras
 
         private void LimpiarCamposFactura()
         {
+            txt_NoCliente.Text = "";
             txt_Cantidad.Text = "";
             txt_Cliente.Text= "";
             txt_Descuento.Text= "";
@@ -670,8 +607,10 @@ namespace PL.Pantallas.Extras
             txt_SubTotal.Text= "";
             txt_Total.Text= "";     
             txt_Impuesto.Text= "";
-            dtg_Factura.DataSource = null;
-
+            dtg_Factura.Rows.Clear();
+            rdb_Contado.Checked = false;
+            rdb_Credito.Checked = false;
+            txt_Factura.Text = "";
 
         }
 

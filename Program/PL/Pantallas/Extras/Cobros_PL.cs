@@ -168,10 +168,10 @@ namespace PL.Pantallas.Extras
                                 facturas.Descripcion = "Compra Tarjeta";
                             }
 
-                            Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),1);                             
+                            Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),21);                             
 
                             //facturas.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
-                            facturas.Estado = 21;
+                            //facturas.Estado = 21;
 
                             MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

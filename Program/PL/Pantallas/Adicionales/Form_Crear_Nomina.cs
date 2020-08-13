@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL.Entidades;
+using System.Data.SqlClient;
 
 namespace PL.Pantallas.Adicionales
 {
     public partial class Form_Crear_Nomina : Form
     {
+        private SqlConnection  objconexion;
+
         public List<PERSONAL> lstresultado { get; set; }
      //   public List<NOMINA> lstresultado { get; set; }
         public bool EsError { get; set; }
@@ -70,6 +73,13 @@ namespace PL.Pantallas.Adicionales
 
                 MessageBox.Show(ex.Message);
             }
+
+            //SqlCommand comando = new SqlCommand("Select * from PERSONAL", objconexion);
+            //SqlDataAdapter adaptador = new SqlDataAdapter();
+            //adaptador.SelectCommand = comando;
+            //DataTable tabla = new DataTable();
+            //adaptador.Fill(tabla);
+            //dgvpersonal.DataSource = tabla;
         }
     }
 }

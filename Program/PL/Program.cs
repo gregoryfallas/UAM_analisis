@@ -19,7 +19,7 @@ namespace PL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Frm_Login_PL());
-            Application.Run(new Form_Pago_Nomina());
+            Application.Run(new Form_Creacion_Usuarios());
             //Application.Run(new Form_Ingresar_Pruebas());
         }
     }

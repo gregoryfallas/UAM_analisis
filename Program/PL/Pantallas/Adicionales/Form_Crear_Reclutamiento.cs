@@ -22,9 +22,7 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
-        //private int est = 0;
-        //private int idestado = 0;
-
+       
         public List<RECLUTAMIENTO> lstresultado { get; set; }
         public bool EsError { get; set; }
 

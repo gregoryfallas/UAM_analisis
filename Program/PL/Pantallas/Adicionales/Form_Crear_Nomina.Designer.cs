@@ -95,9 +95,12 @@
             // 
             // dgvpersonal
             // 
+            this.dgvpersonal.AllowUserToAddRows = false;
+            this.dgvpersonal.AllowUserToDeleteRows = false;
             this.dgvpersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvpersonal.Location = new System.Drawing.Point(364, 64);
             this.dgvpersonal.Name = "dgvpersonal";
+            this.dgvpersonal.ReadOnly = true;
             this.dgvpersonal.Size = new System.Drawing.Size(387, 140);
             this.dgvpersonal.TabIndex = 43;
             // 

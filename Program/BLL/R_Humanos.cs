@@ -307,11 +307,7 @@ namespace BLL
             try
             {
                 SQLSentencia objpeticion = new SQLSentencia();
-                objpeticion.Peticion = @"SELECT * FROM PERSONAL";
-
-                /*ID_Personal, ID_Puesto, Cedula, Nombre, Apellido_1, 
-                                        Apellido_2, Salario_Hora, Salario_Mensual, Fecha_Contratacion, 
-                                        Estado, Direccion, Correo_Electronico, Telefono*/
+                objpeticion.Peticion = @"exec SP_PA_MOSTRARTABLAPERSONAL";
 
                 DA objacceso = new DA();
                 return objacceso.ConsultarTablaPersonal(objpeticion);
@@ -319,6 +315,120 @@ namespace BLL
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public static List<PERSONAL> ConsultarIDPersonal()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_PA_USUARIOIDPERSONAL";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarIDPersonal(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<ESTADOS> ConsultarTipoEstadoUsuario()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_PA_Tipo_Estado_Usuario";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarTipoEstadoUsuario(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool AgregarUsuario(USUARIOS U_usuario)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_USUARIOS @ID_Personal, @UserName, @Pass, @Estado";
+
+                //Crear los parametros
+                SqlParameter parametroIdPersonal = new SqlParameter();
+                parametroIdPersonal.ParameterName = "@ID_Personal";
+                parametroIdPersonal.SqlDbType = System.Data.SqlDbType.Int;
+                parametroIdPersonal.Value = U_usuario.ID_Personal;
+
+                SqlParameter parametroUserName = new SqlParameter();
+                parametroUserName.ParameterName = "@UserName";
+                parametroUserName.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroUserName.Value = U_usuario.UserName;
+
+                SqlParameter parametroPass = new SqlParameter();
+                parametroPass.ParameterName = "@Pass";
+                parametroPass.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroPass.Value = U_usuario.Pass;
+
+                SqlParameter parametroEstado = new SqlParameter();
+                parametroEstado.ParameterName = "@Estado";
+                parametroEstado.SqlDbType = System.Data.SqlDbType.Int;
+                parametroEstado.Value = U_usuario.Estado;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroIdPersonal);
+                objpeticion.lstParametros.Add(parametroUserName);
+                objpeticion.lstParametros.Add(parametroPass);
+                objpeticion.lstParametros.Add(parametroEstado);
+
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<RECLUTAMIENTO> ConsultarIDReclutamiento()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_IDRECLUTAMIENTO_POSTULANTES";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarIDReclutamiento(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<ESTADOS> ConsultarTipoEstadoPostulantes()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_PA_Tipo_Estado_Postulantes";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarTipoEstadoPostulantes(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 

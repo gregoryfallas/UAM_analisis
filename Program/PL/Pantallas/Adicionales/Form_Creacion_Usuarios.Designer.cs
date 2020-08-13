@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbopersonal = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtcontrasena = new System.Windows.Forms.TextBox();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.cboestado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,11 +59,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbopersonal);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtcontrasena);
+            this.groupBox1.Controls.Add(this.txtusuario);
+            this.groupBox1.Controls.Add(this.cboestado);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -76,16 +76,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Creación de Usuarios";
             // 
-            // comboBox2
+            // cbopersonal
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(112, 41);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 31);
-            this.comboBox2.TabIndex = 47;
+            this.cbopersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cbopersonal.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbopersonal.ForeColor = System.Drawing.Color.White;
+            this.cbopersonal.FormattingEnabled = true;
+            this.cbopersonal.Location = new System.Drawing.Point(112, 41);
+            this.cbopersonal.Name = "cbopersonal";
+            this.cbopersonal.Size = new System.Drawing.Size(183, 31);
+            this.cbopersonal.TabIndex = 47;
+            this.cbopersonal.SelectedValueChanged += new System.EventHandler(this.cbopersonal_SelectedValueChanged);
             // 
             // label5
             // 
@@ -98,36 +99,38 @@
             this.label5.TabIndex = 46;
             this.label5.Text = "Usuario:";
             // 
-            // textBox2
+            // txtcontrasena
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(112, 110);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 26);
-            this.textBox2.TabIndex = 34;
+            this.txtcontrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtcontrasena.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcontrasena.ForeColor = System.Drawing.Color.White;
+            this.txtcontrasena.Location = new System.Drawing.Point(112, 110);
+            this.txtcontrasena.Name = "txtcontrasena";
+            this.txtcontrasena.PasswordChar = '*';
+            this.txtcontrasena.Size = new System.Drawing.Size(183, 26);
+            this.txtcontrasena.TabIndex = 34;
             // 
-            // textBox4
+            // txtusuario
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(112, 78);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 26);
-            this.textBox4.TabIndex = 45;
+            this.txtusuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtusuario.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtusuario.ForeColor = System.Drawing.Color.White;
+            this.txtusuario.Location = new System.Drawing.Point(112, 78);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(183, 26);
+            this.txtusuario.TabIndex = 45;
             // 
-            // comboBox1
+            // cboestado
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 142);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(183, 31);
-            this.comboBox1.TabIndex = 35;
+            this.cboestado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboestado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboestado.ForeColor = System.Drawing.Color.White;
+            this.cboestado.FormattingEnabled = true;
+            this.cboestado.Location = new System.Drawing.Point(112, 142);
+            this.cboestado.Name = "cboestado";
+            this.cboestado.Size = new System.Drawing.Size(183, 31);
+            this.cboestado.TabIndex = 35;
+            this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // label2
             // 
@@ -187,6 +190,7 @@
             this.button2.Size = new System.Drawing.Size(50, 44);
             this.button2.TabIndex = 37;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel2
             // 
@@ -208,6 +212,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Creacion_Usuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form_Creacion_Usuarios_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -220,15 +225,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cboestado;
+        private System.Windows.Forms.TextBox txtcontrasena;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbopersonal;
     }
 }

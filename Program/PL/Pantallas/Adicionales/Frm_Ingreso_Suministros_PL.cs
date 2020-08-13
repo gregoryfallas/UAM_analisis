@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using PL.Pantallas.Principales;
+using DAL.Entidades;using PL.Pantallas.Principales;
 
 namespace PL.Pantallas.Adicionales
 {
@@ -17,6 +17,8 @@ namespace PL.Pantallas.Adicionales
         public Frm_Ingreso_Suministros_PL()
         {
             InitializeComponent();
+            crear_ingreso_suministros();
+            listingreso_suministros = new list<Frm_Ingreso_Suministros_PL>();
 
         }
 
@@ -27,11 +29,8 @@ namespace PL.Pantallas.Adicionales
             inicio.ShowDialog();
         }
 
-        private void CARGAR_ingreso_suministros()
+        private void crear_ingreso_suministros()
         {
-
-            try
-            {
                 this.tb_cant = null;
                 this.tb_descrip = null;
                 this.tb_idarticulo = null;
@@ -40,45 +39,21 @@ namespace PL.Pantallas.Adicionales
                 this.dataGrid_ingresosumi.DataSource = null;
 
                 this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro();
-                // this.cantidad = tb_cant;
                 this.tb_descrip = null;
                 this.tb_idarticulo = null;
                 this.tb_idformulario = null;
                 this.tb_idproveedor = null;
                 this.dataGrid_ingresosumi.DataSource = null;
 
-
-                this.dataGrid_ingresosumi.Refresh();
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
+                 this.dataGrid_ingresosumi.Refresh();
         }
-
-        private void btn_Crear_Click(object sender, EventArgs e)
-        {
-            //errorProvider1.Clear();
-                Grua grua = new Grua();
-                grua.idChofer = Convert.ToInt32(cbIdChofer.Text.Substring(0, 1));
-                grua.ubicacion = tbUbicacion.Text.Trim();
-                grua.estadoGrua = cbEstadogGrua.Text.Trim();
-                LN.agregarGrua(grua);
-                MessageBox.Show("Informacion Grua Agregada", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarDataGridGruas();
-                cargarBoxChoferes();
-
-            Articulo ingreso = new 
-                ID_Solicitud_Articulos = new ID_Solicitud_Articulos
-
-            ID_Articulo_Proveedor
-			ID_Solicitud_Compra 
-			Cantidad ,
-			Descripcion
-            }
-        }
+                public partial List<Frm_Ingreso_Suministros_PL> listingreso_suministros { get; set; }
+                public bool esError { get; set; }
     }
+                public cargardatos_ingreso_sumi()
+                {
+                    List<Frm_Ingreso_Suministros_PL>listingreso_suministros = sp_
+
+                }
+
 }

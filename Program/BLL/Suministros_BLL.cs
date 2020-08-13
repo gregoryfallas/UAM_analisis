@@ -53,7 +53,7 @@ namespace BLL
         }
         #endregion
        
-        public static SP_CREAR_ingreso_suministro(SQLSentencia Peticion)
+        public static bool SP_CREAR_ingreso_suministro(Suministros_BLL in_sumi)
         {
             #region
             try
@@ -64,23 +64,33 @@ namespace BLL
                 SqlParameter parametroid_solicitudarticulo = new sqlparameter();
                 parametroid_solicitudarticulo.ParameterName = "@ID_Solicitud_Articulos";
                 parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_solicitudarticulo.Value = ingreso_solicitudarticulo;
+                parametroid_solicitudarticulo.Value = in_sumi.ingreso_solicitudarticulo;
 
-                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
-                parametroid_solicitudarticulo.ParameterName = "@ID_Articulo_Proveedor";
-                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_solicitudarticulo.Value = ingreso_articuloproveedor;
+                SqlParameter parametroid_ArticuloProveedor = new sqlparameter();
+                parametroid_ArticuloProveedor.ParameterName = "@ID_Articulo_Proveedor";
+                parametroid_ArticuloProveedor.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_ArticuloProveedor.Value = in_sumi.ingreso_articuloproveedor;
 
-                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
-                parametroid_solicitudarticulo.ParameterName = "@ID_Solicitud_Compra";
-                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_solicitudarticulo.Value = ingreso_Solicitudcompra;
+                SqlParameter parametroid_Solicitud_Compra = new sqlparameter();
+                parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
+                parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_Solicitud_Compra.Value = in_sumi.ingreso_Solicitudcompra;
 
-                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
-                parametroid_solicitudarticulo.ParameterName = "@Cantidad";
-                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.VarChar;
-                parametroid_solicitudarticulo.Value = ingreso_articuloproveedor;
+                SqlParameter parametroCantidad = new sqlparameter();
+                parametroCantidad.ParameterName = "@Cantidad";
+                parametroCantidad.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroCantidad.Value = in_sumi.ingreso_Cantidad;
 
+                SqlParameter parametrodescripcion = new sqlparameter();
+                parametrodescripcion.ParameterName = "@Descripcion";
+                parametrodescripcion.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametrodescripcion.Value = in_sumi.ingreso_Descripcion;
+
+                SQLSentencia.listparametros.add(parametroid_solicitudarticulo);
+                SQLSentencia.listparametros.add(parametroid_ArticuloProveedor);
+                SQLSentencia.listparametros.add(parametroid_Solicitud_Compra);
+                SQLSentencia.listparametros.add(parametroCantidad);
+                SQLSentencia.listparametros.add(parametrodescripcion);
 
                 DA acceso = new DA();
                 return acceso.SP_CREAR_ingreso_suministro(sentencia);

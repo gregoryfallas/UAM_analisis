@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tb_idproveedor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_idarticulo = new System.Windows.Forms.TextBox();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Crear = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,10 +46,6 @@
             this.dataGrid_ingresosumi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
-            this.tb_idproveedor = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tb_idarticulo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ingresosumi)).BeginInit();
             this.panel2.SuspendLayout();
@@ -74,6 +74,44 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(726, 477);
             this.panel1.TabIndex = 0;
+            // 
+            // tb_idproveedor
+            // 
+            this.tb_idproveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_idproveedor.Location = new System.Drawing.Point(229, 131);
+            this.tb_idproveedor.Name = "tb_idproveedor";
+            this.tb_idproveedor.Size = new System.Drawing.Size(120, 20);
+            this.tb_idproveedor.TabIndex = 176;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(32, 107);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.TabIndex = 175;
+            this.label1.Text = "Id Articulo";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(232, 106);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 18);
+            this.label2.TabIndex = 174;
+            this.label2.Text = "Id Proveedor:";
+            // 
+            // tb_idarticulo
+            // 
+            this.tb_idarticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.tb_idarticulo.Location = new System.Drawing.Point(29, 131);
+            this.tb_idarticulo.Name = "tb_idarticulo";
+            this.tb_idarticulo.Size = new System.Drawing.Size(135, 20);
+            this.tb_idarticulo.TabIndex = 173;
             // 
             // btn_Modificar
             // 
@@ -213,44 +251,6 @@
             this.btn_Inicio.Text = "Inicio";
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
-            // 
-            // tb_idproveedor
-            // 
-            this.tb_idproveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_idproveedor.Location = new System.Drawing.Point(229, 131);
-            this.tb_idproveedor.Name = "tb_idproveedor";
-            this.tb_idproveedor.Size = new System.Drawing.Size(120, 20);
-            this.tb_idproveedor.TabIndex = 176;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
-            this.label1.TabIndex = 175;
-            this.label1.Text = "Id Articulo";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(232, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 18);
-            this.label2.TabIndex = 174;
-            this.label2.Text = "Id Proveedor:";
-            // 
-            // tb_idarticulo
-            // 
-            this.tb_idarticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_idarticulo.Location = new System.Drawing.Point(29, 131);
-            this.tb_idarticulo.Name = "tb_idarticulo";
-            this.tb_idarticulo.Size = new System.Drawing.Size(135, 20);
-            this.tb_idarticulo.TabIndex = 173;
             // 
             // Frm_Ingreso_Suministros_PL
             // 

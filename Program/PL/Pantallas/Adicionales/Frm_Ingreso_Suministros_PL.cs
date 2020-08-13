@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using DAL.Entidades;using PL.Pantallas.Principales;
+using DAL.Entidades;
+using PL.Pantallas.Principales;
 
 namespace PL.Pantallas.Adicionales
 {
@@ -40,7 +41,7 @@ namespace PL.Pantallas.Adicionales
                 this.tb_idproveedor = null;
                 this.dataGrid_ingresosumi.DataSource = null;
 
-                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro();
+                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(in_sumi: SOLICITUD_ARTICULOS);
                 this.tb_descrip = null;
                 this.tb_idarticulo = null;
                 this.tb_idformulario = null;
@@ -50,9 +51,8 @@ namespace PL.Pantallas.Adicionales
                 this.dataGrid_ingresosumi.Refresh();
         }
 
-         public cargardatos_ingreso_sumi()
+         public cargardatos_ingreso_sumi(SQLSentencia)
          {
-            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_solicitudarticulo;
             List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
             List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
             List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
@@ -67,6 +67,11 @@ namespace PL.Pantallas.Adicionales
             this.Dispose();
             Frm_Inicio_PL inicio = new Frm_Inicio_PL();
             inicio.ShowDialog();
+        }
+
+        private void btn_Crear_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

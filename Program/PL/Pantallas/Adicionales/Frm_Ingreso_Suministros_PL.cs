@@ -28,7 +28,7 @@ namespace PL.Pantallas.Adicionales
         {
             DAL.Entidades.SOLICITUD_ARTICULOS sa = new SOLICITUD_ARTICULOS();
             InitializeComponent();
-            listingreso_suministros = new list<SOLICITUD_ARTICULOS>();
+            //listingreso_suministros = new list<SOLICITUD_ARTICULOS>();
             crear_ingreso_suministros();
             cargardatos_ingreso_sumi();
         }

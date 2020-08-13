@@ -14,19 +14,21 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Ingreso_Suministros_PL : Form
     {
+        private int ID_Solicitud_Articulos = 0;
+        private int ID_Articulo_Proveedor = 0;
+        private int ID_Solicitud_Compra = 0;
+        private int Cantidad = 0;
+        private String Descripcion = null;
+
+        public List<Suministros_BLL> listingreso_suministros { get; set; }
+        public bool esError { get; set; }
+        
         public Frm_Ingreso_Suministros_PL()
         {
             InitializeComponent();
+            listingreso_suministros = new list<Suministros_BLL>();
             crear_ingreso_suministros();
-            listingreso_suministros = new list<Frm_Ingreso_Suministros_PL>();
-
-        }
-
-        private void btn_Inicio_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+            cargardatos_ingreso_sumi();
         }
 
         private void crear_ingreso_suministros()
@@ -45,15 +47,26 @@ namespace PL.Pantallas.Adicionales
                 this.tb_idproveedor = null;
                 this.dataGrid_ingresosumi.DataSource = null;
 
-                 this.dataGrid_ingresosumi.Refresh();
+                this.dataGrid_ingresosumi.Refresh();
         }
-                public partial List<Frm_Ingreso_Suministros_PL> listingreso_suministros { get; set; }
-                public bool esError { get; set; }
+
+         public cargardatos_ingreso_sumi()
+         {
+            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_solicitudarticulo;
+            List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
+            List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
+            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
+            List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
+            //DUDAS EN LAS DOS ULTIMAS LINEAS
+         }
+
+
+          
+        private void btn_Inicio_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
+            inicio.ShowDialog();
+        }
     }
-                public cargardatos_ingreso_sumi()
-                {
-                    List<Frm_Ingreso_Suministros_PL>listingreso_suministros = sp_
-
-                }
-
 }

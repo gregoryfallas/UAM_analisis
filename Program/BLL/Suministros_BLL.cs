@@ -81,13 +81,13 @@ namespace BLL
                 parametroCantidad.SqlDbType = System.Data.SqlDbType.Decimal;
                 parametroCantidad.Value = in_sumi.Cantidad;
                 
-                SQLSentencia.listparametros.add(parametroid_ArticuloProveedor);
+                SQLSentencia.in_sumi.add(parametroid_ArticuloProveedor);
                 SQLSentencia.listparametros.add(parametroid_Solicitud_Compra);
                 SQLSentencia.listparametros.add(parametroCantidad);
                 SQLSentencia.listparametros.add(parametrodescripcion);
 
                 DA acceso = new DA();
-                return acceso.SP_CREAR_ingreso_suministro(sentencia);
+                return acceso.SP_CREAR_ingreso_suministro(SQLSentencia, in_sumi);
 
             }
             catch (Exception e)

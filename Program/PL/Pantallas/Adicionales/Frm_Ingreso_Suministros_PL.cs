@@ -26,8 +26,9 @@ namespace PL.Pantallas.Adicionales
         
         public Frm_Ingreso_Suministros_PL()
         {
+            DAL.Entidades.SOLICITUD_ARTICULOS sa = new SOLICITUD_ARTICULOS();
             InitializeComponent();
-            listingreso_suministros = new list<Suministros_BLL>();
+            listingreso_suministros = new list<SOLICITUD_ARTICULOS>();
             crear_ingreso_suministros();
             cargardatos_ingreso_sumi();
         }
@@ -41,7 +42,7 @@ namespace PL.Pantallas.Adicionales
                 this.tb_idproveedor = null;
                 this.dataGrid_ingresosumi.DataSource = null;
 
-                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(in_sumi: SOLICITUD_ARTICULOS);
+                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(SOLICITUD_ARTICULOS);
                 this.tb_descrip = null;
                 this.tb_idarticulo = null;
                 this.tb_idformulario = null;
@@ -51,14 +52,14 @@ namespace PL.Pantallas.Adicionales
                 this.dataGrid_ingresosumi.Refresh();
         }
 
-         public cargardatos_ingreso_sumi(SQLSentencia)
-         {
-            List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
-            List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
-            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
-            List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
-            //DUDAS EN LAS DOS ULTIMAS LINEAS
-         }
+         //public cargardatos_ingreso_sumi(SQLSentencia)
+         //{
+         //   List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
+         //   List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
+         //   List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
+         //   List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
+         //   //DUDAS EN LAS DOS ULTIMAS LINEAS
+         //}
 
 
           

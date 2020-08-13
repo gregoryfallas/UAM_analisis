@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Program",
-    "\\Program\\BLL",
-    "\\Program\\DAL",
-    "\\Program\\DAL\\Entidades",
-    "\\Program\\PL",
-    "\\Program\\PL\\Pantallas",
-    "\\Program\\PL\\Pantallas\\Adicionales"
+    ""
   ],
   "PreviewInSolutionExplorer": false
 }

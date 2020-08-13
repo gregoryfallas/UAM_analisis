@@ -25,13 +25,19 @@ namespace PL.Pantallas.Adicionales
         //values
         private string id_Distritos;
         private string id_Canton;
-        private string id_Provincia;
-        private string Nombre_Provincia;
+        //private string id_Provincia;
+       // private string Nombre_Provincia;
+
+        private string provincia;
+        private string canton;
+        private string distrito;
+
 
         private string id_Estado;
         private string est;
-
         private string ced;
+
+
         public Frm_Clientes_PL()
         {
             InitializeComponent();
@@ -54,7 +60,6 @@ namespace PL.Pantallas.Adicionales
         {
            
             List<PROVINCIAS> lstresultado = Clientes_BLL.ConsultaProvincia();
-            
             this.Provinciacbo.DataSource = lstresultado;
             Provinciacbo.ValueMember = "ID_Provincias";
             Provinciacbo.DisplayMember = "Nombre";
@@ -75,70 +80,7 @@ namespace PL.Pantallas.Adicionales
             CargarCombosDistritos();
         }
 
-        //private void cargarGridUsuarios()
-        //{
-        //    Clientes_BLL c = new Clientes_BLL();
-        //    try
-        //    {
-
-
-
-        //        List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
-
-
-        //        DataTable dt = new DataTable();
-
-
-        //        dt.Columns.Add("ID");
-        //        dt.Columns.Add("Cedula");
-        //        dt.Columns.Add("Nombre");
-        //        dt.Columns.Add("Primer_Apellido");
-        //        dt.Columns.Add("Segundo_Apellido");
-        //        dt.Columns.Add("Correo");
-        //        dt.Columns.Add("Telefono");
-        //        dt.Columns.Add("Id Provincia");
-        //        dt.Columns.Add("Id Canton");
-        //        dt.Columns.Add("Id Distrito");
-        //        dt.Columns.Add("Direccion");
-        //        dt.Columns.Add("Credito");
-        //        dt.Columns.Add("Estado");
-        //        foreach (CLIENTES item in lstusuarios)
-        //        {
-        //            dt.Rows.Add
-        //                (
-        //                item.ID_Cliente,
-        //                item.Cedula,
-        //                item.Nombre,
-        //                item.Apellido_1,
-        //                item.Apellido_2,
-        //                item.Correo,
-        //                item.Telefono,
-        //                item.ID_Provincias,
-        //                item.ID_Cantones,
-        //                item.ID_Distritos,
-        //                item.Direccion,
-        //                item.Credito,
-        //                item.Estado
-        //                );
-        //        }
-        //        this.dataGridView1.DataSource = null;
-        //        this.dataGridView1.Refresh();
-        //        this.dataGridView1.DataSource = dt;
-        //        this.dataGridView1.Refresh();
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-
-
-        //}
-
-
-
-
-
+       
 
             private void cargarGridUsuarios()
                 {
@@ -163,14 +105,7 @@ namespace PL.Pantallas.Adicionales
 
         }
 
-
-
-
-
-
-
-
-
+        
         private void CargarCombosDistritos()
         {
 
@@ -211,22 +146,14 @@ namespace PL.Pantallas.Adicionales
 
         private void Provinciacbo_SelectedIndexChanged(object sender, EventArgs e)
         {
+             this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
+             CargarCombosCantones();
+            prueba.Text = provincia_id.ToString();
 
-            this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
-
-
-            
-            CargarCombosCantones();
-            
-        }
-
-        private void nombreProvincia(int id) {
-            Nombre_Provincia="a";
-
- 
 
         }
 
+        
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -304,8 +231,7 @@ namespace PL.Pantallas.Adicionales
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             credito = comboBox1.SelectedValue.ToString();
-
-           
+            
         }
 
         private void Distritocbo_SelectedIndexChanged(object sender, EventArgs e)
@@ -341,17 +267,74 @@ namespace PL.Pantallas.Adicionales
            
             Clientes_BLL.agregarCliente(cliente);
             MessageBox.Show("Cliente Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LimpiarCampos();
             cargarGridUsuarios();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                CLIENTES cliente = new CLIENTES();
+                cliente.Cedula = textBox2.Text.Trim();
+                cliente.Nombre = textBox1.Text.Trim();
+                cliente.Apellido_1 = Apellido1txt.Text.Trim();
+                cliente.Apellido_2 = textBox7.Text.Trim();
+                cliente.Correo = textBox5.Text.Trim();
+                cliente.Telefono = textBox3.Text.Trim();
+                cliente.ID_Provincias = provincia_id;
+                cliente.ID_Cantones = canton_id;
+                cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
+                cliente.Direccion = textBox4.Text;
+                Clientes_BLL.modificarCliente(cliente);
+                MessageBox.Show("Cliente Modificado","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                LimpiarCampos();
+                cargarGridUsuarios();
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
         }
 
+        //private bool validarCampos() {
+
+        //    if (textBox1.Text.Trim().Length<=0)
+        //     MessageBox.Show("Debe Ingresar un Nombre", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if (Apellido1txt.Text.Trim().Length <= 0)
+        //        MessageBox.Show("Debe Ingresar Apellido 1", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if (textBox7.Text.Trim().Length <= 0)
+        //        MessageBox.Show("Debe Ingresar Apellido2", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if (textBox2.Text.Trim().Length <= 0)
+        //        MessageBox.Show("Debe Ingresar una Cédula", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if (textBox3.Text.Trim().Length <= 0)
+        //        MessageBox.Show("Debe Ingresar un Telefono", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if (textBox5.Text.Trim().Length <= 0)
+        //        MessageBox.Show("Debe Ingresar un Correo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+        //    if ()
+        //        MessageBox.Show("Debe Ingresar un Correo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
 
 
+        //}
+
+
+        private void LimpiarCampos() {
+
+            textBox2.Text=string.Empty;
+            textBox1.Text=string.Empty;
+            Apellido1txt.Text= string.Empty;
+            textBox7.Text= string.Empty;
+            textBox5.Text= string.Empty;
+            textBox3.Text= string.Empty;
+            textBox4.Text= string.Empty;
+        }
+             
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -393,6 +376,13 @@ namespace PL.Pantallas.Adicionales
                 //    comboBox1.Text = "Si";
                 //        else
                 //    comboBox1.Text = "No";
+
+               provincia= dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+               Provinciacbo.Text = provincia;
+               canton = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+               Cantoncbo.Text = canton;
+               distrito = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+               Distritocbo.Text = distrito;
 
                 //DIRECCION
                 textBox4.Text= dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();

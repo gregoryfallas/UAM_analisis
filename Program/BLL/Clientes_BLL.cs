@@ -290,7 +290,7 @@ namespace BLL
             try
             {
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC PA_Clientes_Modificar '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','" + cliente.Apellido_2 + "','" + cliente.Correo + "','" + cliente.Telefono + "','" + cliente.ID_Provincias + "','" + cliente.ID_Cantones + "','" + cliente.ID_Distritos + "','" + cliente.Direccion + "','" + cliente.Credito + "','" + cliente.Estado + "'";
+                peticion.Peticion = @"EXEC PA_Clientes_Modificar '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','" + cliente.Apellido_2 + "','" + cliente.Correo + "','" + cliente.Telefono + "','" + cliente.ID_Provincias + "','" + cliente.ID_Cantones + "','" + cliente.ID_Distritos + "','" + cliente.Direccion + "'";
                 DA acceso = new DA();
                 return acceso.ejecutarSentecia(peticion);
             }

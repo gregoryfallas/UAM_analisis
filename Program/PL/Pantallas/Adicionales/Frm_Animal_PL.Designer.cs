@@ -222,7 +222,7 @@
             this.buscarAnimalbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buscarAnimalbtn.FlatAppearance.BorderSize = 0;
             this.buscarAnimalbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buscarAnimalbtn.Location = new System.Drawing.Point(771, 51);
+            this.buscarAnimalbtn.Location = new System.Drawing.Point(762, 62);
             this.buscarAnimalbtn.Name = "buscarAnimalbtn";
             this.buscarAnimalbtn.Size = new System.Drawing.Size(31, 27);
             this.buscarAnimalbtn.TabIndex = 32;
@@ -234,7 +234,7 @@
             this.mascotalbl.AutoSize = true;
             this.mascotalbl.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mascotalbl.ForeColor = System.Drawing.Color.White;
-            this.mascotalbl.Location = new System.Drawing.Point(531, 56);
+            this.mascotalbl.Location = new System.Drawing.Point(516, 61);
             this.mascotalbl.Name = "mascotalbl";
             this.mascotalbl.Size = new System.Drawing.Size(79, 23);
             this.mascotalbl.TabIndex = 33;
@@ -246,9 +246,9 @@
             this.buscarAnimaltxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.buscarAnimaltxt.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buscarAnimaltxt.ForeColor = System.Drawing.Color.White;
-            this.buscarAnimaltxt.Location = new System.Drawing.Point(631, 53);
+            this.buscarAnimaltxt.Location = new System.Drawing.Point(601, 62);
             this.buscarAnimaltxt.Name = "buscarAnimaltxt";
-            this.buscarAnimaltxt.Size = new System.Drawing.Size(134, 26);
+            this.buscarAnimaltxt.Size = new System.Drawing.Size(155, 26);
             this.buscarAnimaltxt.TabIndex = 31;
             // 
             // animaltxt
@@ -302,10 +302,10 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(513, 104);
+            this.dataGridView1.Location = new System.Drawing.Point(417, 94);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(289, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(376, 190);
             this.dataGridView1.TabIndex = 30;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -356,9 +356,9 @@
             this.CedulaClienteBusquedabtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.CedulaClienteBusquedabtn.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CedulaClienteBusquedabtn.ForeColor = System.Drawing.Color.White;
-            this.CedulaClienteBusquedabtn.Location = new System.Drawing.Point(589, 40);
+            this.CedulaClienteBusquedabtn.Location = new System.Drawing.Point(610, 40);
             this.CedulaClienteBusquedabtn.Name = "CedulaClienteBusquedabtn";
-            this.CedulaClienteBusquedabtn.Size = new System.Drawing.Size(134, 26);
+            this.CedulaClienteBusquedabtn.Size = new System.Drawing.Size(146, 26);
             this.CedulaClienteBusquedabtn.TabIndex = 42;
             this.CedulaClienteBusquedabtn.TextChanged += new System.EventHandler(this.CedulaClienteBusquedabtn_TextChanged);
             // 
@@ -367,7 +367,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(484, 43);
+            this.label5.Location = new System.Drawing.Point(505, 43);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 23);
             this.label5.TabIndex = 41;
@@ -407,10 +407,10 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.dataGridView2.Location = new System.Drawing.Point(430, 69);
+            this.dataGridView2.Location = new System.Drawing.Point(417, 69);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(330, 105);
+            this.dataGridView2.Size = new System.Drawing.Size(376, 105);
             this.dataGridView2.TabIndex = 28;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
@@ -419,9 +419,9 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(106, 114);
+            this.textBox1.Location = new System.Drawing.Point(106, 113);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 26);
+            this.textBox1.Size = new System.Drawing.Size(170, 26);
             this.textBox1.TabIndex = 27;
             // 
             // label6
@@ -429,7 +429,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(31, 117);
+            this.label6.Location = new System.Drawing.Point(31, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 23);
             this.label6.TabIndex = 26;
@@ -440,7 +440,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(28, 69);
+            this.label4.Location = new System.Drawing.Point(32, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 23);
             this.label4.TabIndex = 24;
@@ -451,7 +451,7 @@
             this.razaAnimaltxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.razaAnimaltxt.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.razaAnimaltxt.ForeColor = System.Drawing.Color.White;
-            this.razaAnimaltxt.Location = new System.Drawing.Point(106, 66);
+            this.razaAnimaltxt.Location = new System.Drawing.Point(106, 69);
             this.razaAnimaltxt.Name = "razaAnimaltxt";
             this.razaAnimaltxt.Size = new System.Drawing.Size(170, 26);
             this.razaAnimaltxt.TabIndex = 23;
@@ -462,7 +462,7 @@
             this.buscarClientebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buscarClientebtn.FlatAppearance.BorderSize = 0;
             this.buscarClientebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buscarClientebtn.Location = new System.Drawing.Point(729, 40);
+            this.buscarClientebtn.Location = new System.Drawing.Point(762, 40);
             this.buscarClientebtn.Name = "buscarClientebtn";
             this.buscarClientebtn.Size = new System.Drawing.Size(31, 26);
             this.buscarClientebtn.TabIndex = 25;
@@ -488,7 +488,7 @@
             this.btn_Eliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Eliminar.FlatAppearance.BorderSize = 0;
             this.btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Eliminar.Location = new System.Drawing.Point(304, 569);
+            this.btn_Eliminar.Location = new System.Drawing.Point(295, 569);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(34, 33);
             this.btn_Eliminar.TabIndex = 29;

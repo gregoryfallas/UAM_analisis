@@ -306,8 +306,8 @@
             this.ts_Facturacion.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Facturacion.Image = global::PL.Properties.Resources.contab;
             this.ts_Facturacion.Name = "ts_Facturacion";
-            this.ts_Facturacion.Size = new System.Drawing.Size(129, 22);
-            this.ts_Facturacion.Text = "Facturación";
+            this.ts_Facturacion.Size = new System.Drawing.Size(180, 22);
+            this.ts_Facturacion.Text = "Crédito y Cobro";
             this.ts_Facturacion.Click += new System.EventHandler(this.ts_Facturacion_Click);
             // 
             // ts_Compras
@@ -315,7 +315,7 @@
             this.ts_Compras.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Compras.Image = global::PL.Properties.Resources.compras__1_;
             this.ts_Compras.Name = "ts_Compras";
-            this.ts_Compras.Size = new System.Drawing.Size(129, 22);
+            this.ts_Compras.Size = new System.Drawing.Size(180, 22);
             this.ts_Compras.Text = "Compras";
             this.ts_Compras.Click += new System.EventHandler(this.ts_Compras_Click);
             // 
@@ -324,7 +324,7 @@
             this.ts_Tesoreria.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Tesoreria.Image = global::PL.Properties.Resources.tesoreria2;
             this.ts_Tesoreria.Name = "ts_Tesoreria";
-            this.ts_Tesoreria.Size = new System.Drawing.Size(129, 22);
+            this.ts_Tesoreria.Size = new System.Drawing.Size(180, 22);
             this.ts_Tesoreria.Text = "Tesorería";
             this.ts_Tesoreria.Click += new System.EventHandler(this.ts_Tesoreria_Click);
             // 

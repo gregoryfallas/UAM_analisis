@@ -95,6 +95,9 @@ namespace PL.Pantallas.Extras
 
                     LimpiarCampos();
 
+
+                  
+
                 }
 
 
@@ -183,8 +186,18 @@ namespace PL.Pantallas.Extras
 
                                         MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                        decimal total = inventario - ventas;
+
+                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
                                         LimpiarCamposFactura();
+                                        dtg_Articulos.Refresh();
+                                        Cargar2();
                                         CargarNoFactura();
+                                      
                                     }
                                                                         
                                 }
@@ -231,6 +244,19 @@ namespace PL.Pantallas.Extras
                                     Factura_BLL.agregarDetalleFactura(ListArticulos);
 
                                     MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                                    int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                    decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                    decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                    decimal total = inventario - ventas;
+
+                                    Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                    LimpiarCamposFactura();
+                                    dtg_Articulos.Refresh();
+                                    Cargar2();
+                                    CargarNoFactura();
                                 }
                             }
                                

@@ -53,7 +53,46 @@ namespace BLL
         }
         #endregion
        
-    
-       
+        public static SP_CREAR_ingreso_suministro(SQLSentencia Peticion)
+        {
+            #region
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro @ID_Solicitud_Articulos, @ID_Articulo_Proveedor, @ID_Solicitud_Compra, @Descripcion, @Cantidad";
+                
+                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
+                parametroid_solicitudarticulo.ParameterName = "@ID_Solicitud_Articulos";
+                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_solicitudarticulo.Value = ingreso_solicitudarticulo;
+
+                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
+                parametroid_solicitudarticulo.ParameterName = "@ID_Articulo_Proveedor";
+                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_solicitudarticulo.Value = ingreso_articuloproveedor;
+
+                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
+                parametroid_solicitudarticulo.ParameterName = "@ID_Solicitud_Compra";
+                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_solicitudarticulo.Value = ingreso_Solicitudcompra;
+
+                SqlParameter parametroid_solicitudarticulo = new sqlparameter();
+                parametroid_solicitudarticulo.ParameterName = "@Cantidad";
+                parametroid_solicitudarticulo.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroid_solicitudarticulo.Value = ingreso_articuloproveedor;
+
+
+                DA acceso = new DA();
+                return acceso.SP_CREAR_ingreso_suministro(sentencia);
+
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
+        #endregion
+ 
     }
 }

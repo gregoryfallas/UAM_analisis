@@ -29,6 +29,8 @@ namespace PL.Pantallas.Adicionales
         private string Nombre_Provincia;
 
         private string id_Estado;
+        private string est;
+
         private string ced;
         public Frm_Clientes_PL()
         {
@@ -73,56 +75,83 @@ namespace PL.Pantallas.Adicionales
             CargarCombosDistritos();
         }
 
-        private void cargarGridUsuarios()
-        {
-            Clientes_BLL c = new Clientes_BLL();
+        //private void cargarGridUsuarios()
+        //{
+        //    Clientes_BLL c = new Clientes_BLL();
+        //    try
+        //    {
+
+
+
+        //        List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
+
+
+        //        DataTable dt = new DataTable();
+
+
+        //        dt.Columns.Add("ID");
+        //        dt.Columns.Add("Cedula");
+        //        dt.Columns.Add("Nombre");
+        //        dt.Columns.Add("Primer_Apellido");
+        //        dt.Columns.Add("Segundo_Apellido");
+        //        dt.Columns.Add("Correo");
+        //        dt.Columns.Add("Telefono");
+        //        dt.Columns.Add("Id Provincia");
+        //        dt.Columns.Add("Id Canton");
+        //        dt.Columns.Add("Id Distrito");
+        //        dt.Columns.Add("Direccion");
+        //        dt.Columns.Add("Credito");
+        //        dt.Columns.Add("Estado");
+        //        foreach (CLIENTES item in lstusuarios)
+        //        {
+        //            dt.Rows.Add
+        //                (
+        //                item.ID_Cliente,
+        //                item.Cedula,
+        //                item.Nombre,
+        //                item.Apellido_1,
+        //                item.Apellido_2,
+        //                item.Correo,
+        //                item.Telefono,
+        //                item.ID_Provincias,
+        //                item.ID_Cantones,
+        //                item.ID_Distritos,
+        //                item.Direccion,
+        //                item.Credito,
+        //                item.Estado
+        //                );
+        //        }
+        //        this.dataGridView1.DataSource = null;
+        //        this.dataGridView1.Refresh();
+        //        this.dataGridView1.DataSource = dt;
+        //        this.dataGridView1.Refresh();
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+
+
+        //}
+
+
+
+
+
+
+            private void cargarGridUsuarios()
+                {
+            
             try
             {
-              
-                
 
-                List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
-
-
-                DataTable dt = new DataTable();
-
-
-                dt.Columns.Add("ID");
-                dt.Columns.Add("Cedula");
-                dt.Columns.Add("Nombre");
-                dt.Columns.Add("Primer_Apellido");
-                dt.Columns.Add("Segundo_Apellido");
-                dt.Columns.Add("Correo");
-                dt.Columns.Add("Telefono");
-                dt.Columns.Add("Id Provincia");
-                dt.Columns.Add("Id Canton");
-                dt.Columns.Add("Id Distrito");
-                dt.Columns.Add("Direccion");
-                dt.Columns.Add("Credito");
-                dt.Columns.Add("Estado");
-                foreach (CLIENTES item in lstusuarios)
-                {
-                    dt.Rows.Add
-                        (
-                        item.ID_Cliente,
-                        item.Cedula,
-                        item.Nombre,
-                        item.Apellido_1,
-                        item.Apellido_2,
-                        item.Correo,
-                        item.Telefono,
-                        item.ID_Provincias,
-                        item.ID_Cantones,
-                        item.ID_Distritos,
-                        item.Direccion,
-                        item.Credito,
-                        item.Estado
-                        );
-                }
                 this.dataGridView1.DataSource = null;
                 this.dataGridView1.Refresh();
-                this.dataGridView1.DataSource = dt;
+              
+                this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
                 this.dataGridView1.Refresh();
+
             }
             catch (Exception)
             {
@@ -131,7 +160,15 @@ namespace PL.Pantallas.Adicionales
             }
 
 
+
         }
+
+
+
+
+
+
+
 
 
         private void CargarCombosDistritos()
@@ -295,12 +332,13 @@ namespace PL.Pantallas.Adicionales
             cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
             cliente.Direccion = textBox4.Text;
             // cliente.Credito = false;
-            if (credito.ToString().Equals("Si"))
-                c = true;
-            else
-                c = false;
-            cliente.Credito = c;
+            //  if (credito.ToString().Equals("Si"))
+            //      c = true;
+            //  else
+            //      c = false;
+            ////  cliente.Credito = c;
             cliente.Estado = Convert.ToInt32(id_Estado);
+           
             Clientes_BLL.agregarCliente(cliente);
             MessageBox.Show("Cliente Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cargarGridUsuarios();
@@ -311,6 +349,10 @@ namespace PL.Pantallas.Adicionales
 
         }
 
+
+
+
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -319,36 +361,40 @@ namespace PL.Pantallas.Adicionales
             }
             else
             {
+                //nombre
                 textBox1.Text= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                //ape1
+                Apellido1txt.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                //ape2
+                textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                //cedula
                 textBox2.Text= dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
                 ced = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                Apellido1txt.Text= dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                textBox7.Text= dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                textBox5.Text= dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                textBox3.Text= dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                
-                
-                
-                //Canton
-                
+                //tel
+                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //correo
+                textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 
                 //estados
-                int ides = 0;
-                ides = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString());
-                if (ides == 5)
-                    estadoClientecbo.Text = "Activo";
-                else
-                    estadoClientecbo.Text = "Vetado";
+                est= dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                estadoClientecbo.Text = est;
+                //int ides = 0;
+                //ides = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                //if (ides == 5)
+                //    estadoClientecbo.Text = "Activo";
+                //else
+                //    estadoClientecbo.Text = "Vetado";
 
                 //credito
-                bool c;
-                c= Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString());
-                if (c)
-                    comboBox1.Text = "Si";
-                        else
-                    comboBox1.Text = "No";
-                
+                //bool c;
+                //c= Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString());
+                //if (c)
+                //    comboBox1.Text = "Si";
+                //        else
+                //    comboBox1.Text = "No";
+
+                //DIRECCION
                 textBox4.Text= dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
                 
              
@@ -374,6 +420,11 @@ namespace PL.Pantallas.Adicionales
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Cantoncbo_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

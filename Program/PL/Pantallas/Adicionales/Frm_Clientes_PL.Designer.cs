@@ -319,6 +319,7 @@
             this.Cantoncbo.Size = new System.Drawing.Size(138, 31);
             this.Cantoncbo.TabIndex = 13;
             this.Cantoncbo.SelectedIndexChanged += new System.EventHandler(this.Cantoncbo_SelectedIndexChanged);
+            this.Cantoncbo.SelectedValueChanged += new System.EventHandler(this.Cantoncbo_SelectedValueChanged);
             // 
             // Provinciacbo
             // 
@@ -452,7 +453,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;

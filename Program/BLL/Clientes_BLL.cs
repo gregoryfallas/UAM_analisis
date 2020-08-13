@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL.Entidades;
 using DAL;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BLL
 {
@@ -20,7 +21,7 @@ namespace BLL
             {
 
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','"+ cliente.Apellido_2 +"','"+cliente.Correo + "','" +cliente.Telefono  + "','"  +cliente.ID_Provincias+ "','" + cliente.ID_Cantones+ "','"+ cliente.ID_Distritos+ "','"+ cliente.Direccion+ "','" +cliente.Credito + "','"+cliente.Estado +   "'";
+                peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','"+ cliente.Apellido_2 +"','"+cliente.Correo + "','" +cliente.Telefono  + "','"  +cliente.ID_Provincias+ "','" + cliente.ID_Cantones+ "','"+ cliente.ID_Distritos+ "','"+ cliente.Direccion+ "','"+cliente.Estado +   "'";
                 
                 //SQLSentencia peticion = new SQLSentencia();
                 //peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES @ced, @nom, @ape1, @ape2, @correo, @tel, @provincia, @canton, @distrito, @dire , @credito, @est ";
@@ -137,19 +138,40 @@ namespace BLL
         }
 
 
-        public static List<CLIENTES> ConsultarClientesPantallaCliente(string Cedula)
+        //public static List<CLIENTES> ConsultarClientesPantallaCliente(string Cedula)
+        //{
+
+        //    try
+        //    {
+        //        SQLSentencia sentencia = new SQLSentencia();
+        //        sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE @Cedula";
+        //        SqlParameter paramC = new SqlParameter();
+        //        paramC.Value = Cedula;
+        //        paramC.ParameterName = "@Cedula";
+        //        paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+        //        sentencia.lstParametros.Add(paramC);
+        //        DA acceso = new DA();
+        //        return acceso.ConsultarClientesPantallaClientes(sentencia);
+
+
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+
+
+
+        public static DataTable ConsultarClientesPantallaCliente(string Cedula)
         {
 
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE @Cedula";
-                SqlParameter paramC = new SqlParameter();
-                paramC.Value = Cedula;
-                paramC.ParameterName = "@Cedula";
-                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
-                sentencia.lstParametros.Add(paramC);
-                DA acceso = new DA();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE '" + Cedula + "'";
+               DA acceso = new DA();
                 return acceso.ConsultarClientesPantallaClientes(sentencia);
 
 
@@ -159,7 +181,6 @@ namespace BLL
                 throw e;
             }
         }
-
 
 
         public static List<ESTADOS> ConsultaEstadosCliente()

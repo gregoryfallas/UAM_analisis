@@ -205,43 +205,43 @@ namespace PL.Pantallas.Adicionales
 
         private void buscarClientebtn_Click(object sender, EventArgs e)
         {
-            Clientes_BLL c = new Clientes_BLL();
-            try
-            {
+            //Clientes_BLL c = new Clientes_BLL();
+            //try
+            //{
 
 
 
-                List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.CedulaClienteBusquedabtn.Text.Trim());
+            //    List<CLIENTES> lstusuarios = Clientes_BLL.ConsultarClientesPantallaCliente(this.CedulaClienteBusquedabtn.Text.Trim());
 
 
-                DataTable dt = new DataTable();
+            //    DataTable dt = new DataTable();
 
 
-                dt.Columns.Add("ID");
-                dt.Columns.Add("Cedula");
-                dt.Columns.Add("Nombre");
-                foreach (CLIENTES item in lstusuarios)
-                {
-                    dt.Rows.Add
-                        (
-                        item.ID_Cliente,
-                        item.Cedula,
-                        item.Nombre
+            //    dt.Columns.Add("ID");
+            //    dt.Columns.Add("Cedula");
+            //    dt.Columns.Add("Nombre");
+            //    foreach (CLIENTES item in lstusuarios)
+            //    {
+            //        dt.Rows.Add
+            //            (
+            //            item.ID_Cliente,
+            //            item.Cedula,
+            //            item.Nombre
                         
-                        );
-                }
+            //            );
+            //    }
 
 
-                this.dataGridView2.DataSource = null;
-                this.dataGridView2.Refresh();
-                this.dataGridView2.DataSource = dt;
-                this.dataGridView2.Refresh();
-            }
-            catch (Exception)
-            {
+            //    this.dataGridView2.DataSource = null;
+            //    this.dataGridView2.Refresh();
+            //    this.dataGridView2.DataSource = dt;
+            //    this.dataGridView2.Refresh();
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
 
 
         }

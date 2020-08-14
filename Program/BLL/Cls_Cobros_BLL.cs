@@ -34,6 +34,45 @@ namespace BLL
         }
 
 
+        public static DataTable ConsultarCobrosContado(string Nombre)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_COBROS_CONTADO '" + Nombre + "'";
+
+
+                DA acceso = new DA();
+                return acceso.ConsultarCobros(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static DataTable ConsultarCobrosCredito(string Nombre)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_COBROS_Credito '" + Nombre + "'";
+
+
+                DA acceso = new DA();
+                return acceso.ConsultarCobros(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
 
     }
 }

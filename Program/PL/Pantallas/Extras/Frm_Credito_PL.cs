@@ -49,6 +49,12 @@ namespace PL.Pantallas.Extras
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             Cargar();
+
+            txt_Cedula.Text = string.Empty;
+            txt_Nombre.Text = string.Empty;
+            txt_Correo.Text = string.Empty;
+            txt_Telefono.Text = string.Empty;
+            cb_Deshabilitar.Checked = false;
         }
 
         private void Cargar()

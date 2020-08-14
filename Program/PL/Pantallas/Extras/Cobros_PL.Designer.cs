@@ -34,6 +34,22 @@
             this.txt_Fecha = new System.Windows.Forms.TextBox();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmb_Tipo = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_Credito = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_Total = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_Pago = new System.Windows.Forms.TextBox();
+            this.txt_Cambio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Factura = new System.Windows.Forms.TextBox();
@@ -47,33 +63,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txt_NoCliente = new System.Windows.Forms.TextBox();
             this.btn_Confirmar = new System.Windows.Forms.Button();
-            this.txt_Pago = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_Cambio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dtg_Cobros = new System.Windows.Forms.DataGridView();
             this.grp_FormaPago = new System.Windows.Forms.GroupBox();
             this.rdb_Efectivo = new System.Windows.Forms.RadioButton();
             this.rdb_Tarjeta = new System.Windows.Forms.RadioButton();
-            this.txt_Total = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.btn_Imprimir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).BeginInit();
             this.grp_FormaPago.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -126,6 +128,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.cmb_Tipo);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
@@ -138,6 +142,209 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 618);
             this.panel1.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(52, 179);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(115, 23);
+            this.label13.TabIndex = 62;
+            this.label13.Text = "Tipos de Factura:";
+            // 
+            // cmb_Tipo
+            // 
+            this.cmb_Tipo.FormattingEnabled = true;
+            this.cmb_Tipo.Items.AddRange(new object[] {
+            "TODAS",
+            "CONTADO",
+            "CRÉDITO"});
+            this.cmb_Tipo.Location = new System.Drawing.Point(29, 215);
+            this.cmb_Tipo.Name = "cmb_Tipo";
+            this.cmb_Tipo.Size = new System.Drawing.Size(155, 21);
+            this.cmb_Tipo.TabIndex = 70;
+            this.cmb_Tipo.Text = "TODAS";
+            this.cmb_Tipo.SelectedIndexChanged += new System.EventHandler(this.cmb_Tipo_SelectedIndexChanged);
+           
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.txt_Credito);
+            this.groupBox3.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(98, 415);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(367, 188);
+            this.groupBox3.TabIndex = 69;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Compras Crédito";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(37, 125);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(148, 38);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Saldo Actual:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox3.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.White;
+            this.textBox3.Location = new System.Drawing.Point(201, 128);
+            this.textBox3.MaxLength = 5;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(129, 35);
+            this.textBox3.TabIndex = 45;
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(37, 75);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 38);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "Abono:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(201, 78);
+            this.textBox2.MaxLength = 5;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(129, 35);
+            this.textBox2.TabIndex = 43;
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(37, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(161, 38);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Saldo Factura:";
+            // 
+            // txt_Credito
+            // 
+            this.txt_Credito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Credito.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Credito.ForeColor = System.Drawing.Color.White;
+            this.txt_Credito.Location = new System.Drawing.Point(201, 19);
+            this.txt_Credito.MaxLength = 5;
+            this.txt_Credito.Name = "txt_Credito";
+            this.txt_Credito.ReadOnly = true;
+            this.txt_Credito.Size = new System.Drawing.Size(129, 35);
+            this.txt_Credito.TabIndex = 41;
+            this.txt_Credito.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txt_Total);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.txt_Pago);
+            this.groupBox2.Controls.Add(this.txt_Cambio);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(499, 408);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(377, 198);
+            this.groupBox2.TabIndex = 68;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Compras Contado";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(51, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 38);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Total Factura:";
+            // 
+            // txt_Total
+            // 
+            this.txt_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Total.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Total.ForeColor = System.Drawing.Color.White;
+            this.txt_Total.Location = new System.Drawing.Point(215, 19);
+            this.txt_Total.MaxLength = 5;
+            this.txt_Total.Name = "txt_Total";
+            this.txt_Total.ReadOnly = true;
+            this.txt_Total.Size = new System.Drawing.Size(129, 35);
+            this.txt_Total.TabIndex = 39;
+            this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 38);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Su cambio es de:";
+            // 
+            // txt_Pago
+            // 
+            this.txt_Pago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Pago.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Pago.ForeColor = System.Drawing.Color.White;
+            this.txt_Pago.Location = new System.Drawing.Point(223, 75);
+            this.txt_Pago.MaxLength = 5;
+            this.txt_Pago.Name = "txt_Pago";
+            this.txt_Pago.Size = new System.Drawing.Size(129, 35);
+            this.txt_Pago.TabIndex = 62;
+            this.txt_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txt_Cambio
+            // 
+            this.txt_Cambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Cambio.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Cambio.ForeColor = System.Drawing.Color.White;
+            this.txt_Cambio.Location = new System.Drawing.Point(223, 127);
+            this.txt_Cambio.MaxLength = 5;
+            this.txt_Cambio.Name = "txt_Cambio";
+            this.txt_Cambio.ReadOnly = true;
+            this.txt_Cambio.Size = new System.Drawing.Size(129, 35);
+            this.txt_Cambio.TabIndex = 46;
+            this.txt_Cambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(30, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(179, 38);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Monto de Pago:";
             // 
             // groupBox1
             // 
@@ -302,53 +509,6 @@
             this.btn_Confirmar.UseVisualStyleBackColor = false;
             this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
-            // txt_Pago
-            // 
-            this.txt_Pago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Pago.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Pago.ForeColor = System.Drawing.Color.White;
-            this.txt_Pago.Location = new System.Drawing.Point(223, 75);
-            this.txt_Pago.MaxLength = 5;
-            this.txt_Pago.Name = "txt_Pago";
-            this.txt_Pago.Size = new System.Drawing.Size(129, 35);
-            this.txt_Pago.TabIndex = 62;
-            this.txt_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(30, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 38);
-            this.label2.TabIndex = 47;
-            this.label2.Text = "Monto de Pago:";
-            // 
-            // txt_Cambio
-            // 
-            this.txt_Cambio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Cambio.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cambio.ForeColor = System.Drawing.Color.White;
-            this.txt_Cambio.Location = new System.Drawing.Point(223, 127);
-            this.txt_Cambio.MaxLength = 5;
-            this.txt_Cambio.Name = "txt_Cambio";
-            this.txt_Cambio.ReadOnly = true;
-            this.txt_Cambio.Size = new System.Drawing.Size(129, 35);
-            this.txt_Cambio.TabIndex = 46;
-            this.txt_Cambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(191, 38);
-            this.label3.TabIndex = 45;
-            this.label3.Text = "Su cambio es de:";
-            // 
             // dtg_Cobros
             // 
             this.dtg_Cobros.AllowUserToAddRows = false;
@@ -358,7 +518,7 @@
             this.dtg_Cobros.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dtg_Cobros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Cobros.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Cobros.Location = new System.Drawing.Point(214, 164);
+            this.dtg_Cobros.Location = new System.Drawing.Point(225, 164);
             this.dtg_Cobros.Name = "dtg_Cobros";
             this.dtg_Cobros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Cobros.Size = new System.Drawing.Size(651, 238);
@@ -371,7 +531,7 @@
             this.grp_FormaPago.Controls.Add(this.rdb_Tarjeta);
             this.grp_FormaPago.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_FormaPago.ForeColor = System.Drawing.Color.White;
-            this.grp_FormaPago.Location = new System.Drawing.Point(918, 357);
+            this.grp_FormaPago.Location = new System.Drawing.Point(921, 357);
             this.grp_FormaPago.Name = "grp_FormaPago";
             this.grp_FormaPago.Size = new System.Drawing.Size(111, 112);
             this.grp_FormaPago.TabIndex = 27;
@@ -402,30 +562,6 @@
             this.rdb_Tarjeta.Text = "Tarjeta";
             this.rdb_Tarjeta.UseVisualStyleBackColor = true;
             // 
-            // txt_Total
-            // 
-            this.txt_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Total.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Total.ForeColor = System.Drawing.Color.White;
-            this.txt_Total.Location = new System.Drawing.Point(215, 19);
-            this.txt_Total.MaxLength = 5;
-            this.txt_Total.Name = "txt_Total";
-            this.txt_Total.ReadOnly = true;
-            this.txt_Total.Size = new System.Drawing.Size(129, 35);
-            this.txt_Total.TabIndex = 39;
-            this.txt_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(51, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 38);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Total Factura:";
-            // 
             // btn_Imprimir
             // 
             this.btn_Imprimir.BackgroundImage = global::PL.Properties.Resources.print;
@@ -444,108 +580,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txt_Total);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txt_Pago);
-            this.groupBox2.Controls.Add(this.txt_Cambio);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(499, 408);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(377, 198);
-            this.groupBox2.TabIndex = 68;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Compras Contado";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(98, 415);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(367, 188);
-            this.groupBox3.TabIndex = 69;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Compras Crédito";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(37, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 38);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "Saldo Factura:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(201, 19);
-            this.textBox1.MaxLength = 5;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(129, 35);
-            this.textBox1.TabIndex = 41;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(37, 75);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(86, 38);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "Abono:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(201, 78);
-            this.textBox2.MaxLength = 5;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(129, 35);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(37, 125);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(148, 38);
-            this.label12.TabIndex = 44;
-            this.label12.Text = "Saldo Actual:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox3.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(201, 128);
-            this.textBox3.MaxLength = 5;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(129, 35);
-            this.textBox3.TabIndex = 45;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // Cobros_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,15 +594,16 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).EndInit();
             this.grp_FormaPago.ResumeLayout(false);
             this.grp_FormaPago.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -612,6 +647,8 @@
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txt_Credito;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmb_Tipo;
     }
 }

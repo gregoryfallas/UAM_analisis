@@ -59,10 +59,8 @@ namespace PL.Pantallas.Extras
 
         private void Cargar2()
         {
-
             try
             {
-
                 this.dtg_Cobros.DataSource = null;
                 this.dtg_Cobros.Refresh();
                 string a = txt_Cliente.Text.Trim();
@@ -75,9 +73,7 @@ namespace PL.Pantallas.Extras
 
                 throw;
             }
-
-
-
+                       
         }
 
         private void btn_inicio_Click(object sender, EventArgs e)
@@ -94,6 +90,7 @@ namespace PL.Pantallas.Extras
             txt_Fecha_Doc.Text = "";
             txt_Factura.Text ="";
             txt_Total.Text = "";
+            txt_Credito.Text = "";
         }
 
         private void CapturarFechaSistema()
@@ -113,7 +110,7 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Cobros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int tipo;
 
             nombre = dtg_Cobros.CurrentRow.Cells[1].Value.ToString() + " " + dtg_Cobros.CurrentRow.Cells[2].Value.ToString() + " " + dtg_Cobros.CurrentRow.Cells[3].Value.ToString();
             cedula = dtg_Cobros.CurrentRow.Cells[0].Value.ToString();
@@ -125,7 +122,18 @@ namespace PL.Pantallas.Extras
             txt_NoCliente.Text = cedula;
             txt_Fecha_Doc.Text = fechadocumento;
             txt_Factura.Text = factura;
-            txt_Total.Text = total.ToString();
+
+            tipo = Convert.ToInt32(dtg_Cobros.CurrentRow.Cells[8].Value.ToString());
+            if (tipo==1)
+            {
+                txt_Total.Text = total.ToString();
+            }
+            else
+            {
+                txt_Credito.Text= total.ToString();
+            }
+            
+          
 
 
         }
@@ -176,7 +184,7 @@ namespace PL.Pantallas.Extras
                             MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             btn_Imprimir.Enabled = true;
-
+                            Cargar2();
                         }
 
 
@@ -194,6 +202,82 @@ namespace PL.Pantallas.Extras
 
 
         }
+
+        private void CargarContado()
+        {
+            try
+            {
+
+                this.dtg_Cobros.DataSource = null;
+                this.dtg_Cobros.Refresh();
+                string a = txt_Cliente.Text.Trim();
+                this.dtg_Cobros.DataSource = Cls_Cobros_BLL.ConsultarCobrosContado(a);
+                this.dtg_Cobros.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+                       
+        }
+
+        private void CargarCredito()
+        {
+            try
+            {
+
+                this.dtg_Cobros.DataSource = null;
+                this.dtg_Cobros.Refresh();
+                string a = txt_Cliente.Text.Trim();
+                this.dtg_Cobros.DataSource = Cls_Cobros_BLL.ConsultarCobrosCredito(a);
+                this.dtg_Cobros.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+       
+        private void cmb_Tipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cmb_Tipo.SelectedIndex == 0)
+
+            {
+                Cargar2();
+
+            }
+            else if (cmb_Tipo.SelectedIndex == 1)
+            {
+                CargarContado();
+            }
+            else if (cmb_Tipo.SelectedIndex ==2)
+            {
+                CargarCredito();
+            }
+            
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 

@@ -52,17 +52,17 @@ namespace PL.Pantallas.Adicionales
                 this.dataGrid_ingresosumi.Refresh();
         }
 
-         //public cargardatos_ingreso_sumi(SQLSentencia)
-         //{
-         //   List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
-         //   List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
-         //   List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
-         //   List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
-         //   //DUDAS EN LAS DOS ULTIMAS LINEAS
-         //}
+        private void cargardatos_ingreso_sumi()
+        {
+            List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
+            List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
+            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
+            List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
+            //DUDAS EN LAS DOS ULTIMAS LINEAS
+        }
 
 
-          
+
         private void btn_Inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();

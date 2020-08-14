@@ -80,14 +80,14 @@ namespace BLL
                 parametroCantidad.ParameterName = "@Cantidad";
                 parametroCantidad.SqlDbType = System.Data.SqlDbType.Decimal;
                 parametroCantidad.Value = in_sumi.Cantidad;
-                
-                SQLSentencia.in_sumi.add(parametroid_ArticuloProveedor);
-                SQLSentencia.listparametros.add(parametroid_Solicitud_Compra);
-                SQLSentencia.listparametros.add(parametroCantidad);
-                SQLSentencia.listparametros.add(parametrodescripcion);
+
+                sentencia.lstParametros.Add(parametroid_ArticuloProveedor);
+                sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
+                sentencia.lstParametros.Add(parametroCantidad);
+                sentencia.lstParametros.Add(parametrodescripcion);
 
                 DA acceso = new DA();
-                return acceso.SP_CREAR_ingreso_suministro(SQLSentencia, in_sumi);
+                return acceso.SP_CREAR_ingreso_suministro();
 
             }
             catch (Exception e)

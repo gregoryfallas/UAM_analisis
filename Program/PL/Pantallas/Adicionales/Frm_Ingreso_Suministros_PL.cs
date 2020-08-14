@@ -32,6 +32,9 @@ namespace PL.Pantallas.Adicionales
             //cargar textbox 
            
         }
+
+
+
         public void cargar_arProveedor(SOLICITUD_ARTICULOS lstParametros)
         {
             List<ARTICULOS_PROVEEDOR> ingreso_articuloproveedor = Suministros_BLL.SP_CREAR_ingreso_suministro(ID_Articulo_Proveedor);

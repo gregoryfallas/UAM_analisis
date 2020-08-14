@@ -51,7 +51,7 @@ namespace BLL
         }
         #endregion
        
-        public static bool SP_CREAR_ingreso_suministro(SOLICITUD_ARTICULOS lstParametros)
+        public static bool SP_CREAR_ingreso_suministro(SOLICITUD_ARTICULOS sol_articulos)
         {
             #region
             try
@@ -63,23 +63,23 @@ namespace BLL
                 SqlParameter parametroid_ArticuloProveedor = new SqlParameter();
                 parametroid_ArticuloProveedor.ParameterName = "@ID_Articulo_Proveedor";
                 parametroid_ArticuloProveedor.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_ArticuloProveedor.Value = lstParametros.ID_Articulo_Proveedor;
+                parametroid_ArticuloProveedor.Value = sol_articulos.ID_Articulo_Proveedor;
 
                 SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
                 parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
                 parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_Solicitud_Compra.Value = lstParametros.ID_Solicitud_Compra;
+                parametroid_Solicitud_Compra.Value = sol_articulos.ID_Solicitud_Compra;
 
                 
                 SqlParameter parametrodescripcion = new SqlParameter();
                 parametrodescripcion.ParameterName = "@Descripcion";
                 parametrodescripcion.SqlDbType = System.Data.SqlDbType.VarChar;
-                parametrodescripcion.Value = lstParametros.Descripcion;
+                parametrodescripcion.Value = sol_articulos.Descripcion;
 
                 SqlParameter parametroCantidad = new SqlParameter();
                 parametroCantidad.ParameterName = "@Cantidad";
                 parametroCantidad.SqlDbType = System.Data.SqlDbType.Decimal;
-                parametroCantidad.Value = lstParametros.Cantidad;
+                parametroCantidad.Value = sol_articulos.Cantidad;
 
                 sentencia.lstParametros.Add(parametroid_ArticuloProveedor);
                 sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
@@ -87,7 +87,7 @@ namespace BLL
                 sentencia.lstParametros.Add(parametrodescripcion);
 
                 DA acceso = new DA();
-                return acceso.SP_CREAR_ingreso_suministro(lstParametros);    
+                return acceso.ejecutarSentecia(sentencia);    
             }
             catch (Exception e)
 
@@ -99,3 +99,4 @@ namespace BLL
  
     }
 }
+//ingresar date y delete en bll return acceso.ejecutar sentencia

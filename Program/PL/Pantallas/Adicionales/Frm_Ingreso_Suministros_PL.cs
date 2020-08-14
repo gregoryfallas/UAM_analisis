@@ -11,6 +11,8 @@ using BLL;
 using DAL.Entidades;
 using PL.Pantallas.Principales;
 
+
+
 namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Ingreso_Suministros_PL : Form
@@ -29,11 +31,11 @@ namespace PL.Pantallas.Adicionales
             DAL.Entidades.SOLICITUD_ARTICULOS sa = new SOLICITUD_ARTICULOS();
             InitializeComponent();
             //listingreso_suministros = new list<SOLICITUD_ARTICULOS>();
-            crear_ingreso_suministros();
+            crear_ingreso_suministros(sa);
             cargardatos_ingreso_sumi();
         }
 
-        private void crear_ingreso_suministros()
+        public void crear_ingreso_suministros(SOLICITUD_ARTICULOS lstParametros)
         {
                 this.tb_cant = null;
                 this.tb_descrip = null;
@@ -42,7 +44,7 @@ namespace PL.Pantallas.Adicionales
                 this.tb_idproveedor = null;
                 this.dataGrid_ingresosumi.DataSource = null;
 
-                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(SOLICITUD_ARTICULOS);
+            this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
                 this.tb_descrip = null;
                 this.tb_idarticulo = null;
                 this.tb_idformulario = null;
@@ -52,13 +54,12 @@ namespace PL.Pantallas.Adicionales
                 this.dataGrid_ingresosumi.Refresh();
         }
 
-        private void cargardatos_ingreso_sumi()
+        public void cargardatos_ingreso_sumi()
         {
-            List<ARTICULOS_PROVEEDOR> listingreso_suministros = in_sin_sumi.ingreso_articuloproveedor;
-            List<SOLICITUD_COMPRA> listingreso_suministros = in_sumi.ingreso_Solicitudcompra;
-            List<SOLICITUD_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Cantidad;
-            List<DETALLE_ARTICULOS> listingreso_suministros = in_sumi.ingreso_Descripcion;
-            //DUDAS EN LAS DOS ULTIMAS LINEAS
+            List<ARTICULOS_PROVEEDOR> aRTICULOS_PROVEEDORs = in_sumi.ingreso_articuloproveedor;
+            List<SOLICITUD_COMPRA> sOLICITUD_COMPRAs = in_sumi.ingreso_Solicitudcompra;
+            List<SOLICITUD_ARTICULOS> sOLICITUD_ARTICULOs = in_sumi.ingreso_Cantidad;
+            List<DETALLE_ARTICULOS> dETALLE_ARTICULOs = in_sumi.ingreso_Descripcion;
         }
 
 

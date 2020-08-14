@@ -256,6 +256,29 @@ namespace BLL
             }
         }
 
+        public static bool ModificarPersonal(PERSONAL P_persona)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                objpeticion.Peticion = @"UPDATE PERSONAL SET Cedula = '"
+                + P_persona.Cedula + "', Nombre = '" + P_persona.Nombre + "', Apellido_1 = '"
+                + P_persona.Apellido_1 + "', Apellido_2 = '" + P_persona.Apellido_2 + "', Salario_Hora = '" 
+                + P_persona.Salario_Hora + "', Salario_Mensual = '" + P_persona.Salario_Mensual + "', Fecha_Contratacion = '" 
+                + P_persona.Fecha_Contratacion + "', Estado = '" + P_persona.Estado + "', Direccion = '" 
+                + P_persona.Direccion + "', Correo_Electronico = '" + P_persona.Correo_Electronico + "', Telefono = '" 
+                + P_persona.Telefono + "' WHERE ID_Puesto = '"+ P_persona.ID_Puesto + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static bool AgregarNomina(NOMINA N_nomina)
         {
             try
@@ -398,6 +421,146 @@ namespace BLL
             }
         }
 
+        public static bool ModificarUsuario(USUARIOS U_usuario)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+                /*@ID_Personal, @UserName, @Pass, @Estado */
+                objpeticion.Peticion = @"UPDATE USUARIOS SET UserName = '"
+                + U_usuario.UserName + "', Pass = '" + U_usuario.Pass + "',  Estado= '"
+                + U_usuario.Estado + "' WHERE ID_Personal = '" + U_usuario.ID_Personal + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool AgregarPostulantes(PARTICIPANTES P_postulantes)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_PARTICIPANTES @ID_Reclutamiento, @Cedula_, @Nombre,
+                                       @Apellido_1, @Apellido_2, @Correo, @Telefono, @ID_Provincia, @ID_Canton,
+                                       @ID_Distrito, @Direccion, @Estado ";
+
+                //Crear los parametros
+                SqlParameter parametroIdreclutamiento = new SqlParameter();
+                parametroIdreclutamiento.ParameterName = "@ID_Reclutamiento";
+                parametroIdreclutamiento.SqlDbType = System.Data.SqlDbType.Int;
+                parametroIdreclutamiento.Value = P_postulantes.ID_Reclutamiento;
+
+                SqlParameter parametroCedula = new SqlParameter();
+                parametroCedula.ParameterName = "@Cedula_";
+                parametroCedula.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroCedula.Value = P_postulantes.Cedula_;
+
+                SqlParameter parametroNombre = new SqlParameter();
+                parametroNombre.ParameterName = "@Nombre";
+                parametroNombre.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroNombre.Value = P_postulantes.Nombre;
+
+                SqlParameter parametroApellido1 = new SqlParameter();
+                parametroApellido1.ParameterName = "@Apellido_1";
+                parametroApellido1.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroApellido1.Value = P_postulantes.Apellido_1;
+
+                SqlParameter parametroApellido2 = new SqlParameter();
+                parametroApellido2.ParameterName = "@Apellido_2";
+                parametroApellido2.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroApellido2.Value = P_postulantes.Apellido_2;
+
+                SqlParameter parametroCorreo = new SqlParameter();
+                parametroCorreo.ParameterName = "@Correo";
+                parametroCorreo.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroCorreo.Value = P_postulantes.Correo;
+
+                SqlParameter parametroTelefono = new SqlParameter();
+                parametroTelefono.ParameterName = "@Telefono";
+                parametroTelefono.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroTelefono.Value = P_postulantes.Telefono;
+
+                SqlParameter parametroProvincia = new SqlParameter();
+                parametroProvincia.ParameterName = "@ID_Provincia";
+                parametroProvincia.SqlDbType = System.Data.SqlDbType.Int;
+                parametroProvincia.Value = P_postulantes.ID_Provincia;
+
+                SqlParameter parametroCanton = new SqlParameter();
+                parametroCanton.ParameterName = "@ID_Canton";
+                parametroCanton.SqlDbType = System.Data.SqlDbType.Int;
+                parametroCanton.Value = P_postulantes.ID_Canton;
+
+                SqlParameter parametroDistrito = new SqlParameter();
+                parametroDistrito.ParameterName = "@ID_Distrito";
+                parametroDistrito.SqlDbType = System.Data.SqlDbType.Int;
+                parametroDistrito.Value = P_postulantes.ID_Distrito;
+
+                SqlParameter parametroDireccion = new SqlParameter();
+                parametroDireccion.ParameterName = "@Direccion";
+                parametroDireccion.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroDireccion.Value = P_postulantes.Direccion;
+
+                SqlParameter parametroEstado = new SqlParameter();
+                parametroEstado.ParameterName = "@Estado";
+                parametroEstado.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroEstado.Value = P_postulantes.Estado;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroIdreclutamiento);
+                objpeticion.lstParametros.Add(parametroCedula);
+                objpeticion.lstParametros.Add(parametroNombre);
+                objpeticion.lstParametros.Add(parametroApellido1);
+                objpeticion.lstParametros.Add(parametroApellido2);
+                objpeticion.lstParametros.Add(parametroCorreo);
+                objpeticion.lstParametros.Add(parametroTelefono);
+                objpeticion.lstParametros.Add(parametroProvincia);
+                objpeticion.lstParametros.Add(parametroCanton);
+                objpeticion.lstParametros.Add(parametroDistrito);
+                objpeticion.lstParametros.Add(parametroDireccion);
+                objpeticion.lstParametros.Add(parametroEstado);
+
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static bool ModificarPostulantes(PARTICIPANTES P_postulantes)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+                /*@ID_Reclutamiento, @Cedula_, @Nombre,
+                 @Apellido_1, @Apellido_2, @Correo, @Telefono, @ID_Provincia, @ID_Canton,
+                 @ID_Distrito, @Direccion, @Estado "; */
+                objpeticion.Peticion = @"UPDATE PARTICIPANTES SET Cedula_ = '"
+                + P_postulantes.Cedula_ + "', Nombre = '" + P_postulantes.Nombre + "', Apellido_1 = '" 
+                + P_postulantes.Apellido_1 + "', Apellido_2 = '" + P_postulantes.Apellido_2 + "', Correo = '" 
+                + P_postulantes.Correo + "', Telefono = '" + P_postulantes.Telefono + "', ID_Provincia = '" 
+                + P_postulantes.ID_Provincia + "', ID_Canton = '" + P_postulantes.ID_Canton + "', ID_Distrito = '" 
+                + P_postulantes.ID_Distrito + "', Direccion = '" + P_postulantes.Direccion + "',  Estado = '"
+                + P_postulantes.Estado + "' WHERE ID_Reclutamiento = '" + P_postulantes.ID_Reclutamiento + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public static List<RECLUTAMIENTO> ConsultarIDReclutamiento()
         {
 
@@ -421,10 +584,95 @@ namespace BLL
             try
             {
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"SP_PA_Tipo_Estado_Postulantes";
+                peticion.Peticion = @"SP_PA_Tipo_Estado_Postulantes
+";
 
                 DA objacceso = new DA();
                 return objacceso.ConsultarTipoEstadoPostulantes(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<PROVINCIAS> ConsultaProvincia()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_PROVINCIA ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarProvincias(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<CANTONES> ConsultaCantones(int id)
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_CANTONES_POR_PROVINCIA @id";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = id;
+                paramC.ParameterName = "@id";
+                paramC.SqlDbType = System.Data.SqlDbType.Int;
+                peticion.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarCantonesPorProvincias(peticion);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<DISTRITOS> ConsultaDistritos(int id)
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_DISTRITOS_POR_CANTON @id";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = id;
+                paramC.ParameterName = "@id";
+                paramC.SqlDbType = System.Data.SqlDbType.Int;
+                peticion.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarDistritosPorCantones(peticion);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<CANTONES> ConsultarCanton(string nombreCanton)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_IdCanton @nombreCanton";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = nombreCanton;
+                paramC.ParameterName = "@nombreCanton";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarIdCanton(sentencia);
+
+
             }
             catch (Exception e)
             {

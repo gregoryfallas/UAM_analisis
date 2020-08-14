@@ -91,5 +91,25 @@ namespace PL.Pantallas.Adicionales
             //txtusuario.Text = cboestado.SelectedValue.ToString();
             EstadoUsuario = cboestado.SelectedValue.ToString();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                USUARIOS u = new USUARIOS();
+
+                u.ID_Personal = Convert.ToInt32(IdPersonal);
+                u.UserName = txtusuario.Text.Trim();
+                u.Pass = txtcontrasena.Text.Trim();
+                u.Estado = Convert.ToInt32(EstadoUsuario);
+
+                R_Humanos.ModificarUsuario(u);
+                MessageBox.Show("Usuario Modificado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

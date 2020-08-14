@@ -109,5 +109,36 @@ namespace PL.Pantallas.Adicionales
             //  txtprueba.Text = cboestado.SelectedValue.ToString();
             nombreEstado = cboestado.SelectedValue.ToString();
         }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PERSONAL p = new PERSONAL();
+
+                //p.ID_Puesto = Convert.ToInt32(cboidpuesto.Text.Trim());
+
+                p.ID_Puesto = Convert.ToInt32(nombrepuesto);
+                p.Cedula = txtcedula.Text.Trim();
+                p.Nombre = txtnombre.Text.Trim();
+                p.Apellido_1 = txtapellido1.Text.Trim();
+                p.Apellido_2 = txtapellido2.Text.Trim();
+                p.Salario_Hora = Convert.ToDecimal(txtsalariohora.Text.Trim());
+                p.Salario_Mensual = Convert.ToDecimal(txtsalariomes.Text.Trim());
+                p.Fecha_Contratacion = Convert.ToDateTime(dtpfecha.Text.Trim());
+                // p.Estado = Convert.ToInt32(cboestado.Text.Trim());
+                p.Estado = Convert.ToInt32(nombreEstado);
+                p.Direccion = txtdireccion.Text.Trim();
+                p.Correo_Electronico = txtcorreo.Text.Trim();
+                p.Telefono = txttelefono.Text.Trim();
+
+                R_Humanos.ModificarPersonal(p);
+                MessageBox.Show("Personal Modificado");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -86,6 +86,7 @@
             this.btnmodificar.Size = new System.Drawing.Size(50, 44);
             this.btnmodificar.TabIndex = 46;
             this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // btnagregar
             // 

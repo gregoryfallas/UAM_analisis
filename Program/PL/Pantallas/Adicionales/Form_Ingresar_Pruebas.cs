@@ -43,5 +43,10 @@ namespace PL.Pantallas.Adicionales
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

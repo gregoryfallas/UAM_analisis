@@ -30,32 +30,32 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cboreclutamiento = new System.Windows.Forms.ComboBox();
+            this.Provinciacbo = new System.Windows.Forms.ComboBox();
+            this.Distritocbo = new System.Windows.Forms.ComboBox();
+            this.Cantoncbo = new System.Windows.Forms.ComboBox();
+            this.txtapellido1 = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtapellido2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtcedula = new System.Windows.Forms.TextBox();
+            this.cboestado = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtdireccion = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txttelefono = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnmodificar = new System.Windows.Forms.Button();
+            this.btnagregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -65,8 +65,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnmodificar);
+            this.panel1.Controls.Add(this.btnagregar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -75,28 +75,28 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox5);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.cboreclutamiento);
+            this.groupBox1.Controls.Add(this.Provinciacbo);
+            this.groupBox1.Controls.Add(this.Distritocbo);
+            this.groupBox1.Controls.Add(this.Cantoncbo);
+            this.groupBox1.Controls.Add(this.txtapellido1);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtapellido2);
             this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox19);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.txtcedula);
+            this.groupBox1.Controls.Add(this.cboestado);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.textBox17);
-            this.groupBox1.Controls.Add(this.textBox13);
+            this.groupBox1.Controls.Add(this.txtnombre);
+            this.groupBox1.Controls.Add(this.txtdireccion);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.textBox16);
+            this.groupBox1.Controls.Add(this.txttelefono);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.txtcorreo);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -108,59 +108,63 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingreso de Postulantes";
             // 
-            // comboBox5
+            // cboreclutamiento
             // 
-            this.comboBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.ForeColor = System.Drawing.Color.White;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(174, 51);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(182, 31);
-            this.comboBox5.TabIndex = 77;
+            this.cboreclutamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboreclutamiento.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboreclutamiento.ForeColor = System.Drawing.Color.White;
+            this.cboreclutamiento.FormattingEnabled = true;
+            this.cboreclutamiento.Location = new System.Drawing.Point(174, 51);
+            this.cboreclutamiento.Name = "cboreclutamiento";
+            this.cboreclutamiento.Size = new System.Drawing.Size(182, 31);
+            this.cboreclutamiento.TabIndex = 77;
+            this.cboreclutamiento.SelectedValueChanged += new System.EventHandler(this.cboreclutamiento_SelectedValueChanged);
             // 
-            // comboBox4
+            // Provinciacbo
             // 
-            this.comboBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox4.ForeColor = System.Drawing.Color.White;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(174, 280);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(182, 31);
-            this.comboBox4.TabIndex = 76;
+            this.Provinciacbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Provinciacbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Provinciacbo.ForeColor = System.Drawing.Color.White;
+            this.Provinciacbo.FormattingEnabled = true;
+            this.Provinciacbo.Location = new System.Drawing.Point(174, 280);
+            this.Provinciacbo.Name = "Provinciacbo";
+            this.Provinciacbo.Size = new System.Drawing.Size(182, 31);
+            this.Provinciacbo.TabIndex = 76;
+            this.Provinciacbo.SelectedIndexChanged += new System.EventHandler(this.Provinciacbo_SelectedIndexChanged);
             // 
-            // comboBox3
+            // Distritocbo
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.ForeColor = System.Drawing.Color.White;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(175, 354);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(182, 31);
-            this.comboBox3.TabIndex = 75;
+            this.Distritocbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Distritocbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Distritocbo.ForeColor = System.Drawing.Color.White;
+            this.Distritocbo.FormattingEnabled = true;
+            this.Distritocbo.Location = new System.Drawing.Point(175, 354);
+            this.Distritocbo.Name = "Distritocbo";
+            this.Distritocbo.Size = new System.Drawing.Size(182, 31);
+            this.Distritocbo.TabIndex = 75;
+            this.Distritocbo.SelectedIndexChanged += new System.EventHandler(this.Distritocbo_SelectedIndexChanged);
             // 
-            // comboBox2
+            // Cantoncbo
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(175, 317);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(182, 31);
-            this.comboBox2.TabIndex = 74;
+            this.Cantoncbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Cantoncbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cantoncbo.ForeColor = System.Drawing.Color.White;
+            this.Cantoncbo.FormattingEnabled = true;
+            this.Cantoncbo.Location = new System.Drawing.Point(175, 317);
+            this.Cantoncbo.Name = "Cantoncbo";
+            this.Cantoncbo.Size = new System.Drawing.Size(182, 31);
+            this.Cantoncbo.TabIndex = 74;
+            this.Cantoncbo.SelectedIndexChanged += new System.EventHandler(this.Cantoncbo_SelectedIndexChanged);
             // 
-            // textBox2
+            // txtapellido1
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(173, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 26);
-            this.textBox2.TabIndex = 73;
+            this.txtapellido1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtapellido1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtapellido1.ForeColor = System.Drawing.Color.White;
+            this.txtapellido1.Location = new System.Drawing.Point(173, 152);
+            this.txtapellido1.Name = "txtapellido1";
+            this.txtapellido1.Size = new System.Drawing.Size(183, 26);
+            this.txtapellido1.TabIndex = 73;
             // 
             // label23
             // 
@@ -169,9 +173,9 @@
             this.label23.ForeColor = System.Drawing.Color.White;
             this.label23.Location = new System.Drawing.Point(37, 123);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(125, 23);
+            this.label23.Size = new System.Drawing.Size(63, 23);
             this.label23.TabIndex = 48;
-            this.label23.Text = "Nombre Completo:";
+            this.label23.Text = "Nombre:";
             // 
             // label2
             // 
@@ -195,15 +199,15 @@
             this.label22.TabIndex = 49;
             this.label22.Text = "Teléfono:";
             // 
-            // textBox1
+            // txtapellido2
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(173, 184);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 26);
-            this.textBox1.TabIndex = 71;
+            this.txtapellido2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtapellido2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtapellido2.ForeColor = System.Drawing.Color.White;
+            this.txtapellido2.Location = new System.Drawing.Point(173, 184);
+            this.txtapellido2.Name = "txtapellido2";
+            this.txtapellido2.Size = new System.Drawing.Size(183, 26);
+            this.txtapellido2.TabIndex = 71;
             // 
             // label21
             // 
@@ -227,26 +231,27 @@
             this.label1.TabIndex = 70;
             this.label1.Text = "Segundo Apellido:";
             // 
-            // textBox19
+            // txtcedula
             // 
-            this.textBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox19.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.ForeColor = System.Drawing.Color.White;
-            this.textBox19.Location = new System.Drawing.Point(173, 88);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(183, 26);
-            this.textBox19.TabIndex = 52;
+            this.txtcedula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtcedula.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcedula.ForeColor = System.Drawing.Color.White;
+            this.txtcedula.Location = new System.Drawing.Point(173, 88);
+            this.txtcedula.Name = "txtcedula";
+            this.txtcedula.Size = new System.Drawing.Size(183, 26);
+            this.txtcedula.TabIndex = 52;
             // 
-            // comboBox1
+            // cboestado
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.comboBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(175, 423);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 31);
-            this.comboBox1.TabIndex = 69;
+            this.cboestado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboestado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboestado.ForeColor = System.Drawing.Color.White;
+            this.cboestado.FormattingEnabled = true;
+            this.cboestado.Location = new System.Drawing.Point(175, 423);
+            this.cboestado.Name = "cboestado";
+            this.cboestado.Size = new System.Drawing.Size(182, 31);
+            this.cboestado.TabIndex = 69;
+            this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // label20
             // 
@@ -259,25 +264,25 @@
             this.label20.TabIndex = 54;
             this.label20.Text = "Estado:";
             // 
-            // textBox17
+            // txtnombre
             // 
-            this.textBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox17.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.ForeColor = System.Drawing.Color.White;
-            this.textBox17.Location = new System.Drawing.Point(174, 120);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(183, 26);
-            this.textBox17.TabIndex = 55;
+            this.txtnombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtnombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnombre.ForeColor = System.Drawing.Color.White;
+            this.txtnombre.Location = new System.Drawing.Point(174, 120);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(183, 26);
+            this.txtnombre.TabIndex = 55;
             // 
-            // textBox13
+            // txtdireccion
             // 
-            this.textBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox13.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.ForeColor = System.Drawing.Color.White;
-            this.textBox13.Location = new System.Drawing.Point(173, 391);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(183, 26);
-            this.textBox13.TabIndex = 66;
+            this.txtdireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtdireccion.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdireccion.ForeColor = System.Drawing.Color.White;
+            this.txtdireccion.Location = new System.Drawing.Point(173, 391);
+            this.txtdireccion.Name = "txtdireccion";
+            this.txtdireccion.Size = new System.Drawing.Size(183, 26);
+            this.txtdireccion.TabIndex = 66;
             // 
             // label19
             // 
@@ -290,15 +295,15 @@
             this.label19.TabIndex = 56;
             this.label19.Text = "Dirección:";
             // 
-            // textBox16
+            // txttelefono
             // 
-            this.textBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox16.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.ForeColor = System.Drawing.Color.White;
-            this.textBox16.Location = new System.Drawing.Point(173, 248);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(183, 26);
-            this.textBox16.TabIndex = 57;
+            this.txttelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txttelefono.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txttelefono.ForeColor = System.Drawing.Color.White;
+            this.txttelefono.Location = new System.Drawing.Point(173, 248);
+            this.txttelefono.Name = "txttelefono";
+            this.txttelefono.Size = new System.Drawing.Size(183, 26);
+            this.txttelefono.TabIndex = 57;
             // 
             // label13
             // 
@@ -333,15 +338,15 @@
             this.label14.TabIndex = 63;
             this.label14.Text = "Cantón:";
             // 
-            // textBox15
+            // txtcorreo
             // 
-            this.textBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox15.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.ForeColor = System.Drawing.Color.White;
-            this.textBox15.Location = new System.Drawing.Point(173, 216);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(183, 26);
-            this.textBox15.TabIndex = 59;
+            this.txtcorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtcorreo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcorreo.ForeColor = System.Drawing.Color.White;
+            this.txtcorreo.Location = new System.Drawing.Point(173, 216);
+            this.txtcorreo.Name = "txtcorreo";
+            this.txtcorreo.Size = new System.Drawing.Size(183, 26);
+            this.txtcorreo.TabIndex = 59;
             // 
             // label15
             // 
@@ -365,31 +370,33 @@
             this.label16.TabIndex = 61;
             this.label16.Text = "Id Reclutamiento:";
             // 
-            // button3
+            // btnmodificar
             // 
-            this.button3.BackgroundImage = global::PL.Properties.Resources.editar;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(365, 498);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(49, 45);
-            this.button3.TabIndex = 34;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnmodificar.BackgroundImage = global::PL.Properties.Resources.editar;
+            this.btnmodificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmodificar.FlatAppearance.BorderSize = 0;
+            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmodificar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmodificar.Location = new System.Drawing.Point(365, 498);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(49, 45);
+            this.btnmodificar.TabIndex = 34;
+            this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
-            // button2
+            // btnagregar
             // 
-            this.button2.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(22, 498);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 45);
-            this.button2.TabIndex = 33;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnagregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
+            this.btnagregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnagregar.FlatAppearance.BorderSize = 0;
+            this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnagregar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar.Location = new System.Drawing.Point(22, 498);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(55, 45);
+            this.btnagregar.TabIndex = 33;
+            this.btnagregar.UseVisualStyleBackColor = true;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // panel2
             // 
@@ -422,32 +429,32 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.Button btnagregar;
+        private System.Windows.Forms.ComboBox cboestado;
+        private System.Windows.Forms.TextBox txtdireccion;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtcorreo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txttelefono;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txtcedula;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtapellido1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtapellido2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboreclutamiento;
+        private System.Windows.Forms.ComboBox Provinciacbo;
+        private System.Windows.Forms.ComboBox Distritocbo;
+        private System.Windows.Forms.ComboBox Cantoncbo;
     }
 }

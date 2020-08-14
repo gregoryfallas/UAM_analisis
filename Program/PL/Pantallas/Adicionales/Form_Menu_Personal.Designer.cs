@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.creaciónDePersonalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creaciónDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creaciónDeRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeRolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,27 +48,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(761, 525);
             this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(756, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(98, 525);
-            this.panel2.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(25, 83);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 35);
-            this.button3.TabIndex = 51;
-            this.button3.Text = "Inicio";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // menuStrip1
             // 
@@ -113,6 +90,15 @@
             this.consultaDeRolesToolStripMenuItem.Text = "Consulta de Roles";
             this.consultaDeRolesToolStripMenuItem.Click += new System.EventHandler(this.consultaDeRolesToolStripMenuItem_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(756, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(98, 525);
+            this.panel2.TabIndex = 2;
+            // 
             // Form_Menu_Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,7 +115,6 @@
             this.Text = "Menu de Personal";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -140,7 +125,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem creaciónDePersonalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creaciónDeUsuariosToolStripMenuItem;

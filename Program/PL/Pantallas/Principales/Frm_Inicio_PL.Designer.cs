@@ -431,7 +431,7 @@
             // 
             this.ts_Promociones.Image = global::PL.Properties.Resources.compras__1_;
             this.ts_Promociones.Name = "ts_Promociones";
-            this.ts_Promociones.Size = new System.Drawing.Size(180, 22);
+            this.ts_Promociones.Size = new System.Drawing.Size(131, 22);
             this.ts_Promociones.Text = "Promociones";
             this.ts_Promociones.Click += new System.EventHandler(this.ts_Promociones_Click);
             // 
@@ -439,7 +439,7 @@
             // 
             this.ts_Campañas.Image = global::PL.Properties.Resources.campañas;
             this.ts_Campañas.Name = "ts_Campañas";
-            this.ts_Campañas.Size = new System.Drawing.Size(180, 22);
+            this.ts_Campañas.Size = new System.Drawing.Size(131, 22);
             this.ts_Campañas.Text = "Campañas";
             this.ts_Campañas.Click += new System.EventHandler(this.ts_Campañas_Click);
             // 
@@ -447,7 +447,7 @@
             // 
             this.ts_Anuncios.Image = global::PL.Properties.Resources.megafono;
             this.ts_Anuncios.Name = "ts_Anuncios";
-            this.ts_Anuncios.Size = new System.Drawing.Size(180, 22);
+            this.ts_Anuncios.Size = new System.Drawing.Size(131, 22);
             this.ts_Anuncios.Text = "Anuncios";
             this.ts_Anuncios.Click += new System.EventHandler(this.ts_Anuncios_Click);
             // 
@@ -574,6 +574,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "Frm_Inicio_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

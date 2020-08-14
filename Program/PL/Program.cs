@@ -19,7 +19,7 @@ namespace PL
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            
-            Application.Run(new Form_Ingresar_Participantes());
+            Application.Run(new Frm_Inicio_PL());
            
         }
     }

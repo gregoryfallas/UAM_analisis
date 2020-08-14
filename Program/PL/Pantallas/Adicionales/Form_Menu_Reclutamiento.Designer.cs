@@ -35,10 +35,8 @@
             this.ingresarPruebasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarPruebasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,23 +93,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(652, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 559);
             this.panel2.TabIndex = 2;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(32, 48);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 35);
-            this.button4.TabIndex = 52;
-            this.button4.Text = "Inicio";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Menu_Reclutamiento
             // 
@@ -131,7 +117,6 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,7 +125,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem crearReclutamientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresarParticipantesToolStripMenuItem;

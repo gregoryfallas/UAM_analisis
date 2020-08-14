@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.crearNóminaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarNóminaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoDeMarcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,27 +47,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(664, 515);
             this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(607, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(117, 515);
-            this.panel2.TabIndex = 2;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(36, 38);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(51, 35);
-            this.button4.TabIndex = 53;
-            this.button4.Text = "Inicio";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // menuStrip1
             // 
@@ -104,6 +81,15 @@
             this.ingresoDeMarcasToolStripMenuItem.Text = "Ingreso de Marcas";
             this.ingresoDeMarcasToolStripMenuItem.Click += new System.EventHandler(this.ingresoDeMarcasToolStripMenuItem_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(607, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(117, 515);
+            this.panel2.TabIndex = 2;
+            // 
             // Form_Pago_Nomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,7 +106,6 @@
             this.Text = "Menú Pago de Nomina";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -131,7 +116,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem crearNóminaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarNóminaToolStripMenuItem;

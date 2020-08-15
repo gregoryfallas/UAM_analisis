@@ -34,13 +34,14 @@
             this.txt_Fecha = new System.Windows.Forms.TextBox();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cmb_Tipo = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Saldo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Abono = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_Credito = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -64,9 +65,6 @@
             this.txt_NoCliente = new System.Windows.Forms.TextBox();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.dtg_Cobros = new System.Windows.Forms.DataGridView();
-            this.grp_FormaPago = new System.Windows.Forms.GroupBox();
-            this.rdb_Efectivo = new System.Windows.Forms.RadioButton();
-            this.rdb_Tarjeta = new System.Windows.Forms.RadioButton();
             this.btn_Imprimir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
@@ -75,7 +73,6 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).BeginInit();
-            this.grp_FormaPago.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -128,6 +125,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.cmb_Tipo);
             this.panel1.Controls.Add(this.groupBox3);
@@ -135,13 +133,25 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btn_Confirmar);
             this.panel1.Controls.Add(this.dtg_Cobros);
-            this.panel1.Controls.Add(this.grp_FormaPago);
             this.panel1.Controls.Add(this.btn_Imprimir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 618);
             this.panel1.TabIndex = 3;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.ForeColor = System.Drawing.Color.White;
+            this.checkBox1.Location = new System.Drawing.Point(39, 283);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(133, 24);
+            this.checkBox1.TabIndex = 71;
+            this.checkBox1.Text = "Anular Factura";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Click += new System.EventHandler(this.checkBox1_Click);
             // 
             // label13
             // 
@@ -156,6 +166,7 @@
             // 
             // cmb_Tipo
             // 
+            this.cmb_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Tipo.FormattingEnabled = true;
             this.cmb_Tipo.Items.AddRange(new object[] {
             "TODAS",
@@ -165,16 +176,14 @@
             this.cmb_Tipo.Name = "cmb_Tipo";
             this.cmb_Tipo.Size = new System.Drawing.Size(155, 21);
             this.cmb_Tipo.TabIndex = 70;
-            this.cmb_Tipo.Text = "TODAS";
             this.cmb_Tipo.SelectedIndexChanged += new System.EventHandler(this.cmb_Tipo_SelectedIndexChanged);
-           
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.txt_Saldo);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txt_Abono);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txt_Credito);
             this.groupBox3.Font = new System.Drawing.Font("Gill Sans MT", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,18 +206,18 @@
             this.label12.TabIndex = 44;
             this.label12.Text = "Saldo Actual:";
             // 
-            // textBox3
+            // txt_Saldo
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox3.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(201, 128);
-            this.textBox3.MaxLength = 5;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(129, 35);
-            this.textBox3.TabIndex = 45;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Saldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Saldo.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Saldo.ForeColor = System.Drawing.Color.White;
+            this.txt_Saldo.Location = new System.Drawing.Point(201, 128);
+            this.txt_Saldo.MaxLength = 5;
+            this.txt_Saldo.Name = "txt_Saldo";
+            this.txt_Saldo.ReadOnly = true;
+            this.txt_Saldo.Size = new System.Drawing.Size(129, 35);
+            this.txt_Saldo.TabIndex = 45;
+            this.txt_Saldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
             // 
@@ -221,18 +230,19 @@
             this.label9.TabIndex = 42;
             this.label9.Text = "Abono:";
             // 
-            // textBox2
+            // txt_Abono
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(201, 78);
-            this.textBox2.MaxLength = 5;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(129, 35);
-            this.textBox2.TabIndex = 43;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Abono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Abono.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Abono.ForeColor = System.Drawing.Color.White;
+            this.txt_Abono.Location = new System.Drawing.Point(201, 78);
+            this.txt_Abono.MaxLength = 10;
+            this.txt_Abono.Name = "txt_Abono";
+            this.txt_Abono.Size = new System.Drawing.Size(129, 35);
+            this.txt_Abono.TabIndex = 43;
+            this.txt_Abono.Text = "0";
+            this.txt_Abono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Abono.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label8
             // 
@@ -316,11 +326,12 @@
             this.txt_Pago.Font = new System.Drawing.Font("Gill Sans MT", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Pago.ForeColor = System.Drawing.Color.White;
             this.txt_Pago.Location = new System.Drawing.Point(223, 75);
-            this.txt_Pago.MaxLength = 5;
+            this.txt_Pago.MaxLength = 10;
             this.txt_Pago.Name = "txt_Pago";
             this.txt_Pago.Size = new System.Drawing.Size(129, 35);
             this.txt_Pago.TabIndex = 62;
             this.txt_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Pago.Leave += new System.EventHandler(this.txt_Pago_Leave);
             // 
             // txt_Cambio
             // 
@@ -501,7 +512,7 @@
             this.btn_Confirmar.FlatAppearance.BorderSize = 0;
             this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(894, 535);
+            this.btn_Confirmar.Location = new System.Drawing.Point(945, 412);
             this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Confirmar.Name = "btn_Confirmar";
             this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
@@ -525,43 +536,6 @@
             this.dtg_Cobros.TabIndex = 44;
             this.dtg_Cobros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Cobros_CellClick);
             // 
-            // grp_FormaPago
-            // 
-            this.grp_FormaPago.Controls.Add(this.rdb_Efectivo);
-            this.grp_FormaPago.Controls.Add(this.rdb_Tarjeta);
-            this.grp_FormaPago.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grp_FormaPago.ForeColor = System.Drawing.Color.White;
-            this.grp_FormaPago.Location = new System.Drawing.Point(921, 357);
-            this.grp_FormaPago.Name = "grp_FormaPago";
-            this.grp_FormaPago.Size = new System.Drawing.Size(111, 112);
-            this.grp_FormaPago.TabIndex = 27;
-            this.grp_FormaPago.TabStop = false;
-            this.grp_FormaPago.Text = "Forma Pago";
-            // 
-            // rdb_Efectivo
-            // 
-            this.rdb_Efectivo.AutoSize = true;
-            this.rdb_Efectivo.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Efectivo.ForeColor = System.Drawing.Color.White;
-            this.rdb_Efectivo.Location = new System.Drawing.Point(9, 25);
-            this.rdb_Efectivo.Name = "rdb_Efectivo";
-            this.rdb_Efectivo.Size = new System.Drawing.Size(85, 31);
-            this.rdb_Efectivo.TabIndex = 1;
-            this.rdb_Efectivo.Text = "Efectivo";
-            this.rdb_Efectivo.UseVisualStyleBackColor = true;
-            // 
-            // rdb_Tarjeta
-            // 
-            this.rdb_Tarjeta.AutoSize = true;
-            this.rdb_Tarjeta.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_Tarjeta.ForeColor = System.Drawing.Color.White;
-            this.rdb_Tarjeta.Location = new System.Drawing.Point(6, 54);
-            this.rdb_Tarjeta.Name = "rdb_Tarjeta";
-            this.rdb_Tarjeta.Size = new System.Drawing.Size(81, 31);
-            this.rdb_Tarjeta.TabIndex = 2;
-            this.rdb_Tarjeta.Text = "Tarjeta";
-            this.rdb_Tarjeta.UseVisualStyleBackColor = true;
-            // 
             // btn_Imprimir
             // 
             this.btn_Imprimir.BackgroundImage = global::PL.Properties.Resources.print;
@@ -569,7 +543,7 @@
             this.btn_Imprimir.Enabled = false;
             this.btn_Imprimir.FlatAppearance.BorderSize = 0;
             this.btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Imprimir.Location = new System.Drawing.Point(975, 540);
+            this.btn_Imprimir.Location = new System.Drawing.Point(941, 531);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.Size = new System.Drawing.Size(75, 57);
             this.btn_Imprimir.TabIndex = 37;
@@ -602,8 +576,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).EndInit();
-            this.grp_FormaPago.ResumeLayout(false);
-            this.grp_FormaPago.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -613,9 +585,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_inicio;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox grp_FormaPago;
-        private System.Windows.Forms.RadioButton rdb_Efectivo;
-        private System.Windows.Forms.RadioButton rdb_Tarjeta;
         private System.Windows.Forms.Button btn_Imprimir;
         public System.Windows.Forms.TextBox txt_Total;
         private System.Windows.Forms.Label label5;
@@ -643,12 +612,13 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txt_Saldo;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox txt_Abono;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.TextBox txt_Credito;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmb_Tipo;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

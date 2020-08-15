@@ -21,14 +21,18 @@ namespace PL.Pantallas.Extras
         DA Dal = new DA();
         FACTURAS facturas = new FACTURAS();
         Factura_BLL factu = new Factura_BLL();
+        CREDITOS creditos = new CREDITOS();
 
         string nombre;
         string cedula;
         string fechadocumento;
         string factura;
-         string total;
+        decimal total;
         decimal pago;
         decimal cambio;
+        decimal abono;
+        decimal actual;
+        int tipo;
 
 
         public Cobros_PL()
@@ -85,12 +89,7 @@ namespace PL.Pantallas.Extras
         {
             Cargar2();
 
-            txt_Nombre.Text ="";
-            txt_NoCliente.Text ="";
-            txt_Fecha_Doc.Text = "";
-            txt_Factura.Text ="";
-            txt_Total.Text = "";
-            txt_Credito.Text = "";
+            LimpiarCampos();
         }
 
         private void CapturarFechaSistema()
@@ -110,13 +109,16 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Cobros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int tipo;
+           
+            
 
             nombre = dtg_Cobros.CurrentRow.Cells[1].Value.ToString() + " " + dtg_Cobros.CurrentRow.Cells[2].Value.ToString() + " " + dtg_Cobros.CurrentRow.Cells[3].Value.ToString();
             cedula = dtg_Cobros.CurrentRow.Cells[0].Value.ToString();
             fechadocumento= dtg_Cobros.CurrentRow.Cells[4].Value.ToString();
             factura= dtg_Cobros.CurrentRow.Cells[5].Value.ToString();
-            total= dtg_Cobros.CurrentRow.Cells[6].Value.ToString();
+            total= Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[6].Value.ToString());
+
+            actual= Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[9].Value.ToString());
 
             txt_Nombre.Text = nombre;
             txt_NoCliente.Text = cedula;
@@ -124,13 +126,16 @@ namespace PL.Pantallas.Extras
             txt_Factura.Text = factura;
 
             tipo = Convert.ToInt32(dtg_Cobros.CurrentRow.Cells[8].Value.ToString());
-            if (tipo==1)
+            if (tipo == 1)
             {
                 txt_Total.Text = total.ToString();
+                txt_Credito.Text = "";
+
             }
             else
             {
-                txt_Credito.Text= total.ToString();
+                txt_Credito.Text = actual.ToString();
+                txt_Total.Text = "";
             }
             
           
@@ -143,54 +148,88 @@ namespace PL.Pantallas.Extras
 
             try
             {
-
-                total = dtg_Cobros.CurrentRow.Cells[6].Value.ToString();
-                pago = Convert.ToDecimal(txt_Pago.Text.ToString());
-                cambio = Convert.ToDecimal(total) - (pago);
-                txt_Cambio.Text = cambio.ToString();
-
-
-
-
-                if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                
+                if (tipo==1)
                 {
-                    if (txt_Nombre.Text == string.Empty)
+                    total = Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[6].Value.ToString());
+
+
+                    if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        MessageBox.Show("¡Tiene que seleccionar un Cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        if (rdb_Efectivo.Checked == false && rdb_Tarjeta.Checked == false)
+                        if (txt_Nombre.Text == string.Empty)
                         {
-                            MessageBox.Show("¡Tiene que seleccionar una forma de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("¡Tiene que seleccionar un Cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-
-                            if (rdb_Efectivo.Checked == true)
+                            if (txt_Cambio.Text == string.Empty)
                             {
-                                factura = "Compra Efectivo";
+                                MessageBox.Show("¡Tiene que ingresar el monto de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txt_Pago.Focus();
                             }
                             else
                             {
-                                facturas.Descripcion = "Compra Tarjeta";
+                                Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text), 21);
+
+
+
+                                MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                btn_Imprimir.Enabled = true;
+                                LimpiarCampos();
+                                Cargar2();
                             }
 
-                            Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),21);                             
 
-                            //facturas.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
-                            //facturas.Estado = 21;
+                        }
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        if (txt_Nombre.Text == string.Empty)
+                        {
+                            MessageBox.Show("¡Tiene que seleccionar un Cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            if (txt_Saldo.Text == string.Empty)
+                            {
+                                MessageBox.Show("¡Tiene que ingresar el monto del abono!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txt_Pago.Focus();
+                            }
+                            else
+                            {
+                                creditos.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                creditos.Monto_Anterior = Convert.ToDecimal(txt_Credito.Text);
+                                creditos.Abono = Convert.ToDecimal(txt_Abono.Text);
+                                creditos.Monto_Actual = Convert.ToDecimal(txt_Saldo.Text);
 
-                            MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Credito_BLL.ModificarAbonos(creditos);
 
-                            btn_Imprimir.Enabled = true;
-                            Cargar2();
+                                MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                btn_Imprimir.Enabled = true;
+                                LimpiarCampos();
+                                Cargar2();
+
+                            }
+
+
+
+
+
+
                         }
 
 
 
                     }
                 }
+
+
+                
                 
 
             }
@@ -267,18 +306,74 @@ namespace PL.Pantallas.Extras
 
         }
 
+              
+
+        private void txt_Pago_Leave(object sender, EventArgs e)
+        {
+            pago = Convert.ToDecimal(txt_Pago.Text.ToString());
+
+            if (total > pago)
+            {
+                MessageBox.Show("El monto de pago es menor al monto de la factura", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_Pago.Focus();
+            }
+            else
+            {
+                txt_Cambio.Text = Convert.ToString(pago - total);
+            }
+        }
+
+       
+           private void LimpiarCampos()
+        {
+
+            txt_Nombre.Text = "";
+            txt_NoCliente.Text = "";
+            txt_Fecha_Doc.Text = "";
+            txt_Factura.Text = "";
+            txt_Total.Text = "";
+            txt_Credito.Text = "";
+            txt_Cambio.Text="";
+            txt_Pago.Text = "";
+            txt_Abono.Text = "";
+            txt_Saldo.Text = "";           
+            checkBox1.Checked = false;
+
+        }
+
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            abono = Convert.ToDecimal(txt_Abono.Text.ToString());
+
+            if ( abono>actual)
+            {
+                MessageBox.Show("El monto del abono es mayor al Saldo pendiente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_Abono.Focus();
+            }
+            else
+            {
+                txt_Saldo.Text = Convert.ToString(actual - abono);
+                
+            }
 
 
 
 
+        }
+
+        private void checkBox1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea Anular la factura?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MessageBox.Show("Se ha anulado la factura con exito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
+                Factura_BLL.AnularFactura(Convert.ToInt32(txt_Factura.Text), 37);
+                LimpiarCampos();
+                Cargar2();
 
-
-
-
-
-
+            }
+        }
     }
 
 }

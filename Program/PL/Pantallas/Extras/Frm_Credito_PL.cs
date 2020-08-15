@@ -148,6 +148,7 @@ namespace PL.Pantallas.Extras
                 Credito.Credito = 1;
                 
                 Credito_BLL.ModificaCreditos(Credito);
+                Cargar();
             }
 
         }
@@ -173,6 +174,7 @@ namespace PL.Pantallas.Extras
 
 
                 Credito_BLL.ModificaCreditos(Credito);
+                Cargar();
 
             }
 

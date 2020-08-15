@@ -172,5 +172,31 @@ namespace BLL
 
 
 
+        public static bool AnularFactura(int Numero_Factura, int Estado)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_MODIFICAR_FACTURAS '" + Numero_Factura + "','" + Estado + "'";
+
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
+
+
+
+
     }
 }

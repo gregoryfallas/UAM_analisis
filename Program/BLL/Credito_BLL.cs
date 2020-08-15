@@ -47,6 +47,98 @@ namespace BLL
 
 
 
+        public static bool AgregarCreditos(CREDITOS creditos)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_INSERTAR_CREDITOS  @IDFactura,@MontoAnterior,@MontoActual";
+
+                SqlParameter paramIdFactura = new SqlParameter();
+                paramIdFactura.Value = creditos.ID_Factura;
+                paramIdFactura.ParameterName = "@IDFactura";
+                paramIdFactura.SqlDbType = System.Data.SqlDbType.Int;
+
+                SqlParameter paramMontoAnterior = new SqlParameter();
+                paramMontoAnterior.Value = creditos.Monto_Anterior;
+                paramMontoAnterior.ParameterName = "@MontoAnterior";
+                paramMontoAnterior.SqlDbType = System.Data.SqlDbType.Decimal;
+
+                SqlParameter paramMontoActual = new SqlParameter();
+                paramMontoActual.Value = creditos.Monto_Actual;
+                paramMontoActual.ParameterName = "@MontoActual";
+                paramMontoActual.SqlDbType = System.Data.SqlDbType.Decimal;
+
+
+
+
+
+                peticion.lstParametros.Add(paramIdFactura);
+                peticion.lstParametros.Add(paramMontoAnterior);
+                peticion.lstParametros.Add(paramMontoActual);
+
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        public static bool ModificarAbonos(CREDITOS creditos)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC MODIFICAR_ABONOS  @IDFactura,@MontoAnterior,@Abono,@MontoActual";
+
+                SqlParameter paramIdFactura = new SqlParameter();
+                paramIdFactura.Value = creditos.ID_Factura;
+                paramIdFactura.ParameterName = "@IDFactura";
+                paramIdFactura.SqlDbType = System.Data.SqlDbType.Int;
+
+                SqlParameter paramMontoAnterior = new SqlParameter();
+                paramMontoAnterior.Value = creditos.Monto_Anterior;
+                paramMontoAnterior.ParameterName = "@MontoAnterior";
+                paramMontoAnterior.SqlDbType = System.Data.SqlDbType.Decimal;
+
+
+                SqlParameter paramAbono = new SqlParameter();
+                paramAbono.Value = creditos.Abono;
+                paramAbono.ParameterName = "@Abono";
+                paramAbono.SqlDbType = System.Data.SqlDbType.Decimal;
+
+
+                SqlParameter paramMontoActual = new SqlParameter();
+                paramMontoActual.Value = creditos.Monto_Actual;
+                paramMontoActual.ParameterName = "@MontoActual";
+                paramMontoActual.SqlDbType = System.Data.SqlDbType.Decimal;
+
+
+
+
+
+                peticion.lstParametros.Add(paramIdFactura);
+                peticion.lstParametros.Add(paramMontoAnterior);
+                peticion.lstParametros.Add(paramAbono);
+                peticion.lstParametros.Add(paramMontoActual);
+
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
 
 
     }

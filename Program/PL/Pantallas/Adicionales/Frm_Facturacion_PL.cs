@@ -92,8 +92,46 @@ namespace PL.Pantallas.Adicionales
 
         private void tsb_Cobros_Click(object sender, EventArgs e)
         {
-            Cobros_PL Cobros = new Cobros_PL();
-            Cobros.ShowDialog();
+
+
+            CAJAS CAJITA = new CAJAS();
+            List<CAJAS> resultado = new List<CAJAS>();
+            resultado = Cajas_BLL.ConsultarCajas(1);
+
+            foreach (var li in resultado)
+            {
+                CAJITA.ID_Caja = li.ID_Caja;
+                CAJITA.Estado = li.Estado;
+            }
+
+
+            if (CAJITA.Estado == 22)
+            {
+                MessageBox.Show("Debe ABRIR primeramente la caja", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                Cobros_PL Cobros = new Cobros_PL();
+                Cobros.ShowDialog();
+            }
+
+
+
+
+
+
+
+
+
+
+
+            
+        }
+
+        private void tsb_Express_Click(object sender, EventArgs e)
+        {
+            Frm_Express Express = new Frm_Express();
+            Express.ShowDialog();
         }
     }
 }

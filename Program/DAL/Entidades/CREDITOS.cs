@@ -17,6 +17,7 @@ namespace DAL.Entidades
         public int ID_Creditos { get; set; }
         public int ID_Factura { get; set; }
         public Nullable<decimal> Monto_Anterior { get; set; }
+        public Nullable<decimal> Abono { get; set; }
         public Nullable<decimal> Monto_Actual { get; set; }
     
         public virtual FACTURAS FACTURAS { get; set; }

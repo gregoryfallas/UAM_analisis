@@ -30,18 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_Express = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Descripcion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_Productos = new System.Windows.Forms.Button();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.btn_BuscarCliente = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_Producto = new System.Windows.Forms.TextBox();
             this.txt_Cliente = new System.Windows.Forms.TextBox();
-            this.btn_Recetas = new System.Windows.Forms.Button();
-            this.btn_Promociones = new System.Windows.Forms.Button();
-            this.btn_Orden = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdb_Contado = new System.Windows.Forms.RadioButton();
             this.rdb_Credito = new System.Windows.Forms.RadioButton();
@@ -81,6 +78,10 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.btn_Recetas = new System.Windows.Forms.Button();
+            this.btn_Promociones = new System.Windows.Forms.Button();
+            this.btn_Orden = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -101,6 +102,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.cb_Express);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txt_Descripcion);
             this.panel1.Controls.Add(this.label15);
@@ -128,6 +130,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1367, 713);
             this.panel1.TabIndex = 1;
+            // 
+            // cb_Express
+            // 
+            this.cb_Express.AutoSize = true;
+            this.cb_Express.ForeColor = System.Drawing.Color.White;
+            this.cb_Express.Location = new System.Drawing.Point(657, 475);
+            this.cb_Express.Name = "cb_Express";
+            this.cb_Express.Size = new System.Drawing.Size(145, 31);
+            this.cb_Express.TabIndex = 43;
+            this.cb_Express.Text = "Servicio Express";
+            this.cb_Express.UseVisualStyleBackColor = true;
+            this.cb_Express.Click += new System.EventHandler(this.cb_Express_Click);
             // 
             // label4
             // 
@@ -171,22 +185,6 @@
             this.btn_Productos.TabIndex = 39;
             this.btn_Productos.UseVisualStyleBackColor = true;
             this.btn_Productos.Click += new System.EventHandler(this.btn_Productos_Click_1);
-            // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
-            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(23, 540);
-            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Confirmar.TabIndex = 9;
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
             // btn_BuscarCliente
             // 
@@ -234,46 +232,13 @@
             this.txt_Cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_Cliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Cliente_KeyPress);
             // 
-            // btn_Recetas
-            // 
-            this.btn_Recetas.ForeColor = System.Drawing.Color.Black;
-            this.btn_Recetas.Location = new System.Drawing.Point(20, 380);
-            this.btn_Recetas.Name = "btn_Recetas";
-            this.btn_Recetas.Size = new System.Drawing.Size(75, 55);
-            this.btn_Recetas.TabIndex = 24;
-            this.btn_Recetas.Text = "Recetas";
-            this.btn_Recetas.UseVisualStyleBackColor = true;
-            // 
-            // btn_Promociones
-            // 
-            this.btn_Promociones.ForeColor = System.Drawing.Color.Black;
-            this.btn_Promociones.Location = new System.Drawing.Point(19, 267);
-            this.btn_Promociones.Name = "btn_Promociones";
-            this.btn_Promociones.Size = new System.Drawing.Size(75, 49);
-            this.btn_Promociones.TabIndex = 25;
-            this.btn_Promociones.Text = "Promociones";
-            this.btn_Promociones.UseVisualStyleBackColor = true;
-            // 
-            // btn_Orden
-            // 
-            this.btn_Orden.BackgroundImage = global::PL.Properties.Resources.doctor;
-            this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Orden.FlatAppearance.BorderSize = 0;
-            this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Orden.Location = new System.Drawing.Point(20, 133);
-            this.btn_Orden.Name = "btn_Orden";
-            this.btn_Orden.Size = new System.Drawing.Size(80, 67);
-            this.btn_Orden.TabIndex = 6;
-            this.btn_Orden.UseVisualStyleBackColor = true;
-            this.btn_Orden.Click += new System.EventHandler(this.btn_Orden_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rdb_Contado);
             this.groupBox2.Controls.Add(this.rdb_Credito);
             this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(681, 466);
+            this.groupBox2.Location = new System.Drawing.Point(829, 475);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 112);
             this.groupBox2.TabIndex = 27;
@@ -746,6 +711,55 @@
             this.total.ReadOnly = true;
             this.total.Width = 74;
             // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Confirmar.Location = new System.Drawing.Point(23, 540);
+            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Confirmar.TabIndex = 9;
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
+            // btn_Recetas
+            // 
+            this.btn_Recetas.ForeColor = System.Drawing.Color.Black;
+            this.btn_Recetas.Location = new System.Drawing.Point(20, 380);
+            this.btn_Recetas.Name = "btn_Recetas";
+            this.btn_Recetas.Size = new System.Drawing.Size(75, 55);
+            this.btn_Recetas.TabIndex = 24;
+            this.btn_Recetas.Text = "Recetas";
+            this.btn_Recetas.UseVisualStyleBackColor = true;
+            // 
+            // btn_Promociones
+            // 
+            this.btn_Promociones.ForeColor = System.Drawing.Color.Black;
+            this.btn_Promociones.Location = new System.Drawing.Point(19, 267);
+            this.btn_Promociones.Name = "btn_Promociones";
+            this.btn_Promociones.Size = new System.Drawing.Size(75, 49);
+            this.btn_Promociones.TabIndex = 25;
+            this.btn_Promociones.Text = "Promociones";
+            this.btn_Promociones.UseVisualStyleBackColor = true;
+            // 
+            // btn_Orden
+            // 
+            this.btn_Orden.BackgroundImage = global::PL.Properties.Resources.doctor;
+            this.btn_Orden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Orden.FlatAppearance.BorderSize = 0;
+            this.btn_Orden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Orden.Location = new System.Drawing.Point(20, 133);
+            this.btn_Orden.Name = "btn_Orden";
+            this.btn_Orden.Size = new System.Drawing.Size(80, 67);
+            this.btn_Orden.TabIndex = 6;
+            this.btn_Orden.UseVisualStyleBackColor = true;
+            this.btn_Orden.Click += new System.EventHandler(this.btn_Orden_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
@@ -825,7 +839,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Frm_Contado_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ventas ";
+            this.Text = "Facturación";
             this.Load += new System.EventHandler(this.Frm_Contado_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -905,5 +919,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_Descripcion;
+        private System.Windows.Forms.CheckBox cb_Express;
     }
 }

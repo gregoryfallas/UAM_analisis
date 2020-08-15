@@ -27,6 +27,8 @@ namespace PL.Pantallas.Extras
         FACTURAS facturas = new FACTURAS();
         CLIENTES clientes = new CLIENTES();
         DETALLE_ARTICULOS Detalle = new DETALLE_ARTICULOS();
+        SERVICIOS_EXPRESS express = new SERVICIOS_EXPRESS();
+        CREDITOS Credito = new CREDITOS();
 
         
 
@@ -111,7 +113,7 @@ namespace PL.Pantallas.Extras
             FACTURAS factura = new FACTURAS();
             DETALLE_ARTICULOS detalle = new DETALLE_ARTICULOS();
 
-
+                                                                           
             if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (txt_Nombre.Text==string.Empty)
@@ -151,7 +153,16 @@ namespace PL.Pantallas.Extras
                                     factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                                     factura.Total = Convert.ToDecimal(txt_Total.Text);
                                     factura.Descripcion = "Sin descripción";
-                                    factura.Estado = 1;
+                                    if (cb_Express.Checked==true)
+                                    {
+                                        factura.Estado = 21;
+                                        Express_BLL.AgregarExpress(express);
+                                    }
+                                    else
+                                    {
+                                        factura.Estado = 1;
+                                    }
+
                                     if (rdb_Contado.Checked == true)
                                     {
                                         factura.Tipo_Pago = 1;
@@ -183,6 +194,7 @@ namespace PL.Pantallas.Extras
 
                                         }
                                         Factura_BLL.agregarDetalleFactura(ListArticulos);
+                                        
 
                                         MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -211,8 +223,20 @@ namespace PL.Pantallas.Extras
                                 factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
                                 factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                                 factura.Total = Convert.ToDecimal(txt_Total.Text);
-                                factura.Descripcion = txt_Descripcion.Text;
-                                factura.Estado = 1;
+                                factura.Descripcion =txt_Descripcion.Text;
+
+                                if(cb_Express.Checked == true)
+                                    {
+                                   
+                                    factura.Estado = 21;
+                                    Express_BLL.AgregarExpress(express);
+
+                                }
+                                    else
+                                    {
+                                    factura.Estado = 1;
+                                    }
+
                                 if (rdb_Contado.Checked == true)
                                 {
                                     factura.Tipo_Pago = 1;
@@ -221,6 +245,7 @@ namespace PL.Pantallas.Extras
                                 {
                                     factura.Tipo_Pago = 2;
                                 }
+                                
 
                                 bool result = Factura_BLL.agregarFactura(factura);
 
@@ -242,6 +267,7 @@ namespace PL.Pantallas.Extras
 
                                     }
                                     Factura_BLL.agregarDetalleFactura(ListArticulos);
+                                    Express_BLL.AgregarExpress(express);
 
                                     MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -257,6 +283,7 @@ namespace PL.Pantallas.Extras
                                     dtg_Articulos.Refresh();
                                     Cargar2();
                                     CargarNoFactura();
+                                   
                                 }
                             }
                                
@@ -264,7 +291,9 @@ namespace PL.Pantallas.Extras
 
                      }
                 }
-                            
+
+                
+
             }                             
             
      }
@@ -637,7 +666,8 @@ namespace PL.Pantallas.Extras
             rdb_Contado.Checked = false;
             rdb_Credito.Checked = false;
             txt_Factura.Text = "";
-
+            cb_Express.Checked = false;
+            txt_Descripcion.Text = "";
         }
 
         private void rdb_Credito_Click(object sender, EventArgs e)
@@ -651,9 +681,7 @@ namespace PL.Pantallas.Extras
             resultado = Clientes_BLL.ConsultarClientes(txt_Cliente.Text);
 
             tempcedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
-
-
-
+            
             foreach (var li in resultado)
             {
                 consulta.Cedula = li.Cedula;
@@ -665,6 +693,11 @@ namespace PL.Pantallas.Extras
                     if (tempcredito =="1")
                     {
                         MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                        Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                        Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                        Credito_BLL.AgregarCreditos(Credito);
                     }
                     else
                     {
@@ -672,9 +705,9 @@ namespace PL.Pantallas.Extras
                     }
                 }
 
-
                 
-                //consulta.Credito = li.Credito;
+
+
             }
 
 
@@ -689,6 +722,21 @@ namespace PL.Pantallas.Extras
 
         }
 
-        
+        private void cb_Express_Click(object sender, EventArgs e)
+        {
+            if (cb_Express.Checked == true)
+            {
+                if (MessageBox.Show("¿Desea enviarlo por express?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    rdb_Contado.Checked = true;
+                    rdb_Credito.Checked = false;
+                    express.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                    express.Descripcion = txt_Nombre.Text;
+                    express.Estado = 1;                    
+
+                }
+            }
+            
+        }
     }
 }

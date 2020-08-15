@@ -29,7 +29,7 @@ namespace PL.Pantallas.Adicionales
         {
             DAL.Entidades.SOLICITUD_ARTICULOS sa = new SOLICITUD_ARTICULOS();
             InitializeComponent();
-            //cargar textbox 
+            cargarGridingreso_Suministros();
         }
 
         private void btn_Inicio_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace PL.Pantallas.Adicionales
             this.Dispose();
             Frm_Inicio_PL inicio = new Frm_Inicio_PL();
             inicio.ShowDialog();
-            cargarGridingreso_Suministros();
+            
         }
 
         private void btn_Crear_Click(object sender, EventArgs e)

@@ -57,20 +57,18 @@ namespace BLL
         {
             try
             {
-
                 SQLSentencia Peticion = new SQLSentencia();
-                Peticion.Peticion = @"EXE SP_CREAR_ingreso_suministro'" + soliarticulos.ID_Articulo_Proveedor + "','" + soliarticulos.ID_Solicitud_Compra + "','" + soliarticulos.Descripcion + "','" + soliarticulos.Cantidad + "','";
+                Peticion.Peticion = @"EXE SP_CREAR_ingreso_suministro'" + soliarticulos.ID_Articulo_Proveedor + "','" + soliarticulos.ID_Solicitud_Compra + "','" + soliarticulos.Descripcion + "','" + soliarticulos.Cantidad;
 
                 DA acceso = new DA();
                 return acceso.ejecutarSentecia(Peticion);
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-            public static List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(int ID_Solicitud_Compra)
+        public static List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(int ID_Solicitud_Compra)
             { 
                 try
                 {
@@ -91,9 +89,11 @@ namespace BLL
                 {
                     throw e;
                 }
+                finally
+                {
+                    
+                }
             }
-          
-        
     }
 }
 //ingresar date y delete en bll return acceso.ejecutar sentencia

@@ -20,7 +20,7 @@ namespace PL.Pantallas.Adicionales
         private int ID_Articulo_Proveedor = 0;
         private int ID_Solicitud_Compra = 0;
         private int Cantidad = 0;
-        private String Descripcion = null;
+        private String Descripcion = " ";
 
         public List<Suministros_BLL> listingreso_suministros { get; set; }
         public bool esError { get; set; }
@@ -37,6 +37,7 @@ namespace PL.Pantallas.Adicionales
             this.Dispose();
             Frm_Inicio_PL inicio = new Frm_Inicio_PL();
             inicio.ShowDialog();
+            cargarGridingreso_Suministros();
         }
 
         private void btn_Crear_Click(object sender, EventArgs e)
@@ -52,11 +53,11 @@ namespace PL.Pantallas.Adicionales
             MessageBox.Show("Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void cargarGridMascotas()
+        private void cargarGridingreso_Suministros()
         {
             try
             {
-                List<SOLICITUD_ARTICULOS> lstusuarios = Suministros_BLL.CREAR_ingreso_suministros(lstParametros);
+                List<SOLICITUD_ARTICULOS> listingreso_suministros = Suministros_BLL.CREAR_ingreso_suministros(ID_Solicitud_Compra);
 
                 DataTable dt = new DataTable();
 

@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Entidades;
+
+
 namespace BLL
 {
     public class Suministros_BLL
@@ -50,53 +52,48 @@ namespace BLL
             }
         }
         #endregion
-       
-        public static bool SP_CREAR_ingreso_suministro(SOLICITUD_ARTICULOS sol_articulos)
+
+        public static bool agregarSuministros(SOLICITUD_ARTICULOS soliarticulos)
         {
-            #region
             try
             {
-                SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro  @ID_Articulo_Proveedor, @ID_Solicitud_Compra, @Descripcion, @Cantidad";
-                
 
-                SqlParameter parametroid_ArticuloProveedor = new SqlParameter();
-                parametroid_ArticuloProveedor.ParameterName = "@ID_Articulo_Proveedor";
-                parametroid_ArticuloProveedor.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_ArticuloProveedor.Value = sol_articulos.ID_Articulo_Proveedor;
-
-                SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
-                parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
-                parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
-                parametroid_Solicitud_Compra.Value = sol_articulos.ID_Solicitud_Compra;
-
-                
-                SqlParameter parametrodescripcion = new SqlParameter();
-                parametrodescripcion.ParameterName = "@Descripcion";
-                parametrodescripcion.SqlDbType = System.Data.SqlDbType.VarChar;
-                parametrodescripcion.Value = sol_articulos.Descripcion;
-
-                SqlParameter parametroCantidad = new SqlParameter();
-                parametroCantidad.ParameterName = "@Cantidad";
-                parametroCantidad.SqlDbType = System.Data.SqlDbType.Decimal;
-                parametroCantidad.Value = sol_articulos.Cantidad;
-
-                sentencia.lstParametros.Add(parametroid_ArticuloProveedor);
-                sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
-                sentencia.lstParametros.Add(parametroCantidad);
-                sentencia.lstParametros.Add(parametrodescripcion);
+                SQLSentencia Peticion = new SQLSentencia();
+                Peticion.Peticion = @"EXE SP_CREAR_ingreso_suministro'" + soliarticulos.ID_Articulo_Proveedor + "','" + soliarticulos.ID_Solicitud_Compra + "','" + soliarticulos.Descripcion + "','" + soliarticulos.Cantidad + "','";
 
                 DA acceso = new DA();
-                return acceso.ejecutarSentecia(sentencia);    
-            }
-            catch (Exception e)
+                return acceso.ejecutarSentecia(Peticion);
 
+            }
+            catch (Exception ex)
             {
-                throw e;
+                throw ex;
             }
         }
-        #endregion
- 
+            public static List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(int ID_Solicitud_Compra)
+            { 
+                try
+                {
+                    SQLSentencia sentencia = new SQLSentencia();
+                    sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro  @ID_Solicitud_Compra";
+                    SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
+                    parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
+                    parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
+                    parametroid_Solicitud_Compra.Value = ID_Solicitud_Compra;
+
+                    sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
+                    
+                    DA acceso = new DA();
+                    return acceso.CREAR_ingreso_suministros(sentencia);
+                }
+                catch (Exception e)
+
+                {
+                    throw e;
+                }
+            }
+          
+        
     }
 }
 //ingresar date y delete en bll return acceso.ejecutar sentencia

@@ -143,6 +143,48 @@ namespace DAL
         }
 
 
+
+
+
+
+
+        public DataTable consultarMascotasPantalla(SQLSentencia peticion)
+        {
+            //  List<Caso> listaResultado = new List<Caso>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+
+        }
+
+
+
+
+
+
+
+
+
         public List<MASCOTAS> ConsultarMascotas(SQLSentencia P_Peticion)
         {
             List<MASCOTAS> lstresultados = new List<MASCOTAS>();
@@ -709,12 +751,52 @@ namespace DAL
 
         #endregion
 
+        #region PreConsulta
+
+        public DataTable consultarCitasEnCurso(SQLSentencia P_Peticion)
+        {
+
+
+            DataTable dt = new DataTable();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = objconexion;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = P_Peticion.Peticion;
+                    if (P_Peticion.lstParametros.Count > 0)
+                        cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray());
+                    SqlDataAdapter da = new SqlDataAdapter(P_Peticion.Peticion, objconexion);
+
+                    da.Fill(dt);
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    this.CERRAR();
+                }
+                return dt;
+        }
 
 
 
+
+
+
+
+
+
+    }
 
 
         #endregion
 
-    }
+
+        #endregion
+
+    
 }

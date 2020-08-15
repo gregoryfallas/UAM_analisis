@@ -34,7 +34,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.prueba = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -111,7 +110,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.prueba);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.button1);
@@ -144,13 +142,7 @@
             this.groupBox2.Size = new System.Drawing.Size(986, 692);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
-            // 
-            // prueba
-            // 
-            this.prueba.Location = new System.Drawing.Point(488, 370);
-            this.prueba.Name = "prueba";
-            this.prueba.Size = new System.Drawing.Size(100, 39);
-            this.prueba.TabIndex = 103;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // button2
             // 
@@ -604,6 +596,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox prueba;
     }
 }

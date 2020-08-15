@@ -44,6 +44,7 @@
     <Compile Include="Articulos.cs" />
     <Compile Include="Clientes_BLL.cs" />
     <Compile Include="Mascota_BLL.cs" />
+    <Compile Include="PreConsulta_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

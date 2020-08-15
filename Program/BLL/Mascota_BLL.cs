@@ -2,6 +2,7 @@
 using DAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -66,20 +67,27 @@ namespace BLL
             }
         }
 
-        public static List<MASCOTAS> ConsultarMascota(string Nombre)
+        public static DataTable ConsultarMascota(string Nombre)
         {
 
             try
             {
+                
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_Mascotas @Nombre";
-                SqlParameter paramC = new SqlParameter();
-                paramC.Value = Nombre;
-                paramC.ParameterName = "@Nombre";
-                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
-                sentencia.lstParametros.Add(paramC);
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_Mascotas '" + Nombre + "'";
                 DA acceso = new DA();
-                return acceso.ConsultarMascotas(sentencia);
+                return acceso.consultarInventarioConArticulos(sentencia);
+                
+
+                //SQLSentencia sentencia = new SQLSentencia();
+                //sentencia.Peticion = @"EXEC SP_CONSULTAR_Mascotas @Nombre";
+                //SqlParameter paramC = new SqlParameter();
+                //paramC.Value = Nombre;
+                //paramC.ParameterName = "@Nombre";
+                //paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                //sentencia.lstParametros.Add(paramC);
+                //DA acceso = new DA();
+                //return acceso.consultarMascotasPantalla(sentencia);
 
 
             }

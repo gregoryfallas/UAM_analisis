@@ -87,11 +87,12 @@ namespace PL.Pantallas.Adicionales
             
             try
             {
-
                 this.dataGridView1.DataSource = null;
                 this.dataGridView1.Refresh();
-              
-                this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
+
+                 this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientesPantallaCliente(this.textBox6.Text.Trim());
+               // this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientes(this.textBox6.Text.Trim());
+
                 this.dataGridView1.Refresh();
 
             }
@@ -148,8 +149,7 @@ namespace PL.Pantallas.Adicionales
         {
              this.provincia_id = Convert.ToInt32(Provinciacbo.SelectedIndex)+1;
              CargarCombosCantones();
-            prueba.Text = provincia_id.ToString();
-
+           
 
         }
 
@@ -246,7 +246,9 @@ namespace PL.Pantallas.Adicionales
         private void addbtn_Click(object sender, EventArgs e)
         {
             bool c;
+
             CLIENTES cliente = new CLIENTES();
+
             cliente.Cedula = textBox2.Text.Trim();
             cliente.Nombre = textBox1.Text.Trim();
             cliente.Apellido_1 = Apellido1txt.Text.Trim();
@@ -415,6 +417,11 @@ namespace PL.Pantallas.Adicionales
         private void Cantoncbo_SelectedValueChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

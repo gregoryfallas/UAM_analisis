@@ -142,7 +142,7 @@ namespace DAL
         }
 
         #endregion
-        
+
         #region CLIENTES
 
         /// <summary>
@@ -476,11 +476,12 @@ namespace DAL
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
                 if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                {
                     cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
 
-                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
-                objconsultar.Fill(dt);
-
+                    SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                    objconsultar.Fill(dt);
+                }  //elena
                 if (dt.Rows.Count > 0)
                 {
                     foreach (DataRow item in dt.Rows)
@@ -542,7 +543,7 @@ namespace DAL
         #endregion
 
         #region SUMINISTROS 
-        
+
         public DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD(SQLSentencia peticion)
         {
             DataTable dt = new DataTable();
@@ -553,12 +554,12 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
+                {  //elena
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
-
-                da.Fill(dt);
-
+                    da.Fill(dt);
+                } //elena
             }
             catch (Exception ex)
             {
@@ -584,11 +585,12 @@ namespace DAL
                 cmd.CommandText = peticion.Peticion;
 
                 if (peticion.lstParametros.Count > 0)
+                {
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                da.Fill(dt);
-
+                    da.Fill(dt);
+                }
                 foreach (DataRow item in dt.Rows)
                 {
                     SOLICITUD_ARTICULOS tipo = new SOLICITUD_ARTICULOS();
@@ -610,8 +612,7 @@ namespace DAL
                 this.CERRAR();
             }
             return lstresultados;
-          
-        }
+            }
     }
     #endregion
 }

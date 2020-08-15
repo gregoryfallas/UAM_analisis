@@ -69,27 +69,28 @@ namespace BLL
             }
         }
         public static List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(int ID_Solicitud_Compra)
-            { 
-                try
-                {
-                    SQLSentencia sentencia = new SQLSentencia();
-                    sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro  @ID_Solicitud_Compra";
-                    SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
-                    parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
-                    parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
-                    parametroid_Solicitud_Compra.Value = ID_Solicitud_Compra;
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro  @ID_Solicitud_Compra";
+                SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
+                parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
+                parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
+                parametroid_Solicitud_Compra.Value = ID_Solicitud_Compra;
 
-                    sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
-                    
-                    DA acceso = new DA();
-                    return acceso.CREAR_ingreso_suministros(sentencia);
-                }
-                catch (Exception e)
+                sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
 
-                {
-                    throw e;
-                }
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_suministros(sentencia);
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
         }
+        
     }
 }
 //ingresar date y delete en bll return acceso.ejecutar sentencia

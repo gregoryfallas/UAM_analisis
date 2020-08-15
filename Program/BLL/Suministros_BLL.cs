@@ -89,11 +89,7 @@ namespace BLL
                 {
                     throw e;
                 }
-                finally
-                {
-                    
-                }
-            }
+        }
     }
 }
 //ingresar date y delete en bll return acceso.ejecutar sentencia

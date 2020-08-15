@@ -161,9 +161,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(11, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 23);
+            this.label4.Size = new System.Drawing.Size(56, 23);
             this.label4.TabIndex = 42;
-            this.label4.Text = "Id personal:";
+            this.label4.Text = "Cédula:";
             // 
             // button3
             // 
@@ -172,7 +172,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(278, 235);
+            this.button3.Location = new System.Drawing.Point(92, 235);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(56, 44);
             this.button3.TabIndex = 38;

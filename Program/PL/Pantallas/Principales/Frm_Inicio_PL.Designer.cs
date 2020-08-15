@@ -372,7 +372,7 @@
             // 
             this.ts_Personal.Image = global::PL.Properties.Resources.personal;
             this.ts_Personal.Name = "ts_Personal";
-            this.ts_Personal.Size = new System.Drawing.Size(180, 22);
+            this.ts_Personal.Size = new System.Drawing.Size(150, 22);
             this.ts_Personal.Text = "Personal";
             this.ts_Personal.Click += new System.EventHandler(this.ts_Personal_Click);
             // 
@@ -380,7 +380,7 @@
             // 
             this.ts_Reclutamiento.Image = global::PL.Properties.Resources.reclutamiento;
             this.ts_Reclutamiento.Name = "ts_Reclutamiento";
-            this.ts_Reclutamiento.Size = new System.Drawing.Size(180, 22);
+            this.ts_Reclutamiento.Size = new System.Drawing.Size(150, 22);
             this.ts_Reclutamiento.Text = "Reclutamiento";
             this.ts_Reclutamiento.Click += new System.EventHandler(this.ts_Reclutamiento_Click);
             // 
@@ -388,7 +388,7 @@
             // 
             this.ts_Nomina.Image = global::PL.Properties.Resources.factu;
             this.ts_Nomina.Name = "ts_Nomina";
-            this.ts_Nomina.Size = new System.Drawing.Size(180, 22);
+            this.ts_Nomina.Size = new System.Drawing.Size(150, 22);
             this.ts_Nomina.Text = "Pago de Nomina";
             this.ts_Nomina.Click += new System.EventHandler(this.ts_Nomina_Click);
             // 
@@ -396,7 +396,7 @@
             // 
             this.ts_Vacaciones.Image = global::PL.Properties.Resources.vacaciones;
             this.ts_Vacaciones.Name = "ts_Vacaciones";
-            this.ts_Vacaciones.Size = new System.Drawing.Size(180, 22);
+            this.ts_Vacaciones.Size = new System.Drawing.Size(150, 22);
             this.ts_Vacaciones.Text = "Vacaciones";
             this.ts_Vacaciones.Click += new System.EventHandler(this.ts_Vacaciones_Click);
             // 
@@ -574,7 +574,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
             this.MaximizeBox = false;
             this.Name = "Frm_Inicio_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

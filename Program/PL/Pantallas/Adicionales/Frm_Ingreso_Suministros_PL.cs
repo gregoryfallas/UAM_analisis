@@ -24,85 +24,13 @@ namespace PL.Pantallas.Adicionales
 
         public List<Suministros_BLL> listingreso_suministros { get; set; }
         public bool esError { get; set; }
-        
+
         public Frm_Ingreso_Suministros_PL()
         {
             DAL.Entidades.SOLICITUD_ARTICULOS sa = new SOLICITUD_ARTICULOS();
             InitializeComponent();
             //cargar textbox 
-           
         }
-
-
-
-        public void cargar_arProveedor(SOLICITUD_ARTICULOS lstParametros)
-        {
-            List<ARTICULOS_PROVEEDOR> ingreso_articuloproveedor = Suministros_BLL.SP_CREAR_ingreso_suministro(ID_Articulo_Proveedor);
-
-            ingreso_articuloproveedor.Add(Suministros_BLL.(ID_Articulo_Proveedor)) = this.tb_idproveedor;
-             Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
-             this.tb_idproveedor.Refresh();
-        }
-
-        public void cargar_SolCompra(SOLICITUD_ARTICULOS lstParametros)
-        {
-            List<SOLICITUD_COMPRA> sol_Compras = Suministros_BLL.SP_CREAR_ingreso_suministro(ID_Solicitud_Compra);
-
-            sol_Compras.Add(Suministros_BLL.(ID_Solicitud_Compra)) = this.tb_idformulario;
-            Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
-            this.tb_idformulario.Refresh();
-        }
-
-        public void cargar_Descrip(SOLICITUD_ARTICULOS lstParametros)
-        {
-            List<DETALLE_ARTICULOS> descrip_Art = Suministros_BLL.SP_CREAR_ingreso_suministro(Descripcion);
-
-            descrip_Art.Add(Suministros_BLL.(Descripcion)) = this.tb_descrip;
-            Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
-            this.tb_descrip.Refresh();
-        }
-
-        public void cargar_cant_Art(SOLICITUD_ARTICULOS lstParametros)
-        {
-            List<SOLICITUD_ARTICULOS> cant_art = Suministros_BLL.SP_CREAR_ingreso_suministro(Cantidad);
-
-            cant_art.Add(Suministros_BLL.(Cantidad)) = this.tb_cant;
-            Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
-            this.tb_cant.Refresh();
-        }
-
-        public void cargar_datagv(SOLICITUD_ARTICULOS listingreso_suministros
-            )
-        {
-            this.dataGrid_ingresosumi.DataSource = null;
-            this.dataGrid_ingresosumi = Suministros_BLL.(listingreso_suministros);
-            this.dataGrid_ingresosumi.Refresh();
-        }
-
-        //public void crear_ingreso_suministros(SOLICITUD_ARTICULOS lstParametros)
-        //{
-        //        
-        //        
-
-        //    this.dataGrid_ingresosumi.DataSource = Suministros_BLL.SP_CREAR_ingreso_suministro(lstParametros);
-        //        this.tb_descrip = null;
-        //        this.tb_idarticulo = null;
-        //        this.tb_idformulario = null;
-        //        this.tb_idproveedor = null;
-        //        this.dataGrid_ingresosumi.DataSource = null;
-
-        //        this.dataGrid_ingresosumi.Refresh();
-        //}
-
-        //public void cargardatos_ingreso_sumi()
-        //{
-        //    List<ARTICULOS_PROVEEDOR> aRTICULOS_PROVEEDORs = in_sumi.ingreso_articuloproveedor;
-        //    List<SOLICITUD_COMPRA> sOLICITUD_COMPRAs = in_sumi.ingreso_Solicitudcompra;
-        //    List<SOLICITUD_ARTICULOS> sOLICITUD_ARTICULOs = in_sumi.ingreso_Cantidad;
-        //    List<DETALLE_ARTICULOS> dETALLE_ARTICULOs = in_sumi.ingreso_Descripcion;
-        //}
-
-
 
         private void btn_Inicio_Click(object sender, EventArgs e)
         {
@@ -113,7 +41,51 @@ namespace PL.Pantallas.Adicionales
 
         private void btn_Crear_Click(object sender, EventArgs e)
         {
+            SOLICITUD_ARTICULOS lstresultados = new SOLICITUD_ARTICULOS();
+            lstresultados.ID_Articulo_Proveedor = ID_Articulo_Proveedor;
+            lstresultados.ID_Solicitud_Compra = ID_Solicitud_Compra;
+            lstresultados.Descripcion = Descripcion;
+            lstresultados.Cantidad = Cantidad;
 
+            Suministros_BLL.agregarSuministros(lstresultados);
+
+            MessageBox.Show("Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void cargarGridMascotas()
+        {
+            try
+            {
+                List<SOLICITUD_ARTICULOS> lstusuarios = Suministros_BLL.CREAR_ingreso_suministros(lstParametros);
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("ID Articulo");
+                dt.Columns.Add("ID Articulo Proveedor");
+                dt.Columns.Add("ID Solicitud");
+                dt.Columns.Add("Descripión");
+                dt.Columns.Add("Cantidad");
+
+                foreach (SOLICITUD_ARTICULOS item in listingreso_suministros)
+                {
+                    dt.Rows.Add
+                        (
+                        item.ID_Articulo_Proveedor,
+                        item.ID_Solicitud_Articulos,
+                        item.Descripcion,
+                        item.Cantidad
+                       );
+                }
+                this.dataGrid_ingresosumi.DataSource = null;
+                this.dataGrid_ingresosumi.Refresh();
+                this.dataGrid_ingresosumi.DataSource = dt;
+                this.dataGrid_ingresosumi.Refresh();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

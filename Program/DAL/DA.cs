@@ -787,16 +787,106 @@ namespace DAL
 
 
 
+        public List<ESTADOS> ConsultarEstadosMascota(SQLSentencia P_Peticion)
+        {
+            List<ESTADOS> lstresultados = new List<ESTADOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ESTADOS tipo = new ESTADOS();
+
+                        tipo.ID_Estados = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
 
+
+        public List<OBSERVACIONES> ConsultarObservacionesPorCita(SQLSentencia P_Peticion)
+        {
+            List<OBSERVACIONES> lstresultados = new List<OBSERVACIONES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        OBSERVACIONES tipo = new OBSERVACIONES();
+
+                        tipo.ID_Cita = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Descripcion = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        #endregion
 
     }
 
+    #endregion
 
-        #endregion
 
 
-        #endregion
 
-    
+
 }

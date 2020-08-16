@@ -133,22 +133,7 @@ namespace BLL
 
 
 
-        public static List<OBSERVACIONES> consultarObservaciones()
-        {
-            try
-            {
-                SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_CONSULTAR_OBSERVACIONES_POR_CITAS ";
-
-                DA objacceso = new DA();
-                return objacceso.ConsultarObservacionesPorCita(peticion);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-        }
+        
 
 
 

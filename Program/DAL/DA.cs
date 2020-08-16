@@ -834,6 +834,11 @@ namespace DAL
 
 
 
+
+        #endregion
+
+        #region Consultas
+
         public List<OBSERVACIONES> ConsultarObservacionesPorCita(SQLSentencia P_Peticion)
         {
             List<OBSERVACIONES> lstresultados = new List<OBSERVACIONES>();
@@ -861,7 +866,6 @@ namespace DAL
 
                         tipo.ID_Cita = Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.Descripcion = item.ItemArray[1].ToString();
-
                         lstresultados.Add(tipo);
                     }
                 }
@@ -879,11 +883,122 @@ namespace DAL
             return lstresultados;
         }
 
+
+
+        public List<SERVICIOS> ConsultarServicios(SQLSentencia P_Peticion)
+        {
+            List<SERVICIOS> lstresultados = new List<SERVICIOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        SERVICIOS tipo = new SERVICIOS();
+
+                        tipo.ID_Servicios= Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre=item.ItemArray[1].ToString();
+                        tipo.Descripcion = item.ItemArray[2].ToString();
+                        tipo.Precio= Convert.ToDecimal(item.ItemArray[3].ToString());
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+        public List<SERVICIOS> ConsultarServicios_IDNOMBRE(SQLSentencia P_Peticion)
+        {
+            List<SERVICIOS> lstresultados = new List<SERVICIOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        SERVICIOS tipo = new SERVICIOS();
+
+                        tipo.ID_Servicios = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                       
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+
+
+
+
+
         #endregion
+
+
+
+
+
+
+
+
+
+        #endregion
+
+
 
     }
 
-    #endregion
 
 
 

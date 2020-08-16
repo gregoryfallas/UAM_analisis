@@ -702,11 +702,14 @@ namespace PL.Pantallas.Extras
                     if (tempcredito =="1")
                     {
                         MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
-                        Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
-                        Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+                        
+                            Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                            Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                            Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
 
-                        Credito_BLL.AgregarCreditos(Credito);
+                            Credito_BLL.AgregarCreditos(Credito);
+                       
+                        
                     }
                     else
                     {

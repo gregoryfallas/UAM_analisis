@@ -337,9 +337,9 @@ namespace PL.Pantallas.Extras
 
         private void Cargar ()
         {
-            Clientes_BLL Clientes = new Clientes_BLL();
+           
 
-            List<CLIENTES> LS = Clientes_BLL.ConsultarClientes(txt_Cliente.Text.Trim());
+            List<CLIENTES> LS = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text.Trim());
 
             DataTable dt = new DataTable();
 
@@ -687,7 +687,7 @@ namespace PL.Pantallas.Extras
 
             CLIENTES consulta = new CLIENTES();
             List<CLIENTES> resultado = new List<CLIENTES>();
-            resultado = Clientes_BLL.ConsultarClientes(txt_Cliente.Text);
+            resultado = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text);
 
             tempcedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
             

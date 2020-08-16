@@ -13,6 +13,33 @@ namespace BLL
     public class Factura_BLL
     {
 
+        public static List<CLIENTES> ConsultarClientesFactura(string Nombre)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_FACTURA @Nombre";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = Nombre;
+                paramC.ParameterName = "@Nombre";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarClientes(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
+
 
         public static bool agregarFactura(FACTURAS factura)
         {

@@ -59,9 +59,9 @@ namespace PL.Pantallas.Extras
 
         private void Cargar()
         {
-            Clientes_BLL Clientes = new Clientes_BLL();
+            
 
-            List<CLIENTES> LS = Clientes_BLL.ConsultarClientes(txt_Cliente.Text.Trim());
+            List<CLIENTES> LS = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text.Trim());
 
             DataTable dt = new DataTable();
 

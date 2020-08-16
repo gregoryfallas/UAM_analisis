@@ -22,8 +22,7 @@ namespace PL.Pantallas.Extras
         private void btn_inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Frm_Consulta_PL Consulta = new Frm_Consulta_PL();
-            Consulta.ShowDialog();
+            
         }
     }
 }

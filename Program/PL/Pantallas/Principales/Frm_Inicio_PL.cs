@@ -30,10 +30,7 @@ namespace PL.Pantallas.Principales
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
              {
-            this.Hide();
-            Frm_Registro_PL registro = new Frm_Registro_PL();
-            registro.ShowDialog();
-           
+            
 
         }
 
@@ -142,57 +139,50 @@ namespace PL.Pantallas.Principales
 
         private void ts_Cirugias_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            
             Frm_Cirujias_PL Cirujias = new Frm_Cirujias_PL();
             Cirujias.ShowDialog();
         }
 
         private void ts_Preconsulta_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Preconsulta_PL Preconsulta = new Frm_Preconsulta_PL();
+                       Frm_Preconsulta_PL Preconsulta = new Frm_Preconsulta_PL();
             Preconsulta.ShowDialog();
         }
 
         private void ts_Consulta_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Frm_Consulta_PL Consulta = new Frm_Consulta_PL();
             Consulta.ShowDialog();
         }
 
         private void ts_Express_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Servicio_Express_PL Express = new Frm_Servicio_Express_PL();
-            Express.ShowDialog();
+            
         }
 
         private void ts_Domicilio_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Servicio_Domicilio_PL Domicilio = new Frm_Servicio_Domicilio_PL();
-            Domicilio.ShowDialog();
-        }
+                    }
 
         private void ts_Cliente_Click(object sender, EventArgs e)
         {
-            this.Hide();
+          
             Frm_Clientes_PL Clientes = new Frm_Clientes_PL();
             Clientes.ShowDialog();
         }
 
         private void ts_Cita_Click(object sender, EventArgs e)
         {
-            this.Hide();
+         
             Frm_Citas_PL Citas = new Frm_Citas_PL();
             Citas.ShowDialog();
         }
 
         private void ts_Animal_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Frm_Animal_PL Animal = new Frm_Animal_PL();
+           Frm_Animal_PL Animal = new Frm_Animal_PL();
             Animal.ShowDialog();
         }
 
@@ -214,6 +204,11 @@ namespace PL.Pantallas.Principales
         {
             timer1.Interval = 500;
             timer1.Start();
+        }
+
+        private void ts_Servicios_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

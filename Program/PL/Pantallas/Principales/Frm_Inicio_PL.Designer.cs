@@ -37,8 +37,6 @@
             this.ts_Preconsulta = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Consulta = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Servicios = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Express = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Domicilio = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Registro = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Cliente = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Cita = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,7 +129,7 @@
             this.ts_Cirugias.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Cirugias.Image = global::PL.Properties.Resources.cirugia;
             this.ts_Cirugias.Name = "ts_Cirugias";
-            this.ts_Cirugias.Size = new System.Drawing.Size(152, 22);
+            this.ts_Cirugias.Size = new System.Drawing.Size(180, 22);
             this.ts_Cirugias.Text = "Cirugías";
             this.ts_Cirugias.Click += new System.EventHandler(this.ts_Cirugias_Click);
             // 
@@ -143,7 +141,7 @@
             this.ts_ConsultaGen.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_ConsultaGen.Image = global::PL.Properties.Resources.stethoscope;
             this.ts_ConsultaGen.Name = "ts_ConsultaGen";
-            this.ts_ConsultaGen.Size = new System.Drawing.Size(152, 22);
+            this.ts_ConsultaGen.Size = new System.Drawing.Size(180, 22);
             this.ts_ConsultaGen.Text = "Consulta General";
             // 
             // ts_Preconsulta
@@ -162,28 +160,12 @@
             // 
             // ts_Servicios
             // 
-            this.ts_Servicios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ts_Express,
-            this.ts_Domicilio});
             this.ts_Servicios.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Servicios.Image = global::PL.Properties.Resources.servicios;
             this.ts_Servicios.Name = "ts_Servicios";
-            this.ts_Servicios.Size = new System.Drawing.Size(152, 22);
-            this.ts_Servicios.Text = "Servicios";
-            // 
-            // ts_Express
-            // 
-            this.ts_Express.Name = "ts_Express";
-            this.ts_Express.Size = new System.Drawing.Size(158, 22);
-            this.ts_Express.Text = "Servicio Express";
-            this.ts_Express.Click += new System.EventHandler(this.ts_Express_Click);
-            // 
-            // ts_Domicilio
-            // 
-            this.ts_Domicilio.Name = "ts_Domicilio";
-            this.ts_Domicilio.Size = new System.Drawing.Size(158, 22);
-            this.ts_Domicilio.Text = "Consulta Domicilio";
-            this.ts_Domicilio.Click += new System.EventHandler(this.ts_Domicilio_Click);
+            this.ts_Servicios.Size = new System.Drawing.Size(180, 22);
+            this.ts_Servicios.Text = "Laboratorio";
+            this.ts_Servicios.Click += new System.EventHandler(this.ts_Servicios_Click);
             // 
             // ts_Registro
             // 
@@ -194,28 +176,28 @@
             this.ts_Registro.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Registro.Image = global::PL.Properties.Resources.registro;
             this.ts_Registro.Name = "ts_Registro";
-            this.ts_Registro.Size = new System.Drawing.Size(152, 22);
+            this.ts_Registro.Size = new System.Drawing.Size(180, 22);
             this.ts_Registro.Text = "Registro";
             this.ts_Registro.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // ts_Cliente
             // 
             this.ts_Cliente.Name = "ts_Cliente";
-            this.ts_Cliente.Size = new System.Drawing.Size(116, 22);
+            this.ts_Cliente.Size = new System.Drawing.Size(180, 22);
             this.ts_Cliente.Text = "Clientes";
             this.ts_Cliente.Click += new System.EventHandler(this.ts_Cliente_Click);
             // 
             // ts_Cita
             // 
             this.ts_Cita.Name = "ts_Cita";
-            this.ts_Cita.Size = new System.Drawing.Size(116, 22);
+            this.ts_Cita.Size = new System.Drawing.Size(180, 22);
             this.ts_Cita.Text = "Citas";
             this.ts_Cita.Click += new System.EventHandler(this.ts_Cita_Click);
             // 
             // ts_Animal
             // 
             this.ts_Animal.Name = "ts_Animal";
-            this.ts_Animal.Size = new System.Drawing.Size(116, 22);
+            this.ts_Animal.Size = new System.Drawing.Size(180, 22);
             this.ts_Animal.Text = "Animales";
             this.ts_Animal.Click += new System.EventHandler(this.ts_Animal_Click);
             // 
@@ -306,7 +288,7 @@
             this.ts_Facturacion.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Facturacion.Image = global::PL.Properties.Resources.contab;
             this.ts_Facturacion.Name = "ts_Facturacion";
-            this.ts_Facturacion.Size = new System.Drawing.Size(180, 22);
+            this.ts_Facturacion.Size = new System.Drawing.Size(146, 22);
             this.ts_Facturacion.Text = "Crédito y Cobro";
             this.ts_Facturacion.Click += new System.EventHandler(this.ts_Facturacion_Click);
             // 
@@ -315,7 +297,7 @@
             this.ts_Compras.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Compras.Image = global::PL.Properties.Resources.compras__1_;
             this.ts_Compras.Name = "ts_Compras";
-            this.ts_Compras.Size = new System.Drawing.Size(180, 22);
+            this.ts_Compras.Size = new System.Drawing.Size(146, 22);
             this.ts_Compras.Text = "Compras";
             this.ts_Compras.Click += new System.EventHandler(this.ts_Compras_Click);
             // 
@@ -324,7 +306,7 @@
             this.ts_Tesoreria.Font = new System.Drawing.Font("Gill Sans MT", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ts_Tesoreria.Image = global::PL.Properties.Resources.tesoreria2;
             this.ts_Tesoreria.Name = "ts_Tesoreria";
-            this.ts_Tesoreria.Size = new System.Drawing.Size(180, 22);
+            this.ts_Tesoreria.Size = new System.Drawing.Size(146, 22);
             this.ts_Tesoreria.Text = "Tesorería";
             this.ts_Tesoreria.Click += new System.EventHandler(this.ts_Tesoreria_Click);
             // 
@@ -696,8 +678,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem ts_Preconsulta;
         private System.Windows.Forms.ToolStripMenuItem ts_Consulta;
-        private System.Windows.Forms.ToolStripMenuItem ts_Express;
-        private System.Windows.Forms.ToolStripMenuItem ts_Domicilio;
         private System.Windows.Forms.ToolStripMenuItem ts_Cliente;
         private System.Windows.Forms.ToolStripMenuItem ts_Cita;
         private System.Windows.Forms.ToolStripMenuItem ts_Animal;

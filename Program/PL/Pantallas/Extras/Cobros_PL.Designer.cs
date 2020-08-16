@@ -169,7 +169,6 @@
             this.cmb_Tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Tipo.FormattingEnabled = true;
             this.cmb_Tipo.Items.AddRange(new object[] {
-            "TODAS",
             "CONTADO",
             "CRÉDITO"});
             this.cmb_Tipo.Location = new System.Drawing.Point(29, 215);

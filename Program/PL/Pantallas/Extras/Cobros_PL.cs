@@ -56,29 +56,29 @@ namespace PL.Pantallas.Extras
         {
             timer1.Interval = 500;
             timer1.Start();
-
-            Cargar2();
+            CargarContado();
+           
 
         }
 
-        private void Cargar2()
-        {
-            try
-            {
-                this.dtg_Cobros.DataSource = null;
-                this.dtg_Cobros.Refresh();
-                string a = txt_Cliente.Text.Trim();
-                this.dtg_Cobros.DataSource = Cls_Cobros_BLL.ConsultarCobros(a);
-                this.dtg_Cobros.Refresh();
+        //private void Cargar2()
+        //{
+        //    try
+        //    {
+        //        this.dtg_Cobros.DataSource = null;
+        //        this.dtg_Cobros.Refresh();
+        //        string a = txt_Cliente.Text.Trim();
+        //        this.dtg_Cobros.DataSource = Cls_Cobros_BLL.ConsultarCobros(a);
+        //        this.dtg_Cobros.Refresh();
 
-            }
-            catch (Exception)
-            {
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
                        
-        }
+        //}
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
@@ -87,7 +87,7 @@ namespace PL.Pantallas.Extras
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            Cargar2();
+            CargarContado();
 
             LimpiarCampos();
         }
@@ -118,7 +118,7 @@ namespace PL.Pantallas.Extras
             factura= dtg_Cobros.CurrentRow.Cells[5].Value.ToString();
             total= Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[6].Value.ToString());
 
-            actual= Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[9].Value.ToString());
+          
 
             txt_Nombre.Text = nombre;
             txt_NoCliente.Text = cedula;
@@ -134,6 +134,7 @@ namespace PL.Pantallas.Extras
             }
             else
             {
+                actual = Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[9].Value.ToString());
                 txt_Credito.Text = actual.ToString();
                 txt_Total.Text = "";
             }
@@ -177,7 +178,7 @@ namespace PL.Pantallas.Extras
 
                                 btn_Imprimir.Enabled = true;
                                 LimpiarCampos();
-                                Cargar2();
+                                //Cargar2();
                             }
 
 
@@ -212,7 +213,7 @@ namespace PL.Pantallas.Extras
 
                                 btn_Imprimir.Enabled = true;
                                 LimpiarCampos();
-                                Cargar2();
+                                //Cargar2();
 
                             }
 
@@ -289,24 +290,20 @@ namespace PL.Pantallas.Extras
             if (cmb_Tipo.SelectedIndex == 0)
 
             {
-                Cargar2();
+                CargarContado();
 
             }
-            else if (cmb_Tipo.SelectedIndex == 1)
-            {
-                CargarContado();
-            }
-            else if (cmb_Tipo.SelectedIndex ==2)
+            else
             {
                 CargarCredito();
             }
-            
+
 
 
 
         }
 
-              
+
 
         private void txt_Pago_Leave(object sender, EventArgs e)
         {
@@ -370,7 +367,7 @@ namespace PL.Pantallas.Extras
 
                 Factura_BLL.AnularFactura(Convert.ToInt32(txt_Factura.Text), 37);
                 LimpiarCampos();
-                Cargar2();
+                //Cargar2();
 
             }
         }

@@ -26,7 +26,7 @@ namespace BLL
                 paramC.SqlDbType = System.Data.SqlDbType.VarChar;
                 sentencia.lstParametros.Add(paramC);
                 DA acceso = new DA();
-                return acceso.ConsultarClientes(sentencia);
+                return acceso.ConsultarClientesFactura(sentencia);
 
 
             }

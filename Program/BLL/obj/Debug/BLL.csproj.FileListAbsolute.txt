@@ -34,3 +34,15 @@ C:\Users\Usuario\Source\Repos\UAM_analisis\Program\BLL\bin\Debug\DAL.pdb
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\BLL\bin\Debug\DAL.dll.config
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\BLL\bin\Debug\EntityFramework.xml
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\BLL.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\BLL.pdb
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\EntityFramework.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.pdb
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\DAL.dll.config
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\bin\Debug\EntityFramework.xml
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\BLL\obj\Debug\BLL.pdb

@@ -34,3 +34,15 @@ C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.Core
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
 C:\Users\Usuario\Source\Repos\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.dll.config
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\DAL.pdb
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.xml
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
+C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb

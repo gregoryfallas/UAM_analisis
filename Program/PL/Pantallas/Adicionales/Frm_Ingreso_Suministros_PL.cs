@@ -43,54 +43,56 @@ namespace PL.Pantallas.Adicionales
         private void btn_Crear_Click(object sender, EventArgs e)
         {
             SOLICITUD_ARTICULOS lstresultados = new SOLICITUD_ARTICULOS();
-            lstresultados.ID_Articulo_Proveedor = ID_Articulo_Proveedor;
-            lstresultados.ID_Solicitud_Compra = ID_Solicitud_Compra;
-            lstresultados.Descripcion = Descripcion;
-            lstresultados.Cantidad = Cantidad;
+            lstresultados.ID_Articulo_Proveedor = 1;
+            lstresultados.ID_Solicitud_Compra = 1;
+            lstresultados.Descripcion = txt_descripcion.Text.ToString();
+            lstresultados.Cantidad = Convert.ToDecimal(txt_cantidad.Text);
 
             Suministros_BLL.agregarSuministros(lstresultados);
 
             MessageBox.Show("Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            cargarGridingreso_Suministros();
         }
 
-        //private void cargarGridingreso_Suministros()
-        //{
-        //    try
-        //    {
-        //        List<SOLICITUD_ARTICULOS> listingreso_suministros = Suministros_BLL.consulta_ingreso_suministros(ID_Solicitud_Compra);
+        private void cargarGridingreso_Suministros()
+        {
+            try
+            {
+                List<SOLICITUD_ARTICULOS> listingreso_suministros = Suministros_BLL.consulta_suministros();
 
-        //        DataTable dt = new DataTable();
+                DataTable dt = new DataTable();
 
-        //        dt.Columns.Add("ID Articulo");
-        //        dt.Columns.Add("ID Articulo Proveedor");
-        //        dt.Columns.Add("ID Solicitud");
-        //        dt.Columns.Add("Descripión");
-        //        dt.Columns.Add("Cantidad");
+                dt.Columns.Add("ID Articulo");
+                dt.Columns.Add("ID Articulo Proveedor");
+                dt.Columns.Add("ID Solicitud");
+                dt.Columns.Add("Descripión");
+                dt.Columns.Add("Cantidad");
 
-        //        foreach (SOLICITUD_ARTICULOS item in listingreso_suministros)
-        //        {
-        //            dt.Rows.Add
-        //                (
-        //                item.ID_Articulo_Proveedor,
-        //                item.ID_Solicitud_Articulos,
-        //                item.Descripcion,
-        //                item.Cantidad
-        //               );
-        //        }
-        //        this.dataGrid_ingresosumi.DataSource = null;
-        //        this.dataGrid_ingresosumi.Refresh();
-        //        this.dataGrid_ingresosumi.DataSource = dt;
-        //        this.dataGrid_ingresosumi.Refresh();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+                foreach (SOLICITUD_ARTICULOS item in listingreso_suministros)
+                {
+                    dt.Rows.Add
+                        (
+                        item.ID_Articulo_Proveedor,
+                        item.ID_Solicitud_Articulos,
+                        item.Descripcion,
+                        item.Cantidad
+                       );
+                }
+                this.dataGrid_ingresosumi.DataSource = null;
+                this.dataGrid_ingresosumi.Refresh();
+                this.dataGrid_ingresosumi.DataSource = dt;
+                this.dataGrid_ingresosumi.Refresh();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-        //private void label6_Click(object sender, EventArgs e)
-        //{
+        private void label6_Click(object sender, EventArgs e)
+        {
 
-        //}
+        }
     }
 }

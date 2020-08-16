@@ -15,8 +15,7 @@ namespace BLL
     {
 
         public static DataTable ConsultarInventarioArticulos()
-        {
-            #region            
+        {          
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
@@ -32,7 +31,7 @@ namespace BLL
                 throw e;
             }
         }
-        #endregion
+
         public static DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD()
         {
             #region
@@ -53,57 +52,75 @@ namespace BLL
         }
         #endregion
 
-        //public static bool agregarSuministros(SOLICITUD_ARTICULOS soliarticulos)
-        //{
-        //    try
-        //    {
-        //        SQLSentencia Peticion = new SQLSentencia();
-        //        Peticion.Peticion = @"EXE SP_CREAR_ingreso_suministro'" + soliarticulos.ID_Articulo_Proveedor + "','" + soliarticulos.ID_Solicitud_Compra + "','" + soliarticulos.Descripcion + "','" + soliarticulos.Cantidad;
+        public static bool agregarSuministros(SOLICITUD_ARTICULOS soliarticulos)
+        {
+            try
+            {
+                SQLSentencia pet = new SQLSentencia();
+                pet.Peticion = @"EXEC SP_CREAR_ingreso_suministro @idProveedor, @idCompra, @cantidad, @descripcion";
 
-        //        DA acceso = new DA();
-        //        return acceso.ejecutarSentecia(Peticion);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
+                SqlParameter param2 = new SqlParameter();
+                param2.ParameterName = "@idProveedor";
+                param2.SqlDbType = System.Data.SqlDbType.Int;
+                param2.Value = soliarticulos.ID_Articulo_Proveedor;
+                SqlParameter param3 = new SqlParameter();
+                param2.ParameterName = "@idCompra";
+                param2.SqlDbType = System.Data.SqlDbType.Int;
+                param2.Value = soliarticulos.ID_Solicitud_Compra;
 
-        //public static List<SOLICITUD_ARTICULOS> consulta_ingreso_suministros(int ID_Solicitud_Compra)
-        //{
-        //    try
-        //    {
-        //        SQLSentencia sentencia = new SQLSentencia();
-        //        sentencia.Peticion = @"EXEC SP_CREAR_ingreso_suministro  @ID_Solicitud_Compra";
-        //        SqlParameter parametroid_Solicitud_Compra = new SqlParameter();
-        //        parametroid_Solicitud_Compra.Value = ID_Solicitud_Compra;
-        //        parametroid_Solicitud_Compra.ParameterName = "@ID_Solicitud_Compra";
-        //        parametroid_Solicitud_Compra.SqlDbType = System.Data.SqlDbType.Int;
+                SqlParameter param4 = new SqlParameter();
+                param2.ParameterName = "@cantidad";
+                param2.SqlDbType = System.Data.SqlDbType.Decimal;
+                param2.Value = soliarticulos.Cantidad;
 
-        //        sentencia.lstParametros.Add(parametroid_Solicitud_Compra);
+                SqlParameter param5 = new SqlParameter();
+                param2.ParameterName = "@idProveedor";
+                param2.SqlDbType = System.Data.SqlDbType.VarChar;
+                param2.Value = soliarticulos.Descripcion;
 
-        //        DA acceso = new DA();
-        //        return acceso.CREAR_ingreso_suministros(sentencia);
-        //    }
-        //    catch (Exception e)
+                pet.lstParametros.Add(param2);
+                pet.lstParametros.Add(param3);
+                pet.lstParametros.Add(param4);
+                pet.lstParametros.Add(param5);
 
-        //    {
-        //        throw e;
-        //    }
-        //}
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(pet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
-        //public static  Eliminar_solicitud_ingreso()
-        //{
-        //    try
-        //    {
-        //        SQLSentencia sentencia = new SQLSentencia();
+        public static List<SOLICITUD_ARTICULOS> consulta_suministros()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_consultar_articulos";
 
-        //    }
-        //    catch
-        //    {
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_suministros(sentencia);
+            }
+            catch (Exception e)
 
-        //    }
-        //}
+            {
+                throw e;
+            }
+        }
+
+        public static void Eliminar_solicitud_ingreso()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
 //ingresar date y delete en bll return acceso.ejecutar sentencia

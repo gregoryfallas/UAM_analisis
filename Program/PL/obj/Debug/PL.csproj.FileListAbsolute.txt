@@ -362,3 +362,4 @@ C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.e
 C:\Users\cavu9\source\repos\gregoryfallas\UAM_analisis\Program\PL\obj\Debug\PL.pdb
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Cobros_PL.resources
 C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Express.resources
+C:\Users\Geiner\Desktop\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Extras.Frm_Servicios_PL.resources

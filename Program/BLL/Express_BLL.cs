@@ -54,5 +54,41 @@ namespace BLL
 
 
 
+
+        public static List<SERVICIOS_EXPRESS> ConsultarExpress(int Estado)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_EXPRESS @Estado";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = Estado;
+                paramC.ParameterName = "@Estado";
+                paramC.SqlDbType = System.Data.SqlDbType.Int;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarExpress(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

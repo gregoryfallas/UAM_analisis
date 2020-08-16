@@ -49,9 +49,7 @@ namespace PL.Pantallas.Extras
         {
 
            
-            ART.Subtotal = 0;
-
-            
+            ART.Subtotal = 0;            
 
             if (txt_Cantidad.Text==string.Empty || txt_Precio.Text == string.Empty)
             {
@@ -63,9 +61,9 @@ namespace PL.Pantallas.Extras
             else
             {
                 ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text);
-                
-                ART.Importe = ART.Precio * ART.Cantidad;
-                txt_Importe.Text = ART.Importe.ToString(); ;
+
+                ART.Importe = Convert.ToDecimal(txt_Importe.Text);
+                txt_Importe.Text = ART.Importe.ToString(); 
                 
 
                 if (ART.Importe > 0)
@@ -301,13 +299,10 @@ namespace PL.Pantallas.Extras
         private void btn_Orden_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("¿Desea Cargar orden de Médico ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea Cargar Servicios Médicos ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string orden;
-                orden = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el número de orden:", "Orden de Médico");
-                MessageBox.Show("Orden Cargada con Exito: " + orden, "Orden", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                txt_Orden.Text = orden;
+                Frm_Servicios_PL Servicios = new Frm_Servicios_PL();
+                Servicios.ShowDialog();
 
             }
         }
@@ -434,34 +429,44 @@ namespace PL.Pantallas.Extras
 
         private void LimpiarCampos()
         {
-            txt_Cantidad.Text = string.Empty;
-            txt_Precio.Text = string.Empty;
-            txt_Importe.Text = string.Empty;
+            txt_Cantidad.Text = "";
+            txt_Precio.Text = "";
+            txt_Importe.Text = "";
             txt_Descuento.Text = "0";
+            txt_Nom_Produc.Text = "";
 
         }
 
 
         private void txt_Descuento_Leave(object sender, EventArgs e)
         {
-            ART.Temporal_descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
-
-            if (ART.Temporal_descuento >= 1)
+            if (txt_Descuento.Text==string.Empty)
             {
-
-                ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                ART.Importe = ART.Precio * ART.Cantidad;
-                ART.Descuento = ART.Importe * ART.Temporal_descuento / 100;
-               ART.Importe = ART.Importe - ART.Descuento;
-                txt_Importe.Text = ART.Importe.ToString();
+                ART.Temporal_descuento = 0;
+                txt_Descuento.Text = ART.Temporal_descuento.ToString();
             }
             else
             {
+                ART.Temporal_descuento = Convert.ToDecimal(txt_Descuento.Text.ToString().Trim());
+                if (ART.Temporal_descuento >= 1)
+                {
 
-                ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
-                ART.Importe = ART.Precio * ART.Cantidad;
-                txt_Importe.Text = ART.Importe.ToString();
+                    ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                    ART.Importe = ART.Precio * ART.Cantidad;
+                    ART.Descuento = ART.Importe * ART.Temporal_descuento / 100;
+                    ART.Importe = ART.Importe - ART.Descuento;
+                    txt_Importe.Text = ART.Importe.ToString();
+                }
+                else
+                {
+
+                    ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text.ToString().Trim());
+                    ART.Importe = ART.Precio * ART.Cantidad;
+                    txt_Importe.Text = ART.Importe.ToString();
+                }
             }
+
+                        
 
         }
 
@@ -624,6 +629,10 @@ namespace PL.Pantallas.Extras
         {
             ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
             txt_Precio.Text = ART.Precio.ToString();
+
+            ART.Nombre = dtg_Articulos.CurrentRow.Cells[1].Value.ToString();
+            txt_Nom_Produc.Text = ART.Nombre;
+
         }
 
         private void CargarNoFactura()

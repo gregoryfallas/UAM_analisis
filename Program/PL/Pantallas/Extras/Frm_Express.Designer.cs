@@ -31,10 +31,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Factura = new System.Windows.Forms.TextBox();
@@ -45,12 +46,13 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.dtg_Express = new System.Windows.Forms.DataGridView();
+            this.txt_Estado = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Express)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -60,14 +62,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(984, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 660);
+            this.panel2.Size = new System.Drawing.Size(165, 589);
             this.panel2.TabIndex = 2;
             // 
             // btn_inicio
             // 
             this.btn_inicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
             this.btn_inicio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inicio.Location = new System.Drawing.Point(44, 577);
+            this.btn_inicio.Location = new System.Drawing.Point(31, 522);
             this.btn_inicio.Name = "btn_inicio";
             this.btn_inicio.Size = new System.Drawing.Size(92, 41);
             this.btn_inicio.TabIndex = 12;
@@ -82,21 +84,36 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.comboBox2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cmb_Estado);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dtg_Express);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 660);
+            this.panel1.Size = new System.Drawing.Size(984, 589);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Confirmar.Location = new System.Drawing.Point(830, 202);
+            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(48, 44);
+            this.btn_Confirmar.TabIndex = 72;
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(593, 211);
+            this.label2.Location = new System.Drawing.Point(531, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 23);
             this.label2.TabIndex = 70;
@@ -110,7 +127,7 @@
             "EN CURSO",
             "ENTREGADO",
             "BLOQUEADO"});
-            this.comboBox2.Location = new System.Drawing.Point(730, 215);
+            this.comboBox2.Location = new System.Drawing.Point(668, 215);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 71;
@@ -120,27 +137,30 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(162, 213);
+            this.label1.Location = new System.Drawing.Point(264, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
             this.label1.TabIndex = 62;
             this.label1.Text = "Estados de envío:";
             // 
-            // comboBox1
+            // cmb_Estado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_Estado.FormattingEnabled = true;
+            this.cmb_Estado.Items.AddRange(new object[] {
             "PENDIENTES",
             "EN CURSO",
             "ENTREGADO",
             "BLOQUEADO"});
-            this.comboBox1.Location = new System.Drawing.Point(285, 217);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 69;
+            this.cmb_Estado.Location = new System.Drawing.Point(387, 215);
+            this.cmb_Estado.Name = "cmb_Estado";
+            this.cmb_Estado.Size = new System.Drawing.Size(121, 21);
+            this.cmb_Estado.TabIndex = 69;
+            this.cmb_Estado.SelectedIndexChanged += new System.EventHandler(this.cmb_Estado_SelectedIndexChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txt_Estado);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.txt_Factura);
             this.groupBox1.Controls.Add(this.label4);
@@ -260,45 +280,60 @@
             this.txt_Fecha_Doc.TabIndex = 54;
             this.txt_Fecha_Doc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView1
+            // dtg_Express
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(166, 322);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(705, 296);
-            this.dataGridView1.TabIndex = 0;
+            this.dtg_Express.AllowUserToAddRows = false;
+            this.dtg_Express.AllowUserToDeleteRows = false;
+            this.dtg_Express.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtg_Express.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtg_Express.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Express.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtg_Express.Location = new System.Drawing.Point(285, 276);
+            this.dtg_Express.Name = "dtg_Express";
+            this.dtg_Express.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Express.Size = new System.Drawing.Size(432, 269);
+            this.dtg_Express.TabIndex = 0;
             // 
-            // btn_Confirmar
+            // txt_Estado
             // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(871, 202);
-            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(48, 44);
-            this.btn_Confirmar.TabIndex = 72;
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.txt_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Estado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Estado.ForeColor = System.Drawing.Color.White;
+            this.txt_Estado.Location = new System.Drawing.Point(46, 115);
+            this.txt_Estado.Name = "txt_Estado";
+            this.txt_Estado.ReadOnly = true;
+            this.txt_Estado.Size = new System.Drawing.Size(155, 26);
+            this.txt_Estado.TabIndex = 62;
+            this.txt_Estado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(42, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 23);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Estado";
             // 
             // Frm_Express
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 660);
+            this.ClientSize = new System.Drawing.Size(1149, 589);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "Frm_Express";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servicio Express";
+            this.Load += new System.EventHandler(this.Frm_Express_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Express)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,7 +343,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_inicio;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtg_Express;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.TextBox txt_Factura;
@@ -319,10 +354,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmb_Estado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_Cliente;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.Button btn_Confirmar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_Estado;
     }
 }

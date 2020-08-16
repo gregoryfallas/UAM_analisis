@@ -2,9 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\Program",
+    "\\Program\\DAL",
+    "\\Program\\DAL\\Properties",
     "\\Program\\PL",
     "\\Program\\PL\\Pantallas",
     "\\Program\\PL\\Pantallas\\Adicionales"
   ],
+  "SelectedNode": "\\Program\\DAL\\Properties\\Settings.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

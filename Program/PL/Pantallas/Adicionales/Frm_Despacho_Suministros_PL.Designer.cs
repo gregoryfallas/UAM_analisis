@@ -30,26 +30,21 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_estado = new System.Windows.Forms.Label();
-            this.textBox_estado = new System.Windows.Forms.TextBox();
             this.tb_id_articulo = new System.Windows.Forms.Label();
-            this.textB_id_articulo = new System.Windows.Forms.TextBox();
-            this.tb_cantidad = new System.Windows.Forms.TextBox();
+            this.txt_id_factura = new System.Windows.Forms.TextBox();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label_resumen = new System.Windows.Forms.Label();
-            this.label_escription = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.labl_venta_propio = new System.Windows.Forms.Label();
-            this.textBox_description = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox_formulariopedido = new System.Windows.Forms.TextBox();
+            this.txt_id_despacho = new System.Windows.Forms.TextBox();
             this.dataGridV_resumen = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.txt_fecha = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridV_resumen)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,24 +53,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.txt_fecha);
+            this.panel1.Controls.Add(this.cb_estado);
+            this.panel1.Controls.Add(this.txt_buscar);
             this.panel1.Controls.Add(this.label_estado);
-            this.panel1.Controls.Add(this.textBox_estado);
             this.panel1.Controls.Add(this.tb_id_articulo);
-            this.panel1.Controls.Add(this.textB_id_articulo);
-            this.panel1.Controls.Add(this.tb_cantidad);
+            this.panel1.Controls.Add(this.txt_id_factura);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Agregar);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label_resumen);
-            this.panel1.Controls.Add(this.label_escription);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.labl_venta_propio);
-            this.panel1.Controls.Add(this.textBox_description);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox_formulariopedido);
+            this.panel1.Controls.Add(this.txt_id_despacho);
             this.panel1.Controls.Add(this.dataGridV_resumen);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -88,47 +78,28 @@
             // label_estado
             // 
             this.label_estado.AutoSize = true;
-            this.label_estado.Location = new System.Drawing.Point(37, 318);
+            this.label_estado.Location = new System.Drawing.Point(31, 259);
             this.label_estado.Name = "label_estado";
             this.label_estado.Size = new System.Drawing.Size(60, 20);
             this.label_estado.TabIndex = 200;
             this.label_estado.Text = "Estado";
-            // 
-            // textBox_estado
-            // 
-            this.textBox_estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox_estado.Location = new System.Drawing.Point(41, 341);
-            this.textBox_estado.Name = "textBox_estado";
-            this.textBox_estado.Size = new System.Drawing.Size(120, 26);
-            this.textBox_estado.TabIndex = 199;
-            this.textBox_estado.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // tb_id_articulo
             // 
             this.tb_id_articulo.AutoSize = true;
             this.tb_id_articulo.Location = new System.Drawing.Point(31, 108);
             this.tb_id_articulo.Name = "tb_id_articulo";
-            this.tb_id_articulo.Size = new System.Drawing.Size(84, 20);
+            this.tb_id_articulo.Size = new System.Drawing.Size(89, 20);
             this.tb_id_articulo.TabIndex = 198;
-            this.tb_id_articulo.Text = "Id Articulo:";
+            this.tb_id_articulo.Text = "ID Factura:";
             // 
-            // textB_id_articulo
+            // txt_id_factura
             // 
-            this.textB_id_articulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textB_id_articulo.Location = new System.Drawing.Point(35, 134);
-            this.textB_id_articulo.Name = "textB_id_articulo";
-            this.textB_id_articulo.Size = new System.Drawing.Size(120, 26);
-            this.textB_id_articulo.TabIndex = 197;
-            this.textB_id_articulo.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // tb_cantidad
-            // 
-            this.tb_cantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_cantidad.Location = new System.Drawing.Point(40, 198);
-            this.tb_cantidad.Name = "tb_cantidad";
-            this.tb_cantidad.Size = new System.Drawing.Size(120, 26);
-            this.tb_cantidad.TabIndex = 196;
-            this.tb_cantidad.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txt_id_factura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_factura.Location = new System.Drawing.Point(35, 134);
+            this.txt_id_factura.Name = "txt_id_factura";
+            this.txt_id_factura.Size = new System.Drawing.Size(120, 26);
+            this.txt_id_factura.TabIndex = 197;
             // 
             // btn_Modificar
             // 
@@ -136,11 +107,12 @@
             this.btn_Modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Modificar.FlatAppearance.BorderSize = 0;
             this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Modificar.Location = new System.Drawing.Point(505, 433);
+            this.btn_Modificar.Location = new System.Drawing.Point(335, 433);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(60, 42);
             this.btn_Modificar.TabIndex = 195;
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Agregar
             // 
@@ -148,20 +120,12 @@
             this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Agregar.FlatAppearance.BorderSize = 0;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.Location = new System.Drawing.Point(407, 433);
+            this.btn_Agregar.Location = new System.Drawing.Point(241, 433);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(54, 42);
             this.btn_Agregar.TabIndex = 194;
             this.btn_Agregar.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(81, 438);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(260, 20);
-            this.label13.TabIndex = 193;
-            this.label13.Text = "Consumido / usado en la veterinaria";
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // button2
             // 
@@ -170,11 +134,12 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.button2.Location = new System.Drawing.Point(589, 433);
+            this.button2.Location = new System.Drawing.Point(627, 433);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(69, 42);
             this.button2.TabIndex = 191;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label_resumen
             // 
@@ -185,91 +150,45 @@
             this.label_resumen.TabIndex = 189;
             this.label_resumen.Text = "Resumen";
             // 
-            // label_escription
-            // 
-            this.label_escription.AutoSize = true;
-            this.label_escription.Location = new System.Drawing.Point(37, 247);
-            this.label_escription.Name = "label_escription";
-            this.label_escription.Size = new System.Drawing.Size(92, 20);
-            this.label_escription.TabIndex = 187;
-            this.label_escription.Text = "Descripción";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(37, 175);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 20);
+            this.label8.Size = new System.Drawing.Size(54, 20);
             this.label8.TabIndex = 186;
-            this.label8.Text = "Cantidad:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(35, 436);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 24);
-            this.radioButton2.TabIndex = 185;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(34, 413);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(41, 24);
-            this.radioButton1.TabIndex = 184;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Si";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // labl_venta_propio
-            // 
-            this.labl_venta_propio.AutoSize = true;
-            this.labl_venta_propio.Location = new System.Drawing.Point(31, 390);
-            this.labl_venta_propio.Name = "labl_venta_propio";
-            this.labl_venta_propio.Size = new System.Drawing.Size(142, 20);
-            this.labl_venta_propio.TabIndex = 183;
-            this.labl_venta_propio.Text = "Vendido al público:";
-            // 
-            // textBox_description
-            // 
-            this.textBox_description.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox_description.Location = new System.Drawing.Point(41, 270);
-            this.textBox_description.Name = "textBox_description";
-            this.textBox_description.Size = new System.Drawing.Size(120, 26);
-            this.textBox_description.TabIndex = 182;
-            this.textBox_description.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.label8.Text = "Fecha";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(31, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 20);
+            this.label6.Size = new System.Drawing.Size(107, 20);
             this.label6.TabIndex = 181;
-            this.label6.Text = "Formulario de pedido:";
+            this.label6.Text = "ID Despacho:";
             // 
-            // textBox_formulariopedido
+            // txt_id_despacho
             // 
-            this.textBox_formulariopedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox_formulariopedido.Location = new System.Drawing.Point(35, 59);
-            this.textBox_formulariopedido.Name = "textBox_formulariopedido";
-            this.textBox_formulariopedido.Size = new System.Drawing.Size(120, 26);
-            this.textBox_formulariopedido.TabIndex = 180;
-            this.textBox_formulariopedido.TextChanged += new System.EventHandler(this.textBox_orm_pedido);
+            this.txt_id_despacho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_despacho.Location = new System.Drawing.Point(35, 59);
+            this.txt_id_despacho.Name = "txt_id_despacho";
+            this.txt_id_despacho.ReadOnly = true;
+            this.txt_id_despacho.Size = new System.Drawing.Size(120, 26);
+            this.txt_id_despacho.TabIndex = 180;
             // 
             // dataGridV_resumen
             // 
+            this.dataGridV_resumen.AllowUserToAddRows = false;
             this.dataGridV_resumen.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dataGridV_resumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridV_resumen.Location = new System.Drawing.Point(228, 65);
             this.dataGridV_resumen.Name = "dataGridV_resumen";
+            this.dataGridV_resumen.ReadOnly = true;
+            this.dataGridV_resumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridV_resumen.Size = new System.Drawing.Size(468, 351);
             this.dataGridV_resumen.TabIndex = 179;
+            this.dataGridV_resumen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridV_resumen_CellClick);
             // 
             // panel2
             // 
@@ -292,6 +211,30 @@
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
             // 
+            // txt_buscar
+            // 
+            this.txt_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_buscar.Location = new System.Drawing.Point(501, 441);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(120, 26);
+            this.txt_buscar.TabIndex = 203;
+            // 
+            // cb_estado
+            // 
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Location = new System.Drawing.Point(35, 295);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(121, 28);
+            this.cb_estado.TabIndex = 204;
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_fecha.Location = new System.Drawing.Point(36, 218);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(120, 26);
+            this.txt_fecha.TabIndex = 205;
+            // 
             // Frm_Despacho_Suministros_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +246,7 @@
             this.Name = "Frm_Despacho_Suministros_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho Suministros";
+            this.Load += new System.EventHandler(this.Frm_Despacho_Suministros_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridV_resumen)).EndInit();
@@ -315,25 +259,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label_resumen;
-        private System.Windows.Forms.Label label_escription;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label labl_venta_propio;
-        private System.Windows.Forms.TextBox textBox_description;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox_formulariopedido;
+        private System.Windows.Forms.TextBox txt_id_despacho;
         private System.Windows.Forms.DataGridView dataGridV_resumen;
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Modificar;
-        private System.Windows.Forms.TextBox tb_cantidad;
         private System.Windows.Forms.Label tb_id_articulo;
-        private System.Windows.Forms.TextBox textB_id_articulo;
+        private System.Windows.Forms.TextBox txt_id_factura;
         private System.Windows.Forms.Label label_estado;
-        private System.Windows.Forms.TextBox textBox_estado;
+        private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.ComboBox cb_estado;
+        private System.Windows.Forms.TextBox txt_fecha;
     }
 }

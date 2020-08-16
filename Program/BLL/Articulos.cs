@@ -19,12 +19,8 @@ namespace BLL
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_Articulos @Nombre";
-                SqlParameter paramC = new SqlParameter();
-                paramC.Value = Nombre;
-                paramC.ParameterName = "@Nombre";
-                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
-                sentencia.lstParametros.Add(paramC);
+                sentencia.Peticion = "";
+
                 DA acceso = new DA();
                 return acceso.ConsultarArticulos(sentencia);
 
@@ -42,10 +38,10 @@ namespace BLL
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIO '" + Nombre+ "'";
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_INVENTARIO";
 
                 DA acceso = new DA();
-                return acceso.consultarInventarioConArticulos(sentencia);
+                return acceso.consultarInventarioConArticulos(sentencia).Copy();
 
 
             }

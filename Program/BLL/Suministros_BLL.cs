@@ -57,31 +57,7 @@ namespace BLL
             try
             {
                 SQLSentencia pet = new SQLSentencia();
-                pet.Peticion = @"EXEC SP_CREAR_ingreso_suministro @idProveedor, @idCompra, @cantidad, @descripcion";
-
-                SqlParameter param2 = new SqlParameter();
-                param2.ParameterName = "@idProveedor";
-                param2.SqlDbType = System.Data.SqlDbType.Int;
-                param2.Value = soliarticulos.ID_Articulo_Proveedor;
-                SqlParameter param3 = new SqlParameter();
-                param2.ParameterName = "@idCompra";
-                param2.SqlDbType = System.Data.SqlDbType.Int;
-                param2.Value = soliarticulos.ID_Solicitud_Compra;
-
-                SqlParameter param4 = new SqlParameter();
-                param2.ParameterName = "@cantidad";
-                param2.SqlDbType = System.Data.SqlDbType.Decimal;
-                param2.Value = soliarticulos.Cantidad;
-
-                SqlParameter param5 = new SqlParameter();
-                param2.ParameterName = "@idProveedor";
-                param2.SqlDbType = System.Data.SqlDbType.VarChar;
-                param2.Value = soliarticulos.Descripcion;
-
-                pet.lstParametros.Add(param2);
-                pet.lstParametros.Add(param3);
-                pet.lstParametros.Add(param4);
-                pet.lstParametros.Add(param5);
+                pet.Peticion = @"EXEC SP_INGRESO_SUMINISTROS " + soliarticulos.ID_Articulo_Proveedor +", " + soliarticulos.ID_Solicitud_Compra + ", '" + soliarticulos.Descripcion + "', " + soliarticulos.Cantidad;
 
                 DA acceso = new DA();
                 return acceso.ejecutarSentecia(pet);
@@ -92,7 +68,23 @@ namespace BLL
             }
         }
 
-        public static List<SOLICITUD_ARTICULOS> consulta_suministros()
+        public static bool modificarSuministros(SOLICITUD_ARTICULOS soliarticulos)
+        {
+            try
+            {
+                SQLSentencia pet = new SQLSentencia();
+                pet.Peticion = @"EXEC sp_actualizar_articulo " + soliarticulos.ID_Solicitud_Articulos + ", " + soliarticulos.ID_Articulo_Proveedor + ", " + soliarticulos.ID_Solicitud_Compra + ", '" + soliarticulos.Descripcion + "', " + soliarticulos.Cantidad;
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(pet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static DataTable consulta_suministros()
         {
             try
             {
@@ -100,7 +92,41 @@ namespace BLL
                 sentencia.Peticion = @"EXEC sp_consultar_articulos";
 
                 DA acceso = new DA();
-                return acceso.CREAR_ingreso_suministros(sentencia);
+                return acceso.CREAR_ingreso_suministros(sentencia).Copy();
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
+
+        public static DataTable consulta_suministros_id(int id)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_consultar_articulos_id " + id;
+
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_suministros(sentencia).Copy();
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
+
+        public static DataTable consulta_proveedores_suministros()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_consultar_articulo_proveedor";
+
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_suministros_proveedor(sentencia).Copy();
             }
             catch (Exception e)
 
@@ -119,6 +145,105 @@ namespace BLL
             catch
             {
 
+            }
+        }
+
+        //articulos 
+        public static DataTable ConsultarEstados()
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = "EXEC sp_consultar_estados";
+
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_estados(sentencia).Copy();
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static DataTable ConsultarDespacho()
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = "EXEC sp_consultar_despacho";
+
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_articulos(sentencia).Copy();
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static DataTable consulta_despacho_id(int id)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_consultar_despacho_id " + id;
+
+                DA acceso = new DA();
+                return acceso.CREAR_ingreso_articulos(sentencia).Copy();
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+        }
+
+        public static bool agregarDespacho(DESPACHO despacho)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = "EXEC sp_agregar_despacho " + despacho.ID_Factura + ", @fecha , " + despacho.Estado;
+                SqlParameter param1 = new SqlParameter();
+                param1.Value = despacho.Fecha;
+                param1.ParameterName = "@fecha";
+                param1.SqlDbType = System.Data.SqlDbType.Date;
+                sentencia.lstParametros.Add(param1);
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool modificardespacho(DESPACHO despacho)
+        {
+            try
+            {
+                SQLSentencia pet = new SQLSentencia();
+                pet.Peticion = @"EXEC sp_actualizar_despacho " + despacho.ID_Despacho + ", " + despacho.ID_Factura + ", @fecha , " + despacho.Estado;
+                SqlParameter param1 = new SqlParameter();
+                param1.Value = despacho.Fecha;
+                param1.ParameterName = "@fecha";
+                param1.SqlDbType = System.Data.SqlDbType.Date;
+                pet.lstParametros.Add(param1);
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(pet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

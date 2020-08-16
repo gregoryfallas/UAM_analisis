@@ -572,47 +572,47 @@ namespace DAL
             return dt;
         }
 
-        public List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(SQLSentencia peticion)
-        {
-            List<SOLICITUD_ARTICULOS> lstresultados = new List<SOLICITUD_ARTICULOS>();
-            DataTable dt = new DataTable();
+        //public List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(SQLSentencia peticion)
+        //{
+        //    List<SOLICITUD_ARTICULOS> lstresultados = new List<SOLICITUD_ARTICULOS>();
+        //    DataTable dt = new DataTable();
 
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = objconexion;
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = peticion.Peticion;
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = objconexion;
+        //        cmd.CommandType = System.Data.CommandType.Text;
+        //        cmd.CommandText = peticion.Peticion;
 
-                if (peticion.lstParametros.Count > 0)
-                {
-                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        if (peticion.lstParametros.Count > 0)
+        //        {
+        //            cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                    da.Fill(dt);
-                }
-                foreach (DataRow item in dt.Rows)
-                {
-                    SOLICITUD_ARTICULOS tipo = new SOLICITUD_ARTICULOS();
+        //            da.Fill(dt);
+        //        }
+        //        foreach (DataRow item in dt.Rows)
+        //        {
+        //            SOLICITUD_ARTICULOS tipo = new SOLICITUD_ARTICULOS();
 
-                    tipo.ID_Articulo_Proveedor = Convert.ToInt32(item.ItemArray[0].ToString());
-                    tipo.ID_Solicitud_Compra = Convert.ToInt32(item.ItemArray[1].ToString());
-                    tipo.Descripcion = item.ItemArray[2].ToString();
-                    tipo.Cantidad = Convert.ToDecimal(item.ItemArray[3].ToString());
+        //            tipo.ID_Articulo_Proveedor = Convert.ToInt32(item.ItemArray[0].ToString());
+        //            tipo.ID_Solicitud_Compra = Convert.ToInt32(item.ItemArray[1].ToString());
+        //            tipo.Descripcion = item.ItemArray[2].ToString();
+        //            tipo.Cantidad = Convert.ToDecimal(item.ItemArray[3].ToString());
 
-                    lstresultados.Add(tipo);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                this.CERRAR();
-            }
-            return lstresultados;
-            }
+        //            lstresultados.Add(tipo);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+        //    return lstresultados;
+        //    }
     }
     #endregion
 }

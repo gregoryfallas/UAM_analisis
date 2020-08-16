@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tb_idproveedor = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tb_idarticulo = new System.Windows.Forms.TextBox();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Crear = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,6 +44,12 @@
             this.dataGrid_ingresosumi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ingresosumi)).BeginInit();
             this.panel2.SuspendLayout();
@@ -54,10 +58,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.tb_idproveedor);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.tb_idarticulo);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Crear);
             this.panel1.Controls.Add(this.button2);
@@ -72,23 +80,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(726, 477);
+            this.panel1.Size = new System.Drawing.Size(827, 477);
             this.panel1.TabIndex = 0;
-            // 
-            // tb_idproveedor
-            // 
-            this.tb_idproveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_idproveedor.Location = new System.Drawing.Point(229, 131);
-            this.tb_idproveedor.Name = "tb_idproveedor";
-            this.tb_idproveedor.Size = new System.Drawing.Size(120, 20);
-            this.tb_idproveedor.TabIndex = 176;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 107);
+            this.label1.Location = new System.Drawing.Point(32, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 175;
@@ -99,19 +99,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(232, 106);
+            this.label2.Location = new System.Drawing.Point(232, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 18);
             this.label2.TabIndex = 174;
             this.label2.Text = "Id Proveedor:";
-            // 
-            // tb_idarticulo
-            // 
-            this.tb_idarticulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_idarticulo.Location = new System.Drawing.Point(29, 131);
-            this.tb_idarticulo.Name = "tb_idarticulo";
-            this.tb_idarticulo.Size = new System.Drawing.Size(135, 20);
-            this.tb_idarticulo.TabIndex = 173;
             // 
             // btn_Modificar
             // 
@@ -120,7 +112,7 @@
             this.btn_Modificar.FlatAppearance.BorderSize = 0;
             this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Modificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Modificar.Location = new System.Drawing.Point(551, 120);
+            this.btn_Modificar.Location = new System.Drawing.Point(710, 272);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(60, 39);
             this.btn_Modificar.TabIndex = 170;
@@ -134,7 +126,7 @@
             this.btn_Crear.FlatAppearance.BorderSize = 0;
             this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Crear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Crear.Location = new System.Drawing.Point(471, 120);
+            this.btn_Crear.Location = new System.Drawing.Point(713, 201);
             this.btn_Crear.Name = "btn_Crear";
             this.btn_Crear.Size = new System.Drawing.Size(50, 40);
             this.btn_Crear.TabIndex = 169;
@@ -148,7 +140,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.button2.Location = new System.Drawing.Point(381, 120);
+            this.button2.Location = new System.Drawing.Point(713, 403);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(57, 40);
             this.button2.TabIndex = 167;
@@ -168,7 +160,7 @@
             // tb_cant
             // 
             this.tb_cant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_cant.Location = new System.Drawing.Point(416, 45);
+            this.tb_cant.Location = new System.Drawing.Point(222, 51);
             this.tb_cant.Name = "tb_cant";
             this.tb_cant.Size = new System.Drawing.Size(120, 20);
             this.tb_cant.TabIndex = 164;
@@ -178,18 +170,18 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(226, 21);
+            this.label9.Location = new System.Drawing.Point(395, 27);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 18);
+            this.label9.Size = new System.Drawing.Size(91, 18);
             this.label9.TabIndex = 163;
-            this.label9.Text = "Descripción";
+            this.label9.Text = "Encabezado";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(424, 21);
+            this.label8.Location = new System.Drawing.Point(230, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 18);
             this.label8.TabIndex = 162;
@@ -198,9 +190,9 @@
             // tb_descrip
             // 
             this.tb_descrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_descrip.Location = new System.Drawing.Point(223, 45);
+            this.tb_descrip.Location = new System.Drawing.Point(392, 51);
             this.tb_descrip.Name = "tb_descrip";
-            this.tb_descrip.Size = new System.Drawing.Size(120, 20);
+            this.tb_descrip.Size = new System.Drawing.Size(342, 20);
             this.tb_descrip.TabIndex = 158;
             // 
             // label6
@@ -208,16 +200,17 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(26, 22);
+            this.label6.Location = new System.Drawing.Point(691, 343);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 18);
+            this.label6.Size = new System.Drawing.Size(95, 18);
             this.label6.TabIndex = 157;
-            this.label6.Text = "Id Formulario Pedido:";
+            this.label6.Text = "Id Formulario";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // tb_idformulario
             // 
             this.tb_idformulario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_idformulario.Location = new System.Drawing.Point(29, 46);
+            this.tb_idformulario.Location = new System.Drawing.Point(675, 364);
             this.tb_idformulario.Name = "tb_idformulario";
             this.tb_idformulario.Size = new System.Drawing.Size(135, 20);
             this.tb_idformulario.TabIndex = 156;
@@ -236,15 +229,15 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel2.Controls.Add(this.btn_Inicio);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(719, 0);
+            this.panel2.Location = new System.Drawing.Point(825, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 477);
+            this.panel2.Size = new System.Drawing.Size(154, 477);
             this.panel2.TabIndex = 1;
             // 
             // btn_Inicio
             // 
             this.btn_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Inicio.Location = new System.Drawing.Point(25, 421);
+            this.btn_Inicio.Location = new System.Drawing.Point(22, 421);
             this.btn_Inicio.Name = "btn_Inicio";
             this.btn_Inicio.Size = new System.Drawing.Size(117, 35);
             this.btn_Inicio.TabIndex = 45;
@@ -252,11 +245,65 @@
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(33, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(149, 18);
+            this.label3.TabIndex = 178;
+            this.label3.Text = "Id Formulario Pedido:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox1.Location = new System.Drawing.Point(36, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(135, 20);
+            this.textBox1.TabIndex = 177;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(36, 138);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 179;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(222, 138);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 180;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(395, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 18);
+            this.label4.TabIndex = 182;
+            this.label4.Text = "Descripción";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox2.Location = new System.Drawing.Point(392, 139);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(342, 20);
+            this.textBox2.TabIndex = 181;
+            // 
             // Frm_Ingreso_Suministros_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 477);
+            this.ClientSize = new System.Drawing.Size(979, 477);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -287,9 +334,13 @@
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button btn_Crear;
         private System.Windows.Forms.Button btn_Modificar;
-        private System.Windows.Forms.TextBox tb_idproveedor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_idarticulo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

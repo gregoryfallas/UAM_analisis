@@ -284,6 +284,7 @@
             this.dataGrid_ingresosumi.Size = new System.Drawing.Size(626, 224);
             this.dataGrid_ingresosumi.TabIndex = 155;
             this.dataGrid_ingresosumi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_ingresosumi_CellClick);
+            this.dataGrid_ingresosumi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_ingresosumi_CellContentClick);
             // 
             // panel2
             // 

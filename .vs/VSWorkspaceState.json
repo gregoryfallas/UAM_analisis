@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\Program",
+    "\\Program\\BLL",
+    "\\Program\\DAL",
     "\\Program\\PL",
     "\\Program\\PL\\Pantallas",
     "\\Program\\PL\\Pantallas\\Adicionales"
   ],
-  "SelectedNode": "\\Program\\PL\\Pantallas\\Adicionales\\Frm_Facturacion_PL.resx",
   "PreviewInSolutionExplorer": false
 }

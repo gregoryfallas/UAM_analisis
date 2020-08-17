@@ -16,7 +16,7 @@ namespace DAL
 
         #region Atributos 
         private string cadenaconexion = Properties.Settings.Default.Conexion;
-        private SqlConnection objconexion;
+        private SqlConnection SQLSentencia;
 
         public int iPrueba { get => _iPrueba; set => _iPrueba = value; }
         #endregion
@@ -27,7 +27,7 @@ namespace DAL
         {
             try
             {
-                objconexion = new SqlConnection(cadenaconexion);
+                SQLSentencia = new SqlConnection(cadenaconexion);
                 this.ABRIR();
             }
             catch (Exception ex)
@@ -46,14 +46,14 @@ namespace DAL
 
         private void ABRIR()
         {
-            if (objconexion.State == System.Data.ConnectionState.Closed)
-                objconexion.Open();
+            if (SQLSentencia.State == System.Data.ConnectionState.Closed)
+                SQLSentencia.Open();
         }
 
         private void CERRAR()
         {
-            if (objconexion.State == System.Data.ConnectionState.Open)
-                objconexion.Close();
+            if (SQLSentencia.State == System.Data.ConnectionState.Open)
+                SQLSentencia.Close();
         }
         #endregion
 
@@ -70,7 +70,7 @@ namespace DAL
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.Connection = objconexion;
+                cmd.Connection = SQLSentencia;
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
@@ -108,7 +108,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -162,7 +162,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -214,7 +214,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -277,7 +277,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -326,7 +326,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -375,7 +375,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -425,7 +425,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -472,8 +472,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -490,7 +490,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
 
@@ -505,8 +505,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -523,7 +523,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
 
@@ -536,7 +536,7 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand();
 
                 //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
+                cmd.Connection = SQLSentencia; //ASigna conexion
                 cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
                 cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
@@ -583,12 +583,12 @@ namespace DAL
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.Connection = objconexion;
+                cmd.Connection = SQLSentencia;
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, SQLSentencia);
 
 
                 da.Fill(dt);
@@ -615,13 +615,13 @@ namespace DAL
             try
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.Connection = objconexion;
+                cmd.Connection = SQLSentencia;
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
                 {  //elena
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, SQLSentencia);
 
                     da.Fill(dt);
                 } //elena
@@ -649,8 +649,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -667,7 +667,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
 
@@ -680,8 +680,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -698,7 +698,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
     }

@@ -59,8 +59,7 @@ namespace PL.Pantallas.Adicionales
 
         private void Form_Creacion_Usuarios_Load(object sender, EventArgs e)
         {
-            cbopersonal.Items.Clear();
-           
+          
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,6 +120,8 @@ namespace PL.Pantallas.Adicionales
 
         private void cbopersonal_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+           
 
         }
     }

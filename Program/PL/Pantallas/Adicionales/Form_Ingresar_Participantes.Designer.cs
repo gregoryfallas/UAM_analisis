@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnseleccionar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboreclutamiento = new System.Windows.Forms.ComboBox();
@@ -56,10 +55,8 @@
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.dgvparticipantes = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnagregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -70,13 +67,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.btnseleccionar);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.dgvparticipantes);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.btnagregar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,23 +78,13 @@
             this.panel1.Size = new System.Drawing.Size(897, 554);
             this.panel1.TabIndex = 1;
             // 
-            // btnseleccionar
-            // 
-            this.btnseleccionar.Location = new System.Drawing.Point(493, 331);
-            this.btnseleccionar.Name = "btnseleccionar";
-            this.btnseleccionar.Size = new System.Drawing.Size(115, 42);
-            this.btnseleccionar.TabIndex = 75;
-            this.btnseleccionar.Text = "Seleccionar";
-            this.btnseleccionar.UseVisualStyleBackColor = true;
-            this.btnseleccionar.Click += new System.EventHandler(this.btnseleccionar_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(693, 26);
+            this.button1.Location = new System.Drawing.Point(449, 31);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 30);
+            this.button1.Size = new System.Drawing.Size(124, 30);
             this.button1.TabIndex = 70;
-            this.button1.Text = "Filtrar";
+            this.button1.Text = "Mostrar Postulantes";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -401,17 +385,6 @@
             this.label16.TabIndex = 61;
             this.label16.Text = "Puestos:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(445, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 23);
-            this.label8.TabIndex = 68;
-            this.label8.Text = "Cédula:";
-            // 
             // btnmodificar
             // 
             this.btnmodificar.BackgroundImage = global::PL.Properties.Resources.editar;
@@ -436,17 +409,8 @@
             this.dgvparticipantes.ReadOnly = true;
             this.dgvparticipantes.Size = new System.Drawing.Size(389, 208);
             this.dgvparticipantes.TabIndex = 67;
-            this.dgvparticipantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellClick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(520, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 69;
+          //  this.dgvparticipantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellClick);
+            this.dgvparticipantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellContentClick);
             // 
             // btnagregar
             // 
@@ -483,7 +447,6 @@
             this.Name = "Form_Ingresar_Participantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvparticipantes)).EndInit();
@@ -523,9 +486,6 @@
         private System.Windows.Forms.ComboBox Distritocbo;
         private System.Windows.Forms.ComboBox Cantoncbo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvparticipantes;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnseleccionar;
     }
 }

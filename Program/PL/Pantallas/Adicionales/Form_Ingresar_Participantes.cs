@@ -30,22 +30,6 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
-        //variables para el DataGrid
-        public static string ID_Participantes;
-        public static string ID_Reclutamiento;
-        public static string Cedula_;
-        public static string Nombre;
-        public static string Apellido_1;
-        public static string Apellido_2;
-        public static string Correo;
-        public static string Telefono;
-        public static string ID_Provincia;
-        public static string ID_Canton;
-        public static string ID_Distrito;
-        public static string Direccion;
-        public static string Estado;
-
-
         public Form_Ingresar_Participantes()
         {
             lstresultado = new List<PARTICIPANTES>();
@@ -55,6 +39,23 @@ namespace PL.Pantallas.Adicionales
             CargarCombosProvincias();
             CargarCombosCantones();
             CargarCombosDistritos();
+        }
+
+        private void limpiar()
+        {
+            cboreclutamiento.SelectedIndex = 0;
+            txtcedula.Text = string.Empty;
+            txtnombre.Text = string.Empty;
+            txtapellido1.Text = string.Empty;
+            txtapellido2.Text = string.Empty;
+            txtcorreo.Text = string.Empty;
+            txttelefono.Text = string.Empty;
+            Provinciacbo.SelectedIndex = 0;
+            Cantoncbo.SelectedIndex = 0;
+            Distritocbo.SelectedIndex = 0;
+            txtdireccion.Text = string.Empty;
+            cboestado.SelectedIndex = 0;
+
         }
 
         private void CargarCombosEstados()
@@ -138,7 +139,9 @@ namespace PL.Pantallas.Adicionales
 
                 R_Humanos.AgregarPostulantes(p);
                 MessageBox.Show("Postulante agregado");
+                limpiar();
 
+                cboreclutamiento.Focus();
 
             }
             catch (Exception ex)
@@ -206,7 +209,9 @@ namespace PL.Pantallas.Adicionales
 
                 R_Humanos.ModificarPostulantes(p);
                 MessageBox.Show("Postulante Modificado");
+                limpiar();
 
+                cboreclutamiento.Focus();
 
             }
             catch (Exception ex)
@@ -231,43 +236,26 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
-        private void dgvparticipantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvparticipantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            ID_Participantes = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Participantes"].Value.ToString();
-            ID_Reclutamiento = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Reclutamiento"].Value.ToString();
-            Cedula_ = dgvparticipantes.Rows[e.RowIndex].Cells["Cedula_"].Value.ToString();
-            Nombre = dgvparticipantes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-            Apellido_1 = dgvparticipantes.Rows[e.RowIndex].Cells["Apellido_1"].Value.ToString();
-            Apellido_2 = dgvparticipantes.Rows[e.RowIndex].Cells["Apellido_2"].Value.ToString();
-            Correo = dgvparticipantes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-            Telefono = dgvparticipantes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
-            ID_Provincia = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Provincia"].Value.ToString();
-            ID_Canton = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Canton"].Value.ToString();
-            ID_Distrito = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Distrito"].Value.ToString();
-            Direccion = dgvparticipantes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
-            Estado = dgvparticipantes.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
-        }
-
-        private void btnseleccionar_Click(object sender, EventArgs e)
-        {
-            if (ID_Reclutamiento == "")
-                MessageBox.Show("Seleccione una fila a editar", "Atecion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
+            try
             {
-                cboreclutamiento.Text = ID_Participantes;
-                cboreclutamiento.Text = ID_Reclutamiento;
-                txtcedula.Text = Cedula_;
-                txtnombre.Text = Nombre;
-                txtapellido1.Text = Apellido_1;
-                txtapellido2.Text = Apellido_2;
-                txtcorreo.Text = Correo;
-                txttelefono.Text = Telefono;
-                Provinciacbo.Text = ID_Provincia;
-                Cantoncbo.Text = ID_Canton;
-                Distritocbo.Text = ID_Distrito;
-                txtdireccion.Text = Direccion;
-                cboestado.Text = Estado;
+
+            cboreclutamiento.Text = dgvparticipantes.CurrentRow.Cells[0].Value.ToString();
+            cboreclutamiento.Text = dgvparticipantes.CurrentRow.Cells[1].Value.ToString();
+            txtcedula.Text = dgvparticipantes.CurrentRow.Cells[2].Value.ToString();
+            txtnombre.Text = dgvparticipantes.CurrentRow.Cells[3].Value.ToString();
+            txtapellido1.Text = dgvparticipantes.CurrentRow.Cells[4].Value.ToString();
+            txtapellido2.Text = dgvparticipantes.CurrentRow.Cells[5].Value.ToString();
+            txtcorreo.Text = dgvparticipantes.CurrentRow.Cells[6].Value.ToString();
+            txttelefono.Text = dgvparticipantes.CurrentRow.Cells[7].Value.ToString();
+            Provinciacbo.Text = dgvparticipantes.CurrentRow.Cells[8].Value.ToString();
+            Cantoncbo.Text = dgvparticipantes.CurrentRow.Cells[9].Value.ToString();
+            Distritocbo.Text = dgvparticipantes.CurrentRow.Cells[10].Value.ToString();
+            txtdireccion.Text = dgvparticipantes.CurrentRow.Cells[11].Value.ToString();
+            cboestado.Text = dgvparticipantes.CurrentRow.Cells[12].Value.ToString();
             }
+            catch { }
         }
     }
 }

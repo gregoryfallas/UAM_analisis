@@ -46,3 +46,7 @@ C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL
 C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.dll
 C:\Users\fer1o\Source\Repos\gregoryfallas\UAM_analisis\Program\DAL\obj\Debug\DAL.pdb
+C:\Users\Usuario\Source\UAM_analisis2\Program\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Usuario\Source\UAM_analisis2\Program\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\UAM_analisis2\Program\DAL\obj\Debug\DAL.dll
+C:\Users\Usuario\Source\UAM_analisis2\Program\DAL\obj\Debug\DAL.pdb

@@ -17,6 +17,7 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Ingreso_Suministros_PL : Form
     {
+        DataTable dtproveedor = new DataTable();
         private int ID_Articulo_Proveedor = 0;
         private int ID_Solicitud_Compra = 0;
         private int Cantidad = 0;
@@ -43,54 +44,83 @@ namespace PL.Pantallas.Adicionales
         private void btn_Crear_Click(object sender, EventArgs e)
         {
             SOLICITUD_ARTICULOS lstresultados = new SOLICITUD_ARTICULOS();
-            lstresultados.ID_Articulo_Proveedor = ID_Articulo_Proveedor;
-            lstresultados.ID_Solicitud_Compra = ID_Solicitud_Compra;
-            lstresultados.Descripcion = Descripcion;
-            lstresultados.Cantidad = Cantidad;
+            lstresultados.ID_Articulo_Proveedor = Convert.ToInt32(dtproveedor.Rows[cb_proveedor.SelectedIndex].ItemArray[0].ToString());
+            lstresultados.ID_Solicitud_Compra = Convert.ToInt32(txt_id_compra.Text);
+            lstresultados.Descripcion = txt_descripcion.Text.ToString();
+            lstresultados.Cantidad = Convert.ToDecimal(txt_cantidad.Text);
 
             Suministros_BLL.agregarSuministros(lstresultados);
 
             MessageBox.Show("Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            cargarGridingreso_Suministros();
         }
 
-        //private void cargarGridingreso_Suministros()
-        //{
-        //    try
-        //    {
-        //        List<SOLICITUD_ARTICULOS> listingreso_suministros = Suministros_BLL.consulta_ingreso_suministros(ID_Solicitud_Compra);
+        private void cargarGridingreso_Suministros()
+        {
+            try
+            {
+                this.dataGrid_ingresosumi.DataSource = null;
+                this.dataGrid_ingresosumi.DataSource = Suministros_BLL.consulta_suministros().Copy();
 
-        //        DataTable dt = new DataTable();
+                dtproveedor = Suministros_BLL.consulta_proveedores_suministros().Copy();
 
-        //        dt.Columns.Add("ID Articulo");
-        //        dt.Columns.Add("ID Articulo Proveedor");
-        //        dt.Columns.Add("ID Solicitud");
-        //        dt.Columns.Add("Descripión");
-        //        dt.Columns.Add("Cantidad");
+                foreach (DataRow i in dtproveedor.Rows)
+                {
+                    cb_proveedor.Items.Add(i.ItemArray[1].ToString());
+                }
 
-        //        foreach (SOLICITUD_ARTICULOS item in listingreso_suministros)
-        //        {
-        //            dt.Rows.Add
-        //                (
-        //                item.ID_Articulo_Proveedor,
-        //                item.ID_Solicitud_Articulos,
-        //                item.Descripcion,
-        //                item.Cantidad
-        //               );
-        //        }
-        //        this.dataGrid_ingresosumi.DataSource = null;
-        //        this.dataGrid_ingresosumi.Refresh();
-        //        this.dataGrid_ingresosumi.DataSource = dt;
-        //        this.dataGrid_ingresosumi.Refresh();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+                cb_proveedor.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-        //private void label6_Click(object sender, EventArgs e)
-        //{
+        private void dataGrid_ingresosumi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id_articulo.Text = dataGrid_ingresosumi.CurrentRow.Cells[0].Value.ToString();
+            txt_descripcion.Text = dataGrid_ingresosumi.CurrentRow.Cells[3].Value.ToString();
+            txt_cantidad.Text = dataGrid_ingresosumi.CurrentRow.Cells[4].Value.ToString();
+        }
 
-        //}
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+            SOLICITUD_ARTICULOS lstresultados = new SOLICITUD_ARTICULOS();
+
+            lstresultados.ID_Solicitud_Articulos = Convert.ToInt32(txt_id_articulo.Text);
+            lstresultados.ID_Articulo_Proveedor = Convert.ToInt32(dtproveedor.Rows[cb_proveedor.SelectedIndex].ItemArray[0].ToString());
+            lstresultados.ID_Solicitud_Compra = Convert.ToInt32(txt_id_compra.Text);
+            lstresultados.Descripcion = txt_descripcion.Text.ToString();
+            lstresultados.Cantidad = Convert.ToDecimal(txt_cantidad.Text);
+
+            Suministros_BLL.modificarSuministros(lstresultados);
+
+            MessageBox.Show("Modificado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            cargarGridingreso_Suministros();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tb_idformulario.Text != "")
+                {
+                    this.dataGrid_ingresosumi.DataSource = null;
+                    this.dataGrid_ingresosumi.DataSource = Suministros_BLL.consulta_suministros_id(Convert.ToInt32(tb_idformulario.Text)).Copy();
+                }
+                else
+                {
+                    this.dataGrid_ingresosumi.DataSource = null;
+                    this.dataGrid_ingresosumi.DataSource = Suministros_BLL.consulta_suministros().Copy();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

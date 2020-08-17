@@ -29,13 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_id_articulo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_descripcion = new System.Windows.Forms.TextBox();
+            this.cb_proveedor = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_id_compra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Crear = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.tb_cant = new System.Windows.Forms.TextBox();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tb_descrip = new System.Windows.Forms.TextBox();
@@ -44,12 +50,6 @@
             this.dataGrid_ingresosumi = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_ingresosumi)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,19 +58,19 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.txt_id_articulo);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.txt_descripcion);
+            this.panel1.Controls.Add(this.cb_proveedor);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_id_compra);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Crear);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.tb_cant);
+            this.panel1.Controls.Add(this.txt_cantidad);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.tb_descrip);
@@ -82,6 +82,63 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(827, 477);
             this.panel1.TabIndex = 0;
+            // 
+            // txt_id_articulo
+            // 
+            this.txt_id_articulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_articulo.Location = new System.Drawing.Point(35, 139);
+            this.txt_id_articulo.Name = "txt_id_articulo";
+            this.txt_id_articulo.ReadOnly = true;
+            this.txt_id_articulo.Size = new System.Drawing.Size(120, 20);
+            this.txt_id_articulo.TabIndex = 183;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(395, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 18);
+            this.label4.TabIndex = 182;
+            this.label4.Text = "Descripción";
+            // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_descripcion.Location = new System.Drawing.Point(392, 139);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(342, 20);
+            this.txt_descripcion.TabIndex = 181;
+            // 
+            // cb_proveedor
+            // 
+            this.cb_proveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_proveedor.FormattingEnabled = true;
+            this.cb_proveedor.Location = new System.Drawing.Point(222, 138);
+            this.cb_proveedor.Name = "cb_proveedor";
+            this.cb_proveedor.Size = new System.Drawing.Size(121, 21);
+            this.cb_proveedor.TabIndex = 180;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(33, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 18);
+            this.label3.TabIndex = 178;
+            this.label3.Text = "Id Compra";
+            // 
+            // txt_id_compra
+            // 
+            this.txt_id_compra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_compra.Location = new System.Drawing.Point(36, 51);
+            this.txt_id_compra.Name = "txt_id_compra";
+            this.txt_id_compra.Size = new System.Drawing.Size(135, 20);
+            this.txt_id_compra.TabIndex = 177;
+            this.txt_id_compra.Text = "1";
             // 
             // label1
             // 
@@ -117,6 +174,7 @@
             this.btn_Modificar.Size = new System.Drawing.Size(60, 39);
             this.btn_Modificar.TabIndex = 170;
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Crear
             // 
@@ -145,6 +203,7 @@
             this.button2.Size = new System.Drawing.Size(57, 40);
             this.button2.TabIndex = 167;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label12
             // 
@@ -157,13 +216,13 @@
             this.label12.TabIndex = 165;
             this.label12.Text = "Resumen";
             // 
-            // tb_cant
+            // txt_cantidad
             // 
-            this.tb_cant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.tb_cant.Location = new System.Drawing.Point(222, 51);
-            this.tb_cant.Name = "tb_cant";
-            this.tb_cant.Size = new System.Drawing.Size(120, 20);
-            this.tb_cant.TabIndex = 164;
+            this.txt_cantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_cantidad.Location = new System.Drawing.Point(222, 51);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(120, 20);
+            this.txt_cantidad.TabIndex = 164;
             // 
             // label9
             // 
@@ -205,7 +264,6 @@
             this.label6.Size = new System.Drawing.Size(95, 18);
             this.label6.TabIndex = 157;
             this.label6.Text = "Id Formulario";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // tb_idformulario
             // 
@@ -221,8 +279,11 @@
             this.dataGrid_ingresosumi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_ingresosumi.Location = new System.Drawing.Point(35, 219);
             this.dataGrid_ingresosumi.Name = "dataGrid_ingresosumi";
+            this.dataGrid_ingresosumi.ReadOnly = true;
+            this.dataGrid_ingresosumi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid_ingresosumi.Size = new System.Drawing.Size(626, 224);
             this.dataGrid_ingresosumi.TabIndex = 155;
+            this.dataGrid_ingresosumi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_ingresosumi_CellClick);
             // 
             // panel2
             // 
@@ -244,60 +305,6 @@
             this.btn_Inicio.Text = "Inicio";
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(33, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 18);
-            this.label3.TabIndex = 178;
-            this.label3.Text = "Id Formulario Pedido:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox1.Location = new System.Drawing.Point(36, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 177;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(36, 138);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 179;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(222, 138);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 180;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(395, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 18);
-            this.label4.TabIndex = 182;
-            this.label4.Text = "Descripción";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(392, 139);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(342, 20);
-            this.textBox2.TabIndex = 181;
             // 
             // Frm_Ingreso_Suministros_PL
             // 
@@ -324,7 +331,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox tb_cant;
+        private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_descrip;
@@ -337,10 +344,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_id_compra;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt_descripcion;
+        private System.Windows.Forms.ComboBox cb_proveedor;
+        private System.Windows.Forms.TextBox txt_id_articulo;
     }
 }

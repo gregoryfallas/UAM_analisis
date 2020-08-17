@@ -74,7 +74,9 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
+                {
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                }
                 this.ABRIR();
                 cmd.ExecuteNonQuery();
                 return true;
@@ -461,6 +463,69 @@ namespace DAL
         #endregion
 
         #region ARTICULOS
+        public DataTable CREAR_ingreso_estados(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Estado");
+            dt.Columns.Add("Nombre");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+
+        public DataTable CREAR_ingreso_articulos(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Despacho");
+            dt.Columns.Add("ID Factura");
+            dt.Columns.Add("Fecha");
+            dt.Columns.Add("Estado");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetInt32(1), resultado.GetDateTime(2), resultado.GetInt32(3));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
 
         public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
         {
@@ -572,47 +637,70 @@ namespace DAL
             return dt;
         }
 
-        //public List<SOLICITUD_ARTICULOS> CREAR_ingreso_suministros(SQLSentencia peticion)
-        //{
-        //    List<SOLICITUD_ARTICULOS> lstresultados = new List<SOLICITUD_ARTICULOS>();
-        //    DataTable dt = new DataTable();
+        public DataTable CREAR_ingreso_suministros(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
 
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-        //        cmd.Connection = objconexion;
-        //        cmd.CommandType = System.Data.CommandType.Text;
-        //        cmd.CommandText = peticion.Peticion;
+            dt.Columns.Add("ID Articulo");
+            dt.Columns.Add("ID Articulo Proveedor");
+            dt.Columns.Add("ID Solicitud");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Cantidad");
 
-        //        if (peticion.lstParametros.Count > 0)
-        //        {
-        //            cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-        //            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
 
-        //            da.Fill(dt);
-        //        }
-        //        foreach (DataRow item in dt.Rows)
-        //        {
-        //            SOLICITUD_ARTICULOS tipo = new SOLICITUD_ARTICULOS();
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetInt32(1), resultado.GetInt32(2), resultado.GetString(3), resultado.GetDecimal(4));
+                }
 
-        //            tipo.ID_Articulo_Proveedor = Convert.ToInt32(item.ItemArray[0].ToString());
-        //            tipo.ID_Solicitud_Compra = Convert.ToInt32(item.ItemArray[1].ToString());
-        //            tipo.Descripcion = item.ItemArray[2].ToString();
-        //            tipo.Cantidad = Convert.ToDecimal(item.ItemArray[3].ToString());
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
 
-        //            lstresultados.Add(tipo);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        this.CERRAR();
-        //    }
-        //    return lstresultados;
-        //    }
+        public DataTable CREAR_ingreso_suministros_proveedor(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Descripcion");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
     }
     #endregion
 }

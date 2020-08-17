@@ -33,7 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmb_envio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -42,10 +42,7 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_Cliente = new System.Windows.Forms.TextBox();
-            this.btn_Buscar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.dtg_Express = new System.Windows.Forms.DataGridView();
@@ -82,7 +79,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.btn_Confirmar);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.cmb_envio);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cmb_Estado);
             this.panel1.Controls.Add(this.groupBox1);
@@ -108,6 +105,7 @@
             this.btn_Confirmar.Size = new System.Drawing.Size(48, 44);
             this.btn_Confirmar.TabIndex = 72;
             this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
             // label2
             // 
@@ -120,25 +118,26 @@
             this.label2.TabIndex = 70;
             this.label2.Text = "Cambiar de Estado:";
             // 
-            // comboBox2
+            // cmb_envio
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmb_envio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_envio.FormattingEnabled = true;
+            this.cmb_envio.Items.AddRange(new object[] {
             "PENDIENTE",
             "EN CURSO",
             "ENTREGADO",
             "BLOQUEADO"});
-            this.comboBox2.Location = new System.Drawing.Point(668, 215);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 71;
+            this.cmb_envio.Location = new System.Drawing.Point(668, 215);
+            this.cmb_envio.Name = "cmb_envio";
+            this.cmb_envio.Size = new System.Drawing.Size(121, 21);
+            this.cmb_envio.TabIndex = 71;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(264, 211);
+            this.label1.Location = new System.Drawing.Point(190, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 23);
             this.label1.TabIndex = 62;
@@ -146,13 +145,14 @@
             // 
             // cmb_Estado
             // 
+            this.cmb_Estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Estado.FormattingEnabled = true;
             this.cmb_Estado.Items.AddRange(new object[] {
             "PENDIENTES",
             "EN CURSO",
             "ENTREGADO",
             "BLOQUEADO"});
-            this.cmb_Estado.Location = new System.Drawing.Point(387, 215);
+            this.cmb_Estado.Location = new System.Drawing.Point(313, 215);
             this.cmb_Estado.Name = "cmb_Estado";
             this.cmb_Estado.Size = new System.Drawing.Size(121, 21);
             this.cmb_Estado.TabIndex = 69;
@@ -165,10 +165,7 @@
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.txt_Factura);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txt_Cliente);
-            this.groupBox1.Controls.Add(this.btn_Buscar);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_Fecha_Doc);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,7 +182,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(42, 89);
+            this.label3.Location = new System.Drawing.Point(19, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 23);
             this.label3.TabIndex = 63;
@@ -196,7 +193,7 @@
             this.txt_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Estado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Estado.ForeColor = System.Drawing.Color.White;
-            this.txt_Estado.Location = new System.Drawing.Point(46, 115);
+            this.txt_Estado.Location = new System.Drawing.Point(23, 75);
             this.txt_Estado.Name = "txt_Estado";
             this.txt_Estado.ReadOnly = true;
             this.txt_Estado.Size = new System.Drawing.Size(155, 26);
@@ -208,7 +205,7 @@
             this.txt_Nombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Nombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Nombre.ForeColor = System.Drawing.Color.White;
-            this.txt_Nombre.Location = new System.Drawing.Point(242, 60);
+            this.txt_Nombre.Location = new System.Drawing.Point(403, 75);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.ReadOnly = true;
             this.txt_Nombre.Size = new System.Drawing.Size(279, 26);
@@ -220,7 +217,7 @@
             this.txt_Factura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Factura.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Factura.ForeColor = System.Drawing.Color.White;
-            this.txt_Factura.Location = new System.Drawing.Point(46, 60);
+            this.txt_Factura.Location = new System.Drawing.Point(208, 75);
             this.txt_Factura.Name = "txt_Factura";
             this.txt_Factura.ReadOnly = true;
             this.txt_Factura.Size = new System.Drawing.Size(155, 26);
@@ -232,61 +229,29 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(249, 24);
+            this.label4.Location = new System.Drawing.Point(399, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 23);
             this.label4.TabIndex = 52;
             this.label4.Text = "Nombre";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(283, 110);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 23);
-            this.label11.TabIndex = 61;
-            this.label11.Text = "Buscar Cliente";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(42, 34);
+            this.label6.Location = new System.Drawing.Point(204, 34);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 23);
             this.label6.TabIndex = 55;
             this.label6.Text = "No.Factura";
-            // 
-            // txt_Cliente
-            // 
-            this.txt_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Cliente.ForeColor = System.Drawing.Color.White;
-            this.txt_Cliente.Location = new System.Drawing.Point(386, 114);
-            this.txt_Cliente.Name = "txt_Cliente";
-            this.txt_Cliente.Size = new System.Drawing.Size(226, 26);
-            this.txt_Cliente.TabIndex = 60;
-            // 
-            // btn_Buscar
-            // 
-            this.btn_Buscar.BackgroundImage = global::PL.Properties.Resources.search;
-            this.btn_Buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Buscar.FlatAppearance.BorderSize = 0;
-            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buscar.Location = new System.Drawing.Point(634, 107);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(44, 36);
-            this.btn_Buscar.TabIndex = 59;
-            this.btn_Buscar.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(589, 24);
+            this.label7.Location = new System.Drawing.Point(717, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 23);
             this.label7.TabIndex = 56;
@@ -297,7 +262,7 @@
             this.txt_Fecha_Doc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Fecha_Doc.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Fecha_Doc.ForeColor = System.Drawing.Color.White;
-            this.txt_Fecha_Doc.Location = new System.Drawing.Point(593, 60);
+            this.txt_Fecha_Doc.Location = new System.Drawing.Point(721, 75);
             this.txt_Fecha_Doc.Name = "txt_Fecha_Doc";
             this.txt_Fecha_Doc.ReadOnly = true;
             this.txt_Fecha_Doc.Size = new System.Drawing.Size(199, 26);
@@ -312,11 +277,12 @@
             this.dtg_Express.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtg_Express.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Express.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Express.Location = new System.Drawing.Point(248, 276);
+            this.dtg_Express.Location = new System.Drawing.Point(106, 281);
             this.dtg_Express.Name = "dtg_Express";
             this.dtg_Express.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Express.Size = new System.Drawing.Size(593, 269);
+            this.dtg_Express.Size = new System.Drawing.Size(749, 269);
             this.dtg_Express.TabIndex = 0;
+            this.dtg_Express.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Express_CellClick);
             // 
             // Frm_Express
             // 
@@ -353,12 +319,9 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txt_Fecha_Doc;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmb_envio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmb_Estado;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txt_Cliente;
-        private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.Button btn_Confirmar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_Estado;

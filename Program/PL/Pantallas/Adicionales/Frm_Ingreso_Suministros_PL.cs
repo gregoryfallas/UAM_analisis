@@ -74,7 +74,7 @@ namespace PL.Pantallas.Adicionales
             }
             catch (Exception)
             {
-                throw;
+               
             }
         }
 
@@ -121,6 +121,11 @@ namespace PL.Pantallas.Adicionales
             {
                 throw;
             }
+        }
+
+        private void dataGrid_ingresosumi_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

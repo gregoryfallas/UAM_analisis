@@ -107,6 +107,7 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(110, 22);
             this.toolStripLabel1.Text = "Cuentas por Cobrar";
+            this.toolStripLabel1.Visible = false;
             // 
             // tsb_Cobros
             // 
@@ -116,6 +117,7 @@
             this.tsb_Cobros.Name = "tsb_Cobros";
             this.tsb_Cobros.Size = new System.Drawing.Size(23, 22);
             this.tsb_Cobros.Text = "toolStripButton1";
+            this.tsb_Cobros.Visible = false;
             this.tsb_Cobros.Click += new System.EventHandler(this.tsb_Cobros_Click);
             // 
             // toolStripSeparator1
@@ -126,8 +128,8 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(92, 22);
-            this.toolStripLabel3.Text = "Revisión Planilla";
+            this.toolStripLabel3.Size = new System.Drawing.Size(75, 22);
+            this.toolStripLabel3.Text = "Pago Planilla";
             // 
             // tsb_Planilla
             // 
@@ -143,12 +145,14 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Visible = false;
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
             this.toolStripLabel4.Size = new System.Drawing.Size(85, 22);
             this.toolStripLabel4.Text = "Reporte Ventas";
+            this.toolStripLabel4.Visible = false;
             // 
             // tsb_Ventas
             // 
@@ -158,18 +162,21 @@
             this.tsb_Ventas.Name = "tsb_Ventas";
             this.tsb_Ventas.Size = new System.Drawing.Size(23, 22);
             this.tsb_Ventas.Text = "toolStripButton4";
+            this.tsb_Ventas.Visible = false;
             this.tsb_Ventas.Click += new System.EventHandler(this.tsb_Ventas_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Visible = false;
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(99, 22);
             this.toolStripLabel5.Text = "Reporte Compras";
+            this.toolStripLabel5.Visible = false;
             // 
             // tsb_Compras
             // 
@@ -179,12 +186,14 @@
             this.tsb_Compras.Name = "tsb_Compras";
             this.tsb_Compras.Size = new System.Drawing.Size(23, 22);
             this.tsb_Compras.Text = "toolStripButton5";
+            this.tsb_Compras.Visible = false;
             this.tsb_Compras.Click += new System.EventHandler(this.tsb_Compras_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Visible = false;
             // 
             // Frm_Tesoreria_PL
             // 

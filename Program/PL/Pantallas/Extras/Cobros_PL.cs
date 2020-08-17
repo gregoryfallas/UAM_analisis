@@ -42,14 +42,15 @@ namespace PL.Pantallas.Extras
 
         private void btn_Imprimir_Click(object sender, EventArgs e)
         {
-            //PrintDocument printDocument1 = new PrintDocument();
-            //PrinterSettings ps = new PrinterSettings();
-            //printDocument1.PrinterSettings = ps;
-            //printDocument1.PrintPage += Imprimir_PrintPage;
-            //printDocument1.Print();
+            PrintDocument printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += Imprimir_PrintPage;
+            printDocument1.Print();
 
             MessageBox.Show("Factura generada con exito");
-            
+            LimpiarCampos();
+
         }
 
         private void Cobros_PL_Load(object sender, EventArgs e)
@@ -61,24 +62,7 @@ namespace PL.Pantallas.Extras
 
         }
 
-        //private void Cargar2()
-        //{
-        //    try
-        //    {
-        //        this.dtg_Cobros.DataSource = null;
-        //        this.dtg_Cobros.Refresh();
-        //        string a = txt_Cliente.Text.Trim();
-        //        this.dtg_Cobros.DataSource = Cls_Cobros_BLL.ConsultarCobros(a);
-        //        this.dtg_Cobros.Refresh();
-
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-                       
-        //}
+       
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
@@ -193,7 +177,7 @@ namespace PL.Pantallas.Extras
                                 MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                 btn_Imprimir.Enabled = true;
-                                LimpiarCampos();
+                                
                                 //Cargar2();
                             }
 
@@ -384,11 +368,77 @@ namespace PL.Pantallas.Extras
 
                 Factura_BLL.AnularFactura(Convert.ToInt32(txt_Factura.Text), 37);
                 LimpiarCampos();
-                //Cargar2();
+                
 
             }
         }
+   
+
+private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
+{
+            Frm_Contado_PL contado = new Frm_Contado_PL();
+
+
+    DataTable dt = new DataTable();
+
+    Font font = new Font("Arial", 14);
+    int ancho = 350;
+    int y = 20;
+    int x = 250;
+
+    e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+    e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));   
+    e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+    e.Graphics.DrawString("FechaFactura: " + txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+
+    e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+
+            
+
+    foreach (DataGridViewColumn columna in contado.dtg_Factura.Columns)
+    {
+
+
+        DataColumn col = new DataColumn(columna.Name);
+
+
+        dt.Columns.Add(col);
+
+
     }
+    string nombre;
+    string cantidad;
+    string precio;
+    string descuento;
+    string total;
+
+    foreach (DataGridViewRow row in contado.dtg_Factura.Rows)
+    {
+
+        DataRow dr = dt.NewRow();
+        dr[0] = row.Cells[0].Value.ToString();
+        dr[1] = row.Cells[1].Value.ToString();
+        dr[2] = row.Cells[2].Value.ToString();
+        dr[3] = row.Cells[3].Value.ToString();
+        dr[4] = row.Cells[4].Value.ToString();
+
+
+        nombre = dr[0].ToString();
+        cantidad = dr[1].ToString();
+        precio = dr[2].ToString();
+        descuento = dr[3].ToString();
+        total = dr[4].ToString();
+
+        e.Graphics.DrawString(nombre + " " + cantidad + " " + precio + " " + descuento + " " + total, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+
+    }
+    //e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+    //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+    e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+    e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+
 
 }
 
@@ -397,75 +447,9 @@ namespace PL.Pantallas.Extras
 
 
 
+    }
 
-        //private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
-        //{
-        //    DataTable dt = new DataTable();
-
-        //    Font font = new Font("Arial", 14);
-        //    int ancho = 350;
-        //    int y = 20;
-        //    int x = 250;
-
-        //    e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-        //    e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-        //    e.Graphics.DrawString("IDCliente:" + txt_idCliente.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-        //    e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-        //    e.Graphics.DrawString("FechaFactura: " + txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-
-
-        //    e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-
-
-
-        //    foreach (DataGridViewColumn columna in this.dtg_Factura.Columns)
-        //    {
-
-
-        //        DataColumn col = new DataColumn(columna.Name);
-
-
-        //        dt.Columns.Add(col);
-
-
-        //    }
-        //    string nombre;
-        //    string cantidad;
-        //    string precio;
-        //    string descuento;
-        //    string total;
-
-        //    foreach (DataGridViewRow row in dtg_Factura.Rows)
-        //    {
-
-        //        DataRow dr = dt.NewRow();
-        //        dr[0] = row.Cells[0].Value.ToString();
-        //        dr[1] = row.Cells[1].Value.ToString();
-        //        dr[2] = row.Cells[2].Value.ToString();
-        //        dr[3] = row.Cells[3].Value.ToString();
-        //        dr[4] = row.Cells[4].Value.ToString();
-
-
-        //        nombre = dr[0].ToString();
-        //        cantidad = dr[1].ToString();
-        //        precio = dr[2].ToString();
-        //        descuento = dr[3].ToString();
-        //        total = dr[4].ToString();
-
-        //        e.Graphics.DrawString(nombre + " " + cantidad + " " + precio + " " + descuento + " " + total, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
-
-
-        //    }
-        //    e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-        //    e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-        //    e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-        //    e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
-
-
-
-
-        //}
-
+}
 
 
 

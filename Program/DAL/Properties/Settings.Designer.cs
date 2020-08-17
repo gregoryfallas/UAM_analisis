@@ -26,8 +26,8 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TKPU5IR\\SQLEXPRESS;Initial Catalog=VETERINARIA_EL_BOSQUE;In" +
-            "tegrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QE99NI1\\MSSQLSERVER1;Initial Catalog=VETERINARIA_EL_BOSQUE;Inte" +
+            "grated Security=True")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

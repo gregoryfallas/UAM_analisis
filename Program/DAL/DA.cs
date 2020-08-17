@@ -701,7 +701,121 @@ namespace DAL
                 objconexion.Close();
             }
         }
+        #endregion
+
+        #region PROMOCIONES
+        public DataTable consultar_promociones(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Promocion");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
+            dt.Columns.Add("Descuento");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetDateTime(2), resultado.GetDateTime(3), resultado.GetDecimal(4), resultado.GetString(5), resultado.GetInt32(6));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+
+        #endregion
+
+        #region CAMPANAS
+        public DataTable consultar_campanas(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Promocion");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
+            dt.Columns.Add("ID distritos");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetDateTime(2), resultado.GetDateTime(3), resultado.GetInt32(4), resultado.GetString(5), resultado.GetInt32(6));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+        #endregion
+
+        #region ANUNCIOS
+        public DataTable consultar_anuncios(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Anuncios");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+        #endregion
+        #endregion
     }
-    #endregion
+
+
 }
-#endregion

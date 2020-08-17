@@ -265,7 +265,7 @@ namespace PL.Pantallas.Extras
 
                                     }
                                     Factura_BLL.agregarDetalleFactura(ListArticulos);
-                                    Express_BLL.AgregarExpress(express);
+                                    
 
                                     MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

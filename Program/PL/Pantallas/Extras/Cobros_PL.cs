@@ -202,12 +202,21 @@ namespace PL.Pantallas.Extras
                             }
                             else
                             {
+
+
+
                                 creditos.ID_Factura = Convert.ToInt32(txt_Factura.Text);
                                 creditos.Monto_Anterior = Convert.ToDecimal(txt_Credito.Text);
                                 creditos.Abono = Convert.ToDecimal(txt_Abono.Text);
                                 creditos.Monto_Actual = Convert.ToDecimal(txt_Saldo.Text);
 
                                 Credito_BLL.ModificarAbonos(creditos);
+
+
+                                if (creditos.Monto_Actual==0)
+                                {
+                                    Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text),21);
+                                }
 
                                 MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

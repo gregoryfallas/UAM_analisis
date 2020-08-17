@@ -30,7 +30,13 @@ namespace PL.Pantallas.Extras
         SERVICIOS_EXPRESS express = new SERVICIOS_EXPRESS();
         CREDITOS Credito = new CREDITOS();
 
-        
+
+         int idServicio;
+         string Servicio;
+        int cantidad;
+        decimal precio;
+        bool bandera = false;
+
 
 
         string nombre;
@@ -61,9 +67,11 @@ namespace PL.Pantallas.Extras
             else
             {
                 ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text);
-
+                ART.Precio = Convert.ToDecimal(txt_Precio.Text);
+                ART.Importe = ART.Precio * ART.Cantidad;
+                txt_Importe.Text = ART.Importe.ToString();
                 ART.Importe = Convert.ToDecimal(txt_Importe.Text);
-                txt_Importe.Text = ART.Importe.ToString(); 
+                
                 
 
                 if (ART.Importe > 0)
@@ -303,14 +311,16 @@ namespace PL.Pantallas.Extras
             {
                 Frm_Servicios_PL Servicios = new Frm_Servicios_PL();
                 Servicios.ShowDialog();
+                CargarServicios();
 
             }
+            
         }
 
 
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-        
+
             timer1.Interval = 500;
             timer1.Start();     
             Cargar();
@@ -320,6 +330,20 @@ namespace PL.Pantallas.Extras
            
 
         }
+
+        public  void CargarServicios()
+        {
+            bandera = Frm_Servicios_PL.bandera;
+            if (bandera == true)
+            {
+                txt_Nom_Produc.Text = Frm_Servicios_PL.Servicio;
+                txt_Cantidad.Text = Frm_Servicios_PL.cantidad.ToString();
+                txt_Precio.Text = Frm_Servicios_PL.precio.ToString();
+            }
+
+        }
+
+
 
 
         private void btn_inicio_Click(object sender, EventArgs e)

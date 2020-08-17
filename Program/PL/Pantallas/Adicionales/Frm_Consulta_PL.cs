@@ -16,8 +16,16 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Consulta_PL : Form
     {
-
+        
         private string nomServ;
+
+        public static string Username = "hola";
+
+
+
+        public static List<SERVICIOS> listaServicios=new List<SERVICIOS>();
+        public static bool alertadeFacturacion = false;
+
 
         public Frm_Consulta_PL()
         {
@@ -40,6 +48,8 @@ namespace PL.Pantallas.Adicionales
             otrosServicioscbo.ValueMember = "ID_Servicios";
             otrosServicioscbo.DisplayMember = "Nombre";
             otrosServicioscbo.Refresh();
+
+
         }
 
 
@@ -82,24 +92,62 @@ namespace PL.Pantallas.Adicionales
 
         private void AgregarOtroServiciosbtn_Click(object sender, EventArgs e)
         {
+            
+            SERVICIOS servicios = new SERVICIOS();
             List<SERVICIOS> ls = new List<SERVICIOS>();
             ls = Consulta_BLL.ConsultaServicios(nomServ);
-            servicosFacturar(ls);
-            
+
+
+
+
+            foreach (SERVICIOS s in ls)
+            {
+                servicios.ID_Servicios = s.ID_Servicios;
+                servicios.Nombre = s.Nombre;
+                servicios.Descripcion = s.Descripcion;
+                servicios.Precio = s.Precio;               
+                retornaServicio(servicios);
+
+
+            }
+
 
         }
-
-        private void servicosFacturar(List<SERVICIOS> ls )
+        private void retornaServicio(SERVICIOS servicios)
         {
-            //ENVIAR LA LISTA CON LOS SERVICIOS
 
-        }
+            listaServicios.Add(servicios);
+    }
+
+
 
 
         private void otrosServicioscbo_SelectedIndexChanged(object sender, EventArgs e)
         {
+             SERVICIOS s = new SERVICIOS();
+            // s = otrosServicioscbo.SelectedItem;
+
             nomServ = otrosServicioscbo.Text;
-            textBox2.Text = nomServ;
+            //textBox2.Text = nomServ;
+        }
+
+        private void btn_Confirmar_Click(object sender, EventArgs e)
+        {
+            alertadeFacturacion = true;
         }
     }
 }
+
+
+
+
+
+        
+
+
+
+
+
+
+        
+

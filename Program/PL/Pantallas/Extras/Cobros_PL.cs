@@ -29,7 +29,7 @@ namespace PL.Pantallas.Extras
         string factura;
         decimal total;
         decimal pago;
-        decimal cambio;
+        //decimal cambio;
         decimal abono;
         decimal actual;
         int tipo;
@@ -394,6 +394,8 @@ private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
     int ancho = 350;
     int y = 20;
     int x = 250;
+
+
 
     e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
     e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));   

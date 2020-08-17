@@ -34,7 +34,7 @@ namespace BLL
             try
             {
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS @nombre ";
+                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS '" + id + "'";
 
                 DA objacceso = new DA();
                 return objacceso.ConsultarServicios(peticion);

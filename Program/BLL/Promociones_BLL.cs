@@ -12,22 +12,22 @@ namespace BLL
     {
         public static DataTable consultarPromociones()
         {
-
+            return null;
         }
 
         public static bool agregarPromociones(PROMOCIONES promociones)
         {
-
+            return true;
         }
 
         public static bool modificarPromociones(PROMOCIONES promociones)
         {
-
+            return true;
         }
 
         public static bool eliminarPromociones(int id)
         {
-
+            return true;
         }
     }
 }

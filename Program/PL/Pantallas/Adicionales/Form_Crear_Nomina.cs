@@ -59,20 +59,20 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
-        private void btnmostrar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<PERSONAL> lstresultado = R_Humanos.ConsultarTablaPersonal();
+        //private void btnmostrar_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<PERSONAL> lstresultado = R_Humanos.ConsultarTablaPersonal();
 
-                this.dgvpersonal.DataSource = lstresultado;
-                this.dgvpersonal.Refresh();
-            }
-            catch (Exception ex)
-            {
+        //        this.dgvpersonal.DataSource = lstresultado;
+        //        this.dgvpersonal.Refresh();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                MessageBox.Show(ex.Message);
-            }
+        //        MessageBox.Show(ex.Message);
+        //    }
 
             //SqlCommand comando = new SqlCommand("Select * from PERSONAL", objconexion);
             //SqlDataAdapter adaptador = new SqlDataAdapter();
@@ -80,6 +80,6 @@ namespace PL.Pantallas.Adicionales
             //DataTable tabla = new DataTable();
             //adaptador.Fill(tabla);
             //dgvpersonal.DataSource = tabla;
-        }
+        //}
     }
 }

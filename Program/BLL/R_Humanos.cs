@@ -325,22 +325,6 @@ namespace BLL
             }
         }
 
-        public static List<PERSONAL> ConsultarTablaPersonal()
-        {
-            try
-            {
-                SQLSentencia objpeticion = new SQLSentencia();
-                objpeticion.Peticion = @"exec SP_PA_MOSTRARTABLAPERSONAL";
-
-                DA objacceso = new DA();
-                return objacceso.ConsultarTablaPersonal(objpeticion);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public static List<PERSONAL> ConsultarIDPersonal()
         {
 
@@ -541,9 +525,7 @@ namespace BLL
             try
             {
                 SQLSentencia objpeticion = new SQLSentencia();
-                /*@ID_Reclutamiento, @Cedula_, @Nombre,
-                 @Apellido_1, @Apellido_2, @Correo, @Telefono, @ID_Provincia, @ID_Canton,
-                 @ID_Distrito, @Direccion, @Estado "; */
+             
                 objpeticion.Peticion = @"UPDATE PARTICIPANTES SET Cedula_ = '"
                 + P_postulantes.Cedula_ + "', Nombre = '" + P_postulantes.Nombre + "', Apellido_1 = '" 
                 + P_postulantes.Apellido_1 + "', Apellido_2 = '" + P_postulantes.Apellido_2 + "', Correo = '" 
@@ -680,5 +662,62 @@ namespace BLL
             }
         }
 
+        //prueba
+        public static List<NOMINA> Obtener_Nomina()
+        {
+            try
+            {   //Se crea objeto para armado sentencia
+                SQLSentencia peticion = new SQLSentencia();
+                //Arma la sentencia con los datos del parametro entrada
+                peticion.Peticion = @"SELECT ID_Nomina, Nombre, Fecha_Inicio, Fecha_Fin, Descripcion FROM NOMINA ";
+
+                //Se hace el llamado al ACCESO DATOS
+                DA objacceso = new DA();
+                return objacceso.ObtenerNomina(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PERSONAL> Obtener_Personal()
+        {
+            try
+            {   //Se crea objeto para armado sentencia
+                SQLSentencia peticion = new SQLSentencia();
+                //Arma la sentencia con los datos del parametro entrada
+                peticion.Peticion = @"SELECT ID_Personal, ID_Puesto, Cedula, Nombre, Apellido_1, Apellido_2, 
+                Salario_Hora, Salario_Mensual, Fecha_Contratacion, created_at, Estado, Direccion, Correo_Electronico,
+                Telefono  FROM PERSONAL ";
+
+                //Se hace el llamado al ACCESO DATOS
+                DA objacceso = new DA();
+                return objacceso.ObtenerPersonal(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PARTICIPANTES> Obtener_Participantes()
+        {
+            try
+            {   //Se crea objeto para armado sentencia
+                SQLSentencia peticion = new SQLSentencia();
+                //Arma la sentencia con los datos del parametro entrada
+                peticion.Peticion = @"SELECT ID_Participantes, ID_Reclutamiento, Cedula_, Nombre, Apellido_1,
+                Apellido_2, Correo, Telefono, ID_Provincia, ID_Canton, ID_Distrito, Direccion, Estado FROM PARTICIPANTES ";
+
+                //Se hace el llamado al ACCESO DATOS
+                DA objacceso = new DA();
+                return objacceso.ObtenerParticipantes(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

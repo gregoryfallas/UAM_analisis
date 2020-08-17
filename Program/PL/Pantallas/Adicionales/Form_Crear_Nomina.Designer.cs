@@ -91,7 +91,7 @@
             this.btnmostrar.TabIndex = 44;
             this.btnmostrar.Text = "Mostrar Personal";
             this.btnmostrar.UseVisualStyleBackColor = true;
-            this.btnmostrar.Click += new System.EventHandler(this.btnmostrar_Click);
+           // this.btnmostrar.Click += new System.EventHandler(this.btnmostrar_Click);
             // 
             // dgvpersonal
             // 

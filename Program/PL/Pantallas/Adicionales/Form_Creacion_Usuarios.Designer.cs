@@ -86,6 +86,7 @@
             this.cbopersonal.Name = "cbopersonal";
             this.cbopersonal.Size = new System.Drawing.Size(183, 31);
             this.cbopersonal.TabIndex = 47;
+            this.cbopersonal.SelectedIndexChanged += new System.EventHandler(this.cbopersonal_SelectedIndexChanged);
             this.cbopersonal.SelectedValueChanged += new System.EventHandler(this.cbopersonal_SelectedValueChanged);
             // 
             // label5

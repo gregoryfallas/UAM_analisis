@@ -30,6 +30,22 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
+        //variables para el DataGrid
+        public static string ID_Participantes;
+        public static string ID_Reclutamiento;
+        public static string Cedula_;
+        public static string Nombre;
+        public static string Apellido_1;
+        public static string Apellido_2;
+        public static string Correo;
+        public static string Telefono;
+        public static string ID_Provincia;
+        public static string ID_Canton;
+        public static string ID_Distrito;
+        public static string Direccion;
+        public static string Estado;
+
+
         public Form_Ingresar_Participantes()
         {
             lstresultado = new List<PARTICIPANTES>();
@@ -196,6 +212,61 @@ namespace PL.Pantallas.Adicionales
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<PARTICIPANTES> Istclientes = R_Humanos.Obtener_Participantes();
+
+                this.dgvparticipantes.DataSource = Istclientes;
+                this.dgvparticipantes.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvparticipantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ID_Participantes = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Participantes"].Value.ToString();
+            ID_Reclutamiento = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Reclutamiento"].Value.ToString();
+            Cedula_ = dgvparticipantes.Rows[e.RowIndex].Cells["Cedula_"].Value.ToString();
+            Nombre = dgvparticipantes.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+            Apellido_1 = dgvparticipantes.Rows[e.RowIndex].Cells["Apellido_1"].Value.ToString();
+            Apellido_2 = dgvparticipantes.Rows[e.RowIndex].Cells["Apellido_2"].Value.ToString();
+            Correo = dgvparticipantes.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
+            Telefono = dgvparticipantes.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
+            ID_Provincia = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Provincia"].Value.ToString();
+            ID_Canton = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Canton"].Value.ToString();
+            ID_Distrito = dgvparticipantes.Rows[e.RowIndex].Cells["ID_Distrito"].Value.ToString();
+            Direccion = dgvparticipantes.Rows[e.RowIndex].Cells["Direccion"].Value.ToString();
+            Estado = dgvparticipantes.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
+        }
+
+        private void btnseleccionar_Click(object sender, EventArgs e)
+        {
+            if (ID_Reclutamiento == "")
+                MessageBox.Show("Seleccione una fila a editar", "Atecion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                cboreclutamiento.Text = ID_Participantes;
+                cboreclutamiento.Text = ID_Reclutamiento;
+                txtcedula.Text = Cedula_;
+                txtnombre.Text = Nombre;
+                txtapellido1.Text = Apellido_1;
+                txtapellido2.Text = Apellido_2;
+                txtcorreo.Text = Correo;
+                txttelefono.Text = Telefono;
+                Provinciacbo.Text = ID_Provincia;
+                Cantoncbo.Text = ID_Canton;
+                Distritocbo.Text = ID_Distrito;
+                txtdireccion.Text = Direccion;
+                cboestado.Text = Estado;
             }
         }
     }

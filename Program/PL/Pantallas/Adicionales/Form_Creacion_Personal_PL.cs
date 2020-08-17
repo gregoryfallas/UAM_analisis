@@ -140,5 +140,21 @@ namespace PL.Pantallas.Adicionales
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<PERSONAL> Istclientes = R_Humanos.Obtener_Personal();
+
+                this.dgvpersonal.DataSource = Istclientes;
+                this.dgvpersonal.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

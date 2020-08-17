@@ -471,9 +471,9 @@ namespace DAL
 
         #region NOMINA
 
-        public List<PERSONAL> ConsultarTablaPersonal(SQLSentencia P_Peticion)
+        public List<NOMINA> ObtenerNomina(SQLSentencia P_Peticion)
         {
-            List<PERSONAL> lstresultados = new List<PERSONAL>();
+            List<NOMINA> lstresultados = new List<NOMINA>();
             DataTable dt = new DataTable();
             try
             {
@@ -494,22 +494,13 @@ namespace DAL
                 {
                     foreach (DataRow item in dt.Rows)
                     {
-                        PERSONAL tabla = new PERSONAL();
+                        NOMINA tabla = new NOMINA();
 
-                        tabla.ID_Personal = Convert.ToInt32(item.ItemArray[0].ToString());
-                        tabla.ID_Puesto = Convert.ToInt32(item.ItemArray[1].ToString());
-                        tabla.Cedula = item.ItemArray[2].ToString();
-                        tabla.Nombre = item.ItemArray[3].ToString();
-                        tabla.Apellido_1 = item.ItemArray[4].ToString();
-                        tabla.Apellido_2 = item.ItemArray[5].ToString();
-                        tabla.Salario_Hora = Convert.ToDecimal(item.ItemArray[6].ToString());
-                        tabla.Salario_Mensual = Convert.ToDecimal(item.ItemArray[7].ToString());
-                        tabla.Fecha_Contratacion = Convert.ToDateTime(item.ItemArray[8].ToString());
-                      //  tabla.created_at = Convert.ToDateTime(item.ItemArray[9].ToString());
-                        tabla.Estado = Convert.ToInt32(item.ItemArray[9].ToString());
-                        tabla.Direccion = item.ItemArray[10].ToString();
-                        tabla.Correo_Electronico = item.ItemArray[11].ToString();
-                        tabla.Telefono = item.ItemArray[12].ToString();
+                        tabla.ID_Nomina = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.Nombre = item.ItemArray[1].ToString();
+                        tabla.Fecha_Inicio = Convert.ToDateTime(item.ItemArray[2].ToString());
+                        tabla.Fecha_Fin = Convert.ToDateTime(item.ItemArray[3].ToString());
+                        tabla.Descripcion = item.ItemArray[4].ToString();
 
                         lstresultados.Add(tabla);
                     }
@@ -880,6 +871,108 @@ namespace DAL
                     }
                 }
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<PARTICIPANTES> ObtenerParticipantes(SQLSentencia peticion)
+        {
+            List<PARTICIPANTES> lstresultados = new List<PARTICIPANTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+
+                SqlDataAdapter objcargar = new SqlDataAdapter(cmd);
+                objcargar.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    PARTICIPANTES u = new PARTICIPANTES();
+
+                    u.ID_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
+                    u.ID_Reclutamiento = Convert.ToInt32(item.ItemArray[1].ToString());
+                    u.Cedula_ = item.ItemArray[2].ToString();
+                    u.Nombre = item.ItemArray[3].ToString();
+                    u.Apellido_1 = item.ItemArray[4].ToString();
+                    u.Apellido_2 = item.ItemArray[5].ToString();
+                    u.Correo = item.ItemArray[6].ToString();
+                    u.Telefono = item.ItemArray[7].ToString();
+                    u.ID_Provincia = Convert.ToInt32(item.ItemArray[8].ToString());
+                    u.ID_Canton = Convert.ToInt32(item.ItemArray[9].ToString());
+                    u.ID_Distrito = Convert.ToInt32(item.ItemArray[10].ToString());
+                    u.Direccion = item.ItemArray[11].ToString();
+                    u.Estado = Convert.ToInt32(item.ItemArray[12].ToString());
+
+
+                    lstresultados.Add(u);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        #endregion
+
+        #region PERSONAL
+
+        public List<PERSONAL> ObtenerPersonal(SQLSentencia peticion)
+        {
+            List<PERSONAL> lstresultados = new List<PERSONAL>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+
+                SqlDataAdapter objcargar = new SqlDataAdapter(cmd);
+                objcargar.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    PERSONAL u = new PERSONAL();
+
+                    u.ID_Personal = Convert.ToInt32(item.ItemArray[0].ToString());
+                    u.ID_Puesto = Convert.ToInt32(item.ItemArray[1].ToString());
+                    u.Cedula = item.ItemArray[2].ToString();
+                    u.Nombre = item.ItemArray[3].ToString();
+                    u.Apellido_1 = item.ItemArray[4].ToString();
+                    u.Apellido_2 = item.ItemArray[5].ToString();
+                    u.Salario_Hora = Convert.ToDecimal (item.ItemArray[6].ToString());
+                    u.Salario_Mensual = Convert.ToDecimal(item.ItemArray[7].ToString());
+                    u.Fecha_Contratacion = Convert.ToDateTime(item.ItemArray[8].ToString());
+                    u.created_at = Convert.ToDateTime(item.ItemArray[9].ToString());
+                    u.Estado = Convert.ToInt32(item.ItemArray[10].ToString());
+                    u.Direccion = item.ItemArray[11].ToString();
+                    u.Correo_Electronico = item.ItemArray[12].ToString();
+                    u.Telefono = item.ItemArray[13].ToString();
+
+                    lstresultados.Add(u);
+                }
             }
             catch (Exception ex)
             {

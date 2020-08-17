@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL.Entidades;
+using DAL;
+using System.Data.SqlClient;
 
 namespace PL.Pantallas.Adicionales
 {
     public partial class Form_Creacion_Usuarios : Form
     {
+      
+
         private string IdPersonal;
         private string EstadoUsuario;
 
@@ -23,6 +27,8 @@ namespace PL.Pantallas.Adicionales
             CargarCombosPersonal();
             CargarCombosEstado();
         }
+
+        
 
         private void CargarCombosPersonal()
         {
@@ -53,7 +59,8 @@ namespace PL.Pantallas.Adicionales
 
         private void Form_Creacion_Usuarios_Load(object sender, EventArgs e)
         {
-
+            cbopersonal.Items.Clear();
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -110,6 +117,11 @@ namespace PL.Pantallas.Adicionales
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cbopersonal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -718,8 +718,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -736,7 +736,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
 
@@ -757,8 +757,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -775,7 +775,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
         #endregion
@@ -792,8 +792,8 @@ namespace DAL
 
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SQLSentencia.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, SQLSentencia);
                 SqlDataReader resultado = cmd.ExecuteReader();
                 cmd.Dispose();
 
@@ -810,7 +810,7 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                SQLSentencia.Close();
             }
         }
         #endregion

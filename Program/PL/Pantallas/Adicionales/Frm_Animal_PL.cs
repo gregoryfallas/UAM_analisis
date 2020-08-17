@@ -49,9 +49,7 @@ namespace PL.Pantallas.Adicionales
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+            this.Hide();
         }
 
         private void mascotalbl_Click(object sender, EventArgs e)

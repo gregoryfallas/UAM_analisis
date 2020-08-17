@@ -130,9 +130,7 @@ namespace PL.Pantallas.Adicionales
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+            this.Hide();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -258,14 +256,14 @@ namespace PL.Pantallas.Adicionales
             cliente.ID_Provincias = provincia_id;
             cliente.ID_Cantones = canton_id;
             cliente.ID_Distritos = Convert.ToInt32(id_Distritos);
-            cliente.Direccion = textBox4.Text;
+            cliente.Direccion = textBox4.Text.ToString();
             // cliente.Credito = false;
             //  if (credito.ToString().Equals("Si"))
             //      c = true;
             //  else
             //      c = false;
             ////  cliente.Credito = c;
-            cliente.Estado = Convert.ToInt32(id_Estado);
+            cliente.Estado = 5;
            
             Clientes_BLL.agregarCliente(cliente);
             MessageBox.Show("Cliente Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -362,8 +360,8 @@ namespace PL.Pantallas.Adicionales
                 textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 
                 //estados
-                est= dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
-                estadoClientecbo.Text = est;
+                //est= dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
+                //estadoClientecbo.Text = est;
                 //int ides = 0;
                 //ides = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
                 //if (ides == 5)

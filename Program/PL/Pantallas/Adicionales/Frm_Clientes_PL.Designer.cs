@@ -91,7 +91,7 @@
             this.button4.Location = new System.Drawing.Point(84, 613);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 41);
-            this.button4.TabIndex = 0;
+            this.button4.TabIndex = 15;
             this.button4.Text = "Inicio";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -153,7 +153,7 @@
             this.button2.Location = new System.Drawing.Point(245, 634);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(42, 43);
-            this.button2.TabIndex = 102;
+            this.button2.TabIndex = 13;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -176,7 +176,7 @@
             this.button1.Location = new System.Drawing.Point(138, 637);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 40);
-            this.button1.TabIndex = 101;
+            this.button1.TabIndex = 12;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -201,7 +201,7 @@
             this.addbtn.Location = new System.Drawing.Point(40, 635);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(46, 40);
-            this.addbtn.TabIndex = 100;
+            this.addbtn.TabIndex = 11;
             this.addbtn.UseVisualStyleBackColor = true;
             this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
@@ -224,7 +224,7 @@
             this.textBox7.Location = new System.Drawing.Point(151, 120);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(199, 26);
-            this.textBox7.TabIndex = 97;
+            this.textBox7.TabIndex = 3;
             // 
             // Apellido1txt
             // 
@@ -234,7 +234,7 @@
             this.Apellido1txt.Location = new System.Drawing.Point(151, 88);
             this.Apellido1txt.Name = "Apellido1txt";
             this.Apellido1txt.Size = new System.Drawing.Size(199, 26);
-            this.Apellido1txt.TabIndex = 96;
+            this.Apellido1txt.TabIndex = 2;
             // 
             // label11
             // 
@@ -319,7 +319,7 @@
             this.Distritocbo.Location = new System.Drawing.Point(125, 119);
             this.Distritocbo.Name = "Distritocbo";
             this.Distritocbo.Size = new System.Drawing.Size(138, 31);
-            this.Distritocbo.TabIndex = 14;
+            this.Distritocbo.TabIndex = 9;
             this.Distritocbo.SelectedIndexChanged += new System.EventHandler(this.Distritocbo_SelectedIndexChanged);
             // 
             // Cantoncbo
@@ -330,7 +330,7 @@
             this.Cantoncbo.Location = new System.Drawing.Point(125, 78);
             this.Cantoncbo.Name = "Cantoncbo";
             this.Cantoncbo.Size = new System.Drawing.Size(138, 31);
-            this.Cantoncbo.TabIndex = 13;
+            this.Cantoncbo.TabIndex = 8;
             this.Cantoncbo.SelectedIndexChanged += new System.EventHandler(this.Cantoncbo_SelectedIndexChanged);
             this.Cantoncbo.SelectedValueChanged += new System.EventHandler(this.Cantoncbo_SelectedValueChanged);
             // 
@@ -342,7 +342,7 @@
             this.Provinciacbo.Location = new System.Drawing.Point(126, 44);
             this.Provinciacbo.Name = "Provinciacbo";
             this.Provinciacbo.Size = new System.Drawing.Size(137, 31);
-            this.Provinciacbo.TabIndex = 12;
+            this.Provinciacbo.TabIndex = 7;
             this.Provinciacbo.SelectedIndexChanged += new System.EventHandler(this.Provinciacbo_SelectedIndexChanged);
             // 
             // label9
@@ -392,7 +392,7 @@
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(193, 84);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 10;
             // 
             // textBox1
             // 
@@ -402,7 +402,7 @@
             this.textBox1.Location = new System.Drawing.Point(151, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 26);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 1;
             // 
             // label3
             // 
@@ -437,7 +437,7 @@
             this.textBox2.Location = new System.Drawing.Point(151, 152);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(199, 26);
-            this.textBox2.TabIndex = 6;
+            this.textBox2.TabIndex = 4;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox6
@@ -448,7 +448,7 @@
             this.textBox6.Location = new System.Drawing.Point(676, 53);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(223, 26);
-            this.textBox6.TabIndex = 16;
+            this.textBox6.TabIndex = 14;
             // 
             // label4
             // 
@@ -463,7 +463,11 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -481,6 +485,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dataGridView1.Location = new System.Drawing.Point(456, 82);
             this.dataGridView1.Name = "dataGridView1";
@@ -508,7 +513,7 @@
             this.textBox3.Location = new System.Drawing.Point(151, 191);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(199, 26);
-            this.textBox3.TabIndex = 7;
+            this.textBox3.TabIndex = 5;
             // 
             // Correo
             // 
@@ -529,7 +534,7 @@
             this.textBox5.Location = new System.Drawing.Point(151, 224);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(199, 26);
-            this.textBox5.TabIndex = 14;
+            this.textBox5.TabIndex = 6;
             // 
             // Frm_Clientes_PL
             // 

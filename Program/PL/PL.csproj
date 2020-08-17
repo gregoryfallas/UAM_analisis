@@ -134,7 +134,7 @@
     <Compile Include="Pantallas\Adicionales\Frm_Animal_PL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Animal_PL.Designer.cs">
+    <Compile Include="Pantallas\Adicionales\Frm_Animal_PL.designer.cs">
       <DependentUpon>Frm_Animal_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Anuncios_Pl.cs">
@@ -152,7 +152,7 @@
     <Compile Include="Pantallas\Adicionales\Frm_Cirujias_PL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Cirujias_PL.Designer.cs">
+    <Compile Include="Pantallas\Adicionales\Frm_Cirujias_PL.designer.cs">
       <DependentUpon>Frm_Cirujias_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Citas_PL.cs">
@@ -164,7 +164,7 @@
     <Compile Include="Pantallas\Adicionales\Frm_Clientes_PL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Clientes_PL.Designer.cs">
+    <Compile Include="Pantallas\Adicionales\Frm_Clientes_PL.designer.cs">
       <DependentUpon>Frm_Clientes_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Compras_PL.cs">
@@ -176,7 +176,7 @@
     <Compile Include="Pantallas\Adicionales\Frm_Consulta_PL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Consulta_PL.Designer.cs">
+    <Compile Include="Pantallas\Adicionales\Frm_Consulta_PL.designer.cs">
       <DependentUpon>Frm_Consulta_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Control_Suministros_PL.cs">
@@ -206,7 +206,7 @@
     <Compile Include="Pantallas\Adicionales\Frm_Preconsulta_PL.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Preconsulta_PL.Designer.cs">
+    <Compile Include="Pantallas\Adicionales\Frm_Preconsulta_PL.designer.cs">
       <DependentUpon>Frm_Preconsulta_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Promociones_PL.cs">
@@ -214,12 +214,6 @@
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Promociones_PL.Designer.cs">
       <DependentUpon>Frm_Promociones_PL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Registro_PL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Adicionales\Frm_Registro_PL.Designer.cs">
-      <DependentUpon>Frm_Registro_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Servicio_Domicilio_PL.cs">
       <SubType>Form</SubType>
@@ -238,6 +232,12 @@
     </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Tesoreria_PL.Designer.cs">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Cobros_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Cobros_PL.Designer.cs">
+      <DependentUpon>Cobros_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cajas_PL.cs">
       <SubType>Form</SubType>
@@ -262,6 +262,12 @@
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.Designer.cs">
       <DependentUpon>Frm_Cuentas_Cobrar_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Express.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Express.Designer.cs">
+      <DependentUpon>Frm_Express.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Recetas_PL.cs">
       <SubType>Form</SubType>
@@ -298,12 +304,6 @@
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.Designer.cs">
       <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.Designer.cs">
-      <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Principales\Frm_Inicio_PL.cs">
       <SubType>Form</SubType>
@@ -400,9 +400,6 @@
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Promociones_PL.resx">
       <DependentUpon>Frm_Promociones_PL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Adicionales\Frm_Registro_PL.resx">
-      <DependentUpon>Frm_Registro_PL.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Servicio_Domicilio_PL.resx">
       <DependentUpon>Frm_Servicio_Domicilio_PL.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Tesoreria_PL.resx">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Cobros_PL.resx">
+      <DependentUpon>Cobros_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cajas_PL.resx">
       <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>
@@ -423,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.resx">
       <DependentUpon>Frm_Cuentas_Cobrar_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Express.resx">
+      <DependentUpon>Frm_Express.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Recetas_PL.resx">
       <DependentUpon>Frm_Recetas_PL.cs</DependentUpon>
@@ -441,9 +444,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_TipoAnimal_PL.resx">
       <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Extras\Frm_Total_Factura_PL.resx">
-      <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Principales\Frm_Inicio_PL.resx">
       <DependentUpon>Frm_Inicio_PL.cs</DependentUpon>
@@ -618,6 +618,24 @@
       <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\facturacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\credito.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\express.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\abierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\cerrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\Descuento.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

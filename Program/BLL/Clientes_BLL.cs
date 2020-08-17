@@ -21,8 +21,8 @@ namespace BLL
             {
 
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','"+ cliente.Apellido_2 +"','"+cliente.Correo + "','" +cliente.Telefono  + "','"  +cliente.ID_Provincias+ "','" + cliente.ID_Cantones+ "','"+ cliente.ID_Distritos+ "','"+ cliente.Direccion+ "','"+cliente.Estado +   "'";
-                
+                peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES '" + cliente.Cedula + "','" + cliente.Nombre + "','" + cliente.Apellido_1 + "','" + cliente.Apellido_2 + "','" + cliente.Correo + "','" + cliente.Telefono + "','" + cliente.ID_Provincias + "','" + cliente.ID_Cantones + "','" + cliente.ID_Distritos + "','" + cliente.Direccion + "','" + cliente.Estado + "'";
+
                 //SQLSentencia peticion = new SQLSentencia();
                 //peticion.Peticion = @"EXEC SP_AGREGAR_CLIENTES @ced, @nom, @ape1, @ape2, @correo, @tel, @provincia, @canton, @distrito, @dire , @credito, @est ";
 
@@ -46,7 +46,7 @@ namespace BLL
                 //paramApe2.ParameterName = "@ape2";
                 //paramApe2.SqlDbType = System.Data.SqlDbType.VarChar;
 
-                //SqlParameter paramCorreo= new SqlParameter();
+                //SqlParameter paramCorreo = new SqlParameter();
                 //paramCorreo.Value = cliente.Correo;
                 //paramCorreo.ParameterName = "@correo";
                 //paramCorreo.SqlDbType = System.Data.SqlDbType.VarChar;
@@ -78,10 +78,10 @@ namespace BLL
                 //paramDire.SqlDbType = System.Data.SqlDbType.VarChar;
 
 
-                //SqlParameter paramCredito= new SqlParameter();
-                //paramCredito.Value = cliente.Credito;
-                //paramCredito.ParameterName = "@credito";
-                //paramCredito.SqlDbType = System.Data.SqlDbType.Bit;
+                ////SqlParameter paramCredito = new SqlParameter();
+                ////paramCredito.Value = cliente.Credito;
+                ////paramCredito.ParameterName = "@credito";
+                ////paramCredito.SqlDbType = System.Data.SqlDbType.Bit;
 
 
                 //SqlParameter paramEst = new SqlParameter();
@@ -99,7 +99,7 @@ namespace BLL
                 //peticion.lstParametros.Add(paramCanton);
                 //peticion.lstParametros.Add(paramDistrito);
                 //peticion.lstParametros.Add(paramDire);
-                //peticion.lstParametros.Add(paramCredito);
+                ////peticion.lstParametros.Add(paramCredito);
                 //peticion.lstParametros.Add(paramEst);
 
 

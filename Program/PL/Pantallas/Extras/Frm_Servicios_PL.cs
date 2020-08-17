@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PL.Pantallas.Adicionales;
-using BLL;
-using DAL.Entidades;
 
 namespace PL.Pantallas.Extras
 {
@@ -20,41 +17,9 @@ namespace PL.Pantallas.Extras
             InitializeComponent();
         }
 
-        private void btn_Confirmar_Click(object sender, EventArgs e)
+        private void btn_Agregar_Click(object sender, EventArgs e)
         {
-           
-        }
-
-        private void Frm_Servicios_PL_Load(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void Cargar()
-        {
-          
-
-         
-        }
-
-
-       
-
-
-
-        private void tsb_Buscar_Click(object sender, EventArgs e)
-        {
-            Cargar();
-        }
-
-        private void tsb_Codigo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buscar_btn_Click(object sender, EventArgs e)
-        {
-            
+            this.Hide();
         }
     }
 }

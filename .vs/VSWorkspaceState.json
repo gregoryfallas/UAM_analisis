@@ -3,10 +3,10 @@
     "\\Program",
     "\\Program\\BLL",
     "\\Program\\DAL",
+    "\\Program\\DAL\\Properties",
     "\\Program\\PL",
     "\\Program\\PL\\Pantallas",
     "\\Program\\PL\\Pantallas\\Adicionales"
   ],
-  "SelectedNode": "\\Program\\DAL\\app.config",
   "PreviewInSolutionExplorer": false
 }

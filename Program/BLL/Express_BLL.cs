@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL.Entidades;
 using DAL;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BLL
 {
@@ -55,27 +56,46 @@ namespace BLL
 
 
 
-        public static List<SERVICIOS_EXPRESS> ConsultarExpress(int Estado)
+        public static DataTable ConsultarExpress(int Estado)
         {
+
 
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC SP_CONSULTAR_EXPRESS @Estado";
-                SqlParameter paramC = new SqlParameter();
-                paramC.Value = Estado;
-                paramC.ParameterName = "@Estado";
-                paramC.SqlDbType = System.Data.SqlDbType.Int;
-                sentencia.lstParametros.Add(paramC);
-                DA acceso = new DA();
-                return acceso.ConsultarExpress(sentencia);
+                sentencia.Peticion = @"EXEC  SP_CONSULTAR_EXPRESS '" + Estado + "'";
 
+
+                DA acceso = new DA();
+                return acceso.ConsultarExpressClientes(sentencia);
 
             }
             catch (Exception e)
             {
                 throw e;
             }
+
+            
+
+
+            //try
+            //{
+            //    SQLSentencia sentencia = new SQLSentencia();
+            //    sentencia.Peticion = @"EXEC SP_CONSULTAR_EXPRESS @Estado";
+            //    //SqlParameter paramC = new SqlParameter();
+            //    //paramC.Value = Estado;
+            //    //paramC.ParameterName = "@Estado";
+            //    //paramC.SqlDbType = System.Data.SqlDbType.Int;
+            //    //sentencia.lstParametros.Add(paramC);
+            //    DA acceso = new DA();
+            //    return acceso.ConsultarExpressClientes(sentencia);
+
+
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
         }
 
 

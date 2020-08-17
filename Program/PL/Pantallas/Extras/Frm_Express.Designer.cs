@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_Estado = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_Estado = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.dtg_Express = new System.Windows.Forms.DataGridView();
-            this.txt_Estado = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +92,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 589);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btn_Confirmar
             // 
@@ -178,6 +179,29 @@
             this.groupBox1.TabIndex = 68;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Factura";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(42, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 23);
+            this.label3.TabIndex = 63;
+            this.label3.Text = "Estado";
+            // 
+            // txt_Estado
+            // 
+            this.txt_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Estado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Estado.ForeColor = System.Drawing.Color.White;
+            this.txt_Estado.Location = new System.Drawing.Point(46, 115);
+            this.txt_Estado.Name = "txt_Estado";
+            this.txt_Estado.ReadOnly = true;
+            this.txt_Estado.Size = new System.Drawing.Size(155, 26);
+            this.txt_Estado.TabIndex = 62;
+            this.txt_Estado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_Nombre
             // 
@@ -288,34 +312,11 @@
             this.dtg_Express.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtg_Express.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Express.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_Express.Location = new System.Drawing.Point(285, 276);
+            this.dtg_Express.Location = new System.Drawing.Point(248, 276);
             this.dtg_Express.Name = "dtg_Express";
             this.dtg_Express.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_Express.Size = new System.Drawing.Size(432, 269);
+            this.dtg_Express.Size = new System.Drawing.Size(593, 269);
             this.dtg_Express.TabIndex = 0;
-            // 
-            // txt_Estado
-            // 
-            this.txt_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Estado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Estado.ForeColor = System.Drawing.Color.White;
-            this.txt_Estado.Location = new System.Drawing.Point(46, 115);
-            this.txt_Estado.Name = "txt_Estado";
-            this.txt_Estado.ReadOnly = true;
-            this.txt_Estado.Size = new System.Drawing.Size(155, 26);
-            this.txt_Estado.TabIndex = 62;
-            this.txt_Estado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(42, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 23);
-            this.label3.TabIndex = 63;
-            this.label3.Text = "Estado";
             // 
             // Frm_Express
             // 

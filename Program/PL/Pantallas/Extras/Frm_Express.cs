@@ -44,41 +44,63 @@ namespace PL.Pantallas.Extras
 
         private void Cargar()
         {
-            SERVICIOS_EXPRESS express = new SERVICIOS_EXPRESS();
-
-            
-            List<SERVICIOS_EXPRESS> LS = Express_BLL.ConsultarExpress(estado);
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("IdServicio");
-            dt.Columns.Add("IdFactura");
-            dt.Columns.Add("Descripcion");
-            dt.Columns.Add("Estado");
 
 
-
-            foreach (SERVICIOS_EXPRESS item in LS)
+            try
             {
-                dt.Rows.Add
-                    (
-                    item.ID_Servicios,
-                    item.ID_Factura,
-                    item.Descripcion,
-                    item.Estado
-                    );
+
+                this.dtg_Express.DataSource = null;
+                this.dtg_Express.Refresh();
+                int a = estado;
+                this.dtg_Express.DataSource = Express_BLL.ConsultarExpress(a);
+                this.dtg_Express.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
 
-            dtg_Express.DataSource = null;
-            dtg_Express.Refresh();
-            dtg_Express.DataSource = dt;
-            dtg_Express.Refresh();
+
+            //SERVICIOS_EXPRESS express = new SERVICIOS_EXPRESS();
 
 
+            //List<SERVICIOS_EXPRESS> LS = new List<SERVICIOS_EXPRESS>();
+
+            //DataTable dt = new DataTable();
+
+            //dt.Columns.Add("IdServicio");
+            //dt.Columns.Add("IdFactura");
+            //dt.Columns.Add("Descripcion");
+            //dt.Columns.Add("Estado");
+            //dt.Columns.Add("NombreCliente");
+            //dt.Columns.Add("FechaFactura");
+
+
+
+            //foreach (SERVICIOS_EXPRESS item in LS)
+            //{
+            //    dt.Rows.Add
+            //        (
+            //        item.ID_Servicios,
+            //        item.ID_Factura,
+            //        item.Descripcion,
+            //        item.Estado
+
+            //        );
+        //}
+        
+            //dtg_Express.DataSource = null;
+            //dtg_Express.Refresh();
+            //dtg_Express.DataSource = dt;
+            //dtg_Express.Refresh();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

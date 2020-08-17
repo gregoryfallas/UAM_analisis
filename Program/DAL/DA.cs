@@ -413,39 +413,72 @@ namespace DAL
 
 
 
-        public List<SERVICIOS_EXPRESS> ConsultarExpress(SQLSentencia P_Peticion)
+        //public List<SERVICIOS_EXPRESS> ConsultarExpress(SQLSentencia P_Peticion)
+        //{
+        //    List<SERVICIOS_EXPRESS> lstresultados = new List<SERVICIOS_EXPRESS>();
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+
+        //        //ASigna los valores del QUERY a ejecutar en SQL
+        //        cmd.Connection = objconexion; //ASigna conexion
+        //        cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+        //        cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+        //        if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+        //            cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+        //        SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+        //        objconsultar.Fill(dt);
+
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            foreach (DataRow item in dt.Rows)
+        //            {
+        //                SERVICIOS_EXPRESS tipo = new SERVICIOS_EXPRESS();
+
+        //                tipo.ID_Servicios = Convert.ToInt32(item.ItemArray[0].ToString());
+        //                tipo.ID_Factura = Convert.ToInt32(item.ItemArray[1].ToString());
+        //                tipo.Descripcion = item.ItemArray[2].ToString();
+        //                tipo.Estado= Convert.ToInt32(item.ItemArray[3].ToString());
+
+
+        //                lstresultados.Add(tipo);
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+
+        //    return lstresultados;
+        //}
+
+
+        public DataTable ConsultarExpressClientes(SQLSentencia peticion)
         {
-            List<SERVICIOS_EXPRESS> lstresultados = new List<SERVICIOS_EXPRESS>();
+            //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
             try
             {
                 SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
-                //ASigna los valores del QUERY a ejecutar en SQL
-                cmd.Connection = objconexion; //ASigna conexion
-                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
-                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
 
-                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
-                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
 
-                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
-                objconsultar.Fill(dt);
-
-                if (dt.Rows.Count > 0)
-                {
-                    foreach (DataRow item in dt.Rows)
-                    {
-                        SERVICIOS_EXPRESS tipo = new SERVICIOS_EXPRESS();
-
-                        tipo.ID_Servicios = Convert.ToInt32(item.ItemArray[0].ToString());
-                        tipo.ID_Factura = Convert.ToInt32(item.ItemArray[1].ToString());
-                        tipo.Descripcion = item.ItemArray[2].ToString();
-                        tipo.Estado= Convert.ToInt32(item.ItemArray[3].ToString());
-                    
-                        lstresultados.Add(tipo);
-                    }
-                }
+                da.Fill(dt);
 
             }
             catch (Exception ex)
@@ -456,12 +489,11 @@ namespace DAL
             {
                 this.CERRAR();
             }
+            return dt;
 
-            return lstresultados;
+
+
         }
-
-
-
 
 
 

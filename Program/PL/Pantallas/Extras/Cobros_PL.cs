@@ -56,7 +56,7 @@ namespace PL.Pantallas.Extras
         {
             timer1.Interval = 500;
             timer1.Start();
-            CargarContado();
+           
            
 
         }
@@ -87,7 +87,23 @@ namespace PL.Pantallas.Extras
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            CargarContado();
+            if (cmb_Tipo.SelectedItem==null)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de factura");
+            }
+            else
+            {
+                if (cmb_Tipo.SelectedIndex == 0)
+                {
+                    CargarContado();
+                }
+                else
+                {
+                    CargarCredito();
+                }
+            }
+
+            
 
             LimpiarCampos();
         }
@@ -291,6 +307,7 @@ namespace PL.Pantallas.Extras
 
             {
                 CargarContado();
+               
 
             }
             else

@@ -50,10 +50,12 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,15 +63,15 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
             this.panel1.Controls.Add(this.btn_Inicio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(739, 0);
+            this.panel1.Location = new System.Drawing.Point(779, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 508);
+            this.panel1.Size = new System.Drawing.Size(171, 556);
             this.panel1.TabIndex = 1;
             // 
             // btn_Inicio
             // 
             this.btn_Inicio.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Inicio.Location = new System.Drawing.Point(28, 421);
+            this.btn_Inicio.Location = new System.Drawing.Point(42, 433);
             this.btn_Inicio.Name = "btn_Inicio";
             this.btn_Inicio.Size = new System.Drawing.Size(117, 35);
             this.btn_Inicio.TabIndex = 45;
@@ -80,25 +82,11 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel2.Controls.Add(this.EliminarCirujíabtn);
-            this.panel2.Controls.Add(this.ModificarCirujiabtn);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.MascotasOperadastxt);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.btn_Agregar);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(740, 508);
+            this.panel2.Size = new System.Drawing.Size(782, 556);
             this.panel2.TabIndex = 2;
             // 
             // EliminarCirujíabtn
@@ -107,11 +95,12 @@
             this.EliminarCirujíabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminarCirujíabtn.FlatAppearance.BorderSize = 0;
             this.EliminarCirujíabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarCirujíabtn.Location = new System.Drawing.Point(301, 433);
+            this.EliminarCirujíabtn.Location = new System.Drawing.Point(256, 446);
             this.EliminarCirujíabtn.Name = "EliminarCirujíabtn";
             this.EliminarCirujíabtn.Size = new System.Drawing.Size(53, 40);
             this.EliminarCirujíabtn.TabIndex = 95;
             this.EliminarCirujíabtn.UseVisualStyleBackColor = true;
+            this.EliminarCirujíabtn.Click += new System.EventHandler(this.EliminarCirujíabtn_Click);
             // 
             // ModificarCirujiabtn
             // 
@@ -120,7 +109,7 @@
             this.ModificarCirujiabtn.FlatAppearance.BorderSize = 0;
             this.ModificarCirujiabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ModificarCirujiabtn.ForeColor = System.Drawing.Color.White;
-            this.ModificarCirujiabtn.Location = new System.Drawing.Point(192, 433);
+            this.ModificarCirujiabtn.Location = new System.Drawing.Point(148, 446);
             this.ModificarCirujiabtn.Name = "ModificarCirujiabtn";
             this.ModificarCirujiabtn.Size = new System.Drawing.Size(59, 40);
             this.ModificarCirujiabtn.TabIndex = 94;
@@ -132,16 +121,17 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(662, 69);
+            this.button1.Location = new System.Drawing.Point(592, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(48, 22);
             this.button1.TabIndex = 93;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MascotasOperadastxt
             // 
             this.MascotasOperadastxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.MascotasOperadastxt.Location = new System.Drawing.Point(529, 71);
+            this.MascotasOperadastxt.Location = new System.Drawing.Point(464, 33);
             this.MascotasOperadastxt.Name = "MascotasOperadastxt";
             this.MascotasOperadastxt.Size = new System.Drawing.Size(122, 20);
             this.MascotasOperadastxt.TabIndex = 92;
@@ -154,7 +144,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(44, 101);
+            this.groupBox1.Location = new System.Drawing.Point(23, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(291, 110);
             this.groupBox1.TabIndex = 91;
@@ -207,17 +197,18 @@
             this.btn_Agregar.FlatAppearance.BorderSize = 0;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Agregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Agregar.Location = new System.Drawing.Point(87, 433);
+            this.btn_Agregar.Location = new System.Drawing.Point(38, 446);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(50, 40);
             this.btn_Agregar.TabIndex = 88;
             this.btn_Agregar.UseVisualStyleBackColor = true;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(155, 232);
+            this.comboBox2.Location = new System.Drawing.Point(121, 213);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(150, 21);
             this.comboBox2.TabIndex = 23;
@@ -227,7 +218,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(60, 228);
+            this.label5.Location = new System.Drawing.Point(26, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 23);
             this.label5.TabIndex = 22;
@@ -238,7 +229,7 @@
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 360);
+            this.comboBox1.Location = new System.Drawing.Point(121, 341);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 21);
             this.comboBox1.TabIndex = 21;
@@ -248,7 +239,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(60, 360);
+            this.label4.Location = new System.Drawing.Point(26, 341);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 23);
             this.label4.TabIndex = 20;
@@ -257,7 +248,7 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(155, 272);
+            this.textBox2.Location = new System.Drawing.Point(121, 253);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(150, 71);
@@ -268,7 +259,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(60, 268);
+            this.label3.Location = new System.Drawing.Point(26, 249);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 23);
             this.label3.TabIndex = 18;
@@ -278,9 +269,9 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(399, 101);
+            this.dataGridView1.Location = new System.Drawing.Point(383, 61);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(311, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(313, 206);
             this.dataGridView1.TabIndex = 17;
             // 
             // label2
@@ -288,7 +279,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(404, 69);
+            this.label2.Location = new System.Drawing.Point(379, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 14;
@@ -299,29 +290,54 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(37, 35);
+            this.label1.Location = new System.Drawing.Point(16, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 38);
             this.label1.TabIndex = 13;
             this.label1.Text = "Cirujías";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.EliminarCirujíabtn);
+            this.groupBox2.Controls.Add(this.MascotasOperadastxt);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.ModificarCirujiabtn);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btn_Agregar);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Location = new System.Drawing.Point(28, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(729, 519);
+            this.groupBox2.TabIndex = 96;
+            this.groupBox2.TabStop = false;
+            // 
             // Frm_Cirujias_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 508);
+            this.ClientSize = new System.Drawing.Size(950, 556);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "Frm_Cirujias_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cirujías";
+            this.Load += new System.EventHandler(this.Frm_Cirujias_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -350,5 +366,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

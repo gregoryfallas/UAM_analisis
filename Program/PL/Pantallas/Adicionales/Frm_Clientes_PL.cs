@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
+using DAL;
 using BLL;
 using DAL.Entidades;
 

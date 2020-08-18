@@ -32,8 +32,6 @@ namespace BLL
             {
                 SQLSentencia sentencia = new SQLSentencia();
                 sentencia.Peticion = @"EXEC SP_CONSULTAR_CAJAS '" + Caja + "'";
-
-
                 DA acceso = new DA();
                 return acceso.ConsultarCajas(sentencia);
 

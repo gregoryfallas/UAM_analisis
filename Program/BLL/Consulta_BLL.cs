@@ -27,14 +27,14 @@ namespace BLL
 
         }
 
-
+        //servicio completo
         public static List<SERVICIOS> ConsultaServicios(string id)
         {
 
             try
             {
                 SQLSentencia peticion = new SQLSentencia();
-                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS @nombre ";
+                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS '" + id+ "'";
 
                 DA objacceso = new DA();
                 return objacceso.ConsultarServicios(peticion);
@@ -44,6 +44,67 @@ namespace BLL
                 throw e;
             }
         }
+
+
+        ////servicio cirujia completo
+        //public static List<SERVICIOS> ConsultaServiciosCirujia(string id)
+        //{
+
+        //    try
+        //    {
+        //        SQLSentencia peticion = new SQLSentencia();
+        //        peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS '" + id + "'";
+
+        //        DA objacceso = new DA();
+        //        return objacceso.ConsultarServicios(peticion);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+
+
+
+        ////servicio examen completo
+        //public static List<SERVICIOS> ConsultaServiciosExamen(string id)
+        //{
+
+        //    try
+        //    {
+        //        SQLSentencia peticion = new SQLSentencia();
+        //        peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS '" + id + "'";
+
+        //        DA objacceso = new DA();
+        //        return objacceso.ConsultarServicios(peticion);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+        ////servicio vacunacion completo
+        //public static List<SERVICIOS> ConsultaServiciosVacunacion(string id)
+        //{
+
+        //    try
+        //    {
+        //        SQLSentencia peticion = new SQLSentencia();
+        //        peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS '" + id + "'";
+
+        //        DA objacceso = new DA();
+        //        return objacceso.ConsultarServicios(peticion);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+
+
 
 
         public static List<SERVICIOS> ConsultaServicios_IDNOMBRE()
@@ -56,6 +117,80 @@ namespace BLL
 
                 DA objacceso = new DA();
                 return objacceso.ConsultarServicios_IDNOMBRE(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static List<SERVICIOS> ConsultaServiciosVacunacion_IDNOMBRE()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS_VACUNAS_IDNOMBRE ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarServicios_IDNOMBRE(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static List<SERVICIOS> ConsultaServiciosExamenes_IDNOMBRE()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS_EXAMENES_IDNOMBRE ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarServicios_IDNOMBRE(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+        public static List<SERVICIOS> ConsultaServiciosCirujia_IDNOMBRE()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS_CIRUJIAS_IDNOMBRE ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarServicios_IDNOMBRE(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+
+        public static List<PRUEBAS_LABORATORIO> ConsultaPruebasLAB(string nom)
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_PRUEBAS_LABORATORIO'" + nom + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarPruebasLaboratorio(peticion);
             }
             catch (Exception e)
             {

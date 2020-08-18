@@ -12,9 +12,13 @@ using PL.Pantallas.Principales;
 
 namespace PL.Pantallas.Principales
 {
+
+
     public partial class Frm_Inicio_PL : Form
     {
         int EnviarFecha = 0;
+
+        
         public Frm_Inicio_PL()
         {
             InitializeComponent();
@@ -30,7 +34,7 @@ namespace PL.Pantallas.Principales
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
              {
-            
+           
 
         }
 
@@ -139,7 +143,7 @@ namespace PL.Pantallas.Principales
 
         private void ts_Cirugias_Click(object sender, EventArgs e)
         {
-            
+           
             Frm_Cirujias_PL Cirujias = new Frm_Cirujias_PL();
             Cirujias.ShowDialog();
         }
@@ -204,11 +208,13 @@ namespace PL.Pantallas.Principales
         {
             timer1.Interval = 500;
             timer1.Start();
+
         }
 
         private void ts_Servicios_Click(object sender, EventArgs e)
         {
-
+            Frm_Laboratorio_PL laboratorio = new Frm_Laboratorio_PL();
+            laboratorio.ShowDialog();
         }
     }
 }

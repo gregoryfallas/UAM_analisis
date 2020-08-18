@@ -17,7 +17,7 @@ namespace DAL.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SERVICIOS()
         {
-            this.DETALLE_SERVICIO = new HashSet<DETALLE_SERVICIO>();
+        //    this.DETALLE_SERVICIO = new HashSet<DETALLE_SERVICIO>();
         }
     
         public int ID_Servicios { get; set; }
@@ -25,7 +25,10 @@ namespace DAL.Entidades
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DETALLE_SERVICIO> DETALLE_SERVICIO { get; set; }
+    //    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+      //  public virtual ICollection<DETALLE_SERVICIO> DETALLE_SERVICIO { get; set; }
+
+
+
     }
 }

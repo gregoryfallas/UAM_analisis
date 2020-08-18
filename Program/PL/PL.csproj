@@ -203,6 +203,12 @@
     <Compile Include="Pantallas\Adicionales\Frm_Ingreso_Suministros_PL.Designer.cs">
       <DependentUpon>Frm_Ingreso_Suministros_PL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Adicionales\Frm_Laboratorio_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Frm_Laboratorio_PL.Designer.cs">
+      <DependentUpon>Frm_Laboratorio_PL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Adicionales\Frm_Preconsulta_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Ingreso_Suministros_PL.resx">
       <DependentUpon>Frm_Ingreso_Suministros_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Adicionales\Frm_Laboratorio_PL.resx">
+      <DependentUpon>Frm_Laboratorio_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Preconsulta_PL.resx">
       <DependentUpon>Frm_Preconsulta_PL.cs</DependentUpon>
@@ -610,16 +619,6 @@
     <None Include="Recursos\Clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{61a5d75e-e895-468b-8eb2-888873db5c5a}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Recursos\facturacion.png" />
   </ItemGroup>
   <ItemGroup>
@@ -636,6 +635,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Recursos\Descuento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{61a5d75e-e895-468b-8eb2-888873db5c5a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

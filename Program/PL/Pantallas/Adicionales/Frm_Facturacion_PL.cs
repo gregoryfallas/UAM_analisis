@@ -10,11 +10,15 @@ using Microsoft.VisualBasic;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
 using PL.Pantallas.Extras;
+using DAL.Entidades;
+using DAL;
 
 namespace PL.Pantallas.Adicionales
 {
     public partial class Frm_Facturacion_PL : Form
     {
+        DA Obj_DAL = new DA();
+
         public Frm_Facturacion_PL()
         {
             InitializeComponent();
@@ -22,51 +26,43 @@ namespace PL.Pantallas.Adicionales
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+           this.Dispose();
+          
         }
+                    
 
-        private void btn_Agregar_Click(object sender, EventArgs e)
-        {
-            Frm_Servicios_PL servicios = new Frm_Servicios_PL();
-            servicios.ShowDialog();
-        }
-
-        private void btn_Confirmar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Frm_Total_Factura_PL factura = new Frm_Total_Factura_PL();
-                factura.ShowDialog();
-            }
-        }
-
-        private void btn_Cancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea Cancelar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                
-            }
-        }
-
-        private void btn_Orden_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Desea Cargar orden de Médico ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                string orden;
-                orden = Microsoft.VisualBasic.Interaction.InputBox("Ingrese el número de orden:","Orden de Médico");
-                MessageBox.Show("Orden Cargada con Exito: " +orden,"Orden",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-
-                txt_Orden.Text = orden;
-
-            }
-        }
+        
        
         private void Frm_Facturacion_PL_Load(object sender, EventArgs e)
         {
-            txt_Fecha_Doc.Text = DateTime.Now.ToShortDateString();
+            
 
+           
+
+
+           
+           
+        }
+
+        private void tsb_Contado_Click(object sender, EventArgs e)
+        {
+            DA Obj_DAL = new DA();
+            Frm_Contado_PL Contado = new Frm_Contado_PL();
+            Contado.ShowDialog();
+        }
+
+        private void tsb_Cajas_Click(object sender, EventArgs e)
+        {
+            DA Obj_DAL = new DA();
+            Frm_Cajas_PL Cajas = new Frm_Cajas_PL();            
+            Cajas.ShowDialog();
+            
+        }
+
+        private void tsb_Credito_Click(object sender, EventArgs e)
+        {
+            Frm_Credito_PL Credito = new Frm_Credito_PL();
+            Credito.ShowDialog();
         }
     }
 }

@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,11 +62,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ep_sqlDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ep_sqlDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Agregar_Nueva_Vacante_PL.cs">
       <SubType>Form</SubType>
@@ -239,6 +253,24 @@
     <Compile Include="Pantallas\Adicionales\Frm_Tesoreria_PL.Designer.cs">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Cajas_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Cajas_PL.Designer.cs">
+      <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Contado_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Contado_PL.Designer.cs">
+      <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_Credito_PL.Designer.cs">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +306,12 @@
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Servicios_PL.Designer.cs">
       <DependentUpon>Frm_Servicios_PL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Extras\Frm_TipoAnimal_PL.Designer.cs">
+      <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Extras\Frm_Total_Factura_PL.cs">
       <SubType>Form</SubType>
@@ -388,6 +426,15 @@
     <EmbeddedResource Include="Pantallas\Adicionales\Frm_Tesoreria_PL.resx">
       <DependentUpon>Frm_Tesoreria_PL.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Cajas_PL.resx">
+      <DependentUpon>Frm_Cajas_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Contado_PL.resx">
+      <DependentUpon>Frm_Contado_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_Credito_PL.resx">
+      <DependentUpon>Frm_Credito_PL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Cuentas_Cobrar_PL.resx">
       <DependentUpon>Frm_Cuentas_Cobrar_PL.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Servicios_PL.resx">
       <DependentUpon>Frm_Servicios_PL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Extras\Frm_TipoAnimal_PL.resx">
+      <DependentUpon>Frm_TipoAnimal_PL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Extras\Frm_Total_Factura_PL.resx">
       <DependentUpon>Frm_Total_Factura_PL.cs</DependentUpon>
@@ -425,6 +475,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ep_sqlDataSet.xsc">
+      <DependentUpon>ep_sqlDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ep_sqlDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ep_sqlDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ep_sqlDataSet.xss">
+      <DependentUpon>ep_sqlDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -572,6 +633,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Recursos\Clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{61a5d75e-e895-468b-8eb2-888873db5c5a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9be64b47-eddf-44f1-ab47-68d6c8dc4f63}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

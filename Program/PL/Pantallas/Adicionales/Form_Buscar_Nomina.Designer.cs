@@ -62,17 +62,17 @@
             this.groupBox1.Size = new System.Drawing.Size(596, 312);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar Nómina";
+            this.groupBox1.Text = "Mostrar Nómina";
             // 
             // btnmostrar
             // 
             this.btnmostrar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmostrar.ForeColor = System.Drawing.Color.Black;
-            this.btnmostrar.Location = new System.Drawing.Point(27, 53);
+            this.btnmostrar.Location = new System.Drawing.Point(446, 53);
             this.btnmostrar.Name = "btnmostrar";
             this.btnmostrar.Size = new System.Drawing.Size(126, 37);
             this.btnmostrar.TabIndex = 1;
-            this.btnmostrar.Text = "Mostrar Nómina";
+            this.btnmostrar.Text = "Mostrar";
             this.btnmostrar.UseVisualStyleBackColor = true;
             this.btnmostrar.Click += new System.EventHandler(this.btnmostrar_Click);
             // 

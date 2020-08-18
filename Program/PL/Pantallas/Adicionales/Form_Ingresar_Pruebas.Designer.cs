@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnagregar2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cboparticipantes = new System.Windows.Forms.ComboBox();
+            this.cbopruebas = new System.Windows.Forms.ComboBox();
+            this.txtnota = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -37,17 +45,9 @@
             this.btnmodificar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtnota = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbopruebas = new System.Windows.Forms.ComboBox();
-            this.cboparticipantes = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnagregar2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -63,6 +63,104 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(678, 494);
             this.panel1.TabIndex = 3;
+            // 
+            // btnagregar2
+            // 
+            this.btnagregar2.BackgroundImage = global::PL.Properties.Resources.Agregar;
+            this.btnagregar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnagregar2.FlatAppearance.BorderSize = 0;
+            this.btnagregar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnagregar2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnagregar2.Location = new System.Drawing.Point(21, 433);
+            this.btnagregar2.Name = "btnagregar2";
+            this.btnagregar2.Size = new System.Drawing.Size(51, 39);
+            this.btnagregar2.TabIndex = 36;
+            this.btnagregar2.UseVisualStyleBackColor = true;
+            this.btnagregar2.Click += new System.EventHandler(this.btnagregar2_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.cboparticipantes);
+            this.groupBox2.Controls.Add(this.cbopruebas);
+            this.groupBox2.Controls.Add(this.txtnota);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(21, 249);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(352, 164);
+            this.groupBox2.TabIndex = 35;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ingresar Notas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 23);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Id Pruebas:";
+            // 
+            // cboparticipantes
+            // 
+            this.cboparticipantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboparticipantes.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboparticipantes.ForeColor = System.Drawing.Color.White;
+            this.cboparticipantes.FormattingEnabled = true;
+            this.cboparticipantes.Location = new System.Drawing.Point(140, 83);
+            this.cboparticipantes.Name = "cboparticipantes";
+            this.cboparticipantes.Size = new System.Drawing.Size(183, 31);
+            this.cboparticipantes.TabIndex = 33;
+            this.cboparticipantes.SelectedValueChanged += new System.EventHandler(this.cboparticipantes_SelectedValueChanged);
+            // 
+            // cbopruebas
+            // 
+            this.cbopruebas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cbopruebas.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbopruebas.ForeColor = System.Drawing.Color.White;
+            this.cbopruebas.FormattingEnabled = true;
+            this.cbopruebas.Location = new System.Drawing.Point(140, 46);
+            this.cbopruebas.Name = "cbopruebas";
+            this.cbopruebas.Size = new System.Drawing.Size(183, 31);
+            this.cbopruebas.TabIndex = 32;
+            this.cbopruebas.SelectedValueChanged += new System.EventHandler(this.cbopruebas_SelectedValueChanged);
+            // 
+            // txtnota
+            // 
+            this.txtnota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtnota.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtnota.ForeColor = System.Drawing.Color.White;
+            this.txtnota.Location = new System.Drawing.Point(140, 120);
+            this.txtnota.Name = "txtnota";
+            this.txtnota.Size = new System.Drawing.Size(183, 26);
+            this.txtnota.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(13, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 23);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Id Participantes:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Nota:";
             // 
             // groupBox1
             // 
@@ -158,101 +256,6 @@
             this.panel2.Size = new System.Drawing.Size(72, 494);
             this.panel2.TabIndex = 4;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.cboparticipantes);
-            this.groupBox2.Controls.Add(this.cbopruebas);
-            this.groupBox2.Controls.Add(this.txtnota);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(21, 249);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 164);
-            this.groupBox2.TabIndex = 35;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ingresar Notas";
-            // 
-            // txtnota
-            // 
-            this.txtnota.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.txtnota.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnota.ForeColor = System.Drawing.Color.White;
-            this.txtnota.Location = new System.Drawing.Point(140, 120);
-            this.txtnota.Name = "txtnota";
-            this.txtnota.Size = new System.Drawing.Size(183, 26);
-            this.txtnota.TabIndex = 26;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 23);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Id Participantes:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 23);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Nota:";
-            // 
-            // cbopruebas
-            // 
-            this.cbopruebas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.cbopruebas.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbopruebas.ForeColor = System.Drawing.Color.White;
-            this.cbopruebas.FormattingEnabled = true;
-            this.cbopruebas.Location = new System.Drawing.Point(140, 46);
-            this.cbopruebas.Name = "cbopruebas";
-            this.cbopruebas.Size = new System.Drawing.Size(183, 31);
-            this.cbopruebas.TabIndex = 32;
-            // 
-            // cboparticipantes
-            // 
-            this.cboparticipantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.cboparticipantes.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboparticipantes.ForeColor = System.Drawing.Color.White;
-            this.cboparticipantes.FormattingEnabled = true;
-            this.cboparticipantes.Location = new System.Drawing.Point(140, 83);
-            this.cboparticipantes.Name = "cboparticipantes";
-            this.cboparticipantes.Size = new System.Drawing.Size(183, 31);
-            this.cboparticipantes.TabIndex = 33;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 23);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Id Pruebas:";
-            // 
-            // btnagregar2
-            // 
-            this.btnagregar2.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.btnagregar2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnagregar2.FlatAppearance.BorderSize = 0;
-            this.btnagregar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnagregar2.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnagregar2.Location = new System.Drawing.Point(21, 433);
-            this.btnagregar2.Name = "btnagregar2";
-            this.btnagregar2.Size = new System.Drawing.Size(51, 39);
-            this.btnagregar2.TabIndex = 36;
-            this.btnagregar2.UseVisualStyleBackColor = true;
-            // 
             // Form_Ingresar_Pruebas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,10 +268,10 @@
             this.Name = "Form_Ingresar_Pruebas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

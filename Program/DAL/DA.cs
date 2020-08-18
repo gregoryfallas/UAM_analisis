@@ -615,6 +615,57 @@ namespace DAL
 
         #endregion
 
+        #region ROLES
+
+        public List<ROLES> ObtenerRoles(SQLSentencia P_Peticion)
+        {
+            List<ROLES> lstresultados = new List<ROLES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                //if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                //    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ROLES tabla = new ROLES();
+
+                        tabla.ID_Roles = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.Nombre = item.ItemArray[1].ToString();
+                        //tabla.Descripcion = item.ItemArray[2].ToString();
+                        //tabla.Estado = Convert.ToInt32(item.ItemArray[3].ToString());
+
+                        lstresultados.Add(tabla);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        #endregion
+
         #region POSTULANTES
 
         public List<RECLUTAMIENTO> ConsultarIDReclutamiento(SQLSentencia P_Peticion)
@@ -920,6 +971,96 @@ namespace DAL
 
                     lstresultados.Add(u);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<PRUEBAS> NotasIdPruebas(SQLSentencia P_Peticion)
+        {
+            List<PRUEBAS> lstresultados = new List<PRUEBAS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PRUEBAS ID = new PRUEBAS();
+
+                        ID.ID_Pruebas = Convert.ToInt32(item.ItemArray[0].ToString());
+                        ID.Nombre = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(ID);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<PARTICIPANTES> NotasIdParticipantes(SQLSentencia P_Peticion)
+        {
+            List<PARTICIPANTES> lstresultados = new List<PARTICIPANTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PARTICIPANTES ID = new PARTICIPANTES();
+
+                        ID.ID_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
+                        ID.Cedula_ = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(ID);
+                    }
+                }
+
             }
             catch (Exception ex)
             {

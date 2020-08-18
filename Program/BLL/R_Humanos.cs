@@ -662,7 +662,6 @@ namespace BLL
             }
         }
 
-        //prueba
         public static List<NOMINA> Obtener_Nomina()
         {
             try
@@ -680,7 +679,8 @@ namespace BLL
                 throw ex;
             }
         }
-
+       
+        //no me sirve
         public static List<PERSONAL> Obtener_Personal()
         {
             try
@@ -719,5 +719,98 @@ namespace BLL
                 throw ex;
             }
         }
+
+        public static List<ROLES> Obtener_Roles()
+        {
+            try
+            {   //Se crea objeto para armado sentencia
+                SQLSentencia peticion = new SQLSentencia();
+                //Arma la sentencia con los datos del parametro entrada
+                peticion.Peticion = @"SELECT ID_Roles, Nombre, Descripcion, Estado FROM ROLES";
+
+                //Se hace el llamado al ACCESO DATOS
+                DA objacceso = new DA();
+                return objacceso.ObtenerRoles(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<PRUEBAS> NotasIdPruebas()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_PA_NotasIdPruebas";
+
+                DA objacceso = new DA();
+                return objacceso.NotasIdPruebas(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static List<PARTICIPANTES> NotasIdParticipantes()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_PA_NotasIdParticipantes";
+
+                DA objacceso = new DA();
+                return objacceso.NotasIdParticipantes(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool AgregarNotaPruebas(PRUEBAS_PARTICIPANTES P_pruebap)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_PRUEBAS_PARTICIPANTES @ID_Pruebas, @ID_Participantes,
+                @Nota";
+
+                //Crear los parametros
+                SqlParameter parametroIdPruebas = new SqlParameter();
+                parametroIdPruebas.ParameterName = "@ID_Pruebas";
+                parametroIdPruebas.SqlDbType = System.Data.SqlDbType.Int;
+                parametroIdPruebas.Value = P_pruebap.ID_Pruebas;
+
+                SqlParameter parametroIdParticipantes = new SqlParameter();
+                parametroIdParticipantes.ParameterName = "@ID_Participantes";
+                parametroIdParticipantes.SqlDbType = System.Data.SqlDbType.Int;
+                parametroIdParticipantes.Value = P_pruebap.ID_Participantes;
+
+                SqlParameter parametroNota = new SqlParameter();
+                parametroNota.ParameterName = "@Nota";
+                parametroNota.SqlDbType = System.Data.SqlDbType.Decimal;
+                parametroNota.Value = P_pruebap.Nota;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroIdPruebas);
+                objpeticion.lstParametros.Add(parametroIdParticipantes);
+                objpeticion.lstParametros.Add(parametroNota);
+                
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

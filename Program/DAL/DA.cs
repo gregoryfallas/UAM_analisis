@@ -1297,9 +1297,144 @@ namespace DAL
 
 
 
+        public List<CONSULTORIO> ConsultarConsultorios(SQLSentencia P_Peticion)
+        {
+            List<CONSULTORIO> lstresultados = new List<CONSULTORIO>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CONSULTORIO tipo = new CONSULTORIO();
+
+                        tipo.ID_Consultorio = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
 
+        public List<MOTIVO_CITA> ConsultarMotivos(SQLSentencia P_Peticion)
+        {
+            List<MOTIVO_CITA> lstresultados = new List<MOTIVO_CITA>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
 
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        MOTIVO_CITA tipo = new MOTIVO_CITA();
+
+                        tipo.ID_Motivo_Cita = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<CITAS> ConsultarCitas(SQLSentencia P_Peticion)
+        {
+            List<CITAS> lstresultados = new List<CITAS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        CITAS tipo = new CITAS();
+                        tipo.ID_Cita = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.ID_Mascota = Convert.ToInt32(item.ItemArray[1].ToString());
+                        tipo.ID_Consultorio = Convert.ToInt32(item.ItemArray[2].ToString());
+                        tipo.ID_Motivo_Cita = Convert.ToInt32(item.ItemArray[3].ToString());
+                        tipo.Fecha_Inicio = DateTime.Parse(item.ItemArray[4].ToString());
+                        tipo.Hora_Inicio = TimeSpan.Parse(item.ItemArray[5].ToString());
+                        tipo.Hora_Fin = TimeSpan.Parse(item.ItemArray[6].ToString());
+                        tipo.Estado = Convert.ToInt32(item.ItemArray[7].ToString());
+                        tipo.Nombre = item.ItemArray[8].ToString();
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
         #endregion
 
 

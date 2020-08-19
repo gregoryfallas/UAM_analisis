@@ -50,6 +50,7 @@ namespace PL.Pantallas.Extras
 
             MessageBox.Show("Factura generada con exito");
             LimpiarCampos();
+            CargarContado();
 
         }
 
@@ -57,9 +58,8 @@ namespace PL.Pantallas.Extras
         {
             timer1.Interval = 500;
             timer1.Start();
-           
-           
 
+            
         }
 
        
@@ -138,9 +138,9 @@ namespace PL.Pantallas.Extras
                 txt_Credito.Text = actual.ToString();
                 txt_Total.Text = "";
             }
-            
-          
 
+
+            CargarDetalles();
 
         }
 
@@ -381,77 +381,100 @@ namespace PL.Pantallas.Extras
 
             }
         }
-   
-
-private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
-{
-            Frm_Contado_PL contado = new Frm_Contado_PL();
 
 
-    DataTable dt = new DataTable();
+        private void Imprimir_PrintPage(object sender, PrintPageEventArgs e)
+        {
+             DataTable dt = new DataTable();
 
-    Font font = new Font("Arial", 14);
-    int ancho = 350;
-    int y = 20;
-    int x = 250;
+            Font font = new Font("Arial", 14);
+            int ancho = 350;
+            int y = 20;
+            int x = 250;
 
 
 
-    e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-    e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));   
-    e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-    e.Graphics.DrawString("FechaFactura: " + txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("FechaFactura: " + txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
 
-    e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
-
-            
-
-    foreach (DataGridViewColumn columna in contado.dtg_Factura.Columns)
-    {
+            e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
 
 
-        DataColumn col = new DataColumn(columna.Name);
+
+            foreach (DataGridViewColumn columna in dtg_Detalles.Columns)
+            {
 
 
-        dt.Columns.Add(col);
+                DataColumn col = new DataColumn(columna.Name);
 
 
-    }
-    string nombre;
-    string cantidad;
-    string precio;
-    string descuento;
-    string total;
-
-    foreach (DataGridViewRow row in contado.dtg_Factura.Rows)
-    {
-
-        DataRow dr = dt.NewRow();
-        dr[0] = row.Cells[0].Value.ToString();
-        dr[1] = row.Cells[1].Value.ToString();
-        dr[2] = row.Cells[2].Value.ToString();
-        dr[3] = row.Cells[3].Value.ToString();
-        dr[4] = row.Cells[4].Value.ToString();
+                dt.Columns.Add(col);
 
 
-        nombre = dr[0].ToString();
-        cantidad = dr[1].ToString();
-        precio = dr[2].ToString();
-        descuento = dr[3].ToString();
-        total = dr[4].ToString();
+            }
+            string cantidad;
+            string nombre;            
+            string precio;
+            //string descuento;
+            //string total;
 
-        e.Graphics.DrawString(nombre + " " + cantidad + " " + precio + " " + descuento + " " + total, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            foreach (DataGridViewRow row in dtg_Detalles.Rows)
+            {
+
+                DataRow dr = dt.NewRow();
+                dr[0] = row.Cells[7].Value.ToString();
+                dr[1] = row.Cells[5].Value.ToString();
+                dr[2] = row.Cells[6].Value.ToString();
+                //dr[3] = row.Cells[3].Value.ToString();
+                //dr[4] = row.Cells[4].Value.ToString();
 
 
-    }
-    //e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-    //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-    e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-    e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+                cantidad = dr[0].ToString();
+                nombre= dr[1].ToString();
+                precio = dr[2].ToString();
+                //descuento = dr[3].ToString();
+                //total = dr[4].ToString();
+
+                e.Graphics.DrawString(cantidad + " " + nombre + " " + precio /*+ " " + descuento + " " + total*/, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
 
-}
+            }
+            //e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Impuesto:" + "13%", font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+
+
+        }
+
+
+
+
+        private void CargarDetalles()
+        {
+            try
+            {
+
+                this.dtg_Detalles.DataSource = null;
+                this.dtg_Detalles.Refresh();
+                int a = Convert.ToInt32(txt_Factura.Text.Trim());
+                this.dtg_Detalles.DataSource = Factura_BLL.ConsultarDetalles(a);
+                this.dtg_Detalles.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
 
 
 

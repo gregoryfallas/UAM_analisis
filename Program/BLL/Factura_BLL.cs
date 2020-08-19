@@ -221,8 +221,24 @@ namespace BLL
 
 
 
+        public static DataTable ConsultarDetalles(int factura)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_Vista_Factura '" + factura + "'";
 
 
+                DA acceso = new DA();
+                return acceso.ConsultarDetalles(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
 
     }

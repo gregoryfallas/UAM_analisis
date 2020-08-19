@@ -31,13 +31,13 @@ namespace PL.Pantallas.Extras
         CREDITOS Credito = new CREDITOS();
 
 
-         int idServicio;
-         string Servicio;
-        int cantidad;
-        decimal precio;
+        // int idServicio;
+        // string Servicio;
+        //int cantidad;
+        //decimal precio;
         bool bandera = false;
-
-
+        int id;
+        string producto;
 
         string nombre;
         string cedula;
@@ -71,16 +71,17 @@ namespace PL.Pantallas.Extras
                 ART.Importe = ART.Precio * ART.Cantidad;
                 txt_Importe.Text = ART.Importe.ToString();
                 ART.Importe = Convert.ToDecimal(txt_Importe.Text);
-                
+                id = Convert.ToInt32(txt_Id_Articulo.Text);
+                producto = txt_Nom_Produc.Text;
                 
 
                 if (ART.Importe > 0)
                 {
                     dtg_Factura.Rows.Add(new string[] {
-              Convert.ToString(dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value),
-             Convert.ToString(dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value),
+              Convert.ToString(id)/*dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value)*/,
+             Convert.ToString(producto/*dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value*/),
              Convert.ToString(ART.Cantidad),
-            Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
+            Convert.ToString(ART.Precio/*dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value*/),
             Convert.ToString(ART.Temporal_descuento),
             Convert.ToString(ART.Importe)});
 
@@ -339,6 +340,7 @@ namespace PL.Pantallas.Extras
                 txt_Nom_Produc.Text = Frm_Servicios_PL.Servicio;
                 txt_Cantidad.Text = Frm_Servicios_PL.cantidad.ToString();
                 txt_Precio.Text = Frm_Servicios_PL.precio.ToString();
+                txt_Id_Articulo.Text = Frm_Servicios_PL.idServicio.ToString();
             }
 
         }
@@ -651,6 +653,9 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Articulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            id = Convert.ToInt32(dtg_Articulos.CurrentRow.Cells[0].Value.ToString());
+            txt_Id_Articulo.Text = id.ToString();
             ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
             txt_Precio.Text = ART.Precio.ToString();
 
@@ -701,6 +706,7 @@ namespace PL.Pantallas.Extras
             txt_Factura.Text = "";
             cb_Express.Checked = false;
             txt_Descripcion.Text = "";
+            txt_Id_Articulo.Text = "";
         }
 
         private void rdb_Credito_Click(object sender, EventArgs e)

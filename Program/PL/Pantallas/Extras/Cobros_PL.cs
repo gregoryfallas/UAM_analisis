@@ -418,8 +418,14 @@ namespace PL.Pantallas.Extras
             string cantidad;
             string nombre;            
             string precio;
-            //string descuento;
-            //string total;
+            double impuesto;
+
+            double total = Convert.ToDouble(txt_Total.Text);
+            double subtotal;
+            subtotal = total / (1 + 0.13);
+            impuesto = total - subtotal;
+           
+            
 
             foreach (DataGridViewRow row in dtg_Detalles.Rows)
             {
@@ -442,9 +448,9 @@ namespace PL.Pantallas.Extras
 
 
             }
-            //e.Graphics.DrawString("---SubTotal: " + txt_SubTotal.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---SubTotal: " + subtotal, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Impuesto:" + "13%", font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Impuesto:" + "¢"+impuesto, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
 

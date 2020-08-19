@@ -94,11 +94,7 @@ namespace PL.Pantallas.Adicionales
         }
 
 
-
-        private void consultarObservaciones() {
-
-        }
-
+        
 
         private void btn_Recetas_Click(object sender, EventArgs e)
         {
@@ -110,7 +106,7 @@ namespace PL.Pantallas.Adicionales
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Recetas_PL Recetas = new Frm_Recetas_PL();
             Recetas.ShowDialog();
         }
@@ -121,6 +117,7 @@ namespace PL.Pantallas.Adicionales
             cargarExamenes();
             cargarVacunas();
             cargarCirujías();
+            CargarObservacionesPreConsulta();
 
         }
 
@@ -180,7 +177,7 @@ namespace PL.Pantallas.Adicionales
         {
             //SERVICIOS s = new SERVICIOS();
             nomServ = otrosServicioscbo.Text;
-            textBox2.Text = nomServ;
+         //   textBox2.Text = nomServ;
         }
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
@@ -191,6 +188,27 @@ namespace PL.Pantallas.Adicionales
             listaExamenes.Clear();
             
         }
+
+
+        private void CargarObservacionesPreConsulta() {
+            List<OBSERVACIONES> lo = new List<OBSERVACIONES>();
+            lo = Consulta_BLL.consultarObservaciones();
+            OBSERVACIONES observaciones = new OBSERVACIONES();
+            foreach (OBSERVACIONES o in lo)
+            {
+
+                observaciones.ID_Cita = o.ID_Cita;
+                observaciones.Descripcion = o.Descripcion;
+                Observaciones.Text = observaciones.Descripcion;
+                idCita = observaciones.ID_Cita;
+                textBox2.Text = idCita.ToString();
+            }
+
+
+
+
+        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

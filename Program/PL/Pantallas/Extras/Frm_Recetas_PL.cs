@@ -21,8 +21,8 @@ namespace PL.Pantallas.Extras
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            
+            //this.Dispose();
+            this.Hide();
         }
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AgregarRecetabtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.edadtxt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.nombretxt = new System.Windows.Forms.TextBox();
             this.idtxt = new System.Windows.Forms.TextBox();
@@ -51,8 +51,6 @@
             this.observacionestxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.edadtxt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,6 +153,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mascota";
             // 
+            // edadtxt
+            // 
+            this.edadtxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.edadtxt.ForeColor = System.Drawing.Color.White;
+            this.edadtxt.Location = new System.Drawing.Point(102, 126);
+            this.edadtxt.Name = "edadtxt";
+            this.edadtxt.Size = new System.Drawing.Size(133, 26);
+            this.edadtxt.TabIndex = 32;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(36, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(42, 23);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "Edad";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -173,6 +191,7 @@
             this.nombretxt.ForeColor = System.Drawing.Color.White;
             this.nombretxt.Location = new System.Drawing.Point(102, 87);
             this.nombretxt.Name = "nombretxt";
+            this.nombretxt.ReadOnly = true;
             this.nombretxt.Size = new System.Drawing.Size(133, 26);
             this.nombretxt.TabIndex = 27;
             // 
@@ -182,6 +201,7 @@
             this.idtxt.ForeColor = System.Drawing.Color.White;
             this.idtxt.Location = new System.Drawing.Point(102, 48);
             this.idtxt.Name = "idtxt";
+            this.idtxt.ReadOnly = true;
             this.idtxt.Size = new System.Drawing.Size(133, 26);
             this.idtxt.TabIndex = 25;
             // 
@@ -296,49 +316,13 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(431, 104);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(328, 79);
             this.dataGridView1.TabIndex = 29;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(36, 129);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 23);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Edad";
-            // 
-            // edadtxt
-            // 
-            this.edadtxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.edadtxt.ForeColor = System.Drawing.Color.White;
-            this.edadtxt.Location = new System.Drawing.Point(102, 126);
-            this.edadtxt.Name = "edadtxt";
-            this.edadtxt.Size = new System.Drawing.Size(133, 26);
-            this.edadtxt.TabIndex = 32;
             // 
             // Frm_Preconsulta_PL
             // 

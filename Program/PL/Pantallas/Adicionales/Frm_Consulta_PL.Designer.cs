@@ -33,7 +33,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.resultadoExamenestxt = new System.Windows.Forms.TextBox();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.resultadoExamenestxt = new System.Windows.Forms.TextBox();
             this.agregarExamenesbtn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -137,15 +137,6 @@
             this.groupBox3.Text = "Consulta General";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // resultadoExamenestxt
-            // 
-            this.resultadoExamenestxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.resultadoExamenestxt.ForeColor = System.Drawing.Color.White;
-            this.resultadoExamenestxt.Location = new System.Drawing.Point(514, 24);
-            this.resultadoExamenestxt.Name = "resultadoExamenestxt";
-            this.resultadoExamenestxt.Size = new System.Drawing.Size(115, 30);
-            this.resultadoExamenestxt.TabIndex = 23;
-            // 
             // btn_Agregar
             // 
             this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
@@ -230,6 +221,7 @@
             this.textBox2.ForeColor = System.Drawing.Color.White;
             this.textBox2.Location = new System.Drawing.Point(89, 74);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(165, 26);
             this.textBox2.TabIndex = 91;
             // 
@@ -258,6 +250,15 @@
             this.groupBox4.TabIndex = 90;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Examenes";
+            // 
+            // resultadoExamenestxt
+            // 
+            this.resultadoExamenestxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.resultadoExamenestxt.ForeColor = System.Drawing.Color.White;
+            this.resultadoExamenestxt.Location = new System.Drawing.Point(514, 24);
+            this.resultadoExamenestxt.Name = "resultadoExamenestxt";
+            this.resultadoExamenestxt.Size = new System.Drawing.Size(115, 30);
+            this.resultadoExamenestxt.TabIndex = 23;
             // 
             // agregarExamenesbtn
             // 
@@ -314,6 +315,7 @@
             this.Observaciones.Location = new System.Drawing.Point(626, 56);
             this.Observaciones.Multiline = true;
             this.Observaciones.Name = "Observaciones";
+            this.Observaciones.ReadOnly = true;
             this.Observaciones.Size = new System.Drawing.Size(290, 114);
             this.Observaciones.TabIndex = 20;
             // 

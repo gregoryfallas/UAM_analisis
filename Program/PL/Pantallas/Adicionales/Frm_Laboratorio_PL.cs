@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL.Entidades;
+using BLL;
 
 namespace PL.Pantallas.Adicionales
 {
@@ -51,7 +52,9 @@ namespace PL.Pantallas.Adicionales
         private void enviarbtn_Click(object sender, EventArgs e)
         {
             bandera = false;
-            listita.Clear();
+           listita.Clear();
+
+
         }
 
         private bool verificarSolicitudDeLAB(){
@@ -62,6 +65,7 @@ namespace PL.Pantallas.Adicionales
 
 
         private void citaEnCurso() {
+
             cita = Frm_Consulta_PL.idCita;
 
         }
@@ -72,9 +76,26 @@ namespace PL.Pantallas.Adicionales
             listita = Frm_Consulta_PL.listaServicios;
             citaEnCurso();
             cargarGrid();
+            CargarCombosEstadosExamenes();
             
             //bandera=false;
         }
+
+
+        private void CargarCombosEstadosExamenes()
+        {
+            List<ESTADOS> lstresultado =Laboratorio_BLL.ConsultaEstadosExamenes();
+
+            this.comboBox1.DataSource = lstresultado;
+            comboBox1.ValueMember = "ID_Estados";
+            comboBox1.DisplayMember = "Nombre";
+            comboBox1.Refresh();
+        }
+
+
+
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -88,6 +109,11 @@ namespace PL.Pantallas.Adicionales
             //textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = comboBox1.SelectedIndex.ToString();
         }
     }
 }

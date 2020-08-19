@@ -109,8 +109,7 @@ namespace BLL
 
         public static List<SERVICIOS> ConsultaServicios_IDNOMBRE()
         {
-
-            try
+          try
             {
                 SQLSentencia peticion = new SQLSentencia();
                 peticion.Peticion = @"EXEC SP_CONSULTAR_SERVICIOS_IDNOMBRE ";

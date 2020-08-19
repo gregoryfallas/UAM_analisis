@@ -16,6 +16,10 @@ namespace PL.Pantallas.Adicionales
     {
 
         List<SERVICIOS> listita = new List<SERVICIOS>();
+        private int idEstado;
+        private int idServicio;
+        private int idPrueba;
+
         public bool bandera=false;
         public int cita ;
 
@@ -46,16 +50,79 @@ namespace PL.Pantallas.Adicionales
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bandera = false;
+
+            listita.Clear();
+
             this.Hide();
         }
 
-        private void enviarbtn_Click(object sender, EventArgs e)
-        {
-            bandera = false;
-           listita.Clear();
+        private void servicioAExamen() {
+
+            switch (idServicio)
+            {
+                case 13:
+                    idPrueba = 1;
+                    break;
+                case 14:
+                    idPrueba = 2;
+                    break;
+                case 15:
+                    idPrueba = 3;
+                    break;
+                case 16:
+                    idPrueba = 4;
+                    break;
+                case 17:
+                    idPrueba = 5;
+                    break;
+                case 18:
+                    idPrueba = 6;
+                    break;
+                
+
+
+
+                default:
+                    break;
+            }
 
 
         }
+
+
+
+
+        private void enviarbtn_Click(object sender, EventArgs e)
+        {
+            int ee=0;
+            //         bandera = false;
+            //           listita.Clear();
+            citaEnCurso(); 
+            listita.RemoveAll(x => x.Nombre==textBox1.Text);
+            this.cargarGrid();
+
+
+            if (idEstado == 0)
+                ee = 23;
+            if (idEstado == 1)
+                ee = 24;
+            else if(idEstado == 2)
+                ee = 25;
+
+            servicioAExamen();
+
+
+
+            Laboratorio_BLL.agregarResultadoLaboratorio(idPrueba,cita,textBox2.Text,ee);
+            
+
+            MessageBox.Show("Resultados de las pruebas agregadas", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+
+
 
         private bool verificarSolicitudDeLAB(){
                 bandera = Frm_Consulta_PL.alertadeExamen;
@@ -108,12 +175,15 @@ namespace PL.Pantallas.Adicionales
         {
             //textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            idServicio= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Text = comboBox1.SelectedIndex.ToString();
+            idEstado = comboBox1.SelectedIndex;
+
+            //textBox1.Text = comboBox1.SelectedIndex.ToString();
         }
     }
 }

@@ -232,9 +232,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 27);
+            this.label2.Size = new System.Drawing.Size(59, 27);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Mascota";
+            this.label2.Text = "Id Cita";
             // 
             // groupBox4
             // 

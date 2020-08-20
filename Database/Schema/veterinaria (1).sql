@@ -1004,7 +1004,7 @@ CREATE TABLE dbo.CLIENTES
 	ID_Cantones				INT					NOT NULL,
 	ID_Distritos		    INT					NOT NULL,
 	Direccion		        VARCHAR (150)       NULL,
-	Credito				    bit       default 0 NULL,
+	Credito				    INT       default 0 NULL,
 	Estado					INT       NOT NULL,
 );
 

@@ -139,7 +139,6 @@ namespace PL.Pantallas.Principales
 
         private void ts_Cirugias_Click(object sender, EventArgs e)
         {
-            
             Frm_Cirujias_PL Cirujias = new Frm_Cirujias_PL();
             Cirujias.ShowDialog();
         }

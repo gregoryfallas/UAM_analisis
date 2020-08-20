@@ -31,11 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.AgregarReceta = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ModificarRecetabtn = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AgregarReceta = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,58 +68,11 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel2.Controls.Add(this.ModificarRecetabtn);
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.AgregarReceta);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(671, 354);
             this.panel2.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(129, 64);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(408, 145);
-            this.textBox2.TabIndex = 18;
-            // 
-            // AgregarReceta
-            // 
-            this.AgregarReceta.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.AgregarReceta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AgregarReceta.FlatAppearance.BorderSize = 0;
-            this.AgregarReceta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AgregarReceta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AgregarReceta.Location = new System.Drawing.Point(192, 293);
-            this.AgregarReceta.Name = "AgregarReceta";
-            this.AgregarReceta.Size = new System.Drawing.Size(31, 28);
-            this.AgregarReceta.TabIndex = 16;
-            this.AgregarReceta.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(23, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Medicamentos";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(25, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(623, 253);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Recetas";
             // 
             // ModificarRecetabtn
             // 
@@ -133,6 +86,56 @@
             this.ModificarRecetabtn.TabIndex = 20;
             this.ModificarRecetabtn.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.AgregarReceta);
+            this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(25, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(623, 167);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Recetas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(47, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 23);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Medicamentos";
+            // 
+            // AgregarReceta
+            // 
+            this.AgregarReceta.BackgroundImage = global::PL.Properties.Resources.Guardar;
+            this.AgregarReceta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AgregarReceta.FlatAppearance.BorderSize = 0;
+            this.AgregarReceta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AgregarReceta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AgregarReceta.Location = new System.Drawing.Point(389, 58);
+            this.AgregarReceta.Name = "AgregarReceta";
+            this.AgregarReceta.Size = new System.Drawing.Size(31, 28);
+            this.AgregarReceta.TabIndex = 16;
+            this.AgregarReceta.UseVisualStyleBackColor = true;
+            this.AgregarReceta.Click += new System.EventHandler(this.AgregarReceta_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.comboBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(171, 55);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(156, 31);
+            this.comboBox1.TabIndex = 17;
+            // 
             // Frm_Recetas_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +147,7 @@
             this.Name = "Frm_Recetas_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recetas";
+            this.Load += new System.EventHandler(this.Frm_Recetas_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -156,11 +160,11 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button AgregarReceta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_inicio;
         private System.Windows.Forms.Button ModificarRecetabtn;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

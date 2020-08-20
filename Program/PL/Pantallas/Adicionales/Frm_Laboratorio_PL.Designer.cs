@@ -85,11 +85,14 @@
             // 
             // enviarbtn
             // 
-            this.enviarbtn.Location = new System.Drawing.Point(49, 473);
+            this.enviarbtn.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.enviarbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.enviarbtn.FlatAppearance.BorderSize = 0;
+            this.enviarbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.enviarbtn.Location = new System.Drawing.Point(49, 463);
             this.enviarbtn.Name = "enviarbtn";
-            this.enviarbtn.Size = new System.Drawing.Size(75, 23);
+            this.enviarbtn.Size = new System.Drawing.Size(60, 46);
             this.enviarbtn.TabIndex = 10;
-            this.enviarbtn.Text = "enviar";
             this.enviarbtn.UseVisualStyleBackColor = true;
             this.enviarbtn.Click += new System.EventHandler(this.enviarbtn_Click);
             // 

@@ -27,6 +27,25 @@ namespace BLL
 
         }
 
+        public static List<ARTICULOS> consultarArticulosMedicos()
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_CONSULTAR_MEDICAMENTOS ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarMEDICAMENTOS(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+
+
         //servicio completo
         public static List<SERVICIOS> ConsultaServicios(string id)
         {

@@ -31,31 +31,27 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.EliminarCirujíabtn = new System.Windows.Forms.Button();
-            this.ModificarCirujiabtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.MascotasOperadastxt = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_Agregar = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Agregar = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,52 +85,24 @@
             this.panel2.Size = new System.Drawing.Size(782, 556);
             this.panel2.TabIndex = 2;
             // 
-            // EliminarCirujíabtn
+            // groupBox2
             // 
-            this.EliminarCirujíabtn.BackgroundImage = global::PL.Properties.Resources.cancelar;
-            this.EliminarCirujíabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.EliminarCirujíabtn.FlatAppearance.BorderSize = 0;
-            this.EliminarCirujíabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarCirujíabtn.Location = new System.Drawing.Point(256, 446);
-            this.EliminarCirujíabtn.Name = "EliminarCirujíabtn";
-            this.EliminarCirujíabtn.Size = new System.Drawing.Size(53, 40);
-            this.EliminarCirujíabtn.TabIndex = 95;
-            this.EliminarCirujíabtn.UseVisualStyleBackColor = true;
-            this.EliminarCirujíabtn.Click += new System.EventHandler(this.EliminarCirujíabtn_Click);
-            // 
-            // ModificarCirujiabtn
-            // 
-            this.ModificarCirujiabtn.BackgroundImage = global::PL.Properties.Resources.editar;
-            this.ModificarCirujiabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ModificarCirujiabtn.FlatAppearance.BorderSize = 0;
-            this.ModificarCirujiabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModificarCirujiabtn.ForeColor = System.Drawing.Color.White;
-            this.ModificarCirujiabtn.Location = new System.Drawing.Point(148, 446);
-            this.ModificarCirujiabtn.Name = "ModificarCirujiabtn";
-            this.ModificarCirujiabtn.Size = new System.Drawing.Size(59, 40);
-            this.ModificarCirujiabtn.TabIndex = 94;
-            this.ModificarCirujiabtn.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::PL.Properties.Resources.search;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(592, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 22);
-            this.button1.TabIndex = 93;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // MascotasOperadastxt
-            // 
-            this.MascotasOperadastxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.MascotasOperadastxt.Location = new System.Drawing.Point(464, 33);
-            this.MascotasOperadastxt.Name = "MascotasOperadastxt";
-            this.MascotasOperadastxt.Size = new System.Drawing.Size(122, 20);
-            this.MascotasOperadastxt.TabIndex = 92;
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.btn_Agregar);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Location = new System.Drawing.Point(28, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(729, 519);
+            this.groupBox2.TabIndex = 96;
+            this.groupBox2.TabStop = false;
             // 
             // groupBox1
             // 
@@ -144,7 +112,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(23, 70);
+            this.groupBox1.Location = new System.Drawing.Point(23, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(291, 110);
             this.groupBox1.TabIndex = 91;
@@ -190,88 +158,13 @@
             this.label7.TabIndex = 90;
             this.label7.Text = "Nombre";
             // 
-            // btn_Agregar
-            // 
-            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Agregar.FlatAppearance.BorderSize = 0;
-            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Agregar.Location = new System.Drawing.Point(38, 446);
-            this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(50, 40);
-            this.btn_Agregar.TabIndex = 88;
-            this.btn_Agregar.UseVisualStyleBackColor = true;
-            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(121, 213);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 21);
-            this.comboBox2.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(26, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 23);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Tipo";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(121, 341);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 21);
-            this.comboBox1.TabIndex = 21;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(26, 341);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 23);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Examenes";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(121, 253);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 71);
-            this.textBox2.TabIndex = 19;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(26, 249);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 23);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Resultados";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(383, 61);
+            this.dataGridView1.Location = new System.Drawing.Point(383, 74);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(313, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(313, 174);
             this.dataGridView1.TabIndex = 17;
             // 
             // label2
@@ -279,7 +172,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(379, 30);
+            this.label2.Location = new System.Drawing.Point(390, 36);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 14;
@@ -296,28 +189,82 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Cirujías";
             // 
-            // groupBox2
+            // label5
             // 
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.EliminarCirujíabtn);
-            this.groupBox2.Controls.Add(this.MascotasOperadastxt);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.ModificarCirujiabtn);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.btn_Agregar);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(28, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(729, 519);
-            this.groupBox2.TabIndex = 96;
-            this.groupBox2.TabStop = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(39, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 23);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Tipo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(39, 227);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 23);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Resultados";
+            // 
+            // btn_Agregar
+            // 
+            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Agregar.FlatAppearance.BorderSize = 0;
+            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Agregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Agregar.Location = new System.Drawing.Point(78, 421);
+            this.btn_Agregar.Name = "btn_Agregar";
+            this.btn_Agregar.Size = new System.Drawing.Size(50, 40);
+            this.btn_Agregar.TabIndex = 88;
+            this.btn_Agregar.UseVisualStyleBackColor = true;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(134, 231);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(150, 71);
+            this.textBox2.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(26, 341);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 23);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Examenes";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(121, 341);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(150, 21);
+            this.comboBox1.TabIndex = 21;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.textBox4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.Color.White;
+            this.textBox4.Location = new System.Drawing.Point(134, 187);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(150, 26);
+            this.textBox4.TabIndex = 96;
             // 
             // Frm_Cirujias_PL
             // 
@@ -333,11 +280,11 @@
             this.Load += new System.EventHandler(this.Frm_Cirujias_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -346,7 +293,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
@@ -357,15 +303,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button btn_Agregar;
-        private System.Windows.Forms.Button EliminarCirujíabtn;
-        private System.Windows.Forms.Button ModificarCirujiabtn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox MascotasOperadastxt;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

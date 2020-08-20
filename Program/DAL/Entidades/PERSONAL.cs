@@ -11,7 +11,7 @@ namespace DAL.Entidades
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class PERSONAL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +24,7 @@ namespace DAL.Entidades
             this.USUARIOS = new HashSet<USUARIOS>();
             this.VACACIONES = new HashSet<VACACIONES>();
         }
-    
+
         public int ID_Personal { get; set; }
         public Nullable<int> ID_Puesto { get; set; }
         public string Cedula { get; set; }
@@ -36,6 +36,9 @@ namespace DAL.Entidades
         public Nullable<System.DateTime> Fecha_Contratacion { get; set; }
         public System.DateTime created_at { get; set; }
         public int Estado { get; set; }
+        public string Direccion { get; set; }
+        public string Correo_Electronico { get; set;}
+        public string Telefono { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAJAS> CAJAS { get; set; }

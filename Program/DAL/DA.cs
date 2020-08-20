@@ -99,7 +99,7 @@ namespace DAL
       
 
         #region CLIENTES
-        public List<CLIENTES> ConsultarClientesFactura(SQLSentencia P_Peticion)
+        public List<CLIENTES> ConsultarClientesPantallaCredito(SQLSentencia P_Peticion)
         {
             List<CLIENTES> lstresultados = new List<CLIENTES>();
             DataTable dt = new DataTable();
@@ -124,14 +124,14 @@ namespace DAL
                     {
                         CLIENTES tipo = new CLIENTES();
 
-                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.ID_Cliente= Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.Cedula = item.ItemArray[1].ToString();
                         tipo.Nombre= item.ItemArray[2].ToString();
                         tipo.Apellido_1= item.ItemArray[3].ToString();
                         tipo.Apellido_2= item.ItemArray[4].ToString();    
                         tipo.Correo= item.ItemArray[5].ToString();
-                        tipo.Telefono=item.ItemArray[6].ToString();                        
-                        tipo.Credito= Convert.ToInt32(item.ItemArray[7].ToString());
+                        tipo.Telefono=item.ItemArray[6].ToString();
+                        tipo.Credito =Convert.ToInt32(item.ItemArray[7].ToString());
 
                         lstresultados.Add(tipo);
                     }
@@ -483,15 +483,7 @@ namespace DAL
 
 
 
-
-
-
-
-
-
-
-
-
+                          
         #region PreConsulta
 
         public DataTable consultarCitasEnCurso(SQLSentencia P_Peticion)
@@ -721,6 +713,150 @@ namespace DAL
 
 
 
+        public List<PRUEBAS_LABORATORIO> ConsultarPruebasLaboratorio(SQLSentencia P_Peticion)
+        {
+            List<PRUEBAS_LABORATORIO> lstresultados = new List<PRUEBAS_LABORATORIO>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PRUEBAS_LABORATORIO tipo = new PRUEBAS_LABORATORIO();
+
+                        tipo.ID_Pruebas_Laboratorio = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Descripcion = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+
+
+
+        public List<ARTICULOS> ConsultarMEDICAMENTOS(SQLSentencia P_Peticion)
+        {
+            List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ARTICULOS tipo = new ARTICULOS();
+
+                        tipo.ID_Articulos = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+
+
+
+        //public List<SERVICIOS> ConsultarServiciosVacunacion_IDNOMBRE(SQLSentencia P_Peticion)
+        //{
+        //    List<SERVICIOS> lstresultados = new List<SERVICIOS>();
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+
+        //        //ASigna los valores del QUERY a ejecutar en SQL
+        //        cmd.Connection = objconexion; //ASigna conexion
+        //        cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+        //        cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+        //        if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+        //            cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+        //        SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+        //        objconsultar.Fill(dt);
+
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            foreach (DataRow item in dt.Rows)
+        //            {
+        //                SERVICIOS tipo = new SERVICIOS();
+
+        //                tipo.ID_Servicios = Convert.ToInt32(item.ItemArray[0].ToString());
+        //                tipo.Nombre = item.ItemArray[1].ToString();
+
+        //                lstresultados.Add(tipo);
+        //            }
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        this.CERRAR();
+        //    }
+
+        //    return lstresultados;
+        //}
+
 
 
 
@@ -934,67 +1070,7 @@ namespace DAL
             return lstresultados;
         }
 
-        /// <summary>
-        /// Metodo para consultar los datos del cliente en la base de datos
-        /// </summary>
-        /// <param name="P_Peticion">Entidad Sentencia</param>
-        /// <returns>Lista de Entidades de Perfiles</returns>
-        // public List<CLIENTES> ConsultarClientesPantallaClientes(SQLSentencia P_Peticion)
-        //{
-        //    List<CLIENTES> lstresultados = new List<CLIENTES>();
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        SqlCommand cmd = new SqlCommand();
-
-        //        //ASigna los valores del QUERY a ejecutar en SQL
-        //        cmd.Connection = objconexion; //ASigna conexion
-        //        cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
-        //        cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
-
-        //        if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
-        //            cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
-
-        //        SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
-        //        objconsultar.Fill(dt);
-
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            foreach (DataRow item in dt.Rows)
-        //            {
-        //                CLIENTES tipo = new CLIENTES();
-
-        //                tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
-        //                tipo.Cedula = item.ItemArray[1].ToString();
-        //                tipo.Nombre = item.ItemArray[2].ToString();
-        //                tipo.Apellido_1 = item.ItemArray[3].ToString();
-        //                tipo.Apellido_2 = item.ItemArray[4].ToString();
-        //                tipo.Correo= item.ItemArray[5].ToString();
-        //                tipo.Telefono= item.ItemArray[6].ToString();
-        //                tipo.ID_Provincias= Convert.ToInt32(item.ItemArray[7].ToString());
-        //                tipo.ID_Cantones = Convert.ToInt32(item.ItemArray[8].ToString());
-        //                tipo.ID_Distritos = Convert.ToInt32(item.ItemArray[9].ToString());
-        //                tipo.Direccion=item.ItemArray[10].ToString();
-        //                tipo.Credito= Convert.ToBoolean(item.ItemArray[11].ToString());
-        //                tipo.Estado= Convert.ToInt32(item.ItemArray[12].ToString());
-
-        //                lstresultados.Add(tipo);
-        //            }
-        //        }
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        this.CERRAR();
-        //    }
-
-        //    return lstresultados;
-        //}
-
+        
 
         public DataTable ConsultarClientesPantallaClientes(SQLSentencia P_Peticion)
         {

@@ -66,7 +66,7 @@ namespace PL.Pantallas.Adicionales
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+           
             Frm_Recetas_PL Recetas = new Frm_Recetas_PL();
             Recetas.ShowDialog();
         }

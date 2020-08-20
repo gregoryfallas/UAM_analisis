@@ -323,7 +323,7 @@ namespace PL.Pantallas.Extras
         {
 
             timer1.Interval = 500;
-            timer1.Start();     
+            timer1.Start();
             Cargar();
             Cargar2();
             CargarNoFactura();
@@ -394,12 +394,15 @@ namespace PL.Pantallas.Extras
             dtg_Clientes.DataSource = null;
             dtg_Clientes.Refresh();
             dtg_Clientes.DataSource = dt;
-            dtg_Clientes.Refresh();                     
+            dtg_Clientes.Refresh();
 
         }
+                     
 
 
-        private void Cargar2()
+
+
+private void Cargar2()
         {
 
             try

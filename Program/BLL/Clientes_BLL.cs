@@ -114,7 +114,7 @@ namespace BLL
 
 
 
-        public static List<CLIENTES> ConsultarClientes(string Cedula )
+        public static List<CLIENTES> ConsultarClientes(string Cedula)
         {
 
             try
@@ -127,9 +127,9 @@ namespace BLL
                 paramC.SqlDbType = System.Data.SqlDbType.VarChar;
                 sentencia.lstParametros.Add(paramC);
                 DA acceso = new DA();
-                return acceso.ConsultarClientes(sentencia);             
+                return acceso.ConsultarClientes(sentencia);
 
-                
+
             }
             catch (Exception e)
             {
@@ -137,29 +137,6 @@ namespace BLL
             }
         }
 
-
-        //public static List<CLIENTES> ConsultarClientesPantallaCliente(string Cedula)
-        //{
-
-        //    try
-        //    {
-        //        SQLSentencia sentencia = new SQLSentencia();
-        //        sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE @Cedula";
-        //        SqlParameter paramC = new SqlParameter();
-        //        paramC.Value = Cedula;
-        //        paramC.ParameterName = "@Cedula";
-        //        paramC.SqlDbType = System.Data.SqlDbType.VarChar;
-        //        sentencia.lstParametros.Add(paramC);
-        //        DA acceso = new DA();
-        //        return acceso.ConsultarClientesPantallaClientes(sentencia);
-
-
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //}
 
 
 
@@ -171,7 +148,7 @@ namespace BLL
             {
                 SQLSentencia sentencia = new SQLSentencia();
                 sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES_PANTALLACLIENTE '" + Cedula + "'";
-               DA acceso = new DA();
+                DA acceso = new DA();
                 return acceso.ConsultarClientesPantallaClientes(sentencia);
 
 

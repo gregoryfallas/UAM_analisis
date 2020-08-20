@@ -13,7 +13,30 @@ namespace BLL
     public class Factura_BLL
     {
 
-        public static List<CLIENTES> ConsultarClientesFactura(string Nombre)
+        public static List<CLIENTES> ConsultarClientesFactura(string cedula)
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_CLIENTES @Cedula";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = cedula;
+                paramC.ParameterName = "@Cedula";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarClientes(sentencia);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public static List<CLIENTES> ConsultarClientesCreditos(string Nombre)
         {
 
             try
@@ -26,8 +49,7 @@ namespace BLL
                 paramC.SqlDbType = System.Data.SqlDbType.VarChar;
                 sentencia.lstParametros.Add(paramC);
                 DA acceso = new DA();
-                return acceso.ConsultarClientesFactura(sentencia);
-
+                return acceso.ConsultarClientesPantallaCredito(sentencia);
 
             }
             catch (Exception e)
@@ -35,6 +57,8 @@ namespace BLL
                 throw e;
             }
         }
+
+
 
 
 

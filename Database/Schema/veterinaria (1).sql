@@ -1,9 +1,5 @@
-
-/*CREACION DE BASE DE DATOS LLAMADA  [VETERINARIA_EL_BOSQUE]
-VERSION 0.1 */
 use [master] 
 GO
---drop database [VETERINARIA_EL_BOSQUE]
 CREATE DATABASE [VETERINARIA_EL_BOSQUE]
 go
 
@@ -90,6 +86,7 @@ CREATE TABLE dbo.CREDITOS
 	ID_Creditos					INT	IDENTITY(1,1)	NOT NULL,
 	ID_Factura					INT 				NOT NULL,
 	Monto_Anterior				DECIMAL (10,2)		NULL,
+	Abono                       DECIMAL (10,2)      NULL,
 	Monto_Actual				DECIMAL (10,2)		NULL
 );
 
@@ -115,7 +112,11 @@ CREATE TABLE dbo.PERSONAL
 	Fecha_Contratacion			DATE				NULL,
 	created_at					DATETIME NOT NULL
                 DEFAULT CURRENT_TIMESTAMP, 
-	Estado						INT		NOT NULL
+	Estado						INT		NOT NULL,
+	Direccion                    VARCHAR(150)NULL,
+	Correo_Electronico          VARCHAR(50)NULL,
+	Telefono                    VARCHAR(50)NULL
+
 );
 
 /*SE LE ASIGNA LLAME PRIMARIA A LA TABLA SERVICIOS_EXPRESS POR MEDIO DE UN ALTER*/
@@ -2116,6 +2117,6 @@ INSERT INTO USUARIO_ROL (ID_Usuario,ID_Roles) VALUES
 
 --SELECT E.Nombre FROM ESTADOS E, ESTADOS_TABLAS ET WHERE ET.ID_Tabla = 5 AND E.ID_Estados = ET.ID_Estados;
 
-Select * from PERSONAL;
+--Select * from PERSONAL;
 
 --SELECT TIMESTAMP("2017-07-23"); 

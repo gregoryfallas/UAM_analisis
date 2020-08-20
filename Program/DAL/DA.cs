@@ -96,7 +96,14 @@ namespace DAL
         }
         #endregion
 
-      
+
+
+
+
+
+
+        #endregion
+
 
         #region CLIENTES
         public List<CLIENTES> ConsultarClientesPantallaCredito(SQLSentencia P_Peticion)
@@ -124,14 +131,14 @@ namespace DAL
                     {
                         CLIENTES tipo = new CLIENTES();
 
-                        tipo.ID_Cliente= Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.ID_Cliente = Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.Cedula = item.ItemArray[1].ToString();
-                        tipo.Nombre= item.ItemArray[2].ToString();
-                        tipo.Apellido_1= item.ItemArray[3].ToString();
-                        tipo.Apellido_2= item.ItemArray[4].ToString();    
-                        tipo.Correo= item.ItemArray[5].ToString();
-                        tipo.Telefono=item.ItemArray[6].ToString();
-                        tipo.Credito =Convert.ToInt32(item.ItemArray[7].ToString());
+                        tipo.Nombre = item.ItemArray[2].ToString();
+                        tipo.Apellido_1 = item.ItemArray[3].ToString();
+                        tipo.Apellido_2 = item.ItemArray[4].ToString();
+                        tipo.Correo = item.ItemArray[5].ToString();
+                        tipo.Telefono = item.ItemArray[6].ToString();
+                        tipo.Credito = Convert.ToInt32(item.ItemArray[7].ToString());
 
                         lstresultados.Add(tipo);
                     }
@@ -180,7 +187,7 @@ namespace DAL
 
                         tipo.ID_Caja = Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.Estado = Convert.ToInt32(item.ItemArray[1].ToString());
-                        
+
 
                         lstresultados.Add(tipo);
                     }
@@ -234,11 +241,11 @@ namespace DAL
 
         }
 
-                     
 
-        public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia  peticion)
+
+        public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia peticion)
         {
-          //  List<Caso> listaResultado = new List<Caso>();
+            //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
             try
             {
@@ -247,16 +254,16 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
-                cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                 SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
                 da.Fill(dt);
 
-             
 
-             
-               
-                    
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -274,17 +281,7 @@ namespace DAL
         #endregion
 
 
-
-        #endregion
-
-
-        #region 
-
-
-
-
-        #endregion
-
+        #region CONSULTAR NUMERO FACTURAS
         public List<FACTURAS> ConsultarNoFacturas(SQLSentencia P_Peticion)
         {
             List<FACTURAS> lstresultados = new List<FACTURAS>();
@@ -308,8 +305,8 @@ namespace DAL
                 {
                     foreach (DataRow item in dt.Rows)
                     {
-                       FACTURAS tipo = new FACTURAS();
-                                                
+                        FACTURAS tipo = new FACTURAS();
+
                         tipo.Numero_Factura = Convert.ToInt32(item.ItemArray[0].ToString());
 
                         lstresultados.Add(tipo);
@@ -328,9 +325,11 @@ namespace DAL
 
             return lstresultados;
         }
+        #endregion
 
-               
-        public List<CLIENTES>ModificaCreditos(SQLSentencia P_Peticion)
+
+        #region MODIFICAR CREDITOS
+        public List<CLIENTES> ModificaCreditos(SQLSentencia P_Peticion)
         {
             List<CLIENTES> lstresultados = new List<CLIENTES>();
             DataTable dt = new DataTable();
@@ -356,7 +355,7 @@ namespace DAL
                         CLIENTES tipo = new CLIENTES();
 
                         tipo.Cedula = item.ItemArray[0].ToString();
-                        tipo.Credito= Convert.ToInt32(item.ItemArray[1].ToString());
+                        tipo.Credito = Convert.ToInt32(item.ItemArray[1].ToString());
 
                         lstresultados.Add(tipo);
                     }
@@ -374,9 +373,10 @@ namespace DAL
 
             return lstresultados;
         }
+        #endregion
 
 
-
+        #region CONSULTARCOBROS
         public DataTable ConsultarCobros(SQLSentencia peticion)
         {
             //  List<Caso> listaResultado = new List<Caso>();
@@ -409,9 +409,10 @@ namespace DAL
 
 
         }
+        #endregion
 
-                
 
+        #region CONSULTAR EXPRESS CLIENTES
 
         public DataTable ConsultarExpressClientes(SQLSentencia peticion)
         {
@@ -445,10 +446,10 @@ namespace DAL
 
 
         }
+        #endregion
 
 
-
-
+        #region CONSULTAR DETALLES FACTURA
         public DataTable ConsultarDetalles(SQLSentencia peticion)
         {
             //  List<Caso> listaResultado = new List<Caso>();
@@ -462,7 +463,7 @@ namespace DAL
                 if (peticion.lstParametros.Count > 0)
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                 SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
-                               
+
                 da.Fill(dt);
 
             }
@@ -479,11 +480,10 @@ namespace DAL
 
 
         }
+        #endregion
 
 
-
-
-                          
+                                            
         #region PreConsulta
 
         public DataTable consultarCitasEnCurso(SQLSentencia P_Peticion)

@@ -31,31 +31,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_Agregar = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.AgregarOtroServiciosbtn = new System.Windows.Forms.Button();
             this.otrosServicioscbo = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.resultadoExamenestxt = new System.Windows.Forms.TextBox();
-            this.agregarExamenesbtn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Observaciones = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.btn_Crear = new System.Windows.Forms.Button();
+            this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.AgregarOtroServiciosbtn = new System.Windows.Forms.Button();
+            this.agregarExamenesbtn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -92,32 +90,14 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel2.Controls.Add(this.btn_Confirmar);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.btn_Crear);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1020, 686);
             this.panel2.TabIndex = 2;
             // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Confirmar.Location = new System.Drawing.Point(167, 576);
-            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
-            this.btn_Confirmar.TabIndex = 91;
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btn_Agregar);
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.textBox2);
@@ -137,21 +117,6 @@
             this.groupBox3.Text = "Consulta General";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
-            // btn_Agregar
-            // 
-            this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Agregar.FlatAppearance.BorderSize = 0;
-            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Agregar.Location = new System.Drawing.Point(470, 148);
-            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(43, 45);
-            this.btn_Agregar.TabIndex = 91;
-            this.btn_Agregar.UseVisualStyleBackColor = false;
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.button1);
@@ -163,19 +128,6 @@
             this.groupBox6.TabIndex = 93;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Recetar";
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::PL.Properties.Resources.registro;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(178, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 47);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox5
             // 
@@ -189,19 +141,6 @@
             this.groupBox5.TabIndex = 92;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Servicios";
-            // 
-            // AgregarOtroServiciosbtn
-            // 
-            this.AgregarOtroServiciosbtn.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.AgregarOtroServiciosbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AgregarOtroServiciosbtn.FlatAppearance.BorderSize = 0;
-            this.AgregarOtroServiciosbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AgregarOtroServiciosbtn.Location = new System.Drawing.Point(288, 27);
-            this.AgregarOtroServiciosbtn.Name = "AgregarOtroServiciosbtn";
-            this.AgregarOtroServiciosbtn.Size = new System.Drawing.Size(33, 23);
-            this.AgregarOtroServiciosbtn.TabIndex = 1;
-            this.AgregarOtroServiciosbtn.UseVisualStyleBackColor = true;
-            this.AgregarOtroServiciosbtn.Click += new System.EventHandler(this.AgregarOtroServiciosbtn_Click);
             // 
             // otrosServicioscbo
             // 
@@ -259,28 +198,17 @@
             this.resultadoExamenestxt.Size = new System.Drawing.Size(115, 30);
             this.resultadoExamenestxt.TabIndex = 23;
             // 
-            // agregarExamenesbtn
-            // 
-            this.agregarExamenesbtn.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.agregarExamenesbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.agregarExamenesbtn.FlatAppearance.BorderSize = 0;
-            this.agregarExamenesbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.agregarExamenesbtn.Location = new System.Drawing.Point(285, 27);
-            this.agregarExamenesbtn.Name = "agregarExamenesbtn";
-            this.agregarExamenesbtn.Size = new System.Drawing.Size(33, 23);
-            this.agregarExamenesbtn.TabIndex = 22;
-            this.agregarExamenesbtn.Text = "button4";
-            this.agregarExamenesbtn.UseVisualStyleBackColor = true;
-            // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(87, 24);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(165, 31);
             this.comboBox1.TabIndex = 21;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -328,28 +256,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cirujías";
             // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(288, 29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 25);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // comboBox3
             // 
             this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.comboBox3.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.ForeColor = System.Drawing.Color.White;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(81, 29);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(169, 31);
             this.comboBox3.TabIndex = 1;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -374,6 +291,88 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vacunas";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.comboBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.White;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(87, 27);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(171, 31);
+            this.comboBox2.TabIndex = 7;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Confirmar.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Confirmar.Location = new System.Drawing.Point(129, 571);
+            this.btn_Confirmar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(60, 57);
+            this.btn_Confirmar.TabIndex = 91;
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::PL.Properties.Resources.registro;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(178, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 47);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // AgregarOtroServiciosbtn
+            // 
+            this.AgregarOtroServiciosbtn.BackgroundImage = global::PL.Properties.Resources.Guardar;
+            this.AgregarOtroServiciosbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AgregarOtroServiciosbtn.FlatAppearance.BorderSize = 0;
+            this.AgregarOtroServiciosbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AgregarOtroServiciosbtn.Location = new System.Drawing.Point(288, 27);
+            this.AgregarOtroServiciosbtn.Name = "AgregarOtroServiciosbtn";
+            this.AgregarOtroServiciosbtn.Size = new System.Drawing.Size(33, 23);
+            this.AgregarOtroServiciosbtn.TabIndex = 1;
+            this.AgregarOtroServiciosbtn.UseVisualStyleBackColor = true;
+            this.AgregarOtroServiciosbtn.Click += new System.EventHandler(this.AgregarOtroServiciosbtn_Click);
+            // 
+            // agregarExamenesbtn
+            // 
+            this.agregarExamenesbtn.BackgroundImage = global::PL.Properties.Resources.Guardar;
+            this.agregarExamenesbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.agregarExamenesbtn.FlatAppearance.BorderSize = 0;
+            this.agregarExamenesbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.agregarExamenesbtn.Location = new System.Drawing.Point(285, 27);
+            this.agregarExamenesbtn.Name = "agregarExamenesbtn";
+            this.agregarExamenesbtn.Size = new System.Drawing.Size(33, 23);
+            this.agregarExamenesbtn.TabIndex = 22;
+            this.agregarExamenesbtn.Text = "button4";
+            this.agregarExamenesbtn.UseVisualStyleBackColor = true;
+            this.agregarExamenesbtn.Click += new System.EventHandler(this.agregarExamenesbtn_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = global::PL.Properties.Resources.Guardar;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Black;
+            this.button3.Location = new System.Drawing.Point(288, 29);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(30, 25);
+            this.button3.TabIndex = 2;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button2
             // 
             this.button2.BackgroundImage = global::PL.Properties.Resources.Guardar;
@@ -386,30 +385,7 @@
             this.button2.Size = new System.Drawing.Size(33, 25);
             this.button2.TabIndex = 9;
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.comboBox2.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(87, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(171, 31);
-            this.comboBox2.TabIndex = 7;
-            // 
-            // btn_Crear
-            // 
-            this.btn_Crear.BackgroundImage = global::PL.Properties.Resources.Guardar;
-            this.btn_Crear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Crear.FlatAppearance.BorderSize = 0;
-            this.btn_Crear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Crear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Crear.Location = new System.Drawing.Point(80, 576);
-            this.btn_Crear.Name = "btn_Crear";
-            this.btn_Crear.Size = new System.Drawing.Size(40, 34);
-            this.btn_Crear.TabIndex = 88;
-            this.btn_Crear.UseVisualStyleBackColor = true;
-            this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Frm_Consulta_PL
             // 
@@ -455,7 +431,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Inicio;
-        private System.Windows.Forms.Button btn_Crear;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -466,7 +441,6 @@
         private System.Windows.Forms.Button agregarExamenesbtn;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox resultadoExamenestxt;
-        private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Confirmar;
     }
 }

@@ -485,3 +485,4 @@ C:\Users\Geiner\Documents\Respaldo proyecto Veterinaria\UAM_analisis\Program\PL\
 C:\Users\Geiner\Documents\Respaldo proyecto Veterinaria\UAM_analisis\Program\PL\bin\Debug\DAL.dll.config
 C:\Users\Geiner\Documents\Respaldo proyecto Veterinaria\UAM_analisis\Program\PL\bin\Debug\EntityFramework.xml
 C:\Users\Geiner\Documents\Respaldo proyecto Veterinaria\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CopyComplete
+C:\Users\Geiner\Documents\Respaldo proyecto Veterinaria\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Frm_Laboratorio_PL.resources

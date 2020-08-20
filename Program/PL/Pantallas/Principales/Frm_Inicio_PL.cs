@@ -207,7 +207,8 @@ namespace PL.Pantallas.Principales
 
         private void ts_Servicios_Click(object sender, EventArgs e)
         {
-
+            Frm_Laboratorio_PL Laboratorio = new Frm_Laboratorio_PL();
+            Laboratorio.ShowDialog();
         }
     }
 }

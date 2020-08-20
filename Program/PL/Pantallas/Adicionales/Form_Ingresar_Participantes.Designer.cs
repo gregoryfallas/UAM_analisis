@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtfiltrar = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboreclutamiento = new System.Windows.Forms.ComboBox();
@@ -59,14 +60,17 @@
             this.dgvparticipantes = new System.Windows.Forms.DataGridView();
             this.btnagregar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvparticipantes)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.txtfiltrar);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnmodificar);
@@ -78,6 +82,16 @@
             this.panel1.Size = new System.Drawing.Size(897, 554);
             this.panel1.TabIndex = 1;
             // 
+            // txtfiltrar
+            // 
+            this.txtfiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.txtfiltrar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtfiltrar.ForeColor = System.Drawing.Color.White;
+            this.txtfiltrar.Location = new System.Drawing.Point(579, 35);
+            this.txtfiltrar.Name = "txtfiltrar";
+            this.txtfiltrar.Size = new System.Drawing.Size(183, 26);
+            this.txtfiltrar.TabIndex = 78;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(449, 31);
@@ -86,7 +100,6 @@
             this.button1.TabIndex = 70;
             this.button1.Text = "Mostrar Postulantes";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -144,7 +157,7 @@
             this.Provinciacbo.Location = new System.Drawing.Point(174, 280);
             this.Provinciacbo.Name = "Provinciacbo";
             this.Provinciacbo.Size = new System.Drawing.Size(182, 31);
-            this.Provinciacbo.TabIndex = 76;
+            this.Provinciacbo.TabIndex = 7;
             this.Provinciacbo.SelectedIndexChanged += new System.EventHandler(this.Provinciacbo_SelectedIndexChanged);
             // 
             // Distritocbo
@@ -156,7 +169,7 @@
             this.Distritocbo.Location = new System.Drawing.Point(175, 354);
             this.Distritocbo.Name = "Distritocbo";
             this.Distritocbo.Size = new System.Drawing.Size(182, 31);
-            this.Distritocbo.TabIndex = 75;
+            this.Distritocbo.TabIndex = 9;
             this.Distritocbo.SelectedIndexChanged += new System.EventHandler(this.Distritocbo_SelectedIndexChanged);
             // 
             // Cantoncbo
@@ -168,7 +181,7 @@
             this.Cantoncbo.Location = new System.Drawing.Point(175, 317);
             this.Cantoncbo.Name = "Cantoncbo";
             this.Cantoncbo.Size = new System.Drawing.Size(182, 31);
-            this.Cantoncbo.TabIndex = 74;
+            this.Cantoncbo.TabIndex = 8;
             this.Cantoncbo.SelectedIndexChanged += new System.EventHandler(this.Cantoncbo_SelectedIndexChanged);
             // 
             // txtapellido1
@@ -179,7 +192,7 @@
             this.txtapellido1.Location = new System.Drawing.Point(173, 152);
             this.txtapellido1.Name = "txtapellido1";
             this.txtapellido1.Size = new System.Drawing.Size(183, 26);
-            this.txtapellido1.TabIndex = 73;
+            this.txtapellido1.TabIndex = 3;
             // 
             // label23
             // 
@@ -222,7 +235,7 @@
             this.txtapellido2.Location = new System.Drawing.Point(173, 184);
             this.txtapellido2.Name = "txtapellido2";
             this.txtapellido2.Size = new System.Drawing.Size(183, 26);
-            this.txtapellido2.TabIndex = 71;
+            this.txtapellido2.TabIndex = 4;
             // 
             // label21
             // 
@@ -254,7 +267,7 @@
             this.txtcedula.Location = new System.Drawing.Point(173, 88);
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(183, 26);
-            this.txtcedula.TabIndex = 52;
+            this.txtcedula.TabIndex = 1;
             // 
             // cboestado
             // 
@@ -265,7 +278,7 @@
             this.cboestado.Location = new System.Drawing.Point(175, 423);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(182, 31);
-            this.cboestado.TabIndex = 69;
+            this.cboestado.TabIndex = 11;
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // label20
@@ -287,7 +300,7 @@
             this.txtnombre.Location = new System.Drawing.Point(174, 120);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(183, 26);
-            this.txtnombre.TabIndex = 55;
+            this.txtnombre.TabIndex = 2;
             // 
             // txtdireccion
             // 
@@ -297,7 +310,7 @@
             this.txtdireccion.Location = new System.Drawing.Point(173, 391);
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(183, 26);
-            this.txtdireccion.TabIndex = 66;
+            this.txtdireccion.TabIndex = 10;
             // 
             // label19
             // 
@@ -318,7 +331,7 @@
             this.txttelefono.Location = new System.Drawing.Point(173, 248);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(183, 26);
-            this.txttelefono.TabIndex = 57;
+            this.txttelefono.TabIndex = 6;
             // 
             // label13
             // 
@@ -361,7 +374,7 @@
             this.txtcorreo.Location = new System.Drawing.Point(173, 216);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(183, 26);
-            this.txtcorreo.TabIndex = 59;
+            this.txtcorreo.TabIndex = 5;
             // 
             // label15
             // 
@@ -409,7 +422,7 @@
             this.dgvparticipantes.ReadOnly = true;
             this.dgvparticipantes.Size = new System.Drawing.Size(389, 208);
             this.dgvparticipantes.TabIndex = 67;
-          //  this.dgvparticipantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellClick);
+            this.dgvparticipantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellClick);
             this.dgvparticipantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellContentClick);
             // 
             // btnagregar
@@ -429,27 +442,43 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(863, 0);
+            this.panel2.Location = new System.Drawing.Point(844, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(61, 554);
+            this.panel2.Size = new System.Drawing.Size(126, 554);
             this.panel2.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(22, 502);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 41);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Inicio";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Ingresar_Participantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 554);
+            this.ClientSize = new System.Drawing.Size(970, 554);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Ingresar_Participantes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form_Ingresar_Participantes_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvparticipantes)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -487,5 +516,7 @@
         private System.Windows.Forms.ComboBox Cantoncbo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvparticipantes;
+        private System.Windows.Forms.TextBox txtfiltrar;
+        private System.Windows.Forms.Button button4;
     }
 }

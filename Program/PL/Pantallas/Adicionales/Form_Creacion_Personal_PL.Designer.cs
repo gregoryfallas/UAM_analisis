@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnbuscar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btnmostrar = new System.Windows.Forms.Button();
             this.dgvpersonal = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,18 +59,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtcedula = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.btnbuscar);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.btnmostrar);
             this.panel1.Controls.Add(this.dgvpersonal);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.btnagregar);
             this.panel1.Controls.Add(this.groupBox1);
@@ -83,26 +81,15 @@
             this.panel1.Size = new System.Drawing.Size(887, 537);
             this.panel1.TabIndex = 1;
             // 
-            // btnbuscar
+            // btnmostrar
             // 
-            this.btnbuscar.Location = new System.Drawing.Point(702, 26);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(80, 30);
-            this.btnbuscar.TabIndex = 66;
-            this.btnbuscar.Text = "Filtrar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(454, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 23);
-            this.label8.TabIndex = 64;
-            this.label8.Text = "Cédula:";
+            this.btnmostrar.Location = new System.Drawing.Point(458, 31);
+            this.btnmostrar.Name = "btnmostrar";
+            this.btnmostrar.Size = new System.Drawing.Size(80, 30);
+            this.btnmostrar.TabIndex = 66;
+            this.btnmostrar.Text = "Mostrar";
+            this.btnmostrar.UseVisualStyleBackColor = true;
+            this.btnmostrar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // dgvpersonal
             // 
@@ -114,16 +101,6 @@
             this.dgvpersonal.ReadOnly = true;
             this.dgvpersonal.Size = new System.Drawing.Size(389, 208);
             this.dgvpersonal.TabIndex = 56;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(529, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 65;
             // 
             // btnmodificar
             // 
@@ -209,7 +186,7 @@
             this.txttelefono.Location = new System.Drawing.Point(187, 414);
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(204, 26);
-            this.txttelefono.TabIndex = 62;
+            this.txttelefono.TabIndex = 11;
             // 
             // label7
             // 
@@ -230,7 +207,7 @@
             this.txtcorreo.Location = new System.Drawing.Point(187, 382);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(204, 26);
-            this.txtcorreo.TabIndex = 60;
+            this.txtcorreo.TabIndex = 10;
             // 
             // label6
             // 
@@ -251,7 +228,7 @@
             this.txtdireccion.Location = new System.Drawing.Point(187, 350);
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(204, 26);
-            this.txtdireccion.TabIndex = 58;
+            this.txtdireccion.TabIndex = 9;
             // 
             // label5
             // 
@@ -272,7 +249,7 @@
             this.txtsalariomes.Location = new System.Drawing.Point(187, 249);
             this.txtsalariomes.Name = "txtsalariomes";
             this.txtsalariomes.Size = new System.Drawing.Size(204, 26);
-            this.txtsalariomes.TabIndex = 56;
+            this.txtsalariomes.TabIndex = 6;
             // 
             // dtpfecha
             // 
@@ -281,7 +258,7 @@
             this.dtpfecha.Location = new System.Drawing.Point(187, 281);
             this.dtpfecha.Name = "dtpfecha";
             this.dtpfecha.Size = new System.Drawing.Size(204, 26);
-            this.dtpfecha.TabIndex = 54;
+            this.dtpfecha.TabIndex = 7;
             // 
             // label2
             // 
@@ -303,7 +280,7 @@
             this.cboestado.Location = new System.Drawing.Point(187, 313);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(204, 31);
-            this.cboestado.TabIndex = 53;
+            this.cboestado.TabIndex = 8;
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // txtapellido2
@@ -314,7 +291,7 @@
             this.txtapellido2.Location = new System.Drawing.Point(187, 185);
             this.txtapellido2.Name = "txtapellido2";
             this.txtapellido2.Size = new System.Drawing.Size(204, 26);
-            this.txtapellido2.TabIndex = 54;
+            this.txtapellido2.TabIndex = 4;
             // 
             // label12
             // 
@@ -368,7 +345,7 @@
             this.txtsalariohora.Location = new System.Drawing.Point(187, 217);
             this.txtsalariohora.Name = "txtsalariohora";
             this.txtsalariohora.Size = new System.Drawing.Size(204, 26);
-            this.txtsalariohora.TabIndex = 47;
+            this.txtsalariohora.TabIndex = 5;
             // 
             // label10
             // 
@@ -411,7 +388,7 @@
             this.txtapellido1.Location = new System.Drawing.Point(187, 153);
             this.txtapellido1.Name = "txtapellido1";
             this.txtapellido1.Size = new System.Drawing.Size(204, 26);
-            this.txtapellido1.TabIndex = 52;
+            this.txtapellido1.TabIndex = 3;
             // 
             // txtnombre
             // 
@@ -421,7 +398,7 @@
             this.txtnombre.Location = new System.Drawing.Point(187, 121);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(204, 26);
-            this.txtnombre.TabIndex = 48;
+            this.txtnombre.TabIndex = 2;
             // 
             // label3
             // 
@@ -442,22 +419,35 @@
             this.txtcedula.Location = new System.Drawing.Point(187, 89);
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(204, 26);
-            this.txtcedula.TabIndex = 49;
+            this.txtcedula.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(857, 0);
+            this.panel2.Location = new System.Drawing.Point(853, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(69, 537);
+            this.panel2.Size = new System.Drawing.Size(110, 537);
             this.panel2.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(15, 443);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 41);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Inicio";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Creacion_Personal_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 537);
+            this.ClientSize = new System.Drawing.Size(963, 537);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -465,10 +455,10 @@
             this.Name = "Form_Creacion_Personal_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -504,9 +494,8 @@
         private System.Windows.Forms.TextBox txtapellido2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboidpuesto;
-        private System.Windows.Forms.Button btnbuscar;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnmostrar;
         private System.Windows.Forms.DataGridView dgvpersonal;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button4;
     }
 }

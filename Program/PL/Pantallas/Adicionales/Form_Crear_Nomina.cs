@@ -18,22 +18,16 @@ namespace PL.Pantallas.Adicionales
         private SqlConnection  objconexion;
 
         public List<PERSONAL> lstresultado { get; set; }
-     //   public List<NOMINA> lstresultado { get; set; }
+     
         public bool EsError { get; set; }
 
         public Form_Crear_Nomina()
         {
             lstresultado = new List<PERSONAL>();
-           // lstresultado = new List<NOMINA>();
+          
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Adicionales.Form_Pago_Nomina atras = new Adicionales.Form_Pago_Nomina();
-            atras.ShowDialog();
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -59,27 +53,11 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
-        //private void btnmostrar_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<PERSONAL> lstresultado = R_Humanos.ConsultarTablaPersonal();
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
 
-        //        this.dgvpersonal.DataSource = lstresultado;
-        //        this.dgvpersonal.Refresh();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-            //SqlCommand comando = new SqlCommand("Select * from PERSONAL", objconexion);
-            //SqlDataAdapter adaptador = new SqlDataAdapter();
-            //adaptador.SelectCommand = comando;
-            //DataTable tabla = new DataTable();
-            //adaptador.Fill(tabla);
-            //dgvpersonal.DataSource = tabla;
-        //}
+       
     }
 }

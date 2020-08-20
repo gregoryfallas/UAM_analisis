@@ -119,5 +119,10 @@ namespace PL.Pantallas.Adicionales
             //textBox1.Text = cboestado.SelectedValue.ToString();
             nombreEstado = cboestado.SelectedValue.ToString();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

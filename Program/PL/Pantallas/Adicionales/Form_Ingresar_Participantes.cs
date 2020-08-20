@@ -14,8 +14,8 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Form_Ingresar_Participantes : Form
     {
-        public List<PARTICIPANTES> lstresultado { get; set; }
-        public bool EsError { get; set; }
+        //public List<PARTICIPANTES> lstresultado { get; set; }
+        //public bool EsError { get; set; }
 
         private int estado = 0;
         private int provincia_id = 0;
@@ -30,9 +30,16 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
+        private string ced;
+        private string provincia;
+        private string canton;
+        private string distrito;
+        private string estadodgv;
+        private string puestoreclutamiento;
+
         public Form_Ingresar_Participantes()
         {
-            lstresultado = new List<PARTICIPANTES>();
+            //lstresultado = new List<PARTICIPANTES>();
             InitializeComponent();
             CargarCombosEstados();
             CargarComboIdReclutamiento();
@@ -140,7 +147,7 @@ namespace PL.Pantallas.Adicionales
                 R_Humanos.AgregarPostulantes(p);
                 MessageBox.Show("Postulante agregado");
                 limpiar();
-
+                cargarGridParticipantes();
                 cboreclutamiento.Focus();
 
             }
@@ -210,7 +217,7 @@ namespace PL.Pantallas.Adicionales
                 R_Humanos.ModificarPostulantes(p);
                 MessageBox.Show("Postulante Modificado");
                 limpiar();
-
+                cargarGridParticipantes();
                 cboreclutamiento.Focus();
 
             }
@@ -220,42 +227,100 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void cargarGridParticipantes()
         {
+
             try
             {
-                List<PARTICIPANTES> Istclientes = R_Humanos.Obtener_Participantes();
-
-                this.dgvparticipantes.DataSource = Istclientes;
+                this.dgvparticipantes.DataSource = null;
                 this.dgvparticipantes.Refresh();
+
+                this.dgvparticipantes.DataSource = R_Humanos.Obtener_Participantes(this.txtfiltrar.Text.Trim());
+                // this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientes(this.textBox6.Text.Trim());
+
+                this.dgvparticipantes.Refresh();
+
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.Message);
+                throw;
             }
+
+
+
         }
+
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        List<PARTICIPANTES> Istclientes = R_Humanos.Obtener_Participantes();
+
+        //        this.dgvparticipantes.DataSource = Istclientes;
+        //        this.dgvparticipantes.Refresh();
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
 
         private void dgvparticipantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
+           
+        }
 
-            cboreclutamiento.Text = dgvparticipantes.CurrentRow.Cells[0].Value.ToString();
-            cboreclutamiento.Text = dgvparticipantes.CurrentRow.Cells[1].Value.ToString();
-            txtcedula.Text = dgvparticipantes.CurrentRow.Cells[2].Value.ToString();
-            txtnombre.Text = dgvparticipantes.CurrentRow.Cells[3].Value.ToString();
-            txtapellido1.Text = dgvparticipantes.CurrentRow.Cells[4].Value.ToString();
-            txtapellido2.Text = dgvparticipantes.CurrentRow.Cells[5].Value.ToString();
-            txtcorreo.Text = dgvparticipantes.CurrentRow.Cells[6].Value.ToString();
-            txttelefono.Text = dgvparticipantes.CurrentRow.Cells[7].Value.ToString();
-            Provinciacbo.Text = dgvparticipantes.CurrentRow.Cells[8].Value.ToString();
-            Cantoncbo.Text = dgvparticipantes.CurrentRow.Cells[9].Value.ToString();
-            Distritocbo.Text = dgvparticipantes.CurrentRow.Cells[10].Value.ToString();
-            txtdireccion.Text = dgvparticipantes.CurrentRow.Cells[11].Value.ToString();
-            cboestado.Text = dgvparticipantes.CurrentRow.Cells[12].Value.ToString();
+        private void dgvparticipantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Hizo click en una fila no permitida", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-            catch { }
+            else
+            {
+                puestoreclutamiento = dgvparticipantes.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cboreclutamiento.Text = puestoreclutamiento;
+                puestoreclutamiento = dgvparticipantes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cboreclutamiento.Text = puestoreclutamiento;
+
+                txtcedula.Text = dgvparticipantes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                ced = dgvparticipantes.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                txtnombre.Text = dgvparticipantes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtapellido1.Text = dgvparticipantes.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtapellido2.Text = dgvparticipantes.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtcorreo.Text = dgvparticipantes.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txttelefono.Text = dgvparticipantes.Rows[e.RowIndex].Cells[7].Value.ToString();
+
+                provincia = dgvparticipantes.Rows[e.RowIndex].Cells[8].Value.ToString();
+                Provinciacbo.Text = provincia;
+
+                canton = dgvparticipantes.Rows[e.RowIndex].Cells[9].Value.ToString();
+                Cantoncbo.Text = canton;
+
+                distrito = dgvparticipantes.Rows[e.RowIndex].Cells[10].Value.ToString();
+                Distritocbo.Text = distrito;
+
+                txtdireccion.Text = dgvparticipantes.Rows[e.RowIndex].Cells[11].Value.ToString();
+
+                estadodgv = dgvparticipantes.Rows[e.RowIndex].Cells[12].Value.ToString();
+                cboestado.Text = estadodgv;
+            }
+        }
+
+        private void Form_Ingresar_Participantes_Load(object sender, EventArgs e)
+        {
+            CargarCombosEstados();
+            CargarCombosProvincias();
+            cargarGridParticipantes();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

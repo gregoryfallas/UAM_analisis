@@ -47,5 +47,10 @@ namespace PL.Pantallas.Adicionales
             Adicionales.Form_Consultar_Pruebas_Participantes consultar = new Adicionales.Form_Consultar_Pruebas_Participantes();
             consultar.ShowDialog();
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

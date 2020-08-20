@@ -39,8 +39,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btncrear = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,7 +64,7 @@
             this.btnenviar.FlatAppearance.BorderSize = 0;
             this.btnenviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenviar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnenviar.Location = new System.Drawing.Point(292, 207);
+            this.btnenviar.Location = new System.Drawing.Point(85, 207);
             this.btnenviar.Name = "btnenviar";
             this.btnenviar.Size = new System.Drawing.Size(49, 39);
             this.btnenviar.TabIndex = 44;
@@ -105,7 +107,7 @@
             this.txtdescripcion.Location = new System.Drawing.Point(105, 83);
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(183, 26);
-            this.txtdescripcion.TabIndex = 49;
+            this.txtdescripcion.TabIndex = 1;
             // 
             // cbonombre
             // 
@@ -129,7 +131,7 @@
             this.cboestado.Location = new System.Drawing.Point(105, 115);
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(183, 31);
-            this.cboestado.TabIndex = 47;
+            this.cboestado.TabIndex = 2;
             this.cboestado.SelectedIndexChanged += new System.EventHandler(this.cboestado_SelectedIndexChanged);
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
@@ -172,17 +174,30 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(365, 0);
+            this.panel2.Location = new System.Drawing.Point(362, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 269);
+            this.panel2.Size = new System.Drawing.Size(117, 269);
             this.panel2.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(16, 205);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 41);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Inicio";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Crear_Reclutamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 269);
+            this.ClientSize = new System.Drawing.Size(479, 269);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -192,6 +207,7 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -209,5 +225,6 @@
         private System.Windows.Forms.ComboBox cbonombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtdescripcion;
+        private System.Windows.Forms.Button button4;
     }
 }

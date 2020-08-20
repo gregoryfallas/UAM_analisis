@@ -59,12 +59,6 @@
     <Compile Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.Designer.cs">
       <DependentUpon>Form_Consultar_Pruebas_Participantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Creacion_Roles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Creacion_Roles.Designer.cs">
-      <DependentUpon>Form_Creacion_Roles.cs</DependentUpon>
-    </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Crear_Reclutamiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,9 +333,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.resx">
       <DependentUpon>Form_Consultar_Pruebas_Participantes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Adicionales\Form_Creacion_Roles.resx">
-      <DependentUpon>Form_Creacion_Roles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Crear_Reclutamiento.resx">
       <DependentUpon>Form_Crear_Reclutamiento.cs</DependentUpon>

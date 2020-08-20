@@ -156,5 +156,10 @@ namespace PL.Pantallas.Adicionales
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

@@ -36,16 +36,15 @@ namespace PL.Pantallas.Adicionales
             usuario.ShowDialog();
         }
 
-        private void creaciónDeRolesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Adicionales.Form_Creacion_Roles roles = new Adicionales.Form_Creacion_Roles();
-            roles.ShowDialog();
-        }
-
         private void consultaDeRolesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Adicionales.Form_Consulta_Roles croles = new Adicionales.Form_Consulta_Roles();
             croles.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

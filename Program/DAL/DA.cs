@@ -935,9 +935,8 @@ namespace DAL
             return lstresultados;
         }
 
-        public List<PARTICIPANTES> ObtenerParticipantes(SQLSentencia peticion)
+        public DataTable ObtenerParticipantes(SQLSentencia peticion)
         {
-            List<PARTICIPANTES> lstresultados = new List<PARTICIPANTES>();
             DataTable dt = new DataTable();
             try
             {
@@ -947,30 +946,68 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
 
-                SqlDataAdapter objcargar = new SqlDataAdapter(cmd);
-                objcargar.Fill(dt);
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
 
-                foreach (DataRow item in dt.Rows)
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return dt;
+        }
+
+        public List<PARTICIPANTES> ObtenerParticipantes2(SQLSentencia P_Peticion)
+        {
+            List<PARTICIPANTES> lstresultados = new List<PARTICIPANTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
                 {
-                    PARTICIPANTES u = new PARTICIPANTES();
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PARTICIPANTES u = new PARTICIPANTES();
 
-                    u.ID_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
-                    u.ID_Reclutamiento = Convert.ToInt32(item.ItemArray[1].ToString());
-                    u.Cedula_ = item.ItemArray[2].ToString();
-                    u.Nombre = item.ItemArray[3].ToString();
-                    u.Apellido_1 = item.ItemArray[4].ToString();
-                    u.Apellido_2 = item.ItemArray[5].ToString();
-                    u.Correo = item.ItemArray[6].ToString();
-                    u.Telefono = item.ItemArray[7].ToString();
-                    u.ID_Provincia = Convert.ToInt32(item.ItemArray[8].ToString());
-                    u.ID_Canton = Convert.ToInt32(item.ItemArray[9].ToString());
-                    u.ID_Distrito = Convert.ToInt32(item.ItemArray[10].ToString());
-                    u.Direccion = item.ItemArray[11].ToString();
-                    u.Estado = Convert.ToInt32(item.ItemArray[12].ToString());
+                        u.ID_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
+                        u.ID_Reclutamiento = Convert.ToInt32(item.ItemArray[1].ToString());
+                        u.Cedula_ = item.ItemArray[2].ToString();
+                        u.Nombre = item.ItemArray[3].ToString();
+                        u.Apellido_1 = item.ItemArray[4].ToString();
+                        u.Apellido_2 = item.ItemArray[5].ToString();
+                        u.Correo = item.ItemArray[6].ToString();
+                        u.Telefono = item.ItemArray[7].ToString();
+                        u.ID_Provincia = Convert.ToInt32(item.ItemArray[8].ToString());
+                        u.ID_Canton = Convert.ToInt32(item.ItemArray[9].ToString());
+                        u.ID_Distrito = Convert.ToInt32(item.ItemArray[10].ToString());
+                        u.Direccion = item.ItemArray[11].ToString();
+                        u.Estado = Convert.ToInt32(item.ItemArray[12].ToString());
 
-
-                    lstresultados.Add(u);
+                        lstresultados.Add(u);
+                    }
                 }
+
             }
             catch (Exception ex)
             {
@@ -1058,6 +1095,54 @@ namespace DAL
                         ID.Cedula_ = item.ItemArray[1].ToString();
 
                         lstresultados.Add(ID);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+        public List<PRUEBAS_PARTICIPANTES> ObtenerPruebasParticipantes(SQLSentencia P_Peticion)
+        {
+            List<PRUEBAS_PARTICIPANTES> lstresultados = new List<PRUEBAS_PARTICIPANTES>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        PRUEBAS_PARTICIPANTES tabla = new PRUEBAS_PARTICIPANTES();
+
+                        tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.ID_Pruebas = Convert.ToInt32(item.ItemArray[1].ToString());
+                        tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[2].ToString());
+                        tabla.Nota = Convert.ToDecimal(item.ItemArray[3].ToString());
+                     
+
+                        lstresultados.Add(tabla);
                     }
                 }
 

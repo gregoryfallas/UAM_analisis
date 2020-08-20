@@ -43,9 +43,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btncrear = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +59,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(796, 327);
+            this.panel1.Size = new System.Drawing.Size(786, 327);
             this.panel1.TabIndex = 1;
             // 
             // groupBox1
@@ -76,7 +78,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(18, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(768, 223);
+            this.groupBox1.Size = new System.Drawing.Size(729, 223);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Creación de Nómina";
@@ -85,20 +87,19 @@
             // 
             this.btnmostrar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmostrar.ForeColor = System.Drawing.Color.Black;
-            this.btnmostrar.Location = new System.Drawing.Point(364, 27);
+            this.btnmostrar.Location = new System.Drawing.Point(327, 25);
             this.btnmostrar.Name = "btnmostrar";
             this.btnmostrar.Size = new System.Drawing.Size(130, 31);
             this.btnmostrar.TabIndex = 44;
             this.btnmostrar.Text = "Mostrar Personal";
             this.btnmostrar.UseVisualStyleBackColor = true;
-           // this.btnmostrar.Click += new System.EventHandler(this.btnmostrar_Click);
             // 
             // dgvpersonal
             // 
             this.dgvpersonal.AllowUserToAddRows = false;
             this.dgvpersonal.AllowUserToDeleteRows = false;
             this.dgvpersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpersonal.Location = new System.Drawing.Point(364, 64);
+            this.dgvpersonal.Location = new System.Drawing.Point(327, 62);
             this.dgvpersonal.Name = "dgvpersonal";
             this.dgvpersonal.ReadOnly = true;
             this.dgvpersonal.Size = new System.Drawing.Size(387, 140);
@@ -214,17 +215,30 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(52)))), ((int)(((byte)(63)))));
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(794, 0);
+            this.panel2.Location = new System.Drawing.Point(769, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(71, 327);
+            this.panel2.Size = new System.Drawing.Size(121, 327);
             this.panel2.TabIndex = 2;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(171)))), ((int)(((byte)(171)))));
+            this.button4.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(17, 264);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(92, 41);
+            this.button4.TabIndex = 16;
+            this.button4.Text = "Inicio";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form_Crear_Nomina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 327);
+            this.ClientSize = new System.Drawing.Size(890, 327);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -235,6 +249,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -256,5 +271,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnmostrar;
         private System.Windows.Forms.DataGridView dgvpersonal;
+        private System.Windows.Forms.Button button4;
     }
 }

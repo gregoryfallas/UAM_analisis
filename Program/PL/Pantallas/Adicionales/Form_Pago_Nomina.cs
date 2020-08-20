@@ -41,5 +41,10 @@ namespace PL.Pantallas.Adicionales
             Adicionales.Form_Ingreso_Marcas_Manuales marcar = new Adicionales.Form_Ingreso_Marcas_Manuales();
             marcar.ShowDialog();
         }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

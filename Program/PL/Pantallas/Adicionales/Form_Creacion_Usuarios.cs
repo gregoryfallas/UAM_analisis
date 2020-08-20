@@ -16,8 +16,8 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Form_Creacion_Usuarios : Form
     {
-      
 
+        private string cedula; 
         private string IdPersonal;
         private string EstadoUsuario;
 
@@ -118,11 +118,21 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
+        private void consultarcedulapersonal()
+        {
+
+        }
+
         private void cbopersonal_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-           
+            cedula = cbopersonal.SelectedText;
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

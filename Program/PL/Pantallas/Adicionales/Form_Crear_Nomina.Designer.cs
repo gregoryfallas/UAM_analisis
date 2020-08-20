@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnmostrar = new System.Windows.Forms.Button();
             this.dgvpersonal = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
@@ -64,7 +63,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnmostrar);
             this.groupBox1.Controls.Add(this.dgvpersonal);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtnombre);
@@ -83,26 +81,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Creación de Nómina";
             // 
-            // btnmostrar
-            // 
-            this.btnmostrar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmostrar.ForeColor = System.Drawing.Color.Black;
-            this.btnmostrar.Location = new System.Drawing.Point(327, 25);
-            this.btnmostrar.Name = "btnmostrar";
-            this.btnmostrar.Size = new System.Drawing.Size(130, 31);
-            this.btnmostrar.TabIndex = 44;
-            this.btnmostrar.Text = "Mostrar Personal";
-            this.btnmostrar.UseVisualStyleBackColor = true;
-            // 
             // dgvpersonal
             // 
             this.dgvpersonal.AllowUserToAddRows = false;
             this.dgvpersonal.AllowUserToDeleteRows = false;
             this.dgvpersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpersonal.Location = new System.Drawing.Point(327, 62);
+            this.dgvpersonal.Location = new System.Drawing.Point(327, 52);
             this.dgvpersonal.Name = "dgvpersonal";
             this.dgvpersonal.ReadOnly = true;
-            this.dgvpersonal.Size = new System.Drawing.Size(387, 140);
+            this.dgvpersonal.Size = new System.Drawing.Size(387, 150);
             this.dgvpersonal.TabIndex = 43;
             // 
             // label8
@@ -230,7 +217,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 41);
             this.button4.TabIndex = 16;
-            this.button4.Text = "Inicio";
+            this.button4.Text = "Atrás";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -269,7 +256,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnmostrar;
         private System.Windows.Forms.DataGridView dgvpersonal;
         private System.Windows.Forms.Button button4;
     }

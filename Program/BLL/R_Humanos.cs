@@ -795,6 +795,25 @@ namespace BLL
             }
         }
 
+        public static DataTable Obtener_PersonalDGV(string Cedula)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_PERSONAL '" + Cedula + "'";
+                DA acceso = new DA();
+                return acceso.ObtenerPersonalDGV(sentencia);
+
+
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         #endregion
 
         #region NOMINA

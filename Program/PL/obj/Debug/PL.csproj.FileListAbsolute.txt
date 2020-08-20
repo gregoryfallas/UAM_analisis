@@ -421,7 +421,6 @@ C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.csproj.CopyComp
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.exe
 C:\Users\Steph\Source\Repos\UAM_analisis\Program\PL\obj\Debug\PL.pdb
 C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Consultar_Pruebas_Participantes.resources
-C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Creacion_Roles.resources
 C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Crear_Reclutamiento.resources
 C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Consulta_Roles.resources
 C:\Users\Steph\source\repos\UAM_analisis\Program\PL\obj\Debug\PL.Pantallas.Adicionales.Form_Ingresar_Participantes.resources

@@ -17,6 +17,9 @@ namespace PL.Pantallas.Adicionales
         private string nombrepuesto;
         private string nombreEstado;
 
+        private string estadodgv;
+        private string puestopersonal;
+        private string ced;
 
         public List<PERSONAL> lstresultado { get; set; }
         public bool EsError { get; set; }
@@ -81,7 +84,7 @@ namespace PL.Pantallas.Adicionales
 
                 R_Humanos.AgregarPersonal(p);
                 MessageBox.Show("Personal agregado");
-
+                cargarGridPersonal();
 
             }
             catch (Exception ex)
@@ -134,6 +137,7 @@ namespace PL.Pantallas.Adicionales
 
                 R_Humanos.ModificarPersonal(p);
                 MessageBox.Show("Personal Modificado");
+                cargarGridPersonal();
             }
             catch (Exception ex)
             {
@@ -141,25 +145,71 @@ namespace PL.Pantallas.Adicionales
             }
         }
 
-        private void btnbuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<PERSONAL> Istclientes = R_Humanos.Obtener_Personal();
-
-                this.dgvpersonal.DataSource = Istclientes;
-                this.dgvpersonal.Refresh();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Form_Creacion_Personal_PL_Load(object sender, EventArgs e)
+        {
+            cargarGridPersonal();
+        }
+
+        private void cargarGridPersonal()
+        {
+
+            try
+            {
+                this.dgvpersonal.DataSource = null;
+                this.dgvpersonal.Refresh();
+
+                this.dgvpersonal.DataSource = R_Humanos.Obtener_PersonalDGV(this.txtcedula.Text.Trim());
+          
+                this.dgvpersonal.Refresh();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void dgvpersonal_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Hizo click en una fila no permitida", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            else
+            {
+                puestopersonal = dgvpersonal.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cboidpuesto.Text = puestopersonal;
+                puestopersonal = dgvpersonal.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cboidpuesto.Text = puestopersonal;
+
+                txtcedula.Text = dgvpersonal.Rows[e.RowIndex].Cells[2].Value.ToString();
+                ced = dgvpersonal.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                txtnombre.Text = dgvpersonal.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtapellido1.Text = dgvpersonal.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtapellido2.Text = dgvpersonal.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtsalariohora.Text = dgvpersonal.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtsalariomes.Text = dgvpersonal.Rows[e.RowIndex].Cells[7].Value.ToString();
+                dtpfecha.Text = dgvpersonal.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+                estadodgv = dgvpersonal.Rows[e.RowIndex].Cells[9].Value.ToString();
+                cboestado.Text = estadodgv;
+
+                txtdireccion.Text = dgvpersonal.Rows[e.RowIndex].Cells[10].Value.ToString();
+                txtcorreo.Text = dgvpersonal.Rows[e.RowIndex].Cells[11].Value.ToString();
+                txttelefono.Text = dgvpersonal.Rows[e.RowIndex].Cells[12].Value.ToString();
+               
+
+               
+            }
         }
     }
 }

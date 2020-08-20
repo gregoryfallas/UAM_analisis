@@ -235,7 +235,7 @@ namespace PL.Pantallas.Adicionales
                 this.dgvparticipantes.DataSource = null;
                 this.dgvparticipantes.Refresh();
 
-                this.dgvparticipantes.DataSource = R_Humanos.Obtener_Participantes(this.txtfiltrar.Text.Trim());
+                this.dgvparticipantes.DataSource = R_Humanos.Obtener_Participantes(this.txtcedula.Text.Trim());
                 // this.dataGridView1.DataSource = Clientes_BLL.ConsultarClientes(this.textBox6.Text.Trim());
 
                 this.dgvparticipantes.Refresh();
@@ -250,23 +250,6 @@ namespace PL.Pantallas.Adicionales
 
 
         }
-
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        List<PARTICIPANTES> Istclientes = R_Humanos.Obtener_Participantes();
-
-        //        this.dgvparticipantes.DataSource = Istclientes;
-        //        this.dgvparticipantes.Refresh();
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
 
         private void dgvparticipantes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

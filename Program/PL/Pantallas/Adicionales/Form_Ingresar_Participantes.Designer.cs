@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtfiltrar = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboreclutamiento = new System.Windows.Forms.ComboBox();
             this.Provinciacbo = new System.Windows.Forms.ComboBox();
@@ -70,8 +68,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.txtfiltrar);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.dgvparticipantes);
@@ -81,25 +77,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(897, 554);
             this.panel1.TabIndex = 1;
-            // 
-            // txtfiltrar
-            // 
-            this.txtfiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
-            this.txtfiltrar.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfiltrar.ForeColor = System.Drawing.Color.White;
-            this.txtfiltrar.Location = new System.Drawing.Point(579, 35);
-            this.txtfiltrar.Name = "txtfiltrar";
-            this.txtfiltrar.Size = new System.Drawing.Size(183, 26);
-            this.txtfiltrar.TabIndex = 78;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(449, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 30);
-            this.button1.TabIndex = 70;
-            this.button1.Text = "Mostrar Postulantes";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -417,10 +394,10 @@
             this.dgvparticipantes.AllowUserToAddRows = false;
             this.dgvparticipantes.AllowUserToDeleteRows = false;
             this.dgvparticipantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvparticipantes.Location = new System.Drawing.Point(449, 67);
+            this.dgvparticipantes.Location = new System.Drawing.Point(449, 35);
             this.dgvparticipantes.Name = "dgvparticipantes";
             this.dgvparticipantes.ReadOnly = true;
-            this.dgvparticipantes.Size = new System.Drawing.Size(389, 208);
+            this.dgvparticipantes.Size = new System.Drawing.Size(389, 240);
             this.dgvparticipantes.TabIndex = 67;
             this.dgvparticipantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellClick);
             this.dgvparticipantes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvparticipantes_CellContentClick);
@@ -457,7 +434,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 41);
             this.button4.TabIndex = 16;
-            this.button4.Text = "Inicio";
+            this.button4.Text = "Atrás";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -474,7 +451,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form_Ingresar_Participantes_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvparticipantes)).EndInit();
@@ -514,9 +490,7 @@
         private System.Windows.Forms.ComboBox Provinciacbo;
         private System.Windows.Forms.ComboBox Distritocbo;
         private System.Windows.Forms.ComboBox Cantoncbo;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvparticipantes;
-        private System.Windows.Forms.TextBox txtfiltrar;
         private System.Windows.Forms.Button button4;
     }
 }

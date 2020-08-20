@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnmostrar = new System.Windows.Forms.Button();
             this.dgvpersonal = new System.Windows.Forms.DataGridView();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
@@ -69,7 +68,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.btnmostrar);
             this.panel1.Controls.Add(this.dgvpersonal);
             this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.btnagregar);
@@ -81,26 +79,17 @@
             this.panel1.Size = new System.Drawing.Size(887, 537);
             this.panel1.TabIndex = 1;
             // 
-            // btnmostrar
-            // 
-            this.btnmostrar.Location = new System.Drawing.Point(458, 31);
-            this.btnmostrar.Name = "btnmostrar";
-            this.btnmostrar.Size = new System.Drawing.Size(80, 30);
-            this.btnmostrar.TabIndex = 66;
-            this.btnmostrar.Text = "Mostrar";
-            this.btnmostrar.UseVisualStyleBackColor = true;
-            this.btnmostrar.Click += new System.EventHandler(this.btnbuscar_Click);
-            // 
             // dgvpersonal
             // 
             this.dgvpersonal.AllowUserToAddRows = false;
             this.dgvpersonal.AllowUserToDeleteRows = false;
             this.dgvpersonal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpersonal.Location = new System.Drawing.Point(458, 67);
+            this.dgvpersonal.Location = new System.Drawing.Point(458, 31);
             this.dgvpersonal.Name = "dgvpersonal";
             this.dgvpersonal.ReadOnly = true;
-            this.dgvpersonal.Size = new System.Drawing.Size(389, 208);
+            this.dgvpersonal.Size = new System.Drawing.Size(389, 244);
             this.dgvpersonal.TabIndex = 56;
+            this.dgvpersonal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvpersonal_CellClick);
             // 
             // btnmodificar
             // 
@@ -439,7 +428,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(92, 41);
             this.button4.TabIndex = 16;
-            this.button4.Text = "Inicio";
+            this.button4.Text = "Atrás";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -454,6 +443,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Creacion_Personal_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form_Creacion_Personal_PL_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -494,7 +484,6 @@
         private System.Windows.Forms.TextBox txtapellido2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboidpuesto;
-        private System.Windows.Forms.Button btnmostrar;
         private System.Windows.Forms.DataGridView dgvpersonal;
         private System.Windows.Forms.Button button4;
     }

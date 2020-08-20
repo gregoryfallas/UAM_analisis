@@ -7,6 +7,7 @@ using DAL.Entidades;
 using DAL;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
 
 
 namespace BLL
@@ -884,7 +885,31 @@ namespace BLL
 
         #endregion
 
+        #region VALIDACIONES
 
-      
+        public static bool ValidarTexto(Formato P_formato)
+        {
+            try
+            {
+                //Clase pertenciente al Framework de System.Text.RegularExpresion
+                Regex regex = new Regex(P_formato.PatronValidacion);
+
+                //Ejecución de método encapsulado donde se valida el texto recibido
+                MatchCollection lstcoincidencias = regex.Matches(P_formato.Texto);
+
+                //Respuesta del método con base a las coincidencias recibidas
+                if (lstcoincidencias.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
+
     }
 }

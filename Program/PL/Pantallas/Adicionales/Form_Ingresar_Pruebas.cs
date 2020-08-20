@@ -95,6 +95,16 @@ namespace PL.Pantallas.Adicionales
 
                 p.ID_Pruebas = Convert.ToInt32(IdPruebas);
                 p.ID_Participantes = Convert.ToInt32(IdParticipantes);
+
+                /*********************************************************************************************/
+                Formato objformato = new Formato();
+                objformato.Texto = txtnota.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato de la Nota no es valido, corregir por favor");
+                    return;
+                }
                 p.Nota = Convert.ToDecimal(txtnota.Text.Trim());
 
                 R_Humanos.AgregarNotaPruebas(p);

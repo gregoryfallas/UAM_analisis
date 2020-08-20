@@ -132,12 +132,75 @@ namespace PL.Pantallas.Adicionales
                 PARTICIPANTES p = new PARTICIPANTES();
 
                 p.ID_Reclutamiento = Convert.ToInt32(nombrepuesto);
+
+                /*********************************************************************************************/
+                Formato objformato = new Formato();
+
+                objformato.Texto = txtcedula.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato de la Cédula no es valido, corregir por favor");
+                    return;
+                }
                 p.Cedula_ = txtcedula.Text.Trim();
+
+                /*********************************************************************************************/
+                objformato = new Formato();
+                objformato.Texto = txtnombre.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Nombre no es valido, corregir por favor");
+                    return;
+                }
                 p.Nombre = txtnombre.Text.Trim();
+
+                /*********************************************************************************************/
+                objformato = new Formato();
+                objformato.Texto = txtapellido1.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Apellido no es valido, corregir por favor");
+                    return;
+                }
                 p.Apellido_1 = txtapellido1.Text.Trim();
+
+                /*********************************************************************************************/
+                objformato = new Formato();
+                objformato.Texto = txtapellido2.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Apellido no es valido, corregir por favor");
+                    return;
+                }
                 p.Apellido_2 = txtapellido2.Text.Trim();
+
+                /*********************************************************************************************/
+                objformato = new Formato();
+                objformato.Texto = txtcorreo.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronCORREO;
+
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del CORREO no es valido, corregir por favor");
+                    return;
+                }
                 p.Correo = txtcorreo.Text.Trim();
+
+                /*********************************************************************************************/
+                objformato.Texto = txttelefono.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
+                    return;
+                }
                 p.Telefono = txttelefono.Text.Trim();
+
+                /*********************************************************************************************/
                 p.ID_Provincia = provincia_id;
                 p.ID_Canton = canton_id;
                 p.ID_Distrito = Convert.ToInt32(id_Distritos);

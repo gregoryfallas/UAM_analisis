@@ -67,17 +67,98 @@ namespace PL.Pantallas.Adicionales
 
                 //p.ID_Puesto = Convert.ToInt32(cboidpuesto.Text.Trim());
                 p.ID_Puesto = Convert.ToInt32(nombrepuesto);
+                /*********************************************************************************************/
+
+                Formato objformato = new Formato();
+
+                objformato.Texto = txtcedula.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato de la Cédula no es valido, corregir por favor");
+                    return;
+                }
                 p.Cedula = txtcedula.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato = new Formato();
+                objformato.Texto = txtnombre.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Nombre no es valido, corregir por favor");
+                    return;
+                }
                 p.Nombre = txtnombre.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato = new Formato();
+                objformato.Texto = txtapellido1.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Apellido no es valido, corregir por favor");
+                    return;
+                }
                 p.Apellido_1 = txtapellido1.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato = new Formato();
+                objformato.Texto = txtapellido2.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronNOMBRE;
+                if (!R_Humanos.ValidarTexto(objformato) || objformato.Texto.Length == 0)
+                {
+                    MessageBox.Show("El formato del Apellido no es valido, corregir por favor");
+                    return;
+                }
                 p.Apellido_2 = txtapellido2.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato.Texto = txtsalariohora.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del Salario no es valido, no utilizar punto ni coma, corregir por favor");
+                    return;
+                }
                 p.Salario_Hora = Convert.ToDecimal(txtsalariohora.Text.Trim());
+                /*********************************************************************************************/
+
+                objformato.Texto = txtsalariomes.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del Salario no es valido, NO utilizar punto NI coma, corregir por favor");
+                    return;
+                }
                 p.Salario_Mensual = Convert.ToDecimal(txtsalariomes.Text.Trim());
+                /*********************************************************************************************/
+
                 p.Fecha_Contratacion = Convert.ToDateTime(dtpfecha.Text.Trim());
-                 // p.Estado = Convert.ToInt32(cboestado.Text.Trim());
+                // p.Estado = Convert.ToInt32(cboestado.Text.Trim());
                 p.Estado = Convert.ToInt32(nombreEstado);
                 p.Direccion = txtdireccion.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato = new Formato();
+                objformato.Texto = txtcorreo.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronCORREO;
+
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del CORREO no es valido, corregir por favor");
+                    return;
+                }
                 p.Correo_Electronico = txtcorreo.Text.Trim();
+                /*********************************************************************************************/
+
+                objformato.Texto = txttelefono.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronID;
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
+                    return;
+                }
                 p.Telefono = txttelefono.Text.Trim();
 
 

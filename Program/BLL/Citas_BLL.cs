@@ -72,6 +72,44 @@ namespace BLL
             }
         }
 
+        public static bool modificarCitas(CITAS cita)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_Modidicar_Cita '" +
+                    cita.ID_Cita + "','" +
+                    cita.ID_Mascota + "','" +
+                    cita.ID_Consultorio + "','" +
+                    cita.ID_Motivo_Cita + "','" +
+                    cita.Fecha_Inicio + "','" +
+                    cita.Hora_Inicio + "','" +
+                    cita.Hora_Fin + "','" +
+                    cita.Estado + "'" ;
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static bool modificarEstadoCitas(CITAS cita)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_Modificar_Estado_Cita '" +
+                    cita.ID_Cita + "','" +
+                    cita.ID_Estado + "'";
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }

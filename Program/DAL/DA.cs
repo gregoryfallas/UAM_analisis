@@ -1412,13 +1412,16 @@ namespace DAL
                         CITAS tipo = new CITAS();
                         tipo.ID_Cita = Convert.ToInt32(item.ItemArray[0].ToString());
                         tipo.ID_Mascota = Convert.ToInt32(item.ItemArray[1].ToString());
-                        tipo.ID_Consultorio = Convert.ToInt32(item.ItemArray[2].ToString());
-                        tipo.ID_Motivo_Cita = Convert.ToInt32(item.ItemArray[3].ToString());
-                        tipo.Fecha_Inicio = DateTime.Parse(item.ItemArray[4].ToString());
-                        tipo.Hora_Inicio = TimeSpan.Parse(item.ItemArray[5].ToString());
-                        tipo.Hora_Fin = TimeSpan.Parse(item.ItemArray[6].ToString());
-                        tipo.Estado = Convert.ToInt32(item.ItemArray[7].ToString());
-                        tipo.Nombre = item.ItemArray[8].ToString();
+                        tipo.Nombre_Mascota = item.ItemArray[2].ToString();
+                        tipo.ID_Consultorio = Convert.ToInt32(item.ItemArray[3].ToString());
+                        tipo.ID_Motivo_Cita = Convert.ToInt32(item.ItemArray[4].ToString());
+                        tipo.Motivo_Cita = item.ItemArray[5].ToString();
+                        tipo.Fecha_Inicio = DateTime.Parse(item.ItemArray[6].ToString());
+                        tipo.Hora_Inicio = TimeSpan.Parse(item.ItemArray[7].ToString());
+                        tipo.Hora_Fin = TimeSpan.Parse(item.ItemArray[8].ToString());
+                        tipo.ID_Estado = Convert.ToInt32(item.ItemArray[9].ToString());
+                        tipo.Estado = item.ItemArray[10].ToString();
+                        tipo.Nombre = item.ItemArray[11].ToString();
                         lstresultados.Add(tipo);
                     }
                 }
@@ -1435,9 +1438,37 @@ namespace DAL
 
             return lstresultados;
         }
+        
+
+        public DataTable ConsultarCitasPantallaCitas(SQLSentencia P_Peticion)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = P_Peticion.Peticion;
+                if (P_Peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(P_Peticion.Peticion, objconexion);
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+
+        }
+
         #endregion
-
-
 
     }
 

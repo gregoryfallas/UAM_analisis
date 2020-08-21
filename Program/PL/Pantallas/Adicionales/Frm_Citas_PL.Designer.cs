@@ -32,6 +32,8 @@
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbx_HoraFin = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbx_HoraIn = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lb_NombreCliente = new System.Windows.Forms.Label();
@@ -52,9 +54,8 @@
             this.EliminarCitabtn = new System.Windows.Forms.Button();
             this.ModificarCitabtn = new System.Windows.Forms.Button();
             this.AgregarCitabtn = new System.Windows.Forms.Button();
-            this.cbx_HoraFin = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.chb_MostrarCitasCliente = new System.Windows.Forms.CheckBox();
+            this.labal_Cancelar_Cita = new System.Windows.Forms.LinkLabel();
+            this.label_Activar_Cita = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -124,6 +125,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Citas";
             // 
+            // cbx_HoraFin
+            // 
+            this.cbx_HoraFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.cbx_HoraFin.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_HoraFin.ForeColor = System.Drawing.Color.White;
+            this.cbx_HoraFin.FormattingEnabled = true;
+            this.cbx_HoraFin.Location = new System.Drawing.Point(417, 233);
+            this.cbx_HoraFin.Name = "cbx_HoraFin";
+            this.cbx_HoraFin.Size = new System.Drawing.Size(161, 31);
+            this.cbx_HoraFin.TabIndex = 37;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(335, 236);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 23);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Hora Fin";
+            // 
             // cbx_HoraIn
             // 
             this.cbx_HoraIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
@@ -189,7 +212,8 @@
             // 
             // Clientes
             // 
-            this.Clientes.Controls.Add(this.chb_MostrarCitasCliente);
+            this.Clientes.Controls.Add(this.label_Activar_Cita);
+            this.Clientes.Controls.Add(this.labal_Cancelar_Cita);
             this.Clientes.Controls.Add(this.reprogramarCitabtn);
             this.Clientes.Controls.Add(this.dgv_Citas1);
             this.Clientes.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,13 +236,17 @@
             this.reprogramarCitabtn.Size = new System.Drawing.Size(40, 35);
             this.reprogramarCitabtn.TabIndex = 1;
             this.reprogramarCitabtn.UseVisualStyleBackColor = true;
+            this.reprogramarCitabtn.Click += new System.EventHandler(this.reprogramarCitabtn_Click);
             // 
             // dgv_Citas1
             // 
+            this.dgv_Citas1.AllowUserToAddRows = false;
+            this.dgv_Citas1.AllowUserToDeleteRows = false;
             this.dgv_Citas1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
             this.dgv_Citas1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Citas1.Location = new System.Drawing.Point(15, 41);
             this.dgv_Citas1.Name = "dgv_Citas1";
+            this.dgv_Citas1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Citas1.Size = new System.Drawing.Size(834, 186);
             this.dgv_Citas1.TabIndex = 0;
             // 
@@ -269,9 +297,6 @@
             // monthCalendar1
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.monthCalendar1.BoldedDates = new System.DateTime[] {
-        new System.DateTime(2020, 8, 4, 0, 0, 0, 0),
-        new System.DateTime(2020, 8, 11, 0, 0, 0, 0)};
             this.monthCalendar1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.monthCalendar1.Location = new System.Drawing.Point(758, 116);
             this.monthCalendar1.Name = "monthCalendar1";
@@ -349,37 +374,29 @@
             this.AgregarCitabtn.TabIndex = 33;
             this.AgregarCitabtn.UseVisualStyleBackColor = true;
             // 
-            // cbx_HoraFin
+            // labal_Cancelar_Cita
             // 
-            this.cbx_HoraFin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.cbx_HoraFin.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_HoraFin.ForeColor = System.Drawing.Color.White;
-            this.cbx_HoraFin.FormattingEnabled = true;
-            this.cbx_HoraFin.Location = new System.Drawing.Point(417, 233);
-            this.cbx_HoraFin.Name = "cbx_HoraFin";
-            this.cbx_HoraFin.Size = new System.Drawing.Size(161, 31);
-            this.cbx_HoraFin.TabIndex = 37;
+            this.labal_Cancelar_Cita.AutoSize = true;
+            this.labal_Cancelar_Cita.LinkColor = System.Drawing.Color.White;
+            this.labal_Cancelar_Cita.Location = new System.Drawing.Point(875, 122);
+            this.labal_Cancelar_Cita.Name = "labal_Cancelar_Cita";
+            this.labal_Cancelar_Cita.Size = new System.Drawing.Size(93, 23);
+            this.labal_Cancelar_Cita.TabIndex = 2;
+            this.labal_Cancelar_Cita.TabStop = true;
+            this.labal_Cancelar_Cita.Text = "Cancelar Cita";
+            this.labal_Cancelar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labal_Cancelar_Cita_LinkClicked);
             // 
-            // label8
+            // label_Activar_Cita
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(335, 236);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 23);
-            this.label8.TabIndex = 36;
-            this.label8.Text = "Hora Fin";
-            // 
-            // chb_MostrarCitasCliente
-            // 
-            this.chb_MostrarCitasCliente.AutoSize = true;
-            this.chb_MostrarCitasCliente.Location = new System.Drawing.Point(863, 66);
-            this.chb_MostrarCitasCliente.Name = "chb_MostrarCitasCliente";
-            this.chb_MostrarCitasCliente.Size = new System.Drawing.Size(125, 27);
-            this.chb_MostrarCitasCliente.TabIndex = 2;
-            this.chb_MostrarCitasCliente.Text = "Citas del cliente";
-            this.chb_MostrarCitasCliente.UseVisualStyleBackColor = true;
+            this.label_Activar_Cita.AutoSize = true;
+            this.label_Activar_Cita.LinkColor = System.Drawing.Color.White;
+            this.label_Activar_Cita.Location = new System.Drawing.Point(875, 70);
+            this.label_Activar_Cita.Name = "label_Activar_Cita";
+            this.label_Activar_Cita.Size = new System.Drawing.Size(80, 23);
+            this.label_Activar_Cita.TabIndex = 3;
+            this.label_Activar_Cita.TabStop = true;
+            this.label_Activar_Cita.Text = "Activar Cita";
+            this.label_Activar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Activar_Cita_LinkClicked);
             // 
             // Frm_Citas_PL
             // 
@@ -432,6 +449,7 @@
         private System.Windows.Forms.ComboBox cbx_HoraIn;
         private System.Windows.Forms.ComboBox cbx_HoraFin;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox chb_MostrarCitasCliente;
+        private System.Windows.Forms.LinkLabel label_Activar_Cita;
+        private System.Windows.Forms.LinkLabel labal_Cancelar_Cita;
     }
 }

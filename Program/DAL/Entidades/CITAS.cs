@@ -25,13 +25,17 @@ namespace DAL.Entidades
     
         public int ID_Cita { get; set; }
         public int ID_Mascota { get; set; }
+        public string Nombre_Mascota { get; set; }
         public int ID_Consultorio { get; set; }
         public int ID_Motivo_Cita { get; set; }
+        public string Motivo_Cita { get; set; }
         public System.DateTime Fecha_Inicio { get; set; }
         public System.DateTime Fecha_Fin { get; set; }
         public System.TimeSpan Hora_Inicio { get; set; }
         public System.TimeSpan Hora_Fin { get; set; }
-        public int Estado { get; set; }
+        public int ID_Estado { get; set; }
+        public string Estado { get; set; }
+        public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETALLE_SERVICIO> DETALLE_SERVICIO { get; set; }

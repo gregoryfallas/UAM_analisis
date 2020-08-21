@@ -17,12 +17,12 @@ namespace DAL.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CLIENTES()
         {
-            this.ANUNCIOS_ENVIADOS = new HashSet<ANUNCIOS_ENVIADOS>();
-            this.CAMPA_AS_PARTICIPANTES = new HashSet<CAMPA_AS_PARTICIPANTES>();
-            this.FACTURAS = new HashSet<FACTURAS>();
-            this.MASCOTAS = new HashSet<MASCOTAS>();
+            //this.ANUNCIOS_ENVIADOS = new HashSet<ANUNCIOS_ENVIADOS>();
+            //this.CAMPA_AS_PARTICIPANTES = new HashSet<CAMPA_AS_PARTICIPANTES>();
+            //this.FACTURAS = new HashSet<FACTURAS>();
+            //this.MASCOTAS = new HashSet<MASCOTAS>();
         }
-    
+        
         public int ID_Cliente { get; set; }
         public string Cedula { get; set; }
         public string Nombre { get; set; }
@@ -37,17 +37,17 @@ namespace DAL.Entidades
         public int Credito { get; set; }
         public int Estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ANUNCIOS_ENVIADOS> ANUNCIOS_ENVIADOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CAMPA_AS_PARTICIPANTES> CAMPA_AS_PARTICIPANTES { get; set; }
-        public virtual CANTONES CANTONES { get; set; }
-        public virtual ESTADOS ESTADOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURAS> FACTURAS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MASCOTAS> MASCOTAS { get; set; }
-        public virtual DISTRITOS DISTRITOS { get; set; }
-        public virtual PROVINCIAS PROVINCIAS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<ANUNCIOS_ENVIADOS> ANUNCIOS_ENVIADOS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<CAMPA_AS_PARTICIPANTES> CAMPA_AS_PARTICIPANTES { get; set; }
+        //public virtual CANTONES CANTONES { get; set; }
+        //public virtual ESTADOS ESTADOS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<FACTURAS> FACTURAS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<MASCOTAS> MASCOTAS { get; set; }
+        ////public virtual DISTRITOS DISTRITOS { get; set; }
+        //public virtual PROVINCIAS PROVINCIAS { get; set; }
     }
 }

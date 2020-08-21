@@ -46,6 +46,7 @@
     <Compile Include="Articulos_BLL.cs" />
     <Compile Include="Cajas_BLL.cs" />
     <Compile Include="Campanas_BLL.cs" />
+    <Compile Include="Citas_BLL.cs" />
     <Compile Include="Clientes_BLL.cs" />
     <Compile Include="Cls_Cobros_BLL.cs" />
     <Compile Include="Consulta_BLL.cs" />

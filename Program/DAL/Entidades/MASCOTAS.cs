@@ -17,7 +17,7 @@ namespace DAL.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MASCOTAS()
         {
-            this.CITAS = new HashSet<CITAS>();
+   //         this.CITAS = new HashSet<CITAS>();
         }
         
         public int ID_Mascota { get; set; }
@@ -31,10 +31,11 @@ namespace DAL.Entidades
         public Nullable<decimal> Tamaño { get; set; }
         public int Estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CITAS> CITAS { get; set; }
-        public virtual CLIENTES CLIENTES { get; set; }
-        public virtual ESTADOS ESTADOS { get; set; }
-        public virtual TIPO_ANIMAL TIPO_ANIMAL1 { get; set; }
+    //    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   //     public virtual ICollection<CITAS> CITAS { get; set; }
+   //     public virtual CLIENTES CLIENTES { get; set; }
+       // public virtual ESTADOS ESTADOS { get; set; }
+       }
+
     }
-}
+

@@ -3,3 +3,4 @@
 # this directory and all its sub-directories.
 *.vs
 /Program/BLL/obj/Debug
+/Program/DAL/obj/Release/DAL.csprojAssemblyReference.cache

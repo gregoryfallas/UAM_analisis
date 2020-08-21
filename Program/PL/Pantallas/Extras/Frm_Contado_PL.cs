@@ -720,7 +720,7 @@ private void Cargar2()
 
             CLIENTES consulta = new CLIENTES();
             List<CLIENTES> resultado = new List<CLIENTES>();
-            resultado = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text);
+            resultado = Factura_BLL.ConsultarClientesCreditos(txt_Cliente.Text);
 
             tempcedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
             

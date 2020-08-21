@@ -340,7 +340,11 @@ go
 EXEC SP_PA_NotasIdParticipantes
 go
 ------------------------------------------------------------------20
-drop proc [dbo].[SP_AGREGAR_PRUEBAS_PARTICIPANTES]
+--select * from PRUEBAS_PARTICIPANTES
+--delete from PRUEBAS_PARTICIPANTES
+--alter table PRUEBAS_PARTICIPANTES drop column Nota;
+--alter table PRUEBAS_PARTICIPANTES add nota int null;
+--drop proc [dbo].[SP_AGREGAR_PRUEBAS_PARTICIPANTES]
 CREATE PROCEDURE [dbo].[SP_AGREGAR_PRUEBAS_PARTICIPANTES]
 (
 @ID_Pruebas int,

@@ -89,7 +89,7 @@ namespace BLL
             try
             {
                 SQLSentencia sentencia = new SQLSentencia();
-                sentencia.Peticion = @"EXEC sp_consultar_articulos";
+                sentencia.Peticion = @"EXEC sp_consultar__todos_articulos";
 
                 DA acceso = new DA();
                 return acceso.CREAR_ingreso_suministros(sentencia).Copy();

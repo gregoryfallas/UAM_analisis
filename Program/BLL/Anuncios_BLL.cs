@@ -10,24 +10,24 @@ namespace BLL
 {
     public class Anuncios_BLL
     {
-        public static DataTable consultarAnuncios()
-        {
+        //public static DataTable consultarAnuncios()
+        //{
             
-        }
+        //}
 
-        public static bool agregarAnuncios(ANUNCIOS anuncios)
-        {
+        //public static bool agregarAnuncios(ANUNCIOS anuncios)
+        //{
 
-        }
+        //}
 
-        public static bool modificarAnuncios(ANUNCIOS anuncios)
-        {
+        //public static bool modificarAnuncios(ANUNCIOS anuncios)
+        //{
 
-        }
+        //}
 
-        public static bool eliminarAnuncios(int id)
-        {
+        //public static bool eliminarAnuncios(int id)
+        //{
 
-        }
+        //}
     }
 }

@@ -10,24 +10,24 @@ namespace BLL
 {
     public class Promociones_BLL
     {
-        public static DataTable consultarPromociones()
-        {
+        //public static DataTable consultarPromociones()
+        //{
 
-        }
+        //}
 
-        public static bool agregarPromociones(PROMOCIONES promociones)
-        {
+        //public static bool agregarPromociones(PROMOCIONES promociones)
+        //{
 
-        }
+        //}
 
-        public static bool modificarPromociones(PROMOCIONES promociones)
-        {
+        //public static bool modificarPromociones(PROMOCIONES promociones)
+        //{
 
-        }
+        //}
 
-        public static bool eliminarPromociones(int id)
-        {
+        //public static bool eliminarPromociones(int id)
+        //{
 
-        }
+        //}
     }
 }

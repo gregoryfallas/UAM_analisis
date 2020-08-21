@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using PL.Pantallas.Principales;
 using DAL.Entidades;
 using BLL;
-using DAL.Entidades;
 
 namespace PL.Pantallas.Adicionales
 {

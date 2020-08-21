@@ -65,14 +65,22 @@ namespace PL.Pantallas.Adicionales
             Consultorio_Dal = objCitas_Bll.load_consultorios();
             Citas_DAL = objCitas_Bll.load_citas();
 
-            foreach (var item in Motivo_Dal)
-            {
-                cbx_Motivo.Items.Add(item.Nombre);
-            }
-            foreach (var item in Consultorio_Dal)
-            {
-                cbx_Consultorio.Items.Add(item.Nombre);
-            }
+            cbx_Motivo.DataSource = Motivo_Dal;
+            cbx_Motivo.ValueMember = "ID_Motivo_Cita";
+            cbx_Motivo.DisplayMember = "Nombre";
+
+            cbx_Consultorio.DataSource = Consultorio_Dal;
+            cbx_Consultorio.ValueMember = "ID_Consultorio";
+            cbx_Consultorio.DisplayMember = "Nombre";
+
+            //foreach (var item in Motivo_Dal)
+            //{
+            //    cbx_Motivo.Items.Add(item.Nombre);
+            //}
+            //foreach (var item in Consultorio_Dal)
+            //{
+            //    cbx_Consultorio.Items.Add(item.Nombre);
+            //}
 
             foreach (var item in Lhoras)
             {

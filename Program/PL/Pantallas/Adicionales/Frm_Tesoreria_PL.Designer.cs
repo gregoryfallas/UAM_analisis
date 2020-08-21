@@ -206,6 +206,7 @@
             this.Name = "Frm_Tesoreria_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tesorería";
+            this.Load += new System.EventHandler(this.Frm_Tesoreria_PL_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

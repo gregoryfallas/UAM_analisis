@@ -4,3 +4,8 @@
 *.vs
 /Program/BLL/obj/Debug
 /Program/DAL/obj/Release/DAL.csprojAssemblyReference.cache
+/Program/BLL/bin/Debug
+/Program/DAL/bin/Debug
+/Program/DAL/obj/Debug
+/Program/PL/bin/Debug
+/Program/PL/obj/Debug

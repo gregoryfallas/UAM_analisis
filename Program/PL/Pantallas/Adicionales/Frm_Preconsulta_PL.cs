@@ -92,7 +92,7 @@ namespace PL.Pantallas.Adicionales
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            idCita= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+            idCita= Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             idtxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             idMascota=Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
              nombretxt.Text= dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();

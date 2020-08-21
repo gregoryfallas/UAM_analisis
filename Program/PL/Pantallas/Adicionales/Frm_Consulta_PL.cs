@@ -20,12 +20,16 @@ namespace PL.Pantallas.Adicionales
         private string nomExamen;
 
         public static List<SERVICIOS> listaExamenes = new List<SERVICIOS>();
+        public static List<SERVICIOS> listaCirugia = new List<SERVICIOS>();
+
 
         public static List<SERVICIOS> listaServicios = new List<SERVICIOS>();
         public static int idCita = 0;
 
         public static bool alertadeFacturacion = false;
         public static bool alertadeExamen = false;
+        public static bool alertadeCirujia = false;
+
         private bool confirmarcionExamen;
 
         public Frm_Consulta_PL()
@@ -181,7 +185,11 @@ namespace PL.Pantallas.Adicionales
             listaServicios.Add(servicios);
         }
 
+        private void retornaCirugiao(SERVICIOS servicios)
+        {
 
+            listaCirugia.Add(servicios);
+        }
 
 
         private void otrosServicioscbo_SelectedIndexChanged(object sender, EventArgs e)
@@ -276,7 +284,7 @@ namespace PL.Pantallas.Adicionales
             List<SERVICIOS> srv = new List<SERVICIOS>(Consulta_BLL.ConsultaServicios(nomServ));
             // srv= Consulta_BLL.ConsultaServicios(nomServ);
             // miLista = Consulta_BLL.ConsultaServicios(nomServ);
-
+            listaCirugia = srv;
 
             foreach (SERVICIOS s in srv)
             {
@@ -292,7 +300,13 @@ namespace PL.Pantallas.Adicionales
             }
 
             MessageBox.Show("Servicio Agregado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            alertadeCirujia = true;
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Frm_TipoAnimal_PL re = new Frm_TipoAnimal_PL();
+            re.ShowDialog();
         }
     }
 }

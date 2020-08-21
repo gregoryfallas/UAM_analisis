@@ -1428,6 +1428,40 @@ namespace DAL
 
 
 
+
+        #region CONSULTAS EXAMENES POR CITA 
+        public DataTable ConsultarExamenesporcita(SQLSentencia P_Peticion)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = P_Peticion.Peticion;
+                if (P_Peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(P_Peticion.Peticion, objconexion);
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+
+
+        }
+
+        #endregion
+
+
     }
 
 }

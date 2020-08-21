@@ -483,9 +483,10 @@ namespace BLL
                 parametroIdParticipantes.Value = P_pruebap.ID_Participantes;
 
                 SqlParameter parametroNota = new SqlParameter();
-                parametroNota.ParameterName = "@Nota";
-                parametroNota.SqlDbType = System.Data.SqlDbType.Decimal;
                 parametroNota.Value = P_pruebap.Nota;
+                parametroNota.ParameterName = "@Nota";
+                parametroNota.SqlDbType = System.Data.SqlDbType.Int;
+                
 
                 //Agrega a la lista de parametros los parametros creados
                 objpeticion.lstParametros.Add(parametroIdPruebas);

@@ -340,12 +340,12 @@ go
 EXEC SP_PA_NotasIdParticipantes
 go
 ------------------------------------------------------------------20
-
+drop proc [dbo].[SP_AGREGAR_PRUEBAS_PARTICIPANTES]
 CREATE PROCEDURE [dbo].[SP_AGREGAR_PRUEBAS_PARTICIPANTES]
 (
 @ID_Pruebas int,
 @ID_Participantes int,
-@Nota decimal(3,2)
+@Nota int
 )
 AS
 BEGIN

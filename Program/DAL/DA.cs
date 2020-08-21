@@ -1804,6 +1804,50 @@ namespace DAL
 
         }
 
+        public List<MASCOTAS> ConsultarMascotasClientes(SQLSentencia P_Peticion)
+        {
+            List<MASCOTAS> lstresultados = new List<MASCOTAS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        MASCOTAS tipo = new MASCOTAS();
+                        tipo.ID_Mascota = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Nombre_Cliente = item.ItemArray[2].ToString();
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
         #endregion
 
 
@@ -2473,12 +2517,10 @@ namespace DAL
                     {
                         PRUEBAS_PARTICIPANTES tabla = new PRUEBAS_PARTICIPANTES();
 
-                        tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
-                        tabla.ID_Pruebas = Convert.ToInt32(item.ItemArray[1].ToString());
-                        tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[2].ToString());
-                        tabla.Nota = Convert.ToDecimal(item.ItemArray[3].ToString());
-
-
+                        //tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.ID_Pruebas = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tabla.ID_Pruebas_Participantes = Convert.ToInt32(item.ItemArray[1].ToString());
+                        tabla.Nota = Convert.ToInt32(item.ItemArray[2].ToString());
                         lstresultados.Add(tabla);
                     }
                 }

@@ -49,7 +49,14 @@ namespace PL.Pantallas.Adicionales
 
         private void buscarClientebtn_Click(object sender, EventArgs e)
         {
+            List<MASCOTAS> mascotas = new List<MASCOTAS>();
+            mascotas = objCitas_Bll.load_mascotas(txt_Cedula_Cliente.Text.ToString().Trim());
 
+            cbx_Macotas.DataSource = mascotas;
+            cbx_Macotas.ValueMember = "ID_Mascota";
+            cbx_Macotas.DisplayMember = "Nombre";
+
+            lb_NombreCliente.Text = mascotas[0].Nombre_Cliente;
         }
 
         private void Frm_Citas_PL_Load(object sender, EventArgs e)
@@ -73,15 +80,6 @@ namespace PL.Pantallas.Adicionales
             cbx_Consultorio.ValueMember = "ID_Consultorio";
             cbx_Consultorio.DisplayMember = "Nombre";
 
-            //foreach (var item in Motivo_Dal)
-            //{
-            //    cbx_Motivo.Items.Add(item.Nombre);
-            //}
-            //foreach (var item in Consultorio_Dal)
-            //{
-            //    cbx_Consultorio.Items.Add(item.Nombre);
-            //}
-
             foreach (var item in Lhoras)
             {
                 cbx_HoraIn.Items.Add(item.ToShortTimeString());
@@ -90,6 +88,7 @@ namespace PL.Pantallas.Adicionales
             
             load_monthCalendar();
             load_dgvCitas();
+            load_Citas(monthCalendar1.SelectionRange.Start);
         }
 
         private void load_monthCalendar()
@@ -119,15 +118,17 @@ namespace PL.Pantallas.Adicionales
             dgv_Citas1.Columns.Add("9", "ID Estado");
             dgv_Citas1.Columns.Add("10", "Estado");
             dgv_Citas1.Columns.Add("11", "Nombre");
+            
         }
 
         private void load_Citas(DateTime date)
         {
-            int count = 1;
+            dgv_Citas1.Rows.Clear();
             foreach (var item in Citas_DAL)
             {
                 if (item.Fecha_Inicio.Date == date.Date){
-                    DataGridViewRow row = (DataGridViewRow)dgv_Citas1.Rows[count].Clone();
+                    DataGridViewRow row = new DataGridViewRow();
+                    row.CreateCells(dgv_Citas1);
                     row.Cells[0].Value = item.ID_Cita.ToString();
                     row.Cells[1].Value = item.ID_Mascota.ToString();
                     row.Cells[2].Value = item.Nombre_Mascota.ToString();
@@ -145,7 +146,6 @@ namespace PL.Pantallas.Adicionales
                         dgv_Citas1.Rows.Add(row);
                     }
                 }
-                count++;
             }
         }
         
@@ -173,7 +173,7 @@ namespace PL.Pantallas.Adicionales
         {
             objCitas_Bll = new Citas_BLL();
             CITAS cita = new CITAS();
-            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].ToString());
+            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
             cita.ID_Estado = 2;
             bool a = Citas_BLL.modificarEstadoCitas(cita);
         }
@@ -182,14 +182,41 @@ namespace PL.Pantallas.Adicionales
         {
             objCitas_Bll = new Citas_BLL();
             CITAS cita = new CITAS();
-            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].ToString());
+            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
             cita.ID_Estado = 35;
             bool a = Citas_BLL.modificarEstadoCitas(cita);
         }
 
         private void reprogramarCitabtn_Click(object sender, EventArgs e)
         {
+            MASCOTAS mascota = new MASCOTAS();
+            mascota.ID_Mascota = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[1].Value.ToString());
+            mascota.Nombre = (dgv_Citas1.SelectedRows[0].Cells[2].Value.ToString());
+            lb_NombreCliente.Text = dgv_Citas1.SelectedRows[0].Cells[11].Value.ToString();
+            cbx_Macotas.Items.Add(mascota);
+            cbx_Macotas.ValueMember = "ID_Mascota";
+            cbx_Macotas.DisplayMember = "Nombre";
+            cbx_Macotas.SelectedValue = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[1].Value.ToString());
+            cbx_Consultorio.SelectedValue = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[3].Value);
+            cbx_Motivo.SelectedValue = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[4].Value);
+        }
 
+        private void AgregarCitabtn_Click(object sender, EventArgs e)
+        {
+            CITAS cita = new CITAS();
+            cita.ID_Mascota = Convert.ToInt32(cbx_Macotas.SelectedValue);
+            cita.ID_Consultorio = Convert.ToInt32(cbx_Consultorio.SelectedValue);
+            cita.ID_Motivo_Cita = Convert.ToInt32(cbx_Motivo.SelectedValue);
+            cita.Fecha_Inicio = monthCalendar1.SelectionRange.Start;
+            cita.Hora_Inicio = new TimeSpan(Lhoras[cbx_HoraIn.SelectedIndex].Hour, Lhoras[cbx_HoraIn.SelectedIndex].Minute, 0);
+            cita.Hora_Fin = new TimeSpan(Lhoras[cbx_HoraFin.SelectedIndex].Hour, Lhoras[cbx_HoraFin.SelectedIndex].Minute, 0);
+            cita.ID_Estado = 34;
+            Citas_BLL.agregarCita(cita);
+        }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            load_Citas(monthCalendar1.SelectionRange.Start);
         }
     }
 }

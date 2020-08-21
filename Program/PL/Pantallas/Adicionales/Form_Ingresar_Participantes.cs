@@ -191,13 +191,13 @@ namespace PL.Pantallas.Adicionales
                 p.Correo = txtcorreo.Text.Trim();
 
                 /*********************************************************************************************/
-                objformato.Texto = txttelefono.Text.Trim();
-                objformato.PatronValidacion = Constantes.PatronID;
-                if (!R_Humanos.ValidarTexto(objformato))
-                {
-                    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
-                    return;
-                }
+                //objformato.Texto = txttelefono.Text.Trim();
+                //objformato.PatronValidacion = Constantes.PatronID;
+                //if (!R_Humanos.ValidarTexto(objformato))
+                //{
+                //    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
+                //    return;
+                //}
                 p.Telefono = txttelefono.Text.Trim();
 
                 /*********************************************************************************************/

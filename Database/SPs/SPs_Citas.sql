@@ -107,3 +107,13 @@ UPDATE CITAS set
 end
 go
 
+--SP para Consultar mascotas Por cliente
+
+CREATE PROC SP_Consulta_Macota_Cliente
+@Cedula varchar(20)
+AS
+begin
+SELECT m.ID_Mascota, m.Nombre, CONCAT(c.Nombre,' ',c.Apellido_1,' ',c.Apellido_2) Nombre_Cliente FROM CLIENTES c, MASCOTAS M
+	WHERE m.ID_Cliente = c.ID_Cliente and c.Cedula = @Cedula; 
+end
+go

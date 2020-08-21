@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Clientes = new System.Windows.Forms.GroupBox();
+            this.label_Activar_Cita = new System.Windows.Forms.LinkLabel();
+            this.labal_Cancelar_Cita = new System.Windows.Forms.LinkLabel();
             this.reprogramarCitabtn = new System.Windows.Forms.Button();
             this.dgv_Citas1 = new System.Windows.Forms.DataGridView();
             this.cbx_Motivo = new System.Windows.Forms.ComboBox();
@@ -54,8 +56,6 @@
             this.EliminarCitabtn = new System.Windows.Forms.Button();
             this.ModificarCitabtn = new System.Windows.Forms.Button();
             this.AgregarCitabtn = new System.Windows.Forms.Button();
-            this.labal_Cancelar_Cita = new System.Windows.Forms.LinkLabel();
-            this.label_Activar_Cita = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -225,6 +225,30 @@
             this.Clientes.TabStop = false;
             this.Clientes.Text = "Citas Programadas";
             // 
+            // label_Activar_Cita
+            // 
+            this.label_Activar_Cita.AutoSize = true;
+            this.label_Activar_Cita.LinkColor = System.Drawing.Color.White;
+            this.label_Activar_Cita.Location = new System.Drawing.Point(875, 70);
+            this.label_Activar_Cita.Name = "label_Activar_Cita";
+            this.label_Activar_Cita.Size = new System.Drawing.Size(80, 23);
+            this.label_Activar_Cita.TabIndex = 3;
+            this.label_Activar_Cita.TabStop = true;
+            this.label_Activar_Cita.Text = "Activar Cita";
+            this.label_Activar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Activar_Cita_LinkClicked);
+            // 
+            // labal_Cancelar_Cita
+            // 
+            this.labal_Cancelar_Cita.AutoSize = true;
+            this.labal_Cancelar_Cita.LinkColor = System.Drawing.Color.White;
+            this.labal_Cancelar_Cita.Location = new System.Drawing.Point(875, 122);
+            this.labal_Cancelar_Cita.Name = "labal_Cancelar_Cita";
+            this.labal_Cancelar_Cita.Size = new System.Drawing.Size(93, 23);
+            this.labal_Cancelar_Cita.TabIndex = 2;
+            this.labal_Cancelar_Cita.TabStop = true;
+            this.labal_Cancelar_Cita.Text = "Cancelar Cita";
+            this.labal_Cancelar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labal_Cancelar_Cita_LinkClicked);
+            // 
             // reprogramarCitabtn
             // 
             this.reprogramarCitabtn.BackgroundImage = global::PL.Properties.Resources.compras2;
@@ -302,6 +326,7 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 20;
             this.monthCalendar1.TrailingForeColor = System.Drawing.Color.Transparent;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // label6
             // 
@@ -373,30 +398,7 @@
             this.AgregarCitabtn.Size = new System.Drawing.Size(54, 38);
             this.AgregarCitabtn.TabIndex = 33;
             this.AgregarCitabtn.UseVisualStyleBackColor = true;
-            // 
-            // labal_Cancelar_Cita
-            // 
-            this.labal_Cancelar_Cita.AutoSize = true;
-            this.labal_Cancelar_Cita.LinkColor = System.Drawing.Color.White;
-            this.labal_Cancelar_Cita.Location = new System.Drawing.Point(875, 122);
-            this.labal_Cancelar_Cita.Name = "labal_Cancelar_Cita";
-            this.labal_Cancelar_Cita.Size = new System.Drawing.Size(93, 23);
-            this.labal_Cancelar_Cita.TabIndex = 2;
-            this.labal_Cancelar_Cita.TabStop = true;
-            this.labal_Cancelar_Cita.Text = "Cancelar Cita";
-            this.labal_Cancelar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labal_Cancelar_Cita_LinkClicked);
-            // 
-            // label_Activar_Cita
-            // 
-            this.label_Activar_Cita.AutoSize = true;
-            this.label_Activar_Cita.LinkColor = System.Drawing.Color.White;
-            this.label_Activar_Cita.Location = new System.Drawing.Point(875, 70);
-            this.label_Activar_Cita.Name = "label_Activar_Cita";
-            this.label_Activar_Cita.Size = new System.Drawing.Size(80, 23);
-            this.label_Activar_Cita.TabIndex = 3;
-            this.label_Activar_Cita.TabStop = true;
-            this.label_Activar_Cita.Text = "Activar Cita";
-            this.label_Activar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Activar_Cita_LinkClicked);
+            this.AgregarCitabtn.Click += new System.EventHandler(this.AgregarCitabtn_Click);
             // 
             // Frm_Citas_PL
             // 

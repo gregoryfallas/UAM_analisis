@@ -109,7 +109,49 @@ namespace BLL
             {
                 throw ex;
             }
+            
         }
 
+        public List<MASCOTAS> load_mascotas(string Cedula)
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_Consulta_Macota_Cliente @Cedula";
+                SqlParameter paramC = new SqlParameter();
+                paramC.Value = Cedula;
+                paramC.ParameterName = @"@Cedula";
+                paramC.SqlDbType = System.Data.SqlDbType.VarChar;
+                sentencia.lstParametros.Add(paramC);
+                DA acceso = new DA();
+                return acceso.ConsultarMascotasClientes(sentencia);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool agregarCita(CITAS citas)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_Insertar_Cita '" + citas.ID_Mascota +
+                    "','" + citas.ID_Consultorio + "','" +
+                    citas.ID_Motivo_Cita + "','" +
+                    citas.Fecha_Inicio.ToShortDateString().ToString() + "','" +
+                    citas.Hora_Inicio.ToString() + "','" +
+                    citas.Hora_Fin.ToString() + "','" +
+                    citas.ID_Estado + "'";
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

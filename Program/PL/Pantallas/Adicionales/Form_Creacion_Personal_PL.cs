@@ -114,23 +114,23 @@ namespace PL.Pantallas.Adicionales
                 p.Apellido_2 = txtapellido2.Text.Trim();
                 /*********************************************************************************************/
 
-                objformato.Texto = txtsalariohora.Text.Trim();
-                objformato.PatronValidacion = Constantes.PatronID;
-                if (!R_Humanos.ValidarTexto(objformato))
-                {
-                    MessageBox.Show("El formato del Salario no es valido, no utilizar punto ni coma, corregir por favor");
-                    return;
-                }
+                //objformato.Texto = txtsalariohora.Text.Trim();
+                //objformato.PatronValidacion = Constantes.PatronID;
+                //if (!R_Humanos.ValidarTexto(objformato))
+                //{
+                //    MessageBox.Show("El formato del Salario no es valido, no utilizar punto ni coma, corregir por favor");
+                //    return;
+                //}
                 p.Salario_Hora = Convert.ToDecimal(txtsalariohora.Text.Trim());
                 /*********************************************************************************************/
 
-                objformato.Texto = txtsalariomes.Text.Trim();
-                objformato.PatronValidacion = Constantes.PatronID;
-                if (!R_Humanos.ValidarTexto(objformato))
-                {
-                    MessageBox.Show("El formato del Salario no es valido, NO utilizar punto NI coma, corregir por favor");
-                    return;
-                }
+                //objformato.Texto = txtsalariomes.Text.Trim();
+                //objformato.PatronValidacion = Constantes.PatronID;
+                //if (!R_Humanos.ValidarTexto(objformato))
+                //{
+                //    MessageBox.Show("El formato del Salario no es valido, NO utilizar punto NI coma, corregir por favor");
+                //    return;
+                //}
                 p.Salario_Mensual = Convert.ToDecimal(txtsalariomes.Text.Trim());
                 /*********************************************************************************************/
 
@@ -152,13 +152,13 @@ namespace PL.Pantallas.Adicionales
                 p.Correo_Electronico = txtcorreo.Text.Trim();
                 /*********************************************************************************************/
 
-                objformato.Texto = txttelefono.Text.Trim();
-                objformato.PatronValidacion = Constantes.PatronID;
-                if (!R_Humanos.ValidarTexto(objformato))
-                {
-                    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
-                    return;
-                }
+                //objformato.Texto = txttelefono.Text.Trim();
+                //objformato.PatronValidacion = Constantes.PatronID;
+                //if (!R_Humanos.ValidarTexto(objformato))
+                //{
+                //    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
+                //    return;
+                //}
                 p.Telefono = txttelefono.Text.Trim();
 
 

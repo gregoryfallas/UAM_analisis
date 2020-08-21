@@ -280,6 +280,247 @@ namespace DAL
 
         #endregion
 
+        #region ARTICULOS
+        public DataTable CREAR_ingreso_estados(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Estado");
+            dt.Columns.Add("Nombre");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+
+        public DataTable CREAR_ingreso_articulos(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Despacho");
+            dt.Columns.Add("ID Factura");
+            dt.Columns.Add("Fecha");
+            dt.Columns.Add("Estado");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetInt32(1), resultado.GetDateTime(2), resultado.GetInt32(3));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+
+        public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
+        {
+            List<ARTICULOS> lstresultados = new List<ARTICULOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                {
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                    SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                    objconsultar.Fill(dt);
+                }  //elena
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ARTICULOS tipo = new ARTICULOS();
+
+                        tipo.ID_Articulos = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Descripcion = item.ItemArray[2].ToString();
+                        tipo.Precio = Convert.ToDecimal(item.ItemArray[3].ToString());
+                        tipo.Estado = Convert.ToInt32(item.ItemArray[4].ToString());
+
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
+
+
+        public DataTable consultarInventarioConArticulos(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+        }
+
+        #endregion
+
+        #region SUMINISTROS 
+
+        public DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                {  //elena
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+
+                    da.Fill(dt);
+                } //elena
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+        }
+
+        public DataTable CREAR_ingreso_suministros(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Articulo");
+            dt.Columns.Add("ID Articulo Proveedor");
+            dt.Columns.Add("ID Solicitud");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Cantidad");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetInt32(1), resultado.GetInt32(2), resultado.GetString(3), resultado.GetDecimal(4));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+
+        public DataTable CREAR_ingreso_suministros_proveedor(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Descripcion");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+        }
+        #endregion
+
 
         #region CONSULTAR NUMERO FACTURAS
         public List<FACTURAS> ConsultarNoFacturas(SQLSentencia P_Peticion)
@@ -1460,6 +1701,7 @@ namespace DAL
         }
 
         #endregion
+
         #region Stephanie
 
         #region Reclutamiento 

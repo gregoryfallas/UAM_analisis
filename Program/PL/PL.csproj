@@ -53,11 +53,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Agregar_Nueva_Vacante_PL.cs">
+    <Compile Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Agregar_Nueva_Vacante_PL.Designer.cs">
-      <DependentUpon>Form_Agregar_Nueva_Vacante_PL.cs</DependentUpon>
+    <Compile Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.Designer.cs">
+      <DependentUpon>Form_Consultar_Pruebas_Participantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Crear_Reclutamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Crear_Reclutamiento.Designer.cs">
+      <DependentUpon>Form_Crear_Reclutamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Buscar_Nomina.cs">
       <SubType>Form</SubType>
@@ -65,11 +71,11 @@
     <Compile Include="Pantallas\Adicionales\Form_Buscar_Nomina.Designer.cs">
       <DependentUpon>Form_Buscar_Nomina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Consultar_Postulantes.cs">
+    <Compile Include="Pantallas\Adicionales\Form_Consulta_Roles.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Consultar_Postulantes.Designer.cs">
-      <DependentUpon>Form_Consultar_Postulantes.cs</DependentUpon>
+    <Compile Include="Pantallas\Adicionales\Form_Consulta_Roles.Designer.cs">
+      <DependentUpon>Form_Consulta_Roles.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Creacion_Personal_PL.cs">
       <SubType>Form</SubType>
@@ -89,11 +95,17 @@
     <Compile Include="Pantallas\Adicionales\Form_Crear_Nomina.Designer.cs">
       <DependentUpon>Form_Crear_Nomina.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Postulantes_PL.cs">
+    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Participantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Postulantes_PL.Designer.cs">
-      <DependentUpon>Form_Ingresar_Postulantes_PL.cs</DependentUpon>
+    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Participantes.Designer.cs">
+      <DependentUpon>Form_Ingresar_Participantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Pruebas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Ingresar_Pruebas.Designer.cs">
+      <DependentUpon>Form_Ingresar_Pruebas.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Ingreso_Marcas_Manuales.cs">
       <SubType>Form</SubType>
@@ -325,14 +337,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Pantallas\Adicionales\Form_Agregar_Nueva_Vacante_PL.resx">
-      <DependentUpon>Form_Agregar_Nueva_Vacante_PL.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.resx">
+      <DependentUpon>Form_Consultar_Pruebas_Participantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Crear_Reclutamiento.resx">
+      <DependentUpon>Form_Crear_Reclutamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Buscar_Nomina.resx">
       <DependentUpon>Form_Buscar_Nomina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Adicionales\Form_Consultar_Postulantes.resx">
-      <DependentUpon>Form_Consultar_Postulantes.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Consulta_Roles.resx">
+      <DependentUpon>Form_Consulta_Roles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Creacion_Personal_PL.resx">
       <DependentUpon>Form_Creacion_Personal_PL.cs</DependentUpon>
@@ -343,8 +358,11 @@
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Crear_Nomina.resx">
       <DependentUpon>Form_Crear_Nomina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Adicionales\Form_Ingresar_Postulantes_PL.resx">
-      <DependentUpon>Form_Ingresar_Postulantes_PL.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Ingresar_Participantes.resx">
+      <DependentUpon>Form_Ingresar_Participantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Ingresar_Pruebas.resx">
+      <DependentUpon>Form_Ingresar_Pruebas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Ingreso_Marcas_Manuales.resx">
       <DependentUpon>Form_Ingreso_Marcas_Manuales.cs</DependentUpon>

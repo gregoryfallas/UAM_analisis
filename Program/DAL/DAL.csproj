@@ -84,6 +84,7 @@
     <Compile Include="Entidades\COBROS.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\Constantes.cs" />
     <Compile Include="Entidades\CONSULTORIO.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
@@ -132,6 +133,7 @@
     <Compile Include="Entidades\FACTURA_PROMOCION.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\Formato.cs" />
     <Compile Include="Entidades\INVENTARIO.cs">
       <DependentUpon>Entidades.tt</DependentUpon>
     </Compile>

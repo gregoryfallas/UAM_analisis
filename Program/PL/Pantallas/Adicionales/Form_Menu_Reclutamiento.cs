@@ -24,25 +24,33 @@ namespace PL.Pantallas.Adicionales
             inicio.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void crearReclutamientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Adicionales.Form_Agregar_Nueva_Vacante_PL agregar = new Adicionales.Form_Agregar_Nueva_Vacante_PL();
+            Adicionales.Form_Crear_Reclutamiento agregar = new Adicionales.Form_Crear_Reclutamiento();
             agregar.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ingresarParticipantesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Adicionales.Form_Ingresar_Postulantes_PL reclu = new Adicionales.Form_Ingresar_Postulantes_PL();
+            Adicionales.Form_Ingresar_Participantes reclu = new Adicionales.Form_Ingresar_Participantes();
             reclu.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ingresarPruebasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Adicionales.Form_Ingresar_Pruebas pruebas = new Adicionales.Form_Ingresar_Pruebas();
+            pruebas.ShowDialog();
+        }
+
+        private void consultarPruebasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Adicionales.Form_Consultar_Pruebas_Participantes consultar = new Adicionales.Form_Consultar_Pruebas_Participantes();
+            consultar.ShowDialog();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Adicionales.Form_Consultar_Postulantes consultar = new Adicionales.Form_Consultar_Postulantes();
-            consultar.ShowDialog();
         }
     }
 }

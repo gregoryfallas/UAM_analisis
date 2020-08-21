@@ -23,5 +23,10 @@ namespace PL.Pantallas.Adicionales
             Adicionales.Form_Pago_Nomina atras = new Adicionales.Form_Pago_Nomina();
             atras.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

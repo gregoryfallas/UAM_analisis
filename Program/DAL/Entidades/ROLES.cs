@@ -15,18 +15,18 @@ namespace DAL.Entidades
     public partial class ROLES
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ROLES()
-        {
-            this.USUARIO_ROL = new HashSet<USUARIO_ROL>();
-        }
+        //public ROLES()
+        //{
+        //    this.USUARIO_ROL = new HashSet<USUARIO_ROL>();
+        //}
     
         public int ID_Roles { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> Estado { get; set; }
     
-        public virtual ESTADOS ESTADOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<USUARIO_ROL> USUARIO_ROL { get; set; }
+        //public virtual ESTADOS ESTADOS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<USUARIO_ROL> USUARIO_ROL { get; set; }
     }
 }

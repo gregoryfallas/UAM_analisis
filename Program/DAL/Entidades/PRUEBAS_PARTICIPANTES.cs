@@ -19,7 +19,7 @@ namespace DAL.Entidades
         public int ID_Participantes { get; set; }
         public Nullable<decimal> Nota { get; set; }
     
-        public virtual PARTICIPANTES PARTICIPANTES { get; set; }
-        public virtual PRUEBAS PRUEBAS { get; set; }
+        //public virtual PARTICIPANTES PARTICIPANTES { get; set; }
+        //public virtual PRUEBAS PRUEBAS { get; set; }
     }
 }

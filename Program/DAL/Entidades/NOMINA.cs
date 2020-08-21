@@ -15,10 +15,10 @@ namespace DAL.Entidades
     public partial class NOMINA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NOMINA()
-        {
-            this.NOMINA_PERSONAL = new HashSet<NOMINA_PERSONAL>();
-        }
+        //public NOMINA()
+        //{
+        //    this.NOMINA_PERSONAL = new HashSet<NOMINA_PERSONAL>();
+        //}
     
         public int ID_Nomina { get; set; }
         public string Nombre { get; set; }
@@ -26,7 +26,7 @@ namespace DAL.Entidades
         public System.DateTime Fecha_Fin { get; set; }
         public string Descripcion { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NOMINA_PERSONAL> NOMINA_PERSONAL { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<NOMINA_PERSONAL> NOMINA_PERSONAL { get; set; }
     }
 }

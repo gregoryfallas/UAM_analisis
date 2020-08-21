@@ -66,28 +66,28 @@ namespace PL.Pantallas.Principales
 
         private void ts_Personal_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Menu_Personal Creacion_Personal = new Adicionales.Form_Menu_Personal();
             Creacion_Personal.ShowDialog();
         }
 
         private void ts_Reclutamiento_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Menu_Reclutamiento reclutamiento = new Adicionales.Form_Menu_Reclutamiento();
             reclutamiento.ShowDialog();
         }
 
         private void ts_Nomina_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Pago_Nomina marcas = new Adicionales.Form_Pago_Nomina();
             marcas.ShowDialog();
         }
 
         private void ts_Vacaciones_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Vacaciones_PL vacaciones = new Adicionales.Form_Vacaciones_PL();
             vacaciones.ShowDialog();
         }

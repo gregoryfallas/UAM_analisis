@@ -7,11 +7,13 @@ using PL.Pantallas.Principales;
 
 namespace PL
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+
         [STAThread]
         static void Main()
         {

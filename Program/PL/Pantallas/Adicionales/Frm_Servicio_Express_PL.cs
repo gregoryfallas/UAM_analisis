@@ -27,8 +27,7 @@ namespace PL.Pantallas.Adicionales
 
         private void BuscarFacturabtn_Click(object sender, EventArgs e)
         {
-           PL.Pantallas.Adicionales.Frm_Facturacion_PL fa = new Frm_Facturacion_PL();
-            fa.ShowDialog();
+           
         }
     }
 }

@@ -20,9 +20,7 @@ namespace PL.Pantallas.Adicionales
 
         private void btn_inicio_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
+            this.Hide();
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -36,6 +34,11 @@ namespace PL.Pantallas.Adicionales
         }
 
         private void ModificarCitabtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buscarClientebtn_Click(object sender, EventArgs e)
         {
 
         }

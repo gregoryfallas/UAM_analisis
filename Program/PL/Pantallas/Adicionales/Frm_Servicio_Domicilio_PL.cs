@@ -31,5 +31,10 @@ namespace PL.Pantallas.Adicionales
            PL.Pantallas.Adicionales.Frm_Clientes_PL cli = new Frm_Clientes_PL();
             cli.ShowDialog();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "\\Program",
+    "\\Program\\PL",
+    "\\Program\\PL\\Pantallas",
+    "\\Program\\PL\\Pantallas\\Adicionales"
   ],
-  "SelectedNode": "\\Program",
+  "SelectedNode": "\\Program\\PL\\Pantallas\\Adicionales\\Form_Ingresar_Postulantes_PL.resx",
   "PreviewInSolutionExplorer": false
 }

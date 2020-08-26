@@ -59,45 +59,50 @@ namespace PL.Pantallas.Extras
 
         private void Cargar()
         {
-            
-
-            List<CLIENTES> LS = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text.Trim());
-
-            DataTable dt = new DataTable();
-
-            dt.Columns.Add("Cedula");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Primer_Apellido");
-            dt.Columns.Add("Segundo_Apellido");
-            dt.Columns.Add("Correo");
-            dt.Columns.Add("Teléfono");
-            dt.Columns.Add("Credito");
-
-
-
-            foreach (CLIENTES item in LS)
+            try
             {
-                dt.Rows.Add
-                    (
-                    item.Cedula,
-                    item.Nombre,
-                    item.Apellido_1,
-                    item.Apellido_2,
-                    item.Correo,
-                    item.Telefono,
-                    item.Credito             
-                    );
+                List<CLIENTES> LSTUSUARIOS = Factura_BLL.ConsultarClientesCreditos(txt_Cliente.Text);
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("Cedula");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("Primer_Apellido");
+                dt.Columns.Add("Segundo_Apellido");
+                dt.Columns.Add("Correo");
+                dt.Columns.Add("Teléfono");
+                dt.Columns.Add("Credito");
+
+
+
+                foreach (CLIENTES item in LSTUSUARIOS)
+                {
+                    dt.Rows.Add
+                        (
+                        item.Cedula,
+                        item.Nombre,
+                        item.Apellido_1,
+                        item.Apellido_2,
+                        item.Correo,
+                        item.Telefono,
+                        item.Credito
+                        );
+                }
+
+                dtg_Clientes.DataSource = null;
+                dtg_Clientes.Refresh();
+                dtg_Clientes.DataSource = dt;
+                dtg_Clientes.Refresh();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            dtg_Clientes.DataSource = null;
-            dtg_Clientes.Refresh();
-            dtg_Clientes.DataSource = dt;
-            dtg_Clientes.Refresh();
-
         }
-        
-
-        private void Frm_Credito_PL_Load(object sender, EventArgs e)
+         
+    private void Frm_Credito_PL_Load(object sender, EventArgs e)
         {
             Cargar();
             

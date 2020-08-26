@@ -59,6 +59,9 @@ namespace PL.Pantallas.Adicionales
           
         }
 
-        
+        private void Frm_Tesoreria_PL_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,71 +29,77 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_estado = new System.Windows.Forms.Label();
+            this.tb_id_articulo = new System.Windows.Forms.Label();
+            this.txt_id_factura = new System.Windows.Forms.TextBox();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label_resumen = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
-            this.listBox5 = new System.Windows.Forms.ListBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txt_id_despacho = new System.Windows.Forms.TextBox();
+            this.dataGridV_resumen = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.cb_estado = new System.Windows.Forms.ComboBox();
+            this.txt_fecha = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridV_resumen)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.txt_fecha);
+            this.panel1.Controls.Add(this.cb_estado);
+            this.panel1.Controls.Add(this.txt_buscar);
+            this.panel1.Controls.Add(this.label_estado);
+            this.panel1.Controls.Add(this.tb_id_articulo);
+            this.panel1.Controls.Add(this.txt_id_factura);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Agregar);
-            this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label_resumen);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.radioButton2);
-            this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dataGridView11);
-            this.panel1.Controls.Add(this.listBox5);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.listBox1);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txt_id_despacho);
+            this.panel1.Controls.Add(this.dataGridV_resumen);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(733, 487);
             this.panel1.TabIndex = 0;
+            // 
+            // label_estado
+            // 
+            this.label_estado.AutoSize = true;
+            this.label_estado.Location = new System.Drawing.Point(31, 259);
+            this.label_estado.Name = "label_estado";
+            this.label_estado.Size = new System.Drawing.Size(60, 20);
+            this.label_estado.TabIndex = 200;
+            this.label_estado.Text = "Estado";
+            // 
+            // tb_id_articulo
+            // 
+            this.tb_id_articulo.AutoSize = true;
+            this.tb_id_articulo.Location = new System.Drawing.Point(31, 108);
+            this.tb_id_articulo.Name = "tb_id_articulo";
+            this.tb_id_articulo.Size = new System.Drawing.Size(89, 20);
+            this.tb_id_articulo.TabIndex = 198;
+            this.tb_id_articulo.Text = "ID Factura:";
+            // 
+            // txt_id_factura
+            // 
+            this.txt_id_factura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_factura.Location = new System.Drawing.Point(35, 134);
+            this.txt_id_factura.Name = "txt_id_factura";
+            this.txt_id_factura.Size = new System.Drawing.Size(120, 26);
+            this.txt_id_factura.TabIndex = 197;
             // 
             // btn_Modificar
             // 
@@ -101,11 +107,12 @@
             this.btn_Modificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Modificar.FlatAppearance.BorderSize = 0;
             this.btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Modificar.Location = new System.Drawing.Point(507, 396);
+            this.btn_Modificar.Location = new System.Drawing.Point(335, 433);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(60, 42);
             this.btn_Modificar.TabIndex = 195;
             this.btn_Modificar.UseVisualStyleBackColor = true;
+            this.btn_Modificar.Click += new System.EventHandler(this.btn_Modificar_Click);
             // 
             // btn_Agregar
             // 
@@ -113,20 +120,12 @@
             this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Agregar.FlatAppearance.BorderSize = 0;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.Location = new System.Drawing.Point(409, 396);
+            this.btn_Agregar.Location = new System.Drawing.Point(241, 433);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(54, 42);
             this.btn_Agregar.TabIndex = 194;
             this.btn_Agregar.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(78, 327);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(231, 23);
-            this.label13.TabIndex = 193;
-            this.label13.Text = "Consumido / usado en la veterinaria";
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
             // 
             // button2
             // 
@@ -135,196 +134,61 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.button2.Location = new System.Drawing.Point(591, 396);
+            this.button2.Location = new System.Drawing.Point(627, 433);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(69, 42);
             this.button2.TabIndex = 191;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label12
+            // label_resumen
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(317, 141);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 23);
-            this.label12.TabIndex = 189;
-            this.label12.Text = "Resumen";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox3.Location = new System.Drawing.Point(28, 187);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 26);
-            this.textBox3.TabIndex = 188;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 212);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 23);
-            this.label9.TabIndex = 187;
-            this.label9.Text = "Descripción";
+            this.label_resumen.AutoSize = true;
+            this.label_resumen.Location = new System.Drawing.Point(237, 33);
+            this.label_resumen.Name = "label_resumen";
+            this.label_resumen.Size = new System.Drawing.Size(78, 20);
+            this.label_resumen.TabIndex = 189;
+            this.label_resumen.Text = "Resumen";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 361);
+            this.label8.Location = new System.Drawing.Point(37, 175);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 23);
+            this.label8.Size = new System.Drawing.Size(54, 20);
             this.label8.TabIndex = 186;
-            this.label8.Text = "Cantidad:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(35, 325);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(46, 27);
-            this.radioButton2.TabIndex = 185;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(34, 302);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(38, 27);
-            this.radioButton1.TabIndex = 184;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Si";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(31, 279);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 23);
-            this.label7.TabIndex = 183;
-            this.label7.Text = "Vendido al público:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(28, 238);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 26);
-            this.textBox2.TabIndex = 182;
+            this.label8.Text = "Fecha";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(24, 41);
+            this.label6.Location = new System.Drawing.Point(31, 33);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 23);
+            this.label6.Size = new System.Drawing.Size(107, 20);
             this.label6.TabIndex = 181;
-            this.label6.Text = "Encargado(a) de control:";
+            this.label6.Text = "ID Despacho:";
             // 
-            // textBox1
+            // txt_id_despacho
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox1.Location = new System.Drawing.Point(28, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 26);
-            this.textBox1.TabIndex = 180;
+            this.txt_id_despacho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_despacho.Location = new System.Drawing.Point(35, 59);
+            this.txt_id_despacho.Name = "txt_id_despacho";
+            this.txt_id_despacho.ReadOnly = true;
+            this.txt_id_despacho.Size = new System.Drawing.Size(120, 26);
+            this.txt_id_despacho.TabIndex = 180;
             // 
-            // dataGridView11
+            // dataGridV_resumen
             // 
-            this.dataGridView11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(321, 167);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.Size = new System.Drawing.Size(395, 182);
-            this.dataGridView11.TabIndex = 179;
-            // 
-            // listBox5
-            // 
-            this.listBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.listBox5.ForeColor = System.Drawing.Color.White;
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 23;
-            this.listBox5.Location = new System.Drawing.Point(35, 387);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(120, 4);
-            this.listBox5.TabIndex = 178;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(26, 157);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 23);
-            this.label10.TabIndex = 177;
-            this.label10.Text = "Marca / Tipo:";
-            // 
-            // listBox1
-            // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.listBox1.ForeColor = System.Drawing.Color.White;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(28, 131);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 4);
-            this.listBox1.TabIndex = 176;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(26, 105);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 23);
-            this.label11.TabIndex = 175;
-            this.label11.Text = "Categoría:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(430, 106);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 23);
-            this.label5.TabIndex = 174;
-            this.label5.Text = "Insumos de Oficina";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(89, 105);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 23);
-            this.label4.TabIndex = 173;
-            this.label4.Text = "Utencilios Médicos";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(317, 106);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 23);
-            this.label3.TabIndex = 172;
-            this.label3.Text = "Productos de Limpieza";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(267, 105);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 23);
-            this.label2.TabIndex = 171;
-            this.label2.Text = "Alimentos";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 170;
-            this.label1.Text = "Medicamentos";
+            this.dataGridV_resumen.AllowUserToAddRows = false;
+            this.dataGridV_resumen.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dataGridV_resumen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridV_resumen.Location = new System.Drawing.Point(228, 65);
+            this.dataGridV_resumen.Name = "dataGridV_resumen";
+            this.dataGridV_resumen.ReadOnly = true;
+            this.dataGridV_resumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridV_resumen.Size = new System.Drawing.Size(468, 351);
+            this.dataGridV_resumen.TabIndex = 179;
+            this.dataGridV_resumen.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridV_resumen_CellClick);
             // 
             // panel2
             // 
@@ -338,7 +202,7 @@
             // 
             // btn_Inicio
             // 
-            this.btn_Inicio.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Inicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Inicio.Location = new System.Drawing.Point(27, 424);
             this.btn_Inicio.Name = "btn_Inicio";
             this.btn_Inicio.Size = new System.Drawing.Size(117, 35);
@@ -346,6 +210,30 @@
             this.btn_Inicio.Text = "Inicio";
             this.btn_Inicio.UseVisualStyleBackColor = true;
             this.btn_Inicio.Click += new System.EventHandler(this.btn_Inicio_Click);
+            // 
+            // txt_buscar
+            // 
+            this.txt_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_buscar.Location = new System.Drawing.Point(501, 441);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(120, 26);
+            this.txt_buscar.TabIndex = 203;
+            // 
+            // cb_estado
+            // 
+            this.cb_estado.FormattingEnabled = true;
+            this.cb_estado.Location = new System.Drawing.Point(35, 295);
+            this.cb_estado.Name = "cb_estado";
+            this.cb_estado.Size = new System.Drawing.Size(121, 28);
+            this.cb_estado.TabIndex = 204;
+            // 
+            // txt_fecha
+            // 
+            this.txt_fecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_fecha.Location = new System.Drawing.Point(36, 218);
+            this.txt_fecha.Name = "txt_fecha";
+            this.txt_fecha.Size = new System.Drawing.Size(120, 26);
+            this.txt_fecha.TabIndex = 205;
             // 
             // Frm_Despacho_Suministros_PL
             // 
@@ -358,9 +246,10 @@
             this.Name = "Frm_Despacho_Suministros_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despacho Suministros";
+            this.Load += new System.EventHandler(this.Frm_Despacho_Suministros_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridV_resumen)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -370,30 +259,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label_resumen;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView11;
-        private System.Windows.Forms.ListBox listBox5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_id_despacho;
+        private System.Windows.Forms.DataGridView dataGridV_resumen;
         private System.Windows.Forms.Button btn_Inicio;
         private System.Windows.Forms.Button btn_Agregar;
         private System.Windows.Forms.Button btn_Modificar;
+        private System.Windows.Forms.Label tb_id_articulo;
+        private System.Windows.Forms.TextBox txt_id_factura;
+        private System.Windows.Forms.Label label_estado;
+        private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.ComboBox cb_estado;
+        private System.Windows.Forms.TextBox txt_fecha;
     }
 }

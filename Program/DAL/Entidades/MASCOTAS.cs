@@ -30,6 +30,7 @@ namespace DAL.Entidades
         public Nullable<decimal> Peso { get; set; }
         public Nullable<decimal> Tamaño { get; set; }
         public int Estado { get; set; }
+        public string Nombre_Cliente { get; set; }
     
     //    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
    //     public virtual ICollection<CITAS> CITAS { get; set; }

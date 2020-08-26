@@ -12,13 +12,9 @@ using PL.Pantallas.Principales;
 
 namespace PL.Pantallas.Principales
 {
-
-
     public partial class Frm_Inicio_PL : Form
     {
         int EnviarFecha = 0;
-
-        
         public Frm_Inicio_PL()
         {
             InitializeComponent();
@@ -34,7 +30,7 @@ namespace PL.Pantallas.Principales
 
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
              {
-           
+            
 
         }
 
@@ -70,28 +66,28 @@ namespace PL.Pantallas.Principales
 
         private void ts_Personal_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Menu_Personal Creacion_Personal = new Adicionales.Form_Menu_Personal();
             Creacion_Personal.ShowDialog();
         }
 
         private void ts_Reclutamiento_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Menu_Reclutamiento reclutamiento = new Adicionales.Form_Menu_Reclutamiento();
             reclutamiento.ShowDialog();
         }
 
         private void ts_Nomina_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Pago_Nomina marcas = new Adicionales.Form_Pago_Nomina();
             marcas.ShowDialog();
         }
 
         private void ts_Vacaciones_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Vacaciones_PL vacaciones = new Adicionales.Form_Vacaciones_PL();
             vacaciones.ShowDialog();
         }
@@ -143,7 +139,6 @@ namespace PL.Pantallas.Principales
 
         private void ts_Cirugias_Click(object sender, EventArgs e)
         {
-           
             Frm_Cirujias_PL Cirujias = new Frm_Cirujias_PL();
             Cirujias.ShowDialog();
         }
@@ -208,13 +203,12 @@ namespace PL.Pantallas.Principales
         {
             timer1.Interval = 500;
             timer1.Start();
-
         }
 
         private void ts_Servicios_Click(object sender, EventArgs e)
         {
-            Frm_Laboratorio_PL laboratorio = new Frm_Laboratorio_PL();
-            laboratorio.ShowDialog();
+            Frm_Laboratorio_PL Laboratorio = new Frm_Laboratorio_PL();
+            Laboratorio.ShowDialog();
         }
     }
 }

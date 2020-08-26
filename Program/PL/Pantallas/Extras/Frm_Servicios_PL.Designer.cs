@@ -30,12 +30,12 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Agregar = new System.Windows.Forms.Button();
+            this.dtg_Servicios = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_Productos = new System.Windows.Forms.Button();
             this.txt_Producto = new System.Windows.Forms.TextBox();
-            this.dtg_Servicios = new System.Windows.Forms.DataGridView();
-            this.btn_Agregar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Servicios)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(681, 478);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_Agregar
+            // 
+            this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
+            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Agregar.FlatAppearance.BorderSize = 0;
+            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
+            this.btn_Agregar.Location = new System.Drawing.Point(623, 406);
+            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Agregar.Name = "btn_Agregar";
+            this.btn_Agregar.Size = new System.Drawing.Size(43, 45);
+            this.btn_Agregar.TabIndex = 46;
+            this.btn_Agregar.UseVisualStyleBackColor = false;
+            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
+            // 
+            // dtg_Servicios
+            // 
+            this.dtg_Servicios.AllowUserToAddRows = false;
+            this.dtg_Servicios.AllowUserToDeleteRows = false;
+            this.dtg_Servicios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dtg_Servicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Servicios.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtg_Servicios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dtg_Servicios.Location = new System.Drawing.Point(60, 84);
+            this.dtg_Servicios.Name = "dtg_Servicios";
+            this.dtg_Servicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Servicios.Size = new System.Drawing.Size(549, 329);
+            this.dtg_Servicios.TabIndex = 45;
+            this.dtg_Servicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Servicios_CellClick);
             // 
             // button2
             // 
@@ -107,32 +138,6 @@
             this.txt_Producto.Size = new System.Drawing.Size(200, 20);
             this.txt_Producto.TabIndex = 42;
             // 
-            // dtg_Servicios
-            // 
-            this.dtg_Servicios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dtg_Servicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_Servicios.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dtg_Servicios.Location = new System.Drawing.Point(60, 84);
-            this.dtg_Servicios.Name = "dtg_Servicios";
-            this.dtg_Servicios.Size = new System.Drawing.Size(549, 329);
-            this.dtg_Servicios.TabIndex = 45;
-            // 
-            // btn_Agregar
-            // 
-            this.btn_Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.btn_Agregar.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.btn_Agregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Agregar.FlatAppearance.BorderSize = 0;
-            this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.ForeColor = System.Drawing.Color.Black;
-            this.btn_Agregar.Location = new System.Drawing.Point(623, 406);
-            this.btn_Agregar.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(43, 45);
-            this.btn_Agregar.TabIndex = 46;
-            this.btn_Agregar.UseVisualStyleBackColor = false;
-            this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
-            // 
             // Frm_Servicios_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +148,7 @@
             this.Name = "Frm_Servicios_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servicios";
+            this.Load += new System.EventHandler(this.Frm_Servicios_PL_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Servicios)).EndInit();

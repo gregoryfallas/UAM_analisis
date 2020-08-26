@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Entidades;
 using DAL;
+using System.Data;
 namespace BLL
 {
    public class Consulta_BLL
@@ -218,6 +219,24 @@ namespace BLL
 
 
 
+
+        public static DataTable ConsultarExamenPorCIta()
+        {
+
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC SP_CONSULTAR_RESULTADOSexamenes_POR_CITAS ";
+                DA acceso = new DA();
+                return acceso.ConsultarExamenesporcita(sentencia);
+
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

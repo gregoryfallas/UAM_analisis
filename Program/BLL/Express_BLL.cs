@@ -101,6 +101,36 @@ namespace BLL
 
 
 
+        public static bool ModificarEstadosExpress(SERVICIOS_EXPRESS factura)
+        {
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"SP_MODIFICAR_EXPRESS @IdFactura,@Estado";
+                SqlParameter paramFactura = new SqlParameter();
+                paramFactura.Value = factura.ID_Factura;
+                paramFactura.ParameterName = "@IdFactura";
+                paramFactura.SqlDbType = System.Data.SqlDbType.Int;
+
+                SqlParameter paramEstado = new SqlParameter();
+                paramEstado.Value = factura.Estado;
+                paramEstado.ParameterName = "@Estado";
+                paramEstado.SqlDbType = System.Data.SqlDbType.Int;
+
+
+
+                peticion.lstParametros.Add(paramFactura);
+                peticion.lstParametros.Add(paramEstado);
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(peticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
 
 

@@ -28,8 +28,6 @@ namespace PL.Pantallas.Adicionales
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Principales.Frm_Inicio_PL inicio = new Principales.Frm_Inicio_PL();
-            inicio.ShowDialog();
         }
     }
 }

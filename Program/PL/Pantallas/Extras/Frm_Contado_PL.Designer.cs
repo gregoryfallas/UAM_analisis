@@ -51,6 +51,9 @@
             this.txt_Total = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.gp_cantidades = new System.Windows.Forms.GroupBox();
+            this.txt_Id_Articulo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_Nom_Produc = new System.Windows.Forms.TextBox();
             this.txt_Descuento = new System.Windows.Forms.TextBox();
             this.txt_Cantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -87,8 +90,7 @@
             this.btn_inicio = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.IdArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_Nom_Produc = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Articulos)).BeginInit();
@@ -377,6 +379,8 @@
             // 
             // gp_cantidades
             // 
+            this.gp_cantidades.Controls.Add(this.label16);
+            this.gp_cantidades.Controls.Add(this.txt_Id_Articulo);
             this.gp_cantidades.Controls.Add(this.label6);
             this.gp_cantidades.Controls.Add(this.txt_Nom_Produc);
             this.gp_cantidades.Controls.Add(this.txt_Descuento);
@@ -393,10 +397,45 @@
             this.gp_cantidades.ForeColor = System.Drawing.Color.White;
             this.gp_cantidades.Location = new System.Drawing.Point(5, 246);
             this.gp_cantidades.Name = "gp_cantidades";
-            this.gp_cantidades.Size = new System.Drawing.Size(564, 203);
+            this.gp_cantidades.Size = new System.Drawing.Size(619, 203);
             this.gp_cantidades.TabIndex = 22;
             this.gp_cantidades.TabStop = false;
             this.gp_cantidades.Text = "Producto-Servicio";
+            // 
+            // txt_Id_Articulo
+            // 
+            this.txt_Id_Articulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Id_Articulo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Id_Articulo.ForeColor = System.Drawing.Color.White;
+            this.txt_Id_Articulo.Location = new System.Drawing.Point(13, 77);
+            this.txt_Id_Articulo.Name = "txt_Id_Articulo";
+            this.txt_Id_Articulo.ReadOnly = true;
+            this.txt_Id_Articulo.Size = new System.Drawing.Size(76, 26);
+            this.txt_Id_Articulo.TabIndex = 13;
+            this.txt_Id_Articulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(103, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 23);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Nombre";
+            // 
+            // txt_Nom_Produc
+            // 
+            this.txt_Nom_Produc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Nom_Produc.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Nom_Produc.ForeColor = System.Drawing.Color.White;
+            this.txt_Nom_Produc.Location = new System.Drawing.Point(107, 77);
+            this.txt_Nom_Produc.Name = "txt_Nom_Produc";
+            this.txt_Nom_Produc.ReadOnly = true;
+            this.txt_Nom_Produc.Size = new System.Drawing.Size(155, 26);
+            this.txt_Nom_Produc.TabIndex = 11;
+            this.txt_Nom_Produc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_Descuento
             // 
@@ -417,7 +456,7 @@
             this.txt_Cantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Cantidad.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Cantidad.ForeColor = System.Drawing.Color.White;
-            this.txt_Cantidad.Location = new System.Drawing.Point(377, 77);
+            this.txt_Cantidad.Location = new System.Drawing.Point(451, 77);
             this.txt_Cantidad.Name = "txt_Cantidad";
             this.txt_Cantidad.Size = new System.Drawing.Size(155, 26);
             this.txt_Cantidad.TabIndex = 4;
@@ -430,7 +469,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(373, 47);
+            this.label10.Location = new System.Drawing.Point(446, 47);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 23);
             this.label10.TabIndex = 6;
@@ -484,7 +523,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(193, 51);
+            this.label11.Location = new System.Drawing.Point(277, 51);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 23);
             this.label11.TabIndex = 5;
@@ -506,7 +545,7 @@
             this.txt_Precio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.txt_Precio.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Precio.ForeColor = System.Drawing.Color.White;
-            this.txt_Precio.Location = new System.Drawing.Point(197, 77);
+            this.txt_Precio.Location = new System.Drawing.Point(281, 77);
             this.txt_Precio.Name = "txt_Precio";
             this.txt_Precio.ReadOnly = true;
             this.txt_Precio.Size = new System.Drawing.Size(155, 26);
@@ -807,28 +846,16 @@
             this.IdArticulo.HeaderText = "IdArticulo";
             this.IdArticulo.Name = "IdArticulo";
             // 
-            // label6
+            // label16
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(9, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 23);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Nombre";
-            // 
-            // txt_Nom_Produc
-            // 
-            this.txt_Nom_Produc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Nom_Produc.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Nom_Produc.ForeColor = System.Drawing.Color.White;
-            this.txt_Nom_Produc.Location = new System.Drawing.Point(13, 77);
-            this.txt_Nom_Produc.Name = "txt_Nom_Produc";
-            this.txt_Nom_Produc.ReadOnly = true;
-            this.txt_Nom_Produc.Size = new System.Drawing.Size(155, 26);
-            this.txt_Nom_Produc.TabIndex = 11;
-            this.txt_Nom_Produc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(15, 51);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 23);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Artículo";
             // 
             // Frm_Contado_PL
             // 
@@ -920,5 +947,7 @@
         private System.Windows.Forms.CheckBox cb_Express;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox txt_Nom_Produc;
+        private System.Windows.Forms.TextBox txt_Id_Articulo;
+        private System.Windows.Forms.Label label16;
     }
 }

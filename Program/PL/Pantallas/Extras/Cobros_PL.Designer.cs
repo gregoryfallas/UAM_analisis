@@ -34,6 +34,11 @@
             this.txt_Fecha = new System.Windows.Forms.TextBox();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtg_Detalles = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_Cliente = new System.Windows.Forms.TextBox();
+            this.btn_Buscar = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cmb_Tipo = new System.Windows.Forms.ComboBox();
@@ -55,10 +60,7 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.txt_Factura = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txt_Cliente = new System.Windows.Forms.TextBox();
-            this.btn_Buscar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_Fecha_Doc = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -67,14 +69,14 @@
             this.dtg_Cobros = new System.Windows.Forms.DataGridView();
             this.btn_Imprimir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Detalles)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -127,6 +129,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.dtg_Detalles);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label13);
@@ -142,6 +145,65 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 678);
             this.panel1.TabIndex = 3;
+            // 
+            // dtg_Detalles
+            // 
+            this.dtg_Detalles.AllowUserToAddRows = false;
+            this.dtg_Detalles.AllowUserToDeleteRows = false;
+            this.dtg_Detalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Detalles.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtg_Detalles.Location = new System.Drawing.Point(0, 525);
+            this.dtg_Detalles.Name = "dtg_Detalles";
+            this.dtg_Detalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Detalles.Size = new System.Drawing.Size(10, 150);
+            this.dtg_Detalles.TabIndex = 72;
+            this.dtg_Detalles.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txt_Cliente);
+            this.groupBox4.Controls.Add(this.btn_Buscar);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(47, 142);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(958, 52);
+            this.groupBox4.TabIndex = 62;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Clientes Contado";
+            // 
+            // txt_Cliente
+            // 
+            this.txt_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_Cliente.ForeColor = System.Drawing.Color.White;
+            this.txt_Cliente.Location = new System.Drawing.Point(380, 23);
+            this.txt_Cliente.Name = "txt_Cliente";
+            this.txt_Cliente.Size = new System.Drawing.Size(226, 20);
+            this.txt_Cliente.TabIndex = 60;
+            // 
+            // btn_Buscar
+            // 
+            this.btn_Buscar.BackgroundImage = global::PL.Properties.Resources.search;
+            this.btn_Buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Buscar.FlatAppearance.BorderSize = 0;
+            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Buscar.Location = new System.Drawing.Point(641, 14);
+            this.btn_Buscar.Name = "btn_Buscar";
+            this.btn_Buscar.Size = new System.Drawing.Size(44, 36);
+            this.btn_Buscar.TabIndex = 59;
+            this.btn_Buscar.UseVisualStyleBackColor = true;
+            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(267, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(97, 23);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "Buscar Cliente";
             // 
             // checkBox1
             // 
@@ -413,17 +475,6 @@
             this.label4.TabIndex = 52;
             this.label4.Text = "Nombre";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(267, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(97, 23);
-            this.label11.TabIndex = 61;
-            this.label11.Text = "Buscar Cliente";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -434,28 +485,6 @@
             this.label6.Size = new System.Drawing.Size(78, 23);
             this.label6.TabIndex = 55;
             this.label6.Text = "No.Factura";
-            // 
-            // txt_Cliente
-            // 
-            this.txt_Cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Cliente.ForeColor = System.Drawing.Color.White;
-            this.txt_Cliente.Location = new System.Drawing.Point(380, 23);
-            this.txt_Cliente.Name = "txt_Cliente";
-            this.txt_Cliente.Size = new System.Drawing.Size(226, 20);
-            this.txt_Cliente.TabIndex = 60;
-            // 
-            // btn_Buscar
-            // 
-            this.btn_Buscar.BackgroundImage = global::PL.Properties.Resources.search;
-            this.btn_Buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Buscar.FlatAppearance.BorderSize = 0;
-            this.btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Buscar.Location = new System.Drawing.Point(641, 14);
-            this.btn_Buscar.Name = "btn_Buscar";
-            this.btn_Buscar.Size = new System.Drawing.Size(44, 36);
-            this.btn_Buscar.TabIndex = 59;
-            this.btn_Buscar.UseVisualStyleBackColor = true;
-            this.btn_Buscar.Click += new System.EventHandler(this.btn_Buscar_Click);
             // 
             // label7
             // 
@@ -553,19 +582,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txt_Cliente);
-            this.groupBox4.Controls.Add(this.btn_Buscar);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(47, 142);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(958, 52);
-            this.groupBox4.TabIndex = 62;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Clientes Contado";
-            // 
             // Cobros_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,6 +597,9 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Detalles)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -588,8 +607,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Cobros)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -635,5 +652,6 @@
         private System.Windows.Forms.ComboBox cmb_Tipo;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dtg_Detalles;
     }
 }

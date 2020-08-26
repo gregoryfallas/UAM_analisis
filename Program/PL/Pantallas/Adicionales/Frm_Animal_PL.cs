@@ -64,8 +64,7 @@ namespace PL.Pantallas.Adicionales
 
         private void AgregarUsuario_Click(object sender, EventArgs e)
         {
-            PL.Pantallas.Adicionales.Frm_Clientes_PL clientes = new Frm_Clientes_PL();
-            clientes.ShowDialog();
+           
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -193,8 +192,7 @@ namespace PL.Pantallas.Adicionales
 
         private void AgregarTipoMascotabtn_Click(object sender, EventArgs e)
         {
-            PL.Pantallas.Extras.Frm_TipoAnimal_PL ta = new Frm_TipoAnimal_PL();
-            ta.ShowDialog();
+            
         }
 
         private void buscarAnimalbtn_Click(object sender, EventArgs e)

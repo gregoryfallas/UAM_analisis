@@ -15,11 +15,11 @@ namespace DAL.Entidades
     public partial class PARTICIPANTES
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PARTICIPANTES()
-        {
-            this.PRUEBAS_PARTICIPANTES = new HashSet<PRUEBAS_PARTICIPANTES>();
-            this.REQUISITOS_PARTICIPANTES = new HashSet<REQUISITOS_PARTICIPANTES>();
-        }
+        //public PARTICIPANTES()
+        //{
+        //    this.PRUEBAS_PARTICIPANTES = new HashSet<PRUEBAS_PARTICIPANTES>();
+        //    this.REQUISITOS_PARTICIPANTES = new HashSet<REQUISITOS_PARTICIPANTES>();
+        //}
     
         public int ID_Participantes { get; set; }
         public int ID_Reclutamiento { get; set; }
@@ -35,11 +35,11 @@ namespace DAL.Entidades
         public string Direccion { get; set; }
         public int Estado { get; set; }
     
-        public virtual ESTADOS ESTADOS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRUEBAS_PARTICIPANTES> PRUEBAS_PARTICIPANTES { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REQUISITOS_PARTICIPANTES> REQUISITOS_PARTICIPANTES { get; set; }
-        public virtual RECLUTAMIENTO RECLUTAMIENTO { get; set; }
+        //public virtual ESTADOS ESTADOS { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<PRUEBAS_PARTICIPANTES> PRUEBAS_PARTICIPANTES { get; set; }
+        //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        //public virtual ICollection<REQUISITOS_PARTICIPANTES> REQUISITOS_PARTICIPANTES { get; set; }
+        //public virtual RECLUTAMIENTO RECLUTAMIENTO { get; set; }
     }
 }

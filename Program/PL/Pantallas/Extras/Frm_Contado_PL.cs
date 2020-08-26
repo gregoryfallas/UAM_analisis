@@ -30,8 +30,14 @@ namespace PL.Pantallas.Extras
         SERVICIOS_EXPRESS express = new SERVICIOS_EXPRESS();
         CREDITOS Credito = new CREDITOS();
 
-        
 
+        // int idServicio;
+        // string Servicio;
+        //int cantidad;
+        //decimal precio;
+        bool bandera = false;
+        int id;
+        string producto;
 
         string nombre;
         string cedula;
@@ -61,18 +67,21 @@ namespace PL.Pantallas.Extras
             else
             {
                 ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text);
-
+                ART.Precio = Convert.ToDecimal(txt_Precio.Text);
+                ART.Importe = ART.Precio * ART.Cantidad;
+                txt_Importe.Text = ART.Importe.ToString();
                 ART.Importe = Convert.ToDecimal(txt_Importe.Text);
-                txt_Importe.Text = ART.Importe.ToString(); 
+                id = Convert.ToInt32(txt_Id_Articulo.Text);
+                producto = txt_Nom_Produc.Text;
                 
 
                 if (ART.Importe > 0)
                 {
                     dtg_Factura.Rows.Add(new string[] {
-              Convert.ToString(dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value),
-             Convert.ToString(dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value),
+              Convert.ToString(id)/*dtg_Articulos[0,dtg_Articulos.CurrentRow.Index].Value)*/,
+             Convert.ToString(producto/*dtg_Articulos[1, dtg_Articulos.CurrentRow.Index].Value*/),
              Convert.ToString(ART.Cantidad),
-            Convert.ToString(dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value),
+            Convert.ToString(ART.Precio/*dtg_Articulos[2, dtg_Articulos.CurrentRow.Index].Value*/),
             Convert.ToString(ART.Temporal_descuento),
             Convert.ToString(ART.Importe)});
 
@@ -265,7 +274,7 @@ namespace PL.Pantallas.Extras
 
                                     }
                                     Factura_BLL.agregarDetalleFactura(ListArticulos);
-                                    Express_BLL.AgregarExpress(express);
+                                    
 
                                     MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -303,16 +312,18 @@ namespace PL.Pantallas.Extras
             {
                 Frm_Servicios_PL Servicios = new Frm_Servicios_PL();
                 Servicios.ShowDialog();
+                CargarServicios();
 
             }
+            
         }
 
 
         private void Frm_Contado_PL_Load(object sender, EventArgs e)
         {
-        
+
             timer1.Interval = 500;
-            timer1.Start();     
+            timer1.Start();
             Cargar();
             Cargar2();
             CargarNoFactura();
@@ -320,6 +331,21 @@ namespace PL.Pantallas.Extras
            
 
         }
+
+        public  void CargarServicios()
+        {
+            bandera = Frm_Servicios_PL.bandera;
+            if (bandera == true)
+            {
+                txt_Nom_Produc.Text = Frm_Servicios_PL.Servicio;
+                txt_Cantidad.Text = Frm_Servicios_PL.cantidad.ToString();
+                txt_Precio.Text = Frm_Servicios_PL.precio.ToString();
+                txt_Id_Articulo.Text = Frm_Servicios_PL.idServicio.ToString();
+            }
+
+        }
+
+
 
 
         private void btn_inicio_Click(object sender, EventArgs e)
@@ -368,12 +394,15 @@ namespace PL.Pantallas.Extras
             dtg_Clientes.DataSource = null;
             dtg_Clientes.Refresh();
             dtg_Clientes.DataSource = dt;
-            dtg_Clientes.Refresh();                     
+            dtg_Clientes.Refresh();
 
         }
+                     
 
 
-        private void Cargar2()
+
+
+private void Cargar2()
         {
 
             try
@@ -627,6 +656,9 @@ namespace PL.Pantallas.Extras
 
         private void dtg_Articulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+            id = Convert.ToInt32(dtg_Articulos.CurrentRow.Cells[0].Value.ToString());
+            txt_Id_Articulo.Text = id.ToString();
             ART.Precio = Convert.ToDecimal(dtg_Articulos.CurrentRow.Cells[2].Value.ToString());
             txt_Precio.Text = ART.Precio.ToString();
 
@@ -677,6 +709,7 @@ namespace PL.Pantallas.Extras
             txt_Factura.Text = "";
             cb_Express.Checked = false;
             txt_Descripcion.Text = "";
+            txt_Id_Articulo.Text = "";
         }
 
         private void rdb_Credito_Click(object sender, EventArgs e)
@@ -687,7 +720,7 @@ namespace PL.Pantallas.Extras
 
             CLIENTES consulta = new CLIENTES();
             List<CLIENTES> resultado = new List<CLIENTES>();
-            resultado = Factura_BLL.ConsultarClientesFactura(txt_Cliente.Text);
+            resultado = Factura_BLL.ConsultarClientesCreditos(txt_Cliente.Text);
 
             tempcedula = dtg_Clientes.CurrentRow.Cells[0].Value.ToString();
             

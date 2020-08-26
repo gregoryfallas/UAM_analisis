@@ -36,7 +36,10 @@ namespace DAL.Entidades
         public Nullable<System.DateTime> Fecha_Contratacion { get; set; }
         public System.DateTime created_at { get; set; }
         public int Estado { get; set; }
-    
+        public string Direccion { get; set; }
+        public string Correo_Electronico { get; set; }
+        public string Telefono { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAJAS> CAJAS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

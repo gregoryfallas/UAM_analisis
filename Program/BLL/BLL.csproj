@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anuncios_BLL.cs" />
+    <Compile Include="Articulos.cs" />
     <Compile Include="Articulos_BLL.cs" />
     <Compile Include="Cajas_BLL.cs" />
+    <Compile Include="Campanas_BLL.cs" />
+    <Compile Include="Citas_BLL.cs" />
     <Compile Include="Clientes_BLL.cs" />
     <Compile Include="Cls_Cobros_BLL.cs" />
     <Compile Include="Consulta_BLL.cs" />
@@ -52,7 +56,10 @@
     <Compile Include="Laboratorio_BLL.cs" />
     <Compile Include="Mascota_BLL.cs" />
     <Compile Include="PreConsulta_BLL.cs" />
+    <Compile Include="Promociones_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="R_Humanos.cs" />
+    <Compile Include="Suministros_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

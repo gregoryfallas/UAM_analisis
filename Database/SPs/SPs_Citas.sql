@@ -117,3 +117,6 @@ SELECT m.ID_Mascota, m.Nombre, CONCAT(c.Nombre,' ',c.Apellido_1,' ',c.Apellido_2
 	WHERE m.ID_Cliente = c.ID_Cliente and c.Cedula = @Cedula; 
 end
 go
+
+
+exec SP_Consulta_Citas

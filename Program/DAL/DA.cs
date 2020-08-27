@@ -465,6 +465,7 @@ namespace DAL
         #region ARTICULOS
         public DataTable CREAR_ingreso_estados(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Estado");
@@ -492,12 +493,13 @@ namespace DAL
             {
                 objconexion.Close();
             }
+            #endregion
         }
 
         public DataTable CREAR_ingreso_articulos(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
-
             dt.Columns.Add("ID Despacho");
             dt.Columns.Add("ID Factura");
             dt.Columns.Add("Fecha");
@@ -525,10 +527,12 @@ namespace DAL
             {
                 objconexion.Close();
             }
+            #endregion
         }
 
         public List<ARTICULOS> ConsultarArticulos(SQLSentencia P_Peticion)
         {
+            #region
             List<ARTICULOS> lstresultados = new List<ARTICULOS>();
             DataTable dt = new DataTable();
             try
@@ -574,11 +578,13 @@ namespace DAL
             }
 
             return lstresultados;
+            #endregion
         }
 
 
         public DataTable consultarInventarioConArticulos(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
             try
             {
@@ -603,6 +609,7 @@ namespace DAL
                 this.CERRAR();
             }
             return dt;
+            #endregion
         }
 
         #endregion
@@ -611,6 +618,7 @@ namespace DAL
 
         public DataTable SP_CONSULTAR_INVENTARIO_MENOR_CANTIDAD(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
             try
             {
@@ -635,10 +643,12 @@ namespace DAL
                 this.CERRAR();
             }
             return dt;
+            #endregion
         }
 
         public DataTable CREAR_ingreso_suministros(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Articulo");
@@ -669,10 +679,12 @@ namespace DAL
             {
                 objconexion.Close();
             }
+            #endregion
         }
 
         public DataTable CREAR_ingreso_suministros_proveedor(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID");
@@ -700,6 +712,7 @@ namespace DAL
             {
                 objconexion.Close();
             }
+            #endregion
         }
         #endregion
 
@@ -782,10 +795,11 @@ namespace DAL
 
         #region ANUNCIOS
 
-        public DataTable consultar_anuncios(SQLSentencia peticion)
+        public List<ANUNCIOS> consultar_anuncios(SQLSentencia peticion)
         {
-            DataTable dt = new DataTable();
-            ////////////////////////////////////////////////////////
+            #region
+            List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
+            DataTable dt = new DataTable();                 
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -793,12 +807,21 @@ namespace DAL
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
-                {  //elena
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
                     SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
-
                     da.Fill(dt);
-                } 
+                if (dt.Rows.Count > 0)
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ANUNCIOS tipo = new ANUNCIOS();
+                        tipo.ID_Anuncios = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Descripcion = item.ItemArray[2].ToString();
+                        tipo.Estado = Convert.ToInt32(item.ItemArray[3].ToString());
+                        tipo.Fecha_Inicio = item.ItemArray[4].ToString();
+                        tipo.Fecha_Fin = item.ItemArray[4].ToString();
+                        lstresultados.Add(tipo);
+                    }
             }
             catch (Exception ex)
             {
@@ -808,12 +831,13 @@ namespace DAL
             {
                 this.CERRAR();
             }
-            return dt;
+            return lstresultados;
+            #endregion
         }
-
 
         public DataTable agregar_anuncios(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Anuncios");
@@ -845,11 +869,12 @@ namespace DAL
             {
                 objconexion.Close();
             }
-
+            #endregion
         }
 
         public DataTable actualizar_anuncios(SQLSentencia peticion)
         {
+            #region
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Anuncios");
@@ -881,11 +906,12 @@ namespace DAL
             {
                 objconexion.Close();
             }
-
+            #endregion
         }
 
         public DataTable eliminar_anuncios(SQLSentencia peticion)
         {
+            #region 
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Anuncios");
@@ -917,9 +943,11 @@ namespace DAL
             {
                 objconexion.Close();
             }
-
+            #endregion
         }
+
         #endregion
-        #endregion
+
     }
+    #endregion
 }

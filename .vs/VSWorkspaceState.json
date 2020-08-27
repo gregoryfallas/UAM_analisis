@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\Program",
+    "\\Program\\DAL",
     "\\Program\\PL",
     "\\Program\\PL\\Pantallas",
     "\\Program\\PL\\Pantallas\\Adicionales"
   ],
-  "SelectedNode": "\\Program\\PL\\Pantallas\\Adicionales\\Frm_Anuncios_Pl.cs",
   "PreviewInSolutionExplorer": false
 }

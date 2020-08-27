@@ -175,9 +175,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(29, 105);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 20);
+            this.label9.Size = new System.Drawing.Size(92, 20);
             this.label9.TabIndex = 83;
-            this.label9.Text = "Tema / Título";
+            this.label9.Text = "Descripción";
             // 
             // listBox2
             // 

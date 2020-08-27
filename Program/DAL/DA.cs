@@ -781,6 +781,7 @@ namespace DAL
         #endregion
 
         #region ANUNCIOS
+
         public DataTable consultar_anuncios(SQLSentencia peticion)
         {
             DataTable dt = new DataTable();
@@ -789,6 +790,8 @@ namespace DAL
             dt.Columns.Add("Nombre");
             dt.Columns.Add("Descripión");
             dt.Columns.Add("Estado");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
 
             try
             {
@@ -799,7 +802,7 @@ namespace DAL
 
                 while (resultado.Read())
                 {
-                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3));
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
                 }
 
                 return dt;
@@ -813,9 +816,116 @@ namespace DAL
                 objconexion.Close();
             }
         }
+
+
+        public DataTable agregar_anuncios(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Anuncios");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+
+        }
+
+        public DataTable actualizar_anuncios(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Anuncios");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+
+        }
+
+        public DataTable eliminar_anuncios(SQLSentencia peticion)
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("ID Anuncios");
+            dt.Columns.Add("Nombre");
+            dt.Columns.Add("Descripión");
+            dt.Columns.Add("Estado");
+            dt.Columns.Add("Fecha Inicio");
+            dt.Columns.Add("Fecha Fin");
+
+            try
+            {
+                objconexion.Open();
+                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
+                SqlDataReader resultado = cmd.ExecuteReader();
+                cmd.Dispose();
+
+                while (resultado.Read())
+                {
+                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
+                }
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                objconexion.Close();
+            }
+
+        }
         #endregion
         #endregion
     }
-
-
 }

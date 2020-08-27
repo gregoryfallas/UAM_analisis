@@ -785,27 +785,20 @@ namespace DAL
         public DataTable consultar_anuncios(SQLSentencia peticion)
         {
             DataTable dt = new DataTable();
-
-            dt.Columns.Add("ID Anuncios");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Descripión");
-            dt.Columns.Add("Estado");
-            dt.Columns.Add("Fecha Inicio");
-            dt.Columns.Add("Fecha Fin");
-
+            ////////////////////////////////////////////////////////
             try
             {
-                objconexion.Open();
-                SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
-                SqlDataReader resultado = cmd.ExecuteReader();
-                cmd.Dispose();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                {  //elena
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
-                while (resultado.Read())
-                {
-                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
-                }
-
-                return dt;
+                    da.Fill(dt);
+                } 
             }
             catch (Exception ex)
             {
@@ -813,8 +806,9 @@ namespace DAL
             }
             finally
             {
-                objconexion.Close();
+                this.CERRAR();
             }
+            return dt;
         }
 
 

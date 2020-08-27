@@ -66,8 +66,21 @@ namespace BLL
             }
         }
 
-        public static bool eliminarAnuncios(int id)
+        public static bool eliminar_anuncios(int id)
         {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_eliminar_anuncios";
+
+                DA acceso = new DA();
+                return acceso.eliminar_anuncios(sentencia);
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
 
         }
     }

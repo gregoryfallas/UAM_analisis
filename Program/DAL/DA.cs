@@ -827,6 +827,7 @@ namespace DAL
             {
                 throw ex;
             }
+
             finally
             {
                 this.CERRAR();

@@ -24,7 +24,9 @@ namespace DAL.Entidades
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int Estado { get; set; }
-    
+        public string Fecha_Inicio { get; set; }
+        public string Fecha_Fin { get; set; }
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ANUNCIOS_ENVIADOS> ANUNCIOS_ENVIADOS { get; set; }
         public virtual ESTADOS ESTADOS { get; set; }

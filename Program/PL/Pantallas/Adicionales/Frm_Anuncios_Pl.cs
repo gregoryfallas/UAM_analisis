@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
+using DAL.Entidades;
 using PL.Pantallas.Principales;
 
 namespace PL.Pantallas.Adicionales
@@ -15,6 +17,7 @@ namespace PL.Pantallas.Adicionales
     {
         public Frm_Anuncios_Pl()
         {
+            ANUNCIOS anuncios = new ANUNCIOS();
             InitializeComponent();
         }
 
@@ -23,6 +26,19 @@ namespace PL.Pantallas.Adicionales
             this.Dispose();
             Frm_Inicio_PL inicio = new Frm_Inicio_PL();
             inicio.ShowDialog();
+        }
+
+        private void btn_Crear_Click(object sender, EventArgs e)
+        {
+            // textBox_id // dataGridView_anuncios
+            if (textBox_id.Text != "")
+            {
+                dataGridView_anuncios.DataSource = Anuncios_BLL.consultar_anuncios(Convert.ToInt32(textBox_id.Text)).Copy();
+            }
+            else
+            {
+                dataGridView_anuncios.DataSource = Anuncios_BLL.consultar_anuncios().Copy();
+            }
         }
     }
 }

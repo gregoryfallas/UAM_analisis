@@ -11,7 +11,7 @@ namespace BLL
 {
     public class Anuncios_BLL
     {
-        public static List<ANUNCIOS> consultar_anuncios()
+        public static List<ANUNCIOS> consultar_anuncios(int ID_Anuncios)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace BLL
 
         }
 
-        public static List<ANUNCIOS> agregar_anuncios()
+        public static List<ANUNCIOS> agregar_anuncios(ANUNCIOS anuncios)
         {
                 try
                 {
@@ -65,7 +65,7 @@ namespace BLL
             }
         }
 
-        public static List<ANUNCIOS> eliminar_anuncios(int id)
+        public static List<ANUNCIOS> eliminar_anuncios(int ID_Anuncios)
         {
             try
             {

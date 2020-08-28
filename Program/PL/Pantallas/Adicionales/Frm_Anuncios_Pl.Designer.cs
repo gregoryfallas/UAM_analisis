@@ -30,30 +30,30 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_anuncios = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.btn_Crear = new System.Windows.Forms.Button();
             this.btn_Eliminar = new System.Windows.Forms.Button();
             this.btn_Modificar = new System.Windows.Forms.Button();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.febrero = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.enero = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Inicio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_anuncios)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,24 +61,24 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridView_anuncios);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.btn_Crear);
             this.panel1.Controls.Add(this.btn_Eliminar);
             this.panel1.Controls.Add(this.btn_Modificar);
             this.panel1.Controls.Add(this.btn_Guardar);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.listBox2);
+            this.panel1.Controls.Add(this.febrero);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.checkBox3);
             this.panel1.Controls.Add(this.checkBox2);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox_id);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.enero);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -99,14 +99,14 @@
             this.button5.Text = "Buscar";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView_anuncios
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(252, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(430, 207);
-            this.dataGridView1.TabIndex = 94;
+            this.dataGridView_anuncios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.dataGridView_anuncios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_anuncios.Location = new System.Drawing.Point(252, 81);
+            this.dataGridView_anuncios.Name = "dataGridView_anuncios";
+            this.dataGridView_anuncios.Size = new System.Drawing.Size(430, 207);
+            this.dataGridView_anuncios.TabIndex = 94;
             // 
             // label12
             // 
@@ -130,6 +130,7 @@
             this.btn_Crear.Size = new System.Drawing.Size(50, 40);
             this.btn_Crear.TabIndex = 87;
             this.btn_Crear.UseVisualStyleBackColor = false;
+            this.btn_Crear.Click += new System.EventHandler(this.btn_Crear_Click);
             // 
             // btn_Eliminar
             // 
@@ -179,16 +180,16 @@
             this.label9.TabIndex = 83;
             this.label9.Text = "Descripción";
             // 
-            // listBox2
+            // febrero
             // 
-            this.listBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.listBox2.ForeColor = System.Drawing.Color.White;
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(26, 342);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(192, 24);
-            this.listBox2.TabIndex = 80;
+            this.febrero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.febrero.ForeColor = System.Drawing.Color.White;
+            this.febrero.FormattingEnabled = true;
+            this.febrero.ItemHeight = 20;
+            this.febrero.Location = new System.Drawing.Point(26, 342);
+            this.febrero.Name = "febrero";
+            this.febrero.Size = new System.Drawing.Size(192, 24);
+            this.febrero.TabIndex = 80;
             // 
             // label7
             // 
@@ -246,13 +247,13 @@
             this.label3.TabIndex = 70;
             this.label3.Text = "Nombre de la Anuncio";
             // 
-            // textBox2
+            // textBox_id
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox2.Location = new System.Drawing.Point(26, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 26);
-            this.textBox2.TabIndex = 69;
+            this.textBox_id.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox_id.Location = new System.Drawing.Point(26, 61);
+            this.textBox_id.Name = "textBox_id";
+            this.textBox_id.Size = new System.Drawing.Size(175, 26);
+            this.textBox_id.TabIndex = 69;
             // 
             // label2
             // 
@@ -271,16 +272,16 @@
             this.textBox1.Size = new System.Drawing.Size(175, 26);
             this.textBox1.TabIndex = 67;
             // 
-            // listBox1
+            // enero
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.listBox1.ForeColor = System.Drawing.Color.White;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(26, 270);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(192, 24);
-            this.listBox1.TabIndex = 66;
+            this.enero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.enero.ForeColor = System.Drawing.Color.White;
+            this.enero.FormattingEnabled = true;
+            this.enero.ItemHeight = 20;
+            this.enero.Location = new System.Drawing.Point(26, 270);
+            this.enero.Name = "enero";
+            this.enero.Size = new System.Drawing.Size(192, 24);
+            this.enero.TabIndex = 66;
             // 
             // label1
             // 
@@ -334,7 +335,7 @@
             this.Text = "Anuncios";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_anuncios)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -345,24 +346,24 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_anuncios;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btn_Crear;
         private System.Windows.Forms.Button btn_Eliminar;
         private System.Windows.Forms.Button btn_Modificar;
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox febrero;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox enero;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button btn_Inicio;

@@ -799,7 +799,7 @@ namespace DAL
         {
             #region
             List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
-            DataTable dt = new DataTable();                 
+            DataTable dt = new DataTable();
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -808,8 +808,8 @@ namespace DAL
                 cmd.CommandText = peticion.Peticion;
                 if (peticion.lstParametros.Count > 0)
                     cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
-                    SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
-                    da.Fill(dt);
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+                da.Fill(dt);
                 if (dt.Rows.Count > 0)
                     foreach (DataRow item in dt.Rows)
                     {
@@ -819,7 +819,7 @@ namespace DAL
                         tipo.Descripcion = item.ItemArray[2].ToString();
                         tipo.Estado = Convert.ToInt32(item.ItemArray[3].ToString());
                         tipo.Fecha_Inicio = item.ItemArray[4].ToString();
-                        tipo.Fecha_Fin = item.ItemArray[4].ToString();
+                        tipo.Fecha_Fin = item.ItemArray[5].ToString();
                         lstresultados.Add(tipo);
                     }
             }
@@ -913,42 +913,45 @@ namespace DAL
         public DataTable eliminar_anuncios(SQLSentencia peticion)
         {
             #region 
+            List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
             DataTable dt = new DataTable();
-
-            dt.Columns.Add("ID Anuncios");
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Descripión");
-            dt.Columns.Add("Estado");
-            dt.Columns.Add("Fecha Inicio");
-            dt.Columns.Add("Fecha Fin");
-
             try
             {
-                objconexion.Open();
                 SqlCommand cmd = new SqlCommand(peticion.Peticion, objconexion);
-                SqlDataReader resultado = cmd.ExecuteReader();
-                cmd.Dispose();
-
-                while (resultado.Read())
-                {
-                    dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
-                }
-
-                return dt;
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        ANUNCIOS tipo = new ANUNCIOS();
+                        tipo.ID_Anuncios = Convert.ToInt32(item.ItemArray[0].ToString());
+                        tipo.Nombre = item.ItemArray[1].ToString();
+                        tipo.Descripcion = item.ItemArray[2].ToString();
+                        tipo.Estado = Convert.ToInt32(item.ItemArray[3].ToString());
+                        tipo.Fecha_Inicio = item.ItemArray[4].ToString();
+                        tipo.Fecha_Fin = item.ItemArray[5].ToString();
+                        lstresultados.Remove(tipo);
+                    }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
             finally
             {
-                objconexion.Close();
+                this.CERRAR();
             }
-            #endregion
+            return dt;
         }
-
         #endregion
 
     }
     #endregion
 }
+#endregion

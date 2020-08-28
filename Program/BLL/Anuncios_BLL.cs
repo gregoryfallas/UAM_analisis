@@ -11,7 +11,7 @@ namespace BLL
 {
     public class Anuncios_BLL
     {
-        public static DataTable consultarAnuncios()
+        public static DataTable consultar_anuncios()
         {
             try
             {

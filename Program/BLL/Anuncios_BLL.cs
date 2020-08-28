@@ -11,7 +11,7 @@ namespace BLL
 {
     public class Anuncios_BLL
     {
-        public static DataTable consultar_anuncios()
+        public static List<ANUNCIOS> consultar_anuncios()
         {
             try
             {
@@ -23,14 +23,13 @@ namespace BLL
 
             }
             catch (Exception e)
-
             {
                 throw e;
             }
 
         }
 
-        public static DataTable agregar_anuncios()
+        public static List<ANUNCIOS> agregar_anuncios()
         {
                 try
                 {
@@ -49,7 +48,7 @@ namespace BLL
 
         }
 
-        public static bool actualizar_anuncios(ANUNCIOS anuncios)
+        public static List<ANUNCIOS> actualizar_anuncios(ANUNCIOS anuncios)
         {
             try
             {
@@ -66,7 +65,7 @@ namespace BLL
             }
         }
 
-        public static bool eliminar_anuncios(int id)
+        public static List<ANUNCIOS> eliminar_anuncios(int id)
         {
             try
             {

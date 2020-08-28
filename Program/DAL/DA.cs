@@ -836,9 +836,11 @@ namespace DAL
             #endregion
         }
 
-        public DataTable agregar_anuncios(SQLSentencia peticion)
+        public List<ANUNCIOS> agregar_anuncios(SQLSentencia peticion)
         {
             #region
+
+            List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Anuncios");
@@ -860,7 +862,7 @@ namespace DAL
                     dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
                 }
 
-                return dt;
+                return lstresultados;
             }
             catch (Exception ex)
             {
@@ -873,9 +875,10 @@ namespace DAL
             #endregion
         }
 
-        public DataTable actualizar_anuncios(SQLSentencia peticion)
+        public List<ANUNCIOS> actualizar_anuncios(SQLSentencia peticion)
         {
             #region
+            List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
             DataTable dt = new DataTable();
 
             dt.Columns.Add("ID Anuncios");
@@ -897,7 +900,7 @@ namespace DAL
                     dt.Rows.Add(resultado.GetInt32(0), resultado.GetString(1), resultado.GetString(2), resultado.GetInt32(3), resultado.GetString(4), resultado.GetInt32(5));
                 }
 
-                return dt;
+                return lstresultados;
             }
             catch (Exception ex)
             {
@@ -910,7 +913,7 @@ namespace DAL
             #endregion
         }
 
-        public DataTable eliminar_anuncios(SQLSentencia peticion)
+        public List<ANUNCIOS> eliminar_anuncios(SQLSentencia peticion)
         {
             #region 
             List<ANUNCIOS> lstresultados = new List<ANUNCIOS>();
@@ -947,7 +950,7 @@ namespace DAL
             {
                 this.CERRAR();
             }
-            return dt;
+            return lstresultados;
         }
         #endregion
 

@@ -420,7 +420,7 @@ namespace PL.Pantallas.Extras
             string precio;
             double impuesto;
 
-            double total = Convert.ToDouble(txt_Total.Text);
+            double total = Convert.ToDouble(txt_Total.Text.ToString());
             double subtotal;
             subtotal = total / (1 + 0.13);
             impuesto = total - subtotal;

@@ -50,8 +50,11 @@ namespace PL.Pantallas.Extras
         
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
+             decimal cantidadproductos=0;
 
-           
+            cantidadproductos= Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+            ART.Cantidad = Convert.ToDecimal(txt_Cantidad.Text);
+
             ART.Subtotal = 0;            
 
             if (txt_Cantidad.Text==string.Empty || txt_Precio.Text == string.Empty)
@@ -60,6 +63,21 @@ namespace PL.Pantallas.Extras
                 MessageBox.Show("¡Debe ingresar un producto y cantidad !", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
+            }
+            else if (cantidadproductos<=0)
+            {
+                MessageBox.Show("¡Este producto se encuentra agotado !", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                LimpiarCampos();
+            }
+            else if (ART.Cantidad>cantidadproductos)
+            {
+                MessageBox.Show("¡La cantidad seleccionada es mayor a la cantidad disponible del producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Cantidad.Focus();
+            }
+            else if (ART.Cantidad<1)
+            {
+                MessageBox.Show("¡No puede ingresar cantidades menores a 1 !", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_Cantidad.Focus();
             }
             else
             {
@@ -101,13 +119,7 @@ namespace PL.Pantallas.Extras
 
                     LimpiarCampos();
 
-
-                  
-
                 }
-
-
-
             }
         }
 

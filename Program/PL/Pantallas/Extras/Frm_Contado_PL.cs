@@ -216,7 +216,7 @@ namespace PL.Pantallas.Extras
 
                                         if (tempcredito == "1")
                                         {
-                                            MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                                             Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
                                             Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);

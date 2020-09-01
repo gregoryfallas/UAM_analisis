@@ -34,6 +34,7 @@
             this.txt_Fecha = new System.Windows.Forms.TextBox();
             this.btn_inicio = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Imprir_Credito = new System.Windows.Forms.Button();
             this.dtg_Detalles = new System.Windows.Forms.DataGridView();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_Cliente = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@
             this.dtg_Cobros = new System.Windows.Forms.DataGridView();
             this.btn_Imprimir = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_Factura_Original = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Detalles)).BeginInit();
@@ -129,6 +131,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.btn_Factura_Original);
+            this.panel1.Controls.Add(this.btn_Imprir_Credito);
             this.panel1.Controls.Add(this.dtg_Detalles);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.checkBox1);
@@ -145,6 +149,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1066, 678);
             this.panel1.TabIndex = 3;
+            // 
+            // btn_Imprir_Credito
+            // 
+            this.btn_Imprir_Credito.BackgroundImage = global::PL.Properties.Resources.print;
+            this.btn_Imprir_Credito.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Imprir_Credito.FlatAppearance.BorderSize = 0;
+            this.btn_Imprir_Credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Imprir_Credito.Location = new System.Drawing.Point(945, 500);
+            this.btn_Imprir_Credito.Name = "btn_Imprir_Credito";
+            this.btn_Imprir_Credito.Size = new System.Drawing.Size(75, 57);
+            this.btn_Imprir_Credito.TabIndex = 73;
+            this.btn_Imprir_Credito.UseVisualStyleBackColor = true;
+            this.btn_Imprir_Credito.Visible = false;
+            this.btn_Imprir_Credito.Click += new System.EventHandler(this.btn_Imprir_Credito_Click);
             // 
             // dtg_Detalles
             // 
@@ -306,6 +324,7 @@
             this.txt_Abono.TabIndex = 43;
             this.txt_Abono.Text = "0";
             this.txt_Abono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Abono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Abono_KeyPress);
             this.txt_Abono.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // label8
@@ -395,6 +414,7 @@
             this.txt_Pago.Size = new System.Drawing.Size(129, 35);
             this.txt_Pago.TabIndex = 62;
             this.txt_Pago.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_Pago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Pago_KeyPress);
             this.txt_Pago.Leave += new System.EventHandler(this.txt_Pago_Leave);
             // 
             // txt_Cambio
@@ -568,7 +588,6 @@
             // 
             this.btn_Imprimir.BackgroundImage = global::PL.Properties.Resources.print;
             this.btn_Imprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Imprimir.Enabled = false;
             this.btn_Imprimir.FlatAppearance.BorderSize = 0;
             this.btn_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Imprimir.Location = new System.Drawing.Point(941, 531);
@@ -576,11 +595,26 @@
             this.btn_Imprimir.Size = new System.Drawing.Size(75, 57);
             this.btn_Imprimir.TabIndex = 37;
             this.btn_Imprimir.UseVisualStyleBackColor = true;
+            this.btn_Imprimir.Visible = false;
             this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_Factura_Original
+            // 
+            this.btn_Factura_Original.BackgroundImage = global::PL.Properties.Resources.contab;
+            this.btn_Factura_Original.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Factura_Original.FlatAppearance.BorderSize = 0;
+            this.btn_Factura_Original.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Factura_Original.Location = new System.Drawing.Point(106, 396);
+            this.btn_Factura_Original.Name = "btn_Factura_Original";
+            this.btn_Factura_Original.Size = new System.Drawing.Size(75, 57);
+            this.btn_Factura_Original.TabIndex = 74;
+            this.btn_Factura_Original.UseVisualStyleBackColor = true;
+            this.btn_Factura_Original.Visible = false;
+            this.btn_Factura_Original.Click += new System.EventHandler(this.btn_Factura_Original_Click);
             // 
             // Cobros_PL
             // 
@@ -653,5 +687,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dtg_Detalles;
+        private System.Windows.Forms.Button btn_Imprir_Credito;
+        private System.Windows.Forms.Button btn_Factura_Original;
     }
 }

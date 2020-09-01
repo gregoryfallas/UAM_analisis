@@ -49,6 +49,7 @@ namespace PL.Pantallas.Extras
             printDocument1.Print();
 
             MessageBox.Show("Factura generada con exito");
+            btn_Imprimir.Visible = false;
             LimpiarCampos();
             CargarContado();
 
@@ -134,7 +135,7 @@ namespace PL.Pantallas.Extras
             }
             else
             {
-                actual = Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[9].Value.ToString());
+                actual = Math.Round(Convert.ToDecimal(dtg_Cobros.CurrentRow.Cells[9].Value.ToString()));
                 txt_Credito.Text = actual.ToString();
                 txt_Total.Text = "";
             }
@@ -176,7 +177,7 @@ namespace PL.Pantallas.Extras
 
                                 MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                btn_Imprimir.Enabled = true;
+                                btn_Imprimir.Visible= true;
                                 
                                 //Cargar2();
                             }
@@ -193,12 +194,59 @@ namespace PL.Pantallas.Extras
                         {
                             MessageBox.Show("¡Tiene que seleccionar un Cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        else
+                        else if (dtg_Cobros.CurrentRow.Cells[6].Value.ToString()== dtg_Cobros.CurrentRow.Cells[9].Value.ToString())
                         {
+                            if (MessageBox.Show("¿Desea agregar un abono?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+
+                                txt_Abono.Focus();
+
+
+                                if (txt_Saldo.Text == string.Empty)
+                                {
+                                    MessageBox.Show("¡Tiene que ingresar el monto del abono!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    txt_Abono.Focus();
+                                }
+                                else
+                                {
+
+
+
+                                    creditos.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                    creditos.Monto_Anterior = Convert.ToDecimal(txt_Credito.Text);
+                                    creditos.Abono = Convert.ToDecimal(txt_Abono.Text);
+                                    creditos.Monto_Actual = Convert.ToDecimal(txt_Saldo.Text);
+
+                                    Credito_BLL.ModificarAbonos(creditos);
+
+
+                                    if (creditos.Monto_Actual == 0)
+                                    {
+                                        Factura_BLL.ModificarFacturas(Convert.ToInt32(txt_Factura.Text), 21);
+                                    }
+
+                                    MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    btn_Imprir_Credito.Visible = true;
+
+                                    //Cargar2();
+
+                                }
+                            }
+                            else
+                            {
+                                btn_Factura_Original.Visible = true;
+                            }
+
+                            
+                        }
+                        else
+                        {                                                                                
+
                             if (txt_Saldo.Text == string.Empty)
                             {
                                 MessageBox.Show("¡Tiene que ingresar el monto del abono!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                txt_Pago.Focus();
+                                txt_Abono.Focus();
                             }
                             else
                             {
@@ -220,21 +268,13 @@ namespace PL.Pantallas.Extras
 
                                 MessageBox.Show("Factura pagada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                btn_Imprimir.Enabled = true;
-                                LimpiarCampos();
+                               btn_Imprir_Credito.Visible = true;
+                               
                                 //Cargar2();
 
-                            }
-
-
-
-
-
+                            }                                                                                                         
 
                         }
-
-
-
                     }
                 }
 
@@ -317,17 +357,28 @@ namespace PL.Pantallas.Extras
 
         private void txt_Pago_Leave(object sender, EventArgs e)
         {
-            pago = Convert.ToDecimal(txt_Pago.Text.ToString());
 
-            if (total > pago)
+            if (txt_Pago.Text==string.Empty)
             {
-                MessageBox.Show("El monto de pago es menor al monto de la factura", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_Pago.Focus();
+                txt_Pago.Text = "";
+                txt_Cambio.Text="";
             }
             else
             {
-                txt_Cambio.Text = Convert.ToString(pago - total);
+                pago = Convert.ToDecimal(txt_Pago.Text.ToString());
+
+                if (total > pago)
+                {
+                    MessageBox.Show("El monto de pago es menor al monto de la factura", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_Pago.Focus();
+                }
+                else
+                {
+                    txt_Cambio.Text = Convert.ToString(pago - total);
+                }
             }
+
+            
         }
 
        
@@ -350,21 +401,26 @@ namespace PL.Pantallas.Extras
 
         private void textBox2_Leave(object sender, EventArgs e)
         {
-            abono = Convert.ToDecimal(txt_Abono.Text.ToString());
 
-            if ( abono>actual)
+            if (txt_Abono.Text==string.Empty)
             {
-                MessageBox.Show("El monto del abono es mayor al Saldo pendiente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_Abono.Focus();
+                txt_Abono.Text = "";
             }
             else
             {
-                txt_Saldo.Text = Convert.ToString(actual - abono);
-                
-            }
 
+                abono = Convert.ToDecimal(txt_Abono.Text.ToString());
 
-
+                if (abono > actual)
+                {
+                    MessageBox.Show("El monto del abono es mayor al Saldo pendiente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txt_Abono.Focus();
+                }
+                else
+                {
+                    txt_Saldo.Text = Convert.ToString(actual - abono);
+                }
+               }
 
         }
 
@@ -415,12 +471,12 @@ namespace PL.Pantallas.Extras
 
 
             }
-            string cantidad;
+            double cantidad;
             string nombre;            
-            string precio;
+            double precio;
             double impuesto;
 
-            double total = Convert.ToDouble(txt_Total.Text.ToString());
+            double total = Convert.ToDouble(dtg_Cobros.CurrentRow.Cells[6].Value.ToString()); /*Convert.ToDouble(txt_Total.Text.ToString());*/
             double subtotal;
             subtotal = total / (1 + 0.13);
             impuesto = total - subtotal;
@@ -438,20 +494,20 @@ namespace PL.Pantallas.Extras
                 //dr[4] = row.Cells[4].Value.ToString();
 
 
-                cantidad = dr[0].ToString();
+                cantidad = Convert.ToDouble(dr[0].ToString());
                 nombre= dr[1].ToString();
-                precio = dr[2].ToString();
+                precio = Convert.ToDouble(dr[2].ToString());
                 //descuento = dr[3].ToString();
                 //total = dr[4].ToString();
 
-                e.Graphics.DrawString(cantidad + " " + nombre + " " + precio /*+ " " + descuento + " " + total*/, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+                e.Graphics.DrawString(cantidad + " " + nombre + " " + "c/u"+" "+"¢"+ precio /*+ " " + descuento + " " + total*/, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
 
             }
-            e.Graphics.DrawString("---SubTotal: " + subtotal, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---SubTotal:"+"¢" + Math.Round(subtotal), font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Impuesto:" + "¢"+impuesto, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
-            e.Graphics.DrawString("---Total:" + "¢" + txt_Total.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Impuesto:" + "¢"+Math.Round(impuesto), font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Total:" + "¢" + Math.Round(total), font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
             e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
 
 
@@ -480,13 +536,131 @@ namespace PL.Pantallas.Extras
 
         }
 
+        private void btn_Imprir_Credito_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += Imprimir_PrintPage_Credito;
+            printDocument1.Print();
+
+            MessageBox.Show("Factura generada con exito");
+            btn_Imprimir.Visible = false;
+            LimpiarCampos();
+            CargarCredito();
+
+        }
+
+        private void Imprimir_PrintPage_Credito(object sender, PrintPageEventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            Font font = new Font("Arial", 14);
+            int ancho = 350;
+            int y = 20;
+            int x = 250;
 
 
+            e.Graphics.DrawString("---Veterinaria El Bosque----", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("Factura#:" + txt_Factura.Text, font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
+            e.Graphics.DrawString("FechaFactura: " + txt_Fecha_Doc.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("Cliente: " + txt_Nombre.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+            e.Graphics.DrawString("FechaPago: " + txt_Fecha.Text, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
 
 
+            //e.Graphics.DrawString("---Productos/Servicios---", font, Brushes.Black, new RectangleF(x, y += 40, ancho, 20));
 
 
+            //foreach (DataGridViewColumn columna in dtg_Detalles.Columns)
+            //{
 
+
+            //    DataColumn col = new DataColumn(columna.Name);
+
+
+            //    dt.Columns.Add(col);
+
+
+            //}
+            //double cantidad;
+            //string nombre;
+            //double precio;
+            //double impuesto;
+
+            //double total = Convert.ToDouble(txt_Total.Text.ToString());
+            //double subtotal;
+            //subtotal = total / (1 + 0.13);
+            //impuesto = total - subtotal;
+
+
+            //foreach (DataGridViewRow row in dtg_Detalles.Rows)
+            //{
+
+            //    DataRow dr = dt.NewRow();
+            //    dr[0] = row.Cells[7].Value.ToString();
+            //    dr[1] = row.Cells[5].Value.ToString();
+            //    dr[2] = row.Cells[6].Value.ToString();
+            //    //dr[3] = row.Cells[3].Value.ToString();
+            //    //dr[4] = row.Cells[4].Value.ToString();
+
+
+            //    cantidad = Convert.ToDouble(dr[0].ToString());
+            //    nombre = dr[1].ToString();
+            //    precio = Convert.ToDouble(dr[2].ToString());
+            //    //descuento = dr[3].ToString();
+            //    //total = dr[4].ToString();
+
+            //    e.Graphics.DrawString(cantidad + " " + nombre + " " + "c/u" + " " + "¢" + precio /*+ " " + descuento + " " + total*/, font, Brushes.Black, new RectangleF(x, y += 20, ancho, 20));
+
+
+            //}
+            e.Graphics.DrawString("---Monto Anterior:" + "¢" + txt_Credito.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            //e.Graphics.DrawString("---Impuesto: " + txt_Impuesto.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Abono:" + "¢" + txt_Abono.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---Saldo Actual:" + "¢" + txt_Saldo.Text, font, Brushes.Black, new RectangleF(x, y += 30, ancho, 20));
+            e.Graphics.DrawString("---GRACIAS POR VISITARNOS---", font, Brushes.Black, new RectangleF(x, y += 50, ancho, 20));
+
+
+        }
+
+        private void btn_Factura_Original_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument1 = new PrintDocument();
+            PrinterSettings ps = new PrinterSettings();
+            printDocument1.PrinterSettings = ps;
+            printDocument1.PrintPage += Imprimir_PrintPage;
+            printDocument1.Print();
+
+            MessageBox.Show("Factura generada con exito");
+            btn_Imprimir.Visible = false;
+            LimpiarCampos();
+            CargarContado();
+        }
+
+        private void txt_Abono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+                       
+        }
+
+        private void txt_Pago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
     }
 
 }

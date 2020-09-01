@@ -122,8 +122,7 @@ namespace PL.Pantallas.Extras
                 }
             }
         }
-
-
+        
 
 
             private void btn_Confirmar_Click(object sender, EventArgs e)
@@ -132,67 +131,179 @@ namespace PL.Pantallas.Extras
             FACTURAS factura = new FACTURAS();
             DETALLE_ARTICULOS detalle = new DETALLE_ARTICULOS();
 
-                                                                           
             if (MessageBox.Show("¿Desea continuar?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (txt_Nombre.Text==string.Empty)
+                if (txt_Nombre.Text == string.Empty)
                 {
-                    MessageBox.Show("¡Debe de seleccionar un Cliente!","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                }                
+                    MessageBox.Show("¡Debe de seleccionar un Cliente!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (facturas.Total < 1)
+                {
+                    MessageBox.Show("¡Debe de ingresar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 else
                 {
-                    if (facturas.Total < 1)
+                    if (rdb_Contado.Checked == false && rdb_Credito.Checked == false)
                     {
-                        MessageBox.Show("¡Debe de ingresar un Producto!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("¡Debe de seleccionar un tipo de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-
-                    else
+                    else if (txt_Descripcion.Text == string.Empty)
                     {
-                        if (rdb_Contado.Checked==false && rdb_Credito.Checked==false)
+                        if (MessageBox.Show("¿Desea agregar una descripción a la factura?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            MessageBox.Show("¡Debe de seleccionar un tipo de pago!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txt_Descripcion.Focus();
+                            factura.Descripcion = txt_Descripcion.Text;
+
                         }
                         else
                         {
+                            factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
+                            factura.ID_Caja = 1;
+                            factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+                            factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                            factura.Total = Convert.ToDecimal(txt_Total.Text);
+                            factura.Descripcion = "Sin descripción";
 
-                            if (txt_Descripcion.Text==string.Empty)
+                            if (cb_Express.Checked == true)
                             {
-                                if (MessageBox.Show("¿Desea agregar una descripción a la factura?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                                {
-                                    txt_Descripcion.Focus();
-                                    factura.Descripcion = txt_Descripcion.Text;
+                                //factura.Tipo_Pago = 1;
+                                factura.Estado = 21;
+                                //bool result = Factura_BLL.agregarFactura(factura);
+                                //Express_BLL.AgregarExpress(express);
 
+                                if (rdb_Contado.Checked == true)
+                                {
+                                    factura.Tipo_Pago = 1;
+
+                                    bool result = Factura_BLL.agregarFactura(factura);
+
+                                    ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                    if (result == true)
+                                    {
+                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                        {
+                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                            ListArticulos.Add(obj_Articulos);
+
+                                        }
+                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
+                                        Express_BLL.AgregarExpress(express);
+
+                                        if (tempcredito == "1")
+                                        {
+                                            //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                            Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                            Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                            Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                            Credito_BLL.AgregarCreditos(Credito);
+                                        }
+
+
+
+                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                        decimal total = inventario - ventas;
+
+                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                        LimpiarCamposFactura();
+                                        dtg_Articulos.Refresh();
+                                        Cargar2();
+                                        CargarNoFactura();
+
+                                    }
                                 }
                                 else
                                 {
-                                    
-                                    factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
-                                    factura.ID_Caja = 1;
-                                    factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
-                                    factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                                    factura.Total = Convert.ToDecimal(txt_Total.Text);
-                                    factura.Descripcion = "Sin descripción";
-                                    if (cb_Express.Checked==true)
+                                    factura.Tipo_Pago = 2;
+
+
+                                    if (factura.Total < 300000)
                                     {
-                                        factura.Estado = 21;
-                                        Express_BLL.AgregarExpress(express);
+                                        MessageBox.Show("Para comprar con credito monto debe ser mayor a ¢300.000");
+                                    }
+                                    else if (factura.Total > 800000)
+                                    {
+                                        MessageBox.Show("Para comprar con credito monto debe ser menor a ¢800.000");
                                     }
                                     else
                                     {
-                                        factura.Estado = 1;
-                                    }
-
-                                    if (rdb_Contado.Checked == true)
-                                    {
-                                        factura.Tipo_Pago = 1;
-                                    }
-                                    else
-                                    {
-                                        factura.Tipo_Pago = 2;
-                                    }
-
-                                    
                                         bool result = Factura_BLL.agregarFactura(factura);
+
+                                        ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                        if (result == true)
+                                        {
+                                            List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                            for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                            {
+                                                DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                                obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                                obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                                obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                                ListArticulos.Add(obj_Articulos);
+
+                                            }
+                                            Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+
+                                            if (tempcredito == "1")
+                                            {
+                                                //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                                Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                                Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                                Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                                Credito_BLL.AgregarCreditos(Credito);
+                                            }
+
+
+
+                                            MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                            decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                            decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                            decimal total = inventario - ventas;
+
+                                            Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                            LimpiarCamposFactura();
+                                            dtg_Articulos.Refresh();
+                                            Cargar2();
+                                            CargarNoFactura();
+
+                                        }
+                                    }
+                                }
+                            }                              
+                            
+                            else
+                            {
+                                factura.Estado = 1;
+
+                                if (rdb_Contado.Checked == true)
+                                {
+                                    factura.Tipo_Pago = 1;
+
+                                    bool result = Factura_BLL.agregarFactura(factura);
 
                                     ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
                                     if (result == true)
@@ -240,135 +351,351 @@ namespace PL.Pantallas.Extras
                                         dtg_Articulos.Refresh();
                                         Cargar2();
                                         CargarNoFactura();
-                                      
+
                                     }
-                                                                        
+                                }
+                                else
+                                {
+                                        factura.Tipo_Pago = 2;
+
+
+                                        if (factura.Total < 300000)
+                                        {
+                                            MessageBox.Show("Para comprar con credito monto debe ser mayor a ¢300.000");
+                                        }
+                                        else if (factura.Total > 800000)
+                                        {
+                                            MessageBox.Show("Para comprar con credito monto debe ser menor a ¢800.000");
+                                        }
+                                        else
+                                        {
+                                            bool result = Factura_BLL.agregarFactura(factura);
+
+                                            ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                            if (result == true)
+                                            {
+                                                List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                                for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                                {
+                                                    DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                                    obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                                    obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                                    obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                                    ListArticulos.Add(obj_Articulos);
+
+                                                }
+                                                Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+
+                                                if (tempcredito == "1")
+                                                {
+                                                    //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                                    Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                                    Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                                    Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                                    Credito_BLL.AgregarCreditos(Credito);
+                                                }
+
+
+
+                                                MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                                int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                                decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                                decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                                decimal total = inventario - ventas;
+
+                                                Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                                LimpiarCamposFactura();
+                                                dtg_Articulos.Refresh();
+                                                Cargar2();
+                                                CargarNoFactura();
+
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                        }
+                    else
+                    {
+                        factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
+                        factura.ID_Caja = 1;
+                        factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
+                        factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                        factura.Total = Convert.ToDecimal(txt_Total.Text);
+                        factura.Descripcion = txt_Descripcion.Text;  //agregar la caja de texto 
 
-                            else
+                        if (cb_Express.Checked == true)
+                        {
+                            //factura.Tipo_Pago = 1;
+                            factura.Estado = 21;
+                            //bool result = Factura_BLL.agregarFactura(factura);
+                            //Express_BLL.AgregarExpress(express);
+
+                            if (rdb_Contado.Checked == true)
                             {
+                                factura.Tipo_Pago = 1;
 
-                                factura.ID_Cliente = Convert.ToInt32(txt_idCliente.Text);
-                                factura.ID_Caja = 1;
-                                factura.Numero_Factura = Convert.ToInt32(txt_Factura.Text);
-                                factura.Fecha = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-                                factura.Total = Convert.ToDecimal(txt_Total.Text);
-                                factura.Descripcion =txt_Descripcion.Text;
-
-                                
-
-                                if (rdb_Contado.Checked == true)
-                                {
-                                    factura.Tipo_Pago = 1;
-                                }
-                                else
-                                {
-                                    factura.Tipo_Pago = 2;
-                                }
-                                
-
-                                //bool result = Factura_BLL.agregarFactura(factura);
-                                if (cb_Express.Checked == true)
-                                {
-
-                                    factura.Estado = 21;
-                                    bool result = Factura_BLL.agregarFactura(factura);
-                                    if (result == true)
-                                    {
-                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
-
-                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
-                                        {
-                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
-
-                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
-                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
-                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
-
-
-                                            ListArticulos.Add(obj_Articulos);
-
-                                        }
-                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
-
-
-                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
-                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
-                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
-                                        decimal total = inventario - ventas;
-
-                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
-
-                                        LimpiarCamposFactura();
-                                        dtg_Articulos.Refresh();
-                                        Cargar2();
-                                        CargarNoFactura();
-
-                                    }
-                                    Express_BLL.AgregarExpress(express);
-
-                                }
-                                else
-                                {
-                                    factura.Estado = 1;
-
-                                    bool result = Factura_BLL.agregarFactura(factura);
-                                    if (result == true)
-                                    {
-                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
-
-                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
-                                        {
-                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
-
-                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
-                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
-                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
-
-
-                                            ListArticulos.Add(obj_Articulos);
-
-                                        }
-                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
-
-
-                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
-                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
-                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
-                                        decimal total = inventario - ventas;
-
-                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
-
-                                        LimpiarCamposFactura();
-                                        dtg_Articulos.Refresh();
-                                        Cargar2();
-                                        CargarNoFactura();
-
-                                    }
-
-
-
-                                }
+                                bool result = Factura_BLL.agregarFactura(factura);
 
                                 ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
-                               
+                                if (result == true)
+                                {
+                                    List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                    for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                    {
+                                        DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                        obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                        obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                        obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                        ListArticulos.Add(obj_Articulos);
+
+                                    }
+                                    Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+                                    Express_BLL.AgregarExpress(express);
+                                    if (tempcredito == "1")
+                                    {
+                                        //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                        Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                        Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                        Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                        Credito_BLL.AgregarCreditos(Credito);
+                                    }
+
+
+
+                                    MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                    decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                    decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                    decimal total = inventario - ventas;
+
+                                    Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                    LimpiarCamposFactura();
+                                    dtg_Articulos.Refresh();
+                                    Cargar2();
+                                    CargarNoFactura();
+
+                                }
                             }
-                               
-                         }                              
+                            else
+                            {
+                                factura.Tipo_Pago = 2;
 
-                     }
-                }                
 
-            }                             
-            
-     }
+                                if (factura.Total < 300000)
+                                {
+                                    MessageBox.Show("Para comprar con credito monto debe ser mayor a ¢300.000");
+                                }
+                                else if (factura.Total > 800000)
+                                {
+                                    MessageBox.Show("Para comprar con credito monto debe ser menor a ¢800.000");
+                                }
+                                else
+                                {
+                                    bool result = Factura_BLL.agregarFactura(factura);
+
+                                    ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                    if (result == true)
+                                    {
+                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                        {
+                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                            ListArticulos.Add(obj_Articulos);
+
+                                        }
+                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+
+                                        if (tempcredito == "1")
+                                        {
+                                            //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                            Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                            Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                            Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                            Credito_BLL.AgregarCreditos(Credito);
+                                        }
+
+
+
+                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                        decimal total = inventario - ventas;
+
+                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                        LimpiarCamposFactura();
+                                        dtg_Articulos.Refresh();
+                                        Cargar2();
+                                        CargarNoFactura();
+
+                                    }
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            factura.Estado = 1;
+
+                            if (rdb_Contado.Checked == true)
+                            {
+                                factura.Tipo_Pago = 1;
+
+                                bool result = Factura_BLL.agregarFactura(factura);
+
+                                ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                if (result == true)
+                                {
+                                    List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                    for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                    {
+                                        DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                        obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                        obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                        obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                        ListArticulos.Add(obj_Articulos);
+
+                                    }
+                                    Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+
+                                    if (tempcredito == "1")
+                                    {
+                                        //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                        Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                        Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                        Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                        Credito_BLL.AgregarCreditos(Credito);
+                                    }
+
+
+
+                                    MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                    int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                    decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                    decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                    decimal total = inventario - ventas;
+
+                                    Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                    LimpiarCamposFactura();
+                                    dtg_Articulos.Refresh();
+                                    Cargar2();
+                                    CargarNoFactura();
+
+                                }
+                            }
+                            else
+                            {
+                                factura.Tipo_Pago = 2;
+
+
+                                if (factura.Total < 300000)
+                                {
+                                    MessageBox.Show("Para comprar con credito monto debe ser mayor a ¢300.000");
+                                }
+                                else if (factura.Total > 800000)
+                                {
+                                    MessageBox.Show("Para comprar con credito monto debe ser menor a ¢800.000");
+                                }
+                                else
+                                {
+                                    bool result = Factura_BLL.agregarFactura(factura);
+
+                                    ///EL DTG FACTURA ES EL QUE MUESTRA EL DETALLE DE LOS ARTICULOS INGRESADOS A LA FACTURA 
+                                    if (result == true)
+                                    {
+                                        List<DETALLE_ARTICULOS> ListArticulos = new List<DETALLE_ARTICULOS>();
+
+                                        for (int line = 0; line <= dtg_Factura.Rows.Count - 1; line++)
+                                        {
+                                            DETALLE_ARTICULOS obj_Articulos = new DETALLE_ARTICULOS();
+
+                                            obj_Articulos.ID_Factura = factura.Numero_Factura;
+                                            obj_Articulos.ID_Articulos = Convert.ToInt32(dtg_Factura.Rows[line].Cells[0].Value.ToString());
+                                            obj_Articulos.Cantidad = Convert.ToInt32(dtg_Factura.Rows[line].Cells[2].Value.ToString());
+
+
+                                            ListArticulos.Add(obj_Articulos);
+
+                                        }
+                                        Factura_BLL.agregarDetalleFactura(ListArticulos);
+
+
+                                        if (tempcredito == "1")
+                                        {
+                                            //MessageBox.Show("Cliente cuenta con el crédito habilitado", "¡¡¡Atención!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                                            Credito.ID_Factura = Convert.ToInt32(txt_Factura.Text);
+                                            Credito.Monto_Anterior = Convert.ToDecimal(txt_Total.Text);
+                                            Credito.Monto_Actual = Convert.ToDecimal(txt_Total.Text);
+
+                                            Credito_BLL.AgregarCreditos(Credito);
+                                        }
+
+
+
+                                        MessageBox.Show("Factura agregada con exito", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        int articulo = Convert.ToInt32(dtg_Factura.SelectedRows[0].Cells[0].Value.ToString());
+                                        decimal inventario = Convert.ToDecimal(dtg_Articulos.SelectedRows[0].Cells[3].Value.ToString());
+                                        decimal ventas = Convert.ToDecimal(dtg_Factura.SelectedRows[0].Cells[2].Value.ToString());
+                                        decimal total = inventario - ventas;
+
+                                        Articulos_BLL.MODIFICAR_INVENTARIO(articulo, total);
+
+                                        LimpiarCamposFactura();
+                                        dtg_Articulos.Refresh();
+                                        Cargar2();
+                                        CargarNoFactura();
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                }
+            }
+
 
         private void btn_Orden_Click(object sender, EventArgs e)
         {

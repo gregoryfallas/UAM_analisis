@@ -59,7 +59,7 @@ namespace PL.Pantallas.Principales
 
         private void btnmarcar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Adicionales.Form_Marcar_PL logueo = new Adicionales.Form_Marcar_PL();
             logueo.ShowDialog();
         }

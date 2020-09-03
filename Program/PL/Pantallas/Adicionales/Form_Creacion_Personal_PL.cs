@@ -26,10 +26,7 @@ namespace PL.Pantallas.Adicionales
 
         public Form_Creacion_Personal_PL()
         {
-            lstresultado = new List<PERSONAL>();
             InitializeComponent();
-            CargarCombos();
-            CargarCombos3();
         }
 
         private void CargarCombos()
@@ -65,8 +62,8 @@ namespace PL.Pantallas.Adicionales
             {
                 PERSONAL p = new PERSONAL();
 
-                //p.ID_Puesto = Convert.ToInt32(cboidpuesto.Text.Trim());
                 p.ID_Puesto = Convert.ToInt32(nombrepuesto);
+
                 /*********************************************************************************************/
 
                 Formato objformato = new Formato();
@@ -79,6 +76,7 @@ namespace PL.Pantallas.Adicionales
                     return;
                 }
                 p.Cedula = txtcedula.Text.Trim();
+
                 /*********************************************************************************************/
 
                 objformato = new Formato();
@@ -90,6 +88,7 @@ namespace PL.Pantallas.Adicionales
                     return;
                 }
                 p.Nombre = txtnombre.Text.Trim();
+
                 /*********************************************************************************************/
 
                 objformato = new Formato();
@@ -101,6 +100,7 @@ namespace PL.Pantallas.Adicionales
                     return;
                 }
                 p.Apellido_1 = txtapellido1.Text.Trim();
+
                 /*********************************************************************************************/
 
                 objformato = new Formato();
@@ -112,32 +112,15 @@ namespace PL.Pantallas.Adicionales
                     return;
                 }
                 p.Apellido_2 = txtapellido2.Text.Trim();
+
                 /*********************************************************************************************/
 
-                //objformato.Texto = txtsalariohora.Text.Trim();
-                //objformato.PatronValidacion = Constantes.PatronID;
-                //if (!R_Humanos.ValidarTexto(objformato))
-                //{
-                //    MessageBox.Show("El formato del Salario no es valido, no utilizar punto ni coma, corregir por favor");
-                //    return;
-                //}
                 p.Salario_Hora = Convert.ToDecimal(txtsalariohora.Text.Trim());
-                /*********************************************************************************************/
-
-                //objformato.Texto = txtsalariomes.Text.Trim();
-                //objformato.PatronValidacion = Constantes.PatronID;
-                //if (!R_Humanos.ValidarTexto(objformato))
-                //{
-                //    MessageBox.Show("El formato del Salario no es valido, NO utilizar punto NI coma, corregir por favor");
-                //    return;
-                //}
                 p.Salario_Mensual = Convert.ToDecimal(txtsalariomes.Text.Trim());
-                /*********************************************************************************************/
-
                 p.Fecha_Contratacion = Convert.ToDateTime(dtpfecha.Text.Trim());
-                // p.Estado = Convert.ToInt32(cboestado.Text.Trim());
                 p.Estado = Convert.ToInt32(nombreEstado);
                 p.Direccion = txtdireccion.Text.Trim();
+
                 /*********************************************************************************************/
 
                 objformato = new Formato();
@@ -150,29 +133,131 @@ namespace PL.Pantallas.Adicionales
                     return;
                 }
                 p.Correo_Electronico = txtcorreo.Text.Trim();
+
                 /*********************************************************************************************/
 
-                //objformato.Texto = txttelefono.Text.Trim();
-                //objformato.PatronValidacion = Constantes.PatronID;
-                //if (!R_Humanos.ValidarTexto(objformato))
-                //{
-                //    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
-                //    return;
-                //}
+                objformato = new Formato();
+                objformato.Texto = txttelefono.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronTEL;
+
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del TELÉFONO no es valido, corregir por favor");
+                    return;
+                }
                 p.Telefono = txttelefono.Text.Trim();
-
-
-
+                
+        
                 R_Humanos.AgregarPersonal(p);
-                MessageBox.Show("Personal agregado");
+                MessageBox.Show("Personal agregado correctamente");
                 cargarGridPersonal();
+                txtcedula.Focus();
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+
         }
+
+        //private bool ValidarCampos()
+        //{
+        //    bool ok = true;
+
+        //    if (cboidpuesto.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(cboidpuesto, "Dato Obligatorio");
+        //    }
+
+        //    if (txtcedula.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtcedula, "Dato Obligatorio");
+        //    }
+
+        //    if (txtnombre.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtnombre, "Dato Obligatorio");
+        //    }
+
+        //    if (txtapellido1.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtapellido1, "Dato Obligatorio");
+        //    }
+
+        //    if (txtapellido2.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtapellido2, "Dato Obligatorio");
+        //    }
+
+        //    if (txtsalariohora.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtsalariohora, "Dato Obligatorio");
+        //    }
+
+        //    if (txtsalariomes.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtsalariomes, "Dato Obligatorio");
+        //    }
+
+        //    if (dtpfecha.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(dtpfecha, "Dato Obligatorio");
+        //    }
+
+        //    if (cboestado.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(cboestado, "Dato Obligatorio");
+        //    }
+
+        //    if (txtdireccion.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtdireccion, "Dato Obligatorio");
+        //    }
+
+        //    if (txtcorreo.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txtcorreo, "Dato Obligatorio");
+        //    }
+
+        //    if (txttelefono.Text == "")
+        //    {
+        //        ok = false;
+        //        errorProvider1.SetError(txttelefono, "Dato Obligatorio");
+        //    }
+
+
+        //    return ok;
+        //}
+
+        //private void BorrarMensajeError()
+        //{
+        //    errorProvider1.SetError(cboidpuesto, "");
+        //    errorProvider1.SetError(txtcedula, "");
+        //    errorProvider1.SetError(txtnombre, "");
+        //    errorProvider1.SetError(txtapellido1, "");
+        //    errorProvider1.SetError(txtapellido2, "");
+        //    errorProvider1.SetError(txtsalariohora, "");
+        //    errorProvider1.SetError(txtsalariomes, "");
+        //    errorProvider1.SetError(dtpfecha, "");
+        //    errorProvider1.SetError(cboestado, "");
+        //    errorProvider1.SetError(txtdireccion, "");
+        //    errorProvider1.SetError(txtcorreo, "");
+        //    errorProvider1.SetError(txttelefono, "");
+        //}
 
         private void cboidpuesto_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -183,7 +268,8 @@ namespace PL.Pantallas.Adicionales
 
         private void cboidpuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // txtprueba.Text = cboidpuesto.Text.ToString();
+            validarcampos();
+            // txtprueba.Text = cboidpuesto.Text.ToString();
         }
 
         private void cboestado_SelectedValueChanged(object sender, EventArgs e)
@@ -225,9 +311,7 @@ namespace PL.Pantallas.Adicionales
                 MessageBox.Show(ex.Message);
             }
         }
-
-       
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -236,6 +320,30 @@ namespace PL.Pantallas.Adicionales
         private void Form_Creacion_Personal_PL_Load(object sender, EventArgs e)
         {
             cargarGridPersonal();
+            CargarCombos();
+            CargarCombos3();
+            lstresultado = new List<PERSONAL>();
+
+            btnagregar.Enabled = false;
+            btnmodificar.Enabled = false;
+        }
+
+        private void validarcampos()
+        {
+            var vr = !string.IsNullOrEmpty(cboidpuesto.Text) &&
+                !string.IsNullOrEmpty(txtcedula.Text) &&
+                !string.IsNullOrEmpty(txtnombre.Text) &&
+                !string.IsNullOrEmpty(txtapellido1.Text) &&
+                !string.IsNullOrEmpty(txtapellido2.Text) &&
+                !string.IsNullOrEmpty(txtsalariohora.Text) &&
+                !string.IsNullOrEmpty(txtsalariomes.Text) &&
+                !string.IsNullOrEmpty(dtpfecha.Text) &&
+                !string.IsNullOrEmpty(cboestado.Text) &&
+                !string.IsNullOrEmpty(txtdireccion.Text) &&
+                !string.IsNullOrEmpty(txtcorreo.Text) &&
+                !string.IsNullOrEmpty(txttelefono.Text);
+            btnagregar.Enabled = vr;
+            btnmodificar.Enabled = vr;
         }
 
         private void cargarGridPersonal()
@@ -291,6 +399,74 @@ namespace PL.Pantallas.Adicionales
 
                
             }
+        }
+
+        private void txttelefono_Validating(object sender, CancelEventArgs e)
+        {
+            //int num;
+            //if(!int.TryParse(txttelefono.Text, out num))
+            //{
+            //    errorProvider1.SetError(txttelefono, "Ingrese el valor en números");
+            //}
+            //else
+            //{
+            //    errorProvider1.SetError(txttelefono, "");
+            //}
+        }
+
+        private void txtcedula_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtapellido1_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtapellido2_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtsalariohora_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtsalariomes_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void dtpfecha_ValueChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void cboestado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtdireccion_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtcorreo_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txttelefono_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
         }
     }
 }

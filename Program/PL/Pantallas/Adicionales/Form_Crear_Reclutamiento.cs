@@ -13,16 +13,12 @@ using System.Data.SqlClient;
 
 namespace PL.Pantallas.Adicionales
 {
-   
-
-
     public partial class Form_Crear_Reclutamiento : Form
     {
         private int puestos = 0;
         private string nombrepuesto;
         private string nombreEstado;
-
-       
+        
         public List<RECLUTAMIENTO> lstresultado { get; set; }
         public bool EsError { get; set; }
 
@@ -34,8 +30,7 @@ namespace PL.Pantallas.Adicionales
          
             CargarCombos3();
         }
-
-
+        
         private void CargarCombos()
         {
             List<ESTADOS> lstresultado = R_Humanos.ConsultaTipoEstado();
@@ -45,8 +40,6 @@ namespace PL.Pantallas.Adicionales
             cboestado.DisplayMember = "Nombre";
             cboestado.Refresh();
         }
-
-      
 
         private void CargarCombos3()
         {
@@ -70,12 +63,9 @@ namespace PL.Pantallas.Adicionales
                     p.Descripcion = txtdescripcion.Text.Trim();
                 //  p.Estado = Convert.ToInt32(cboestado.Text.Trim());
                 p.Estado = Convert.ToInt32(nombreEstado);
-
-
-                R_Humanos.AgregarReclutamiento(p);
-                    MessageBox.Show("Recluta agregado");
-                  
                 
+                R_Humanos.AgregarReclutamiento(p);
+                    MessageBox.Show("Reclutamiento creado");
             }
             catch (Exception ex)
             {
@@ -86,7 +76,7 @@ namespace PL.Pantallas.Adicionales
 
         private void btnenviar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Información enviado a Marketing para lanzar vacante.");
+            MessageBox.Show("Información enviada a Marketing para lanzar vacante.");
         }
 
         private void cbonombre_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,8 +87,8 @@ namespace PL.Pantallas.Adicionales
             //  nombrepuesto = cbonombre.;
             // txtdescripcion.Text = cbonombre.SelectedValue.ToString();
             // txtdescripcion.Text = cbonombre.DisplayMember.ToString();
-           // txtdescripcion.Text = cbonombre.SelectedText.ToString();
-
+            // txtdescripcion.Text = cbonombre.SelectedText.ToString();
+            validarcampos();
         }
 
         private void cbonombre_SelectedValueChanged(object sender, EventArgs e)
@@ -110,6 +100,7 @@ namespace PL.Pantallas.Adicionales
 
         private void cboestado_SelectedIndexChanged(object sender, EventArgs e)
         {
+            validarcampos();
             //textBox1.Text = cboestado.SelectedValue.ToString();
             //textBox1.Text = cboestado.SelectedValue.ToString();
         }
@@ -123,6 +114,24 @@ namespace PL.Pantallas.Adicionales
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Form_Crear_Reclutamiento_Load(object sender, EventArgs e)
+        {
+            btncrear.Enabled = false;
+        }
+
+        private void validarcampos()
+        {
+            var vr = !string.IsNullOrEmpty(cbonombre.Text) &&
+                !string.IsNullOrEmpty(txtdescripcion.Text)&&
+            !string.IsNullOrEmpty(cboestado.Text);
+            btncrear.Enabled = vr;
+        }
+
+        private void txtdescripcion_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
         }
     }
 }

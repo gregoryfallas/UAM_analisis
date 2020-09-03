@@ -188,6 +188,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(183, 26);
             this.txtnombre.TabIndex = 26;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // label6
             // 
@@ -220,6 +221,7 @@
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(183, 26);
             this.txtdescripcion.TabIndex = 25;
+            this.txtdescripcion.TextChanged += new System.EventHandler(this.txtdescripcion_TextChanged);
             // 
             // btnmodificar
             // 
@@ -282,6 +284,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Ingresar_Pruebas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form_Ingresar_Pruebas_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

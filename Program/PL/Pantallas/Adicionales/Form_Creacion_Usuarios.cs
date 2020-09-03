@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL.Entidades;
@@ -27,9 +21,7 @@ namespace PL.Pantallas.Adicionales
             CargarCombosPersonal();
             CargarCombosEstado();
         }
-
         
-
         private void CargarCombosPersonal()
         {
             List<PERSONAL> lstresultado = R_Humanos.ConsultarIDPersonal();
@@ -59,7 +51,18 @@ namespace PL.Pantallas.Adicionales
 
         private void Form_Creacion_Usuarios_Load(object sender, EventArgs e)
         {
-          
+            button2.Enabled = false;
+            button3.Enabled = false;
+        }
+
+        private void validarcampos()
+        {
+            var vr = !string.IsNullOrEmpty(cbopersonal.Text) &&
+                !string.IsNullOrEmpty(txtusuario.Text) &&
+                !string.IsNullOrEmpty(txtcontrasena.Text) &&
+                !string.IsNullOrEmpty(cboestado.Text);
+            button2.Enabled = vr;
+            button3.Enabled = vr;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,12 +76,9 @@ namespace PL.Pantallas.Adicionales
                  u.Pass = txtcontrasena.Text.Trim();
                  u.Estado = Convert.ToInt32(EstadoUsuario);
               
-
-
                 R_Humanos.AgregarUsuario(u);
-                MessageBox.Show("Usuario agregado");
-
-
+                MessageBox.Show("Usuario agregado correctamente");
+                
             }
             catch (Exception ex)
             {
@@ -110,7 +110,7 @@ namespace PL.Pantallas.Adicionales
                 u.Estado = Convert.ToInt32(EstadoUsuario);
 
                 R_Humanos.ModificarUsuario(u);
-                MessageBox.Show("Usuario Modificado");
+                MessageBox.Show("Usuario Modificado correctamente");
             }
             catch (Exception ex)
             {
@@ -125,7 +125,7 @@ namespace PL.Pantallas.Adicionales
 
         private void cbopersonal_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            validarcampos();
             cedula = cbopersonal.SelectedText;
 
         }
@@ -133,6 +133,21 @@ namespace PL.Pantallas.Adicionales
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void txtusuario_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtcontrasena_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void cboestado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            validarcampos();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvpersonal = new System.Windows.Forms.DataGridView();
             this.btnmodificar = new System.Windows.Forms.Button();
@@ -59,10 +60,12 @@
             this.txtcedula = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvpersonal)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -176,6 +179,8 @@
             this.txttelefono.Name = "txttelefono";
             this.txttelefono.Size = new System.Drawing.Size(204, 26);
             this.txttelefono.TabIndex = 11;
+            this.txttelefono.TextChanged += new System.EventHandler(this.txttelefono_TextChanged);
+            this.txttelefono.Validating += new System.ComponentModel.CancelEventHandler(this.txttelefono_Validating);
             // 
             // label7
             // 
@@ -197,6 +202,7 @@
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(204, 26);
             this.txtcorreo.TabIndex = 10;
+            this.txtcorreo.TextChanged += new System.EventHandler(this.txtcorreo_TextChanged);
             // 
             // label6
             // 
@@ -218,6 +224,7 @@
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(204, 26);
             this.txtdireccion.TabIndex = 9;
+            this.txtdireccion.TextChanged += new System.EventHandler(this.txtdireccion_TextChanged);
             // 
             // label5
             // 
@@ -239,6 +246,7 @@
             this.txtsalariomes.Name = "txtsalariomes";
             this.txtsalariomes.Size = new System.Drawing.Size(204, 26);
             this.txtsalariomes.TabIndex = 6;
+            this.txtsalariomes.TextChanged += new System.EventHandler(this.txtsalariomes_TextChanged);
             // 
             // dtpfecha
             // 
@@ -248,6 +256,7 @@
             this.dtpfecha.Name = "dtpfecha";
             this.dtpfecha.Size = new System.Drawing.Size(204, 26);
             this.dtpfecha.TabIndex = 7;
+            this.dtpfecha.ValueChanged += new System.EventHandler(this.dtpfecha_ValueChanged);
             // 
             // label2
             // 
@@ -270,6 +279,7 @@
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(204, 31);
             this.cboestado.TabIndex = 8;
+            this.cboestado.SelectedIndexChanged += new System.EventHandler(this.cboestado_SelectedIndexChanged);
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // txtapellido2
@@ -281,6 +291,7 @@
             this.txtapellido2.Name = "txtapellido2";
             this.txtapellido2.Size = new System.Drawing.Size(204, 26);
             this.txtapellido2.TabIndex = 4;
+            this.txtapellido2.TextChanged += new System.EventHandler(this.txtapellido2_TextChanged);
             // 
             // label12
             // 
@@ -335,6 +346,7 @@
             this.txtsalariohora.Name = "txtsalariohora";
             this.txtsalariohora.Size = new System.Drawing.Size(204, 26);
             this.txtsalariohora.TabIndex = 5;
+            this.txtsalariohora.TextChanged += new System.EventHandler(this.txtsalariohora_TextChanged);
             // 
             // label10
             // 
@@ -378,6 +390,7 @@
             this.txtapellido1.Name = "txtapellido1";
             this.txtapellido1.Size = new System.Drawing.Size(204, 26);
             this.txtapellido1.TabIndex = 3;
+            this.txtapellido1.TextChanged += new System.EventHandler(this.txtapellido1_TextChanged);
             // 
             // txtnombre
             // 
@@ -388,6 +401,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(204, 26);
             this.txtnombre.TabIndex = 2;
+            this.txtnombre.TextChanged += new System.EventHandler(this.txtnombre_TextChanged);
             // 
             // label3
             // 
@@ -409,6 +423,7 @@
             this.txtcedula.Name = "txtcedula";
             this.txtcedula.Size = new System.Drawing.Size(204, 26);
             this.txtcedula.TabIndex = 1;
+            this.txtcedula.TextChanged += new System.EventHandler(this.txtcedula_TextChanged);
             // 
             // panel2
             // 
@@ -432,6 +447,10 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form_Creacion_Personal_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,6 +468,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,5 +506,6 @@
         private System.Windows.Forms.ComboBox cboidpuesto;
         private System.Windows.Forms.DataGridView dgvpersonal;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

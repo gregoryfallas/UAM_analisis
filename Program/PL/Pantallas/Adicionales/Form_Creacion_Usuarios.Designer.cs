@@ -112,6 +112,7 @@
             this.txtcontrasena.PasswordChar = '*';
             this.txtcontrasena.Size = new System.Drawing.Size(183, 26);
             this.txtcontrasena.TabIndex = 2;
+            this.txtcontrasena.TextChanged += new System.EventHandler(this.txtcontrasena_TextChanged);
             // 
             // txtusuario
             // 
@@ -122,6 +123,7 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(183, 26);
             this.txtusuario.TabIndex = 1;
+            this.txtusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
             // 
             // cboestado
             // 
@@ -133,6 +135,7 @@
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(183, 31);
             this.cboestado.TabIndex = 3;
+            this.cboestado.SelectedIndexChanged += new System.EventHandler(this.cboestado_SelectedIndexChanged);
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // label2

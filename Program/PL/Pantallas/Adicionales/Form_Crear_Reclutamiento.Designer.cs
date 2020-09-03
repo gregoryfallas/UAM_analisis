@@ -108,6 +108,7 @@
             this.txtdescripcion.Name = "txtdescripcion";
             this.txtdescripcion.Size = new System.Drawing.Size(183, 26);
             this.txtdescripcion.TabIndex = 1;
+            this.txtdescripcion.TextChanged += new System.EventHandler(this.txtdescripcion_TextChanged);
             // 
             // cbonombre
             // 
@@ -204,6 +205,7 @@
             this.MinimizeBox = false;
             this.Name = "Form_Crear_Reclutamiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Form_Crear_Reclutamiento_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

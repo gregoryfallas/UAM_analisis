@@ -21,29 +21,42 @@ namespace PL.Pantallas.Adicionales
         public Form_Ingresar_Pruebas()
         {
             InitializeComponent();
-            lstresultado = new List<PRUEBAS>();
-            CargarComboIdPruebas();
-            CargarComboIdParticipantes();
         }
 
         private void CargarComboIdPruebas()
         {
-            List<PRUEBAS> lstresultado = R_Humanos.NotasIdPruebas();
+            try
+            {
+                List<PRUEBAS> lstresultado = R_Humanos.NotasIdPruebas();
 
-            this.cbopruebas.DataSource = lstresultado;
-            cbopruebas.ValueMember = "ID_Pruebas";
-            cbopruebas.DisplayMember = "Nombre";
-            cbopruebas.Refresh();
+                this.cbopruebas.DataSource = lstresultado;
+                cbopruebas.ValueMember = "ID_Pruebas";
+                cbopruebas.DisplayMember = "Nombre";
+                cbopruebas.Refresh();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No hay pruebas agregadas");
+            }
         }
 
         private void CargarComboIdParticipantes()
         {
-            List<PARTICIPANTES> lstresultado = R_Humanos.NotasIdParticipantes();
+            try
+            {
+                List<PARTICIPANTES> lstresultado = R_Humanos.NotasIdParticipantes();
 
-            this.cboparticipantes.DataSource = lstresultado;
-            cboparticipantes.ValueMember = "ID_Participantes";
-            cboparticipantes.DisplayMember = "Cedula_";
-            cboparticipantes.Refresh();
+                this.cboparticipantes.DataSource = lstresultado;
+                cboparticipantes.ValueMember = "ID_Participantes";
+                cboparticipantes.DisplayMember = "Cedula_";
+                cboparticipantes.Refresh();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No hay participantes agregados");
+            }
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
@@ -52,16 +65,11 @@ namespace PL.Pantallas.Adicionales
             {
                 PRUEBAS p = new PRUEBAS();
 
-               
                 p.Nombre = txtnombre.Text.Trim();
                 p.Descripcion = txtdescripcion.Text.Trim();
-               
-
-
+              
                 R_Humanos.AgregarPruebas(p);
-                MessageBox.Show("Prueba agregado");
-
-
+                MessageBox.Show("Prueba agregada correctamente");
             }
             catch (Exception ex)
             {
@@ -96,19 +104,20 @@ namespace PL.Pantallas.Adicionales
                 p.ID_Pruebas = Convert.ToInt32(IdPruebas);
                 p.ID_Participantes = Convert.ToInt32(IdParticipantes);
 
-                /*********************************************************************************************/
-                //Formato objformato = new Formato();
-                //objformato.Texto = txtnota.Text.Trim();
-                //objformato.PatronValidacion = Constantes.PatronID;
-                //if (!R_Humanos.ValidarTexto(objformato))
-                //{
-                //    MessageBox.Show("El formato de la Nota no es valido, corregir por favor");
-                //    return;
-                //}
+                Formato objformato = new Formato();
+                objformato = new Formato();
+                objformato.Texto = txtnota.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronTEL;
+
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato de la NOTA no es valido, corregir por favor");
+                    return;
+                }
                 p.Nota = Convert.ToInt32(txtnota.Text.Trim());
 
                 R_Humanos.AgregarNotaPruebas(p);
-                MessageBox.Show("Nota agregada");
+                MessageBox.Show("Nota agregada correctamente");
 
 
             }
@@ -121,6 +130,34 @@ namespace PL.Pantallas.Adicionales
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Form_Ingresar_Pruebas_Load(object sender, EventArgs e)
+        {
+            lstresultado = new List<PRUEBAS>();
+            CargarComboIdPruebas();
+            CargarComboIdParticipantes();
+
+            btnagregar.Enabled = false;
+            btnmodificar.Enabled = false;
+        }
+
+        private void validarcampos()
+        {
+            var vr = !string.IsNullOrEmpty(txtnombre.Text) &&
+                !string.IsNullOrEmpty(txtdescripcion.Text);
+            btnagregar.Enabled = vr;
+            btnmodificar.Enabled = vr;
+        }
+
+        private void txtnombre_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
+        }
+
+        private void txtdescripcion_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
         }
     }
 }

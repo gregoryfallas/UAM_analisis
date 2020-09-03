@@ -40,6 +40,7 @@
             this.btncrear = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnmodificar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.panel1.Controls.Add(this.btnmodificar);
             this.panel1.Controls.Add(this.btnenviar);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btncrear);
@@ -64,7 +66,7 @@
             this.btnenviar.FlatAppearance.BorderSize = 0;
             this.btnenviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnenviar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnenviar.Location = new System.Drawing.Point(85, 207);
+            this.btnenviar.Location = new System.Drawing.Point(152, 210);
             this.btnenviar.Name = "btnenviar";
             this.btnenviar.Size = new System.Drawing.Size(49, 39);
             this.btnenviar.TabIndex = 44;
@@ -113,6 +115,7 @@
             // cbonombre
             // 
             this.cbonombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cbonombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbonombre.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbonombre.ForeColor = System.Drawing.Color.White;
             this.cbonombre.FormattingEnabled = true;
@@ -126,6 +129,7 @@
             // cboestado
             // 
             this.cboestado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.ForeColor = System.Drawing.Color.White;
             this.cboestado.FormattingEnabled = true;
@@ -165,9 +169,9 @@
             this.btncrear.FlatAppearance.BorderSize = 0;
             this.btncrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncrear.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncrear.Location = new System.Drawing.Point(20, 207);
+            this.btncrear.Location = new System.Drawing.Point(20, 205);
             this.btncrear.Name = "btncrear";
-            this.btncrear.Size = new System.Drawing.Size(59, 39);
+            this.btncrear.Size = new System.Drawing.Size(59, 46);
             this.btncrear.TabIndex = 43;
             this.btncrear.UseVisualStyleBackColor = true;
             this.btncrear.Click += new System.EventHandler(this.btncrear_Click);
@@ -193,6 +197,20 @@
             this.button4.Text = "Atrás";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnmodificar
+            // 
+            this.btnmodificar.BackgroundImage = global::PL.Properties.Resources.editar;
+            this.btnmodificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnmodificar.FlatAppearance.BorderSize = 0;
+            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmodificar.Font = new System.Drawing.Font("Gill Sans MT", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmodificar.Location = new System.Drawing.Point(85, 207);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(50, 44);
+            this.btnmodificar.TabIndex = 48;
+            this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // Form_Crear_Reclutamiento
             // 
@@ -228,5 +246,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtdescripcion;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnmodificar;
     }
 }

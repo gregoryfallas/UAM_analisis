@@ -65,7 +65,7 @@ namespace PL.Pantallas.Adicionales
                 p.Estado = Convert.ToInt32(nombreEstado);
                 
                 R_Humanos.AgregarReclutamiento(p);
-                    MessageBox.Show("Reclutamiento creado");
+                    MessageBox.Show("Reclutamiento creado con éxito");
             }
             catch (Exception ex)
             {
@@ -119,6 +119,7 @@ namespace PL.Pantallas.Adicionales
         private void Form_Crear_Reclutamiento_Load(object sender, EventArgs e)
         {
             btncrear.Enabled = false;
+            btnmodificar.Enabled = false;
         }
 
         private void validarcampos()
@@ -127,11 +128,34 @@ namespace PL.Pantallas.Adicionales
                 !string.IsNullOrEmpty(txtdescripcion.Text)&&
             !string.IsNullOrEmpty(cboestado.Text);
             btncrear.Enabled = vr;
+            btnmodificar.Enabled = vr;
         }
 
         private void txtdescripcion_TextChanged(object sender, EventArgs e)
         {
             validarcampos();
+        }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RECLUTAMIENTO p = new RECLUTAMIENTO();
+
+                // p.ID_Puestos = Convert.ToInt32(cboidpuesto.Text.Trim());
+                p.ID_Puestos = puestos;
+                p.Nombre = nombrepuesto;
+                p.Descripcion = txtdescripcion.Text.Trim();
+                //  p.Estado = Convert.ToInt32(cboestado.Text.Trim());
+                p.Estado = Convert.ToInt32(nombreEstado);
+
+                R_Humanos.ModificarReclutamiento(p);
+                MessageBox.Show("Reclutamiento modificado con éxito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

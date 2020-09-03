@@ -520,6 +520,25 @@ namespace BLL
             }
         }
 
+        public static bool ModificarReclutamiento(RECLUTAMIENTO R_ecluta)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                objpeticion.Peticion = @"UPDATE RECLUTAMIENTO SET Nombre = '"
+                + R_ecluta.Nombre + "', Descripcion = '" + R_ecluta.Descripcion + "', Estado = '"
+                + R_ecluta.Estado + "' WHERE ID_Puestos = '" + R_ecluta.ID_Puestos + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region PERSONAL
@@ -913,6 +932,7 @@ namespace BLL
 
         #endregion
 
+        #region MARCA
 
         public static bool AgregarMarcaPersonal(TIPO_MARCA marca)
         {
@@ -1008,5 +1028,7 @@ namespace BLL
                 throw ex;
             }
         }
+
+        #endregion
     }
 }

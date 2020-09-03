@@ -116,6 +116,7 @@
             // cboreclutamiento
             // 
             this.cboreclutamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboreclutamiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboreclutamiento.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboreclutamiento.ForeColor = System.Drawing.Color.White;
             this.cboreclutamiento.FormattingEnabled = true;
@@ -128,6 +129,7 @@
             // Provinciacbo
             // 
             this.Provinciacbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Provinciacbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Provinciacbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Provinciacbo.ForeColor = System.Drawing.Color.White;
             this.Provinciacbo.FormattingEnabled = true;
@@ -140,6 +142,7 @@
             // Distritocbo
             // 
             this.Distritocbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Distritocbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Distritocbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Distritocbo.ForeColor = System.Drawing.Color.White;
             this.Distritocbo.FormattingEnabled = true;
@@ -152,6 +155,7 @@
             // Cantoncbo
             // 
             this.Cantoncbo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.Cantoncbo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cantoncbo.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cantoncbo.ForeColor = System.Drawing.Color.White;
             this.Cantoncbo.FormattingEnabled = true;
@@ -249,6 +253,7 @@
             // cboestado
             // 
             this.cboestado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.ForeColor = System.Drawing.Color.White;
             this.cboestado.FormattingEnabled = true;

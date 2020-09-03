@@ -111,6 +111,7 @@
             // cboparticipantes
             // 
             this.cboparticipantes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboparticipantes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboparticipantes.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboparticipantes.ForeColor = System.Drawing.Color.White;
             this.cboparticipantes.FormattingEnabled = true;
@@ -123,6 +124,7 @@
             // cbopruebas
             // 
             this.cbopruebas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cbopruebas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbopruebas.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbopruebas.ForeColor = System.Drawing.Color.White;
             this.cbopruebas.FormattingEnabled = true;

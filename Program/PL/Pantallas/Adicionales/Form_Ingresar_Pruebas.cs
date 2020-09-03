@@ -70,6 +70,7 @@ namespace PL.Pantallas.Adicionales
               
                 R_Humanos.AgregarPruebas(p);
                 MessageBox.Show("Prueba agregada correctamente");
+                CargarComboIdPruebas();
             }
             catch (Exception ex)
             {

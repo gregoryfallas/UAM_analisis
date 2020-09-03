@@ -29,19 +29,7 @@ namespace PL.Pantallas.Adicionales
         {
             lstresultado = new List<TIPO_MARCA>();
             InitializeComponent();
-
-          //  CargarCombo();
         }
-
-        //private void CargarCombo()
-        //{
-        //    List<TIPO_MARCA> lstresultado = R_Humanos.ConsultaTipoMarca();
-
-        //    this.cboturno.DataSource = lstresultado;
-        //    cboturno.ValueMember = "ID_Tipo";
-        //    cboturno.DisplayMember = "Nombre";
-        //    cboturno.Refresh();
-        //}
 
         private void btn_Inicio_Click(object sender, EventArgs e)
         {
@@ -57,14 +45,13 @@ namespace PL.Pantallas.Adicionales
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string time = DateTime.Now.ToString("hh:mm:ss");
             try
             {
                 m.ID_Personal = Convert.ToInt32(txtidpersonal.Text.Trim());
                 m.Tipo = p.ID_Tipo;
                 txthora.Text = DateTime.Now.ToString("hh:mm:ss");
                 txtfecha.Text = DateTime.Now.ToShortDateString();
-               // m.Hora = Convert.to(time);
+                m.Hora = TimeSpan.Parse(txthora.Text.Trim());
                 m.Fecha = Convert.ToDateTime(txtfecha.Text.Trim());
                
 
@@ -81,7 +68,7 @@ namespace PL.Pantallas.Adicionales
 
         private void cboturno_SelectedValueChanged(object sender, EventArgs e)
         {
-           // marca = cboturno.Text.ToString();
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)

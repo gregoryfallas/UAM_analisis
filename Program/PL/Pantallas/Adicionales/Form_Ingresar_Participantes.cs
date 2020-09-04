@@ -41,11 +41,8 @@ namespace PL.Pantallas.Adicionales
         {
             //lstresultado = new List<PARTICIPANTES>();
             InitializeComponent();
-            CargarCombosEstados();
-            CargarComboIdReclutamiento();
-            CargarCombosProvincias();
-            CargarCombosCantones();
-            CargarCombosDistritos();
+
+           
         }
 
         private void limpiar()
@@ -77,12 +74,22 @@ namespace PL.Pantallas.Adicionales
 
         private void CargarComboIdReclutamiento()
         {
-            List<RECLUTAMIENTO> lstresultado = R_Humanos.ConsultarIDReclutamiento();
+           
 
-            this.cboreclutamiento.DataSource = lstresultado;
-            cboreclutamiento.ValueMember = "ID_Reclutamiento";
-            cboreclutamiento.DisplayMember = "Nombre";
-            cboreclutamiento.Refresh();
+            try
+            {
+                List<RECLUTAMIENTO> lstresultado = R_Humanos.ConsultarIDReclutamiento();
+
+                this.cboreclutamiento.DataSource = lstresultado;
+                cboreclutamiento.ValueMember = "ID_Reclutamiento";
+                cboreclutamiento.DisplayMember = "Nombre";
+                cboreclutamiento.Refresh();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("No hay reclutamientos creados");
+            }
         }
 
         private void CargarCombosProvincias()
@@ -191,13 +198,15 @@ namespace PL.Pantallas.Adicionales
                 p.Correo = txtcorreo.Text.Trim();
 
                 /*********************************************************************************************/
-                //objformato.Texto = txttelefono.Text.Trim();
-                //objformato.PatronValidacion = Constantes.PatronID;
-                //if (!R_Humanos.ValidarTexto(objformato))
-                //{
-                //    MessageBox.Show("El formato del número telefónico no es valido, corregir por favor");
-                //    return;
-                //}
+                objformato = new Formato();
+                objformato.Texto = txttelefono.Text.Trim();
+                objformato.PatronValidacion = Constantes.PatronTEL;
+
+                if (!R_Humanos.ValidarTexto(objformato))
+                {
+                    MessageBox.Show("El formato del TELÉFONO no es valido, corregir por favor");
+                    return;
+                }
                 p.Telefono = txttelefono.Text.Trim();
 
                 /*********************************************************************************************/
@@ -208,7 +217,7 @@ namespace PL.Pantallas.Adicionales
                 p.Estado = Convert.ToInt32(nombreEstado);
 
                 R_Humanos.AgregarPostulantes(p);
-                MessageBox.Show("Postulante agregado");
+                MessageBox.Show("Postulante agregado correctamente");
                 limpiar();
                 cargarGridParticipantes();
                 cboreclutamiento.Focus();
@@ -362,11 +371,31 @@ namespace PL.Pantallas.Adicionales
             CargarCombosEstados();
             CargarCombosProvincias();
             cargarGridParticipantes();
+            CargarCombosEstados();
+            CargarComboIdReclutamiento();
+            CargarCombosProvincias();
+            CargarCombosCantones();
+            CargarCombosDistritos();
+
+            btnagregar.Enabled = false;
+            btnmodificar.Enabled = false;
+        }
+
+        private void validarcampos()
+        {
+            var vr = !string.IsNullOrEmpty(txtdireccion.Text);
+            btnagregar.Enabled = vr;
+            btnmodificar.Enabled = vr;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void txtdireccion_TextChanged(object sender, EventArgs e)
+        {
+            validarcampos();
         }
     }
 }

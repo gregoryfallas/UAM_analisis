@@ -81,6 +81,7 @@
             // cbopersonal
             // 
             this.cbopersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cbopersonal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbopersonal.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbopersonal.ForeColor = System.Drawing.Color.White;
             this.cbopersonal.FormattingEnabled = true;
@@ -112,6 +113,7 @@
             this.txtcontrasena.PasswordChar = '*';
             this.txtcontrasena.Size = new System.Drawing.Size(183, 26);
             this.txtcontrasena.TabIndex = 2;
+            this.txtcontrasena.TextChanged += new System.EventHandler(this.txtcontrasena_TextChanged);
             // 
             // txtusuario
             // 
@@ -122,10 +124,12 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(183, 26);
             this.txtusuario.TabIndex = 1;
+            this.txtusuario.TextChanged += new System.EventHandler(this.txtusuario_TextChanged);
             // 
             // cboestado
             // 
             this.cboestado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(75)))), ((int)(((byte)(85)))));
+            this.cboestado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboestado.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboestado.ForeColor = System.Drawing.Color.White;
             this.cboestado.FormattingEnabled = true;
@@ -133,6 +137,7 @@
             this.cboestado.Name = "cboestado";
             this.cboestado.Size = new System.Drawing.Size(183, 31);
             this.cboestado.TabIndex = 3;
+            this.cboestado.SelectedIndexChanged += new System.EventHandler(this.cboestado_SelectedIndexChanged);
             this.cboestado.SelectedValueChanged += new System.EventHandler(this.cboestado_SelectedValueChanged);
             // 
             // label2

@@ -18,7 +18,7 @@ namespace DAL.Entidades
         public int ID_Personal { get; set; }
         public System.DateTime Fecha { get; set; }
         public System.TimeSpan Hora { get; set; }
-        public Nullable<byte> Tipo { get; set; }
+        public int Tipo { get; set; }
     
         public virtual PERSONAL PERSONAL { get; set; }
         public virtual TIPO_MARCA TIPO_MARCA { get; set; }

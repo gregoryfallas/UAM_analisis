@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Program",
+    "\\Program\\PL",
+    "\\Program\\PL\\Pantallas",
+    "\\Program\\PL\\Pantallas\\Adicionales",
+    "\\Program\\PL\\Pantallas\\Principales"
   ],
+  "SelectedNode": "\\Program\\PL\\Pantallas\\Adicionales\\Form_Buscar_Nomina.cs",
   "PreviewInSolutionExplorer": false
 }

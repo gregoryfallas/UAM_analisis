@@ -520,6 +520,25 @@ namespace BLL
             }
         }
 
+        public static bool ModificarReclutamiento(RECLUTAMIENTO R_ecluta)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                objpeticion.Peticion = @"UPDATE RECLUTAMIENTO SET Nombre = '"
+                + R_ecluta.Nombre + "', Descripcion = '" + R_ecluta.Descripcion + "', Estado = '"
+                + R_ecluta.Estado + "' WHERE ID_Puestos = '" + R_ecluta.ID_Puestos + "'";
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         #endregion
 
         #region PERSONAL
@@ -776,7 +795,6 @@ namespace BLL
             }
         }
 
-        //no me sirve
         public static List<PERSONAL> Obtener_Personal()
         {
             try
@@ -884,6 +902,8 @@ namespace BLL
             }
         }
 
+
+
         #endregion
 
         #region VALIDACIONES
@@ -912,5 +932,103 @@ namespace BLL
 
         #endregion
 
+        #region MARCA
+
+        public static bool AgregarMarcaPersonal(TIPO_MARCA marca)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_MARCAR_PERSONAL @ID_Tipo, @Nombre";
+
+                //Crear los parametros
+                SqlParameter parametroTipo = new SqlParameter();
+                parametroTipo.ParameterName = "@ID_Tipo";
+                parametroTipo.SqlDbType = System.Data.SqlDbType.Int;
+                parametroTipo.Value = marca.ID_Tipo;
+
+                SqlParameter parametroNombre = new SqlParameter();
+                parametroNombre.ParameterName = "@Nombre";
+                parametroNombre.SqlDbType = System.Data.SqlDbType.VarChar;
+                parametroNombre.Value = marca.Nombre;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroTipo);
+                objpeticion.lstParametros.Add(parametroNombre);
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static List<TIPO_MARCA> ConsultaTipoMarca()
+        {
+
+            try
+            {
+                SQLSentencia peticion = new SQLSentencia();
+                peticion.Peticion = @"EXEC SP_PA_CONSULTAR_TIPO_MARCA ";
+
+                DA objacceso = new DA();
+                return objacceso.ConsultarMarcaPersonal(peticion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static bool AgregarMarcaTodos(MARCAS marca)
+        {
+            try
+            {
+                SQLSentencia objpeticion = new SQLSentencia();
+
+                //Ajustar peticion para utilización con parametros
+                objpeticion.Peticion = @"EXEC SP_AGREGAR_MARCAS @ID_Personal, @Fecha, @Hora, @Tipo";
+
+                //Crear los parametros
+                SqlParameter parametroidpersonal = new SqlParameter();
+                parametroidpersonal.ParameterName = "@ID_Personal";
+                parametroidpersonal.SqlDbType = System.Data.SqlDbType.Int;
+                parametroidpersonal.Value = marca.ID_Personal;
+
+                SqlParameter parametrofecha = new SqlParameter();
+                parametrofecha.ParameterName = "@Fecha";
+                parametrofecha.SqlDbType = System.Data.SqlDbType.Date;
+                parametrofecha.Value = marca.Fecha;
+
+                SqlParameter parametrohora = new SqlParameter();
+                parametrohora.ParameterName = "@Hora";
+                parametrohora.SqlDbType = System.Data.SqlDbType.Time;
+                parametrohora.Value = marca.Hora;
+
+                SqlParameter parametrotipo = new SqlParameter();
+                parametrotipo.ParameterName = "@Tipo";
+                parametrotipo.SqlDbType = System.Data.SqlDbType.Int;
+                parametrotipo.Value = marca.Tipo;
+
+                //Agrega a la lista de parametros los parametros creados
+                objpeticion.lstParametros.Add(parametroidpersonal);
+                objpeticion.lstParametros.Add(parametrofecha);
+                objpeticion.lstParametros.Add(parametrohora);
+                objpeticion.lstParametros.Add(parametrotipo);
+
+                DA objacceso = new DA();
+                return objacceso.ejecutarSentecia(objpeticion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
     }
 }

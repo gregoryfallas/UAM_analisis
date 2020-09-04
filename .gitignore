@@ -1,7 +1,8 @@
 # Ignoring files by extension
 # All files with these extensions will be ignored in
 # this directory and all its sub-directories.
-*.vs
+/.vs
+/Program/.vs
 /Program/BLL/obj/Debug
 /Program/DAL/obj/Release/DAL.csprojAssemblyReference.cache
 /Program/BLL/bin/Debug

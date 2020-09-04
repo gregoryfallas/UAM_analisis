@@ -9,3 +9,6 @@
 /Program/DAL/obj/Debug
 /Program/PL/bin/Debug
 /Program/PL/obj/Debug
+/Program/BLL/obj/Release
+/Program/DAL/obj/Release
+/Program/PL/obj/Release

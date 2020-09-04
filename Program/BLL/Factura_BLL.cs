@@ -59,11 +59,7 @@ namespace BLL
         }
 
 
-
-
-
-
-
+                          
 
         public static bool agregarFactura(FACTURAS factura)
         {

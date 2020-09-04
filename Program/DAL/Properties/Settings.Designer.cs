@@ -26,7 +26,8 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ANON;Initial Catalog=VETERINARIA_EL_BOSQUE;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=GEINER\\SQLSERVER;Initial Catalog=VETERINARIA_EL_BOSQUE;Integrated Sec" +
+            "urity=True")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

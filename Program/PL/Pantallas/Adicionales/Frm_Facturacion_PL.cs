@@ -115,16 +115,7 @@ namespace PL.Pantallas.Adicionales
                 Cobros.ShowDialog();
             }
 
-
-
-
-
-
-
-
-
-
-
+                       
             
         }
 

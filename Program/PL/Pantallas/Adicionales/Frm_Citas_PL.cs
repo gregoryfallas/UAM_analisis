@@ -241,7 +241,18 @@ namespace PL.Pantallas.Adicionales
                 cita.Hora_Inicio = new TimeSpan(Lhoras[cbx_HoraIn.SelectedIndex].Hour, Lhoras[cbx_HoraIn.SelectedIndex].Minute, 0);
                 cita.Hora_Fin = new TimeSpan(Lhoras[cbx_HoraFin.SelectedIndex].Hour, Lhoras[cbx_HoraFin.SelectedIndex].Minute, 0);
                 cita.ID_Estado = 34;
-                Citas_BLL.agregarCita(cita);
+                bool a = Citas_BLL.agregarCita(cita);
+
+            if (a)
+            {
+                MessageBox.Show("Cita agregada correcatmente");
+                loadgrid();
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar la cita");
+            }
+
             //}
             //else
             //{
@@ -264,6 +275,7 @@ namespace PL.Pantallas.Adicionales
             cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
             cita.ID_Estado = 2;
             bool a = Citas_BLL.modificarEstadoCitas(cita);
+            loadgrid();
         }
 
         private void EliminarCitabtn_Click(object sender, EventArgs e)
@@ -273,6 +285,7 @@ namespace PL.Pantallas.Adicionales
             cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
             cita.ID_Estado = 35;
             bool a = Citas_BLL.modificarEstadoCitas(cita);
+            loadgrid();
         }
 
         private void cbx_HoraFin_SelectedValueChanged(object sender, EventArgs e)
@@ -282,6 +295,13 @@ namespace PL.Pantallas.Adicionales
                 MessageBox.Show("Hora fin no puede ser antes de la hora de inicio","Hora incorrecta");
                 cbx_HoraFin.SelectedIndex = cbx_HoraIn.SelectedIndex + 1;
             }
+        }
+
+
+        private void loadgrid()
+        {
+            Citas_DAL = objCitas_Bll.load_citas();
+            load_Citas(monthCalendar1.SelectionRange.Start);
         }
     }
 }

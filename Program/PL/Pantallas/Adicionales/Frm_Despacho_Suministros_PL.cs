@@ -25,8 +25,6 @@ namespace PL.Pantallas.Adicionales
         private void btn_Inicio_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            Frm_Inicio_PL inicio = new Frm_Inicio_PL();
-            inicio.ShowDialog();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

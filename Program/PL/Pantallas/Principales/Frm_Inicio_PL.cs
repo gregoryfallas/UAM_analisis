@@ -98,21 +98,21 @@ namespace PL.Pantallas.Principales
 
         private void ts_Promociones_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Promociones_PL Promociones = new Frm_Promociones_PL();
             Promociones.ShowDialog();
         }
 
         private void ts_Campañas_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Campañas_PL Campañas = new Frm_Campañas_PL();
             Campañas.ShowDialog();
         }
 
         private void ts_Anuncios_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Anuncios_Pl Anuncios = new Frm_Anuncios_Pl();
             Anuncios.ShowDialog();
         }
@@ -121,7 +121,7 @@ namespace PL.Pantallas.Principales
 
         private void ts_Control_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Control_Suministros_PL ControlSuministros = new Frm_Control_Suministros_PL();
             ControlSuministros.ShowDialog();
            
@@ -129,14 +129,14 @@ namespace PL.Pantallas.Principales
 
         private void ts_Ingreso_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Ingreso_Suministros_PL IngresoSuministros = new Frm_Ingreso_Suministros_PL();
             IngresoSuministros.ShowDialog();
         }
 
         private void ts_Despacho_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             Frm_Despacho_Suministros_PL DespachoSuministros = new Frm_Despacho_Suministros_PL();
             DespachoSuministros.ShowDialog();
         }
@@ -219,6 +219,11 @@ namespace PL.Pantallas.Principales
         {
             Aprovacion aprov = new Aprovacion();
             aprov.ShowDialog();
+        }
+
+        private void toolStripDropDownButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

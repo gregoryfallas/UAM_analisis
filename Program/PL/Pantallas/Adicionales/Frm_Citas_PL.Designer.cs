@@ -41,8 +41,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Clientes = new System.Windows.Forms.GroupBox();
-            this.label_Activar_Cita = new System.Windows.Forms.LinkLabel();
-            this.labal_Cancelar_Cita = new System.Windows.Forms.LinkLabel();
             this.reprogramarCitabtn = new System.Windows.Forms.Button();
             this.dgv_Citas1 = new System.Windows.Forms.DataGridView();
             this.cbx_Motivo = new System.Windows.Forms.ComboBox();
@@ -54,8 +52,8 @@
             this.cbx_Consultorio = new System.Windows.Forms.ComboBox();
             this.buscarClientebtn = new System.Windows.Forms.Button();
             this.EliminarCitabtn = new System.Windows.Forms.Button();
-            this.ModificarCitabtn = new System.Windows.Forms.Button();
             this.AgregarCitabtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -89,7 +87,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.EliminarCitabtn);
-            this.panel2.Controls.Add(this.ModificarCitabtn);
             this.panel2.Controls.Add(this.AgregarCitabtn);
             this.panel2.Location = new System.Drawing.Point(0, 2);
             this.panel2.Name = "panel2";
@@ -135,6 +132,7 @@
             this.cbx_HoraFin.Name = "cbx_HoraFin";
             this.cbx_HoraFin.Size = new System.Drawing.Size(161, 31);
             this.cbx_HoraFin.TabIndex = 37;
+            this.cbx_HoraFin.SelectedValueChanged += new System.EventHandler(this.cbx_HoraFin_SelectedValueChanged);
             // 
             // label8
             // 
@@ -212,8 +210,7 @@
             // 
             // Clientes
             // 
-            this.Clientes.Controls.Add(this.label_Activar_Cita);
-            this.Clientes.Controls.Add(this.labal_Cancelar_Cita);
+            this.Clientes.Controls.Add(this.button1);
             this.Clientes.Controls.Add(this.reprogramarCitabtn);
             this.Clientes.Controls.Add(this.dgv_Citas1);
             this.Clientes.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,37 +222,13 @@
             this.Clientes.TabStop = false;
             this.Clientes.Text = "Citas Programadas";
             // 
-            // label_Activar_Cita
-            // 
-            this.label_Activar_Cita.AutoSize = true;
-            this.label_Activar_Cita.LinkColor = System.Drawing.Color.White;
-            this.label_Activar_Cita.Location = new System.Drawing.Point(875, 70);
-            this.label_Activar_Cita.Name = "label_Activar_Cita";
-            this.label_Activar_Cita.Size = new System.Drawing.Size(80, 23);
-            this.label_Activar_Cita.TabIndex = 3;
-            this.label_Activar_Cita.TabStop = true;
-            this.label_Activar_Cita.Text = "Activar Cita";
-            this.label_Activar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.label_Activar_Cita_LinkClicked);
-            // 
-            // labal_Cancelar_Cita
-            // 
-            this.labal_Cancelar_Cita.AutoSize = true;
-            this.labal_Cancelar_Cita.LinkColor = System.Drawing.Color.White;
-            this.labal_Cancelar_Cita.Location = new System.Drawing.Point(875, 122);
-            this.labal_Cancelar_Cita.Name = "labal_Cancelar_Cita";
-            this.labal_Cancelar_Cita.Size = new System.Drawing.Size(93, 23);
-            this.labal_Cancelar_Cita.TabIndex = 2;
-            this.labal_Cancelar_Cita.TabStop = true;
-            this.labal_Cancelar_Cita.Text = "Cancelar Cita";
-            this.labal_Cancelar_Cita.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labal_Cancelar_Cita_LinkClicked);
-            // 
             // reprogramarCitabtn
             // 
             this.reprogramarCitabtn.BackgroundImage = global::PL.Properties.Resources.compras2;
             this.reprogramarCitabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.reprogramarCitabtn.FlatAppearance.BorderSize = 0;
             this.reprogramarCitabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reprogramarCitabtn.Location = new System.Drawing.Point(879, 170);
+            this.reprogramarCitabtn.Location = new System.Drawing.Point(879, 154);
             this.reprogramarCitabtn.Name = "reprogramarCitabtn";
             this.reprogramarCitabtn.Size = new System.Drawing.Size(40, 35);
             this.reprogramarCitabtn.TabIndex = 1;
@@ -368,24 +341,12 @@
             this.EliminarCitabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminarCitabtn.FlatAppearance.BorderSize = 0;
             this.EliminarCitabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EliminarCitabtn.Location = new System.Drawing.Point(636, 668);
+            this.EliminarCitabtn.Location = new System.Drawing.Point(637, 671);
             this.EliminarCitabtn.Name = "EliminarCitabtn";
             this.EliminarCitabtn.Size = new System.Drawing.Size(47, 44);
             this.EliminarCitabtn.TabIndex = 35;
             this.EliminarCitabtn.UseVisualStyleBackColor = true;
-            // 
-            // ModificarCitabtn
-            // 
-            this.ModificarCitabtn.BackgroundImage = global::PL.Properties.Resources.editar;
-            this.ModificarCitabtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ModificarCitabtn.FlatAppearance.BorderSize = 0;
-            this.ModificarCitabtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModificarCitabtn.Location = new System.Drawing.Point(475, 668);
-            this.ModificarCitabtn.Name = "ModificarCitabtn";
-            this.ModificarCitabtn.Size = new System.Drawing.Size(56, 50);
-            this.ModificarCitabtn.TabIndex = 34;
-            this.ModificarCitabtn.UseVisualStyleBackColor = true;
-            this.ModificarCitabtn.Click += new System.EventHandler(this.ModificarCitabtn_Click);
+            this.EliminarCitabtn.Click += new System.EventHandler(this.EliminarCitabtn_Click);
             // 
             // AgregarCitabtn
             // 
@@ -399,6 +360,19 @@
             this.AgregarCitabtn.TabIndex = 33;
             this.AgregarCitabtn.UseVisualStyleBackColor = true;
             this.AgregarCitabtn.Click += new System.EventHandler(this.AgregarCitabtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::PL.Properties.Resources.confirmar;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(879, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 44);
+            this.button1.TabIndex = 37;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Frm_Citas_PL
             // 
@@ -417,7 +391,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Clientes.ResumeLayout(false);
-            this.Clientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Citas1)).EndInit();
             this.ResumeLayout(false);
 
@@ -442,7 +415,6 @@
         private System.Windows.Forms.ComboBox cbx_Motivo;
         private System.Windows.Forms.ComboBox cbx_Macotas;
         private System.Windows.Forms.Button EliminarCitabtn;
-        private System.Windows.Forms.Button ModificarCitabtn;
         private System.Windows.Forms.Button AgregarCitabtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button reprogramarCitabtn;
@@ -451,7 +423,6 @@
         private System.Windows.Forms.ComboBox cbx_HoraIn;
         private System.Windows.Forms.ComboBox cbx_HoraFin;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.LinkLabel label_Activar_Cita;
-        private System.Windows.Forms.LinkLabel labal_Cancelar_Cita;
+        private System.Windows.Forms.Button button1;
     }
 }

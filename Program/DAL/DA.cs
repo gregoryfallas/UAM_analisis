@@ -234,9 +234,38 @@ namespace DAL
 
         }
 
+        public DataTable consulta_solicitud_para_aprov(SQLSentencia peticion)
+        {
+
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = objconexion;
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = peticion.Peticion;
+                if (peticion.lstParametros.Count > 0)
+                    cmd.Parameters.AddRange(peticion.lstParametros.ToArray());
+                SqlDataAdapter da = new SqlDataAdapter(peticion.Peticion, objconexion);
 
 
-        public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia peticion)
+
+                da.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+            return dt;
+
+        }
+
+            public DataTable consultarUsuariosYPerfilPorEstado(SQLSentencia peticion)
         {
             //  List<Caso> listaResultado = new List<Caso>();
             DataTable dt = new DataTable();
@@ -2665,6 +2694,51 @@ namespace DAL
 
         #endregion
 
+        public List<USUARIOS> ConsultaUsuarios(SQLSentencia P_Peticion)
+        {
+            List<USUARIOS> lstresultados = new List<USUARIOS>();
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                //ASigna los valores del QUERY a ejecutar en SQL
+                cmd.Connection = objconexion; //ASigna conexion
+                cmd.CommandType = System.Data.CommandType.Text; //ASigna el tipo
+                cmd.CommandText = P_Peticion.Peticion; //ASigna peticion recibida
+
+                if (P_Peticion.lstParametros.Count > 0) //Consulta si tiene parametros
+                    cmd.Parameters.AddRange(P_Peticion.lstParametros.ToArray()); //Los asigna
+
+                SqlDataAdapter objconsultar = new SqlDataAdapter(cmd);
+                objconsultar.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        USUARIOS tipo = new USUARIOS();
+
+                        tipo.UserName = item.ItemArray[0].ToString();
+                        tipo.Pass = item.ItemArray[1].ToString();
+                        tipo.Nombre = item.ItemArray[2].ToString();
+                        tipo.ID_Personal = Convert.ToInt32(item.ItemArray[3].ToString());
+                        lstresultados.Add(tipo);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.CERRAR();
+            }
+
+            return lstresultados;
+        }
 
     }
 

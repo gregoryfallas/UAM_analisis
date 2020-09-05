@@ -19,6 +19,8 @@ namespace DAL.Entidades
         public int ID_Solicitud_Compra { get; set; }
         public string Descripcion { get; set; }
         public decimal Cantidad { get; set; }
+        public string encabezado { get; set; }
+        public int estado { get; set; }
     
         public virtual ARTICULOS_PROVEEDOR ARTICULOS_PROVEEDOR { get; set; }
         public virtual SOLICITUD_COMPRA SOLICITUD_COMPRA { get; set; }

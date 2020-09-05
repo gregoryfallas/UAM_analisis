@@ -160,7 +160,7 @@ namespace PL.Pantallas.Adicionales
                 date_horas = date_horas.AddMinutes(30);
 
 
-            } while (date_horas.Hour < 17);
+            } while (date_horas.Hour < 18);
             return Lhoras;
         }
 
@@ -203,20 +203,85 @@ namespace PL.Pantallas.Adicionales
 
         private void AgregarCitabtn_Click(object sender, EventArgs e)
         {
-            CITAS cita = new CITAS();
-            cita.ID_Mascota = Convert.ToInt32(cbx_Macotas.SelectedValue);
-            cita.ID_Consultorio = Convert.ToInt32(cbx_Consultorio.SelectedValue);
-            cita.ID_Motivo_Cita = Convert.ToInt32(cbx_Motivo.SelectedValue);
-            cita.Fecha_Inicio = monthCalendar1.SelectionRange.Start;
-            cita.Hora_Inicio = new TimeSpan(Lhoras[cbx_HoraIn.SelectedIndex].Hour, Lhoras[cbx_HoraIn.SelectedIndex].Minute, 0);
-            cita.Hora_Fin = new TimeSpan(Lhoras[cbx_HoraFin.SelectedIndex].Hour, Lhoras[cbx_HoraFin.SelectedIndex].Minute, 0);
-            cita.ID_Estado = 34;
-            Citas_BLL.agregarCita(cita);
+            //bool a = true;
+            //foreach (DataGridViewRow item in dgv_Citas1.Rows)
+            //{
+            //    if (item.Cells[3].Value.ToString() == cbx_Consultorio.SelectedValue.ToString())
+            //    {
+            //        if (new DateTime(item.Cells[7].Value.ToString()) == new DateTime(0,0,0,Lhoras[cbx_HoraIn.SelectedIndex].Hour, Lhoras[cbx_HoraIn.SelectedIndex].Minute, 0))
+            //        {
+            //            MessageBox.Show("Ya existe una cita agendada a la hora seleccionada");
+            //            a = false;
+            //        }
+            //        else if (Convert.ToDateTime(item.Cells[8].Value) == Convert.ToDateTime(cbx_HoraIn.SelectedText))
+            //        {
+            //            a = true;
+            //        }
+            //        else if (Convert.ToDateTime(item.Cells[7].Value) < Convert.ToDateTime(cbx_HoraIn.SelectedText) && Convert.ToDateTime(item.Cells[8].Value) < Convert.ToDateTime(cbx_HoraFin.SelectedText))
+            //        {
+            //            a = true;
+            //        }
+            //        else if (Convert.ToDateTime(item.Cells[7].Value) > Convert.ToDateTime(cbx_HoraIn.SelectedText) && Convert.ToDateTime(item.Cells[8].Value) > Convert.ToDateTime(cbx_HoraFin.SelectedText))
+            //        {
+            //            a = true;
+            //        }
+            //        else
+            //        {
+            //            a = false;
+            //        }
+            //    }
+            //}
+            //if (a)
+            //{
+                CITAS cita = new CITAS();
+                cita.ID_Mascota = Convert.ToInt32(cbx_Macotas.SelectedValue);
+                cita.ID_Consultorio = Convert.ToInt32(cbx_Consultorio.SelectedValue);
+                cita.ID_Motivo_Cita = Convert.ToInt32(cbx_Motivo.SelectedValue);
+                cita.Fecha_Inicio = monthCalendar1.SelectionRange.Start;
+                cita.Hora_Inicio = new TimeSpan(Lhoras[cbx_HoraIn.SelectedIndex].Hour, Lhoras[cbx_HoraIn.SelectedIndex].Minute, 0);
+                cita.Hora_Fin = new TimeSpan(Lhoras[cbx_HoraFin.SelectedIndex].Hour, Lhoras[cbx_HoraFin.SelectedIndex].Minute, 0);
+                cita.ID_Estado = 34;
+                Citas_BLL.agregarCita(cita);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Ya existe una cita en las horas seleccionadas");
+            //    cbx_HoraIn.SelectedIndex = 0;
+            //    cbx_HoraFin.SelectedIndex = 0;
+            //}
+            
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             load_Citas(monthCalendar1.SelectionRange.Start);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            objCitas_Bll = new Citas_BLL();
+            CITAS cita = new CITAS();
+            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
+            cita.ID_Estado = 2;
+            bool a = Citas_BLL.modificarEstadoCitas(cita);
+        }
+
+        private void EliminarCitabtn_Click(object sender, EventArgs e)
+        {
+            objCitas_Bll = new Citas_BLL();
+            CITAS cita = new CITAS();
+            cita.ID_Cita = Convert.ToInt32(dgv_Citas1.SelectedRows[0].Cells[0].Value.ToString());
+            cita.ID_Estado = 35;
+            bool a = Citas_BLL.modificarEstadoCitas(cita);
+        }
+
+        private void cbx_HoraFin_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbx_HoraIn.SelectedIndex >= cbx_HoraFin.SelectedIndex)
+            {
+                MessageBox.Show("Hora fin no puede ser antes de la hora de inicio","Hora incorrecta");
+                cbx_HoraFin.SelectedIndex = cbx_HoraIn.SelectedIndex + 1;
+            }
         }
     }
 }

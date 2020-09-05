@@ -48,6 +48,8 @@ namespace PL.Pantallas.Adicionales
             lstresultados.ID_Solicitud_Compra = Convert.ToInt32(txt_id_compra.Text);
             lstresultados.Descripcion = txt_descripcion.Text.ToString();
             lstresultados.Cantidad = Convert.ToDecimal(txt_cantidad.Text);
+            lstresultados.encabezado = tb_descrip.Text.ToString().Trim();
+            lstresultados.estado = 1;
 
             Suministros_BLL.agregarSuministros(lstresultados);
 

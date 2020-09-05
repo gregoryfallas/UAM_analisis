@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Principales;
+using BLL;
 
 namespace PL.Pantallas.Adicionales
 {
@@ -48,6 +49,23 @@ namespace PL.Pantallas.Adicionales
         private void btn_Agre_Art_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Frm_Compras_PL_Load(object sender, EventArgs e)
+        {
+            Suministros_BLL obj_bll = new Suministros_BLL();
+            dtg_Proveedor.DataSource = obj_bll.listar_solicitudes_aprovar();
+        }
+
+        private void dtg_Proveedor_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dtg_Proveedor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txt_id_solicitud.Text = dtg_Proveedor.SelectedRows[0].Cells[0].Value.ToString();
+            txt_NombreProv.Text = dtg_Proveedor.SelectedRows[0].Cells[3].Value.ToString();
         }
     }
 }

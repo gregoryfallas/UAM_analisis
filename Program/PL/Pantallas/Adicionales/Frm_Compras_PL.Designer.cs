@@ -31,23 +31,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtg_Proveedor = new System.Windows.Forms.DataGridView();
             this.gbp_Proveedor = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_NombreProv = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_Cantidad = new System.Windows.Forms.TextBox();
+            this.txt_id_solicitud = new System.Windows.Forms.TextBox();
             this.txt_Impuesto = new System.Windows.Forms.TextBox();
             this.txt_Descuento = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_inicio = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Proveedor)).BeginInit();
             this.gbp_Proveedor.SuspendLayout();
@@ -67,12 +67,19 @@
             // 
             // dtg_Proveedor
             // 
+            this.dtg_Proveedor.AllowUserToAddRows = false;
+            this.dtg_Proveedor.AllowUserToDeleteRows = false;
+            this.dtg_Proveedor.AllowUserToOrderColumns = true;
             this.dtg_Proveedor.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
             this.dtg_Proveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_Proveedor.Location = new System.Drawing.Point(231, 242);
             this.dtg_Proveedor.Name = "dtg_Proveedor";
+            this.dtg_Proveedor.ReadOnly = true;
+            this.dtg_Proveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_Proveedor.Size = new System.Drawing.Size(644, 387);
             this.dtg_Proveedor.TabIndex = 18;
+            this.dtg_Proveedor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_Proveedor_CellClick);
+            this.dtg_Proveedor.SelectionChanged += new System.EventHandler(this.dtg_Proveedor_SelectionChanged);
             // 
             // gbp_Proveedor
             // 
@@ -83,12 +90,12 @@
             this.gbp_Proveedor.Controls.Add(this.label10);
             this.gbp_Proveedor.Controls.Add(this.textBox6);
             this.gbp_Proveedor.Controls.Add(this.label9);
-            this.gbp_Proveedor.Controls.Add(this.textBox1);
+            this.gbp_Proveedor.Controls.Add(this.txt_NombreProv);
             this.gbp_Proveedor.Controls.Add(this.label6);
             this.gbp_Proveedor.Controls.Add(this.label2);
             this.gbp_Proveedor.Controls.Add(this.label3);
             this.gbp_Proveedor.Controls.Add(this.label4);
-            this.gbp_Proveedor.Controls.Add(this.txt_Cantidad);
+            this.gbp_Proveedor.Controls.Add(this.txt_id_solicitud);
             this.gbp_Proveedor.Controls.Add(this.txt_Impuesto);
             this.gbp_Proveedor.Controls.Add(this.txt_Descuento);
             this.gbp_Proveedor.Font = new System.Drawing.Font("Gill Sans MT", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,16 +107,94 @@
             this.gbp_Proveedor.TabStop = false;
             this.gbp_Proveedor.Text = "Compras Proveedor";
             // 
-            // textBox1
+            // button1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox1.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(410, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 26);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button1.BackgroundImage = global::PL.Properties.Resources.Agregar;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(699, 145);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 41);
+            this.button1.TabIndex = 19;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(478, 134);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 23);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Total";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.ForeColor = System.Drawing.Color.White;
+            this.textBox8.Location = new System.Drawing.Point(483, 160);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(160, 26);
+            this.textBox8.TabIndex = 11;
+            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox7.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.ForeColor = System.Drawing.Color.White;
+            this.textBox7.Location = new System.Drawing.Point(253, 160);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(201, 26);
+            this.textBox7.TabIndex = 9;
+            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(249, 134);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 23);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Descripción";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.textBox6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.ForeColor = System.Drawing.Color.White;
+            this.textBox6.Location = new System.Drawing.Point(25, 160);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(201, 26);
+            this.textBox6.TabIndex = 7;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(21, 134);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 23);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Fecha";
+            // 
+            // txt_NombreProv
+            // 
+            this.txt_NombreProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_NombreProv.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NombreProv.ForeColor = System.Drawing.Color.White;
+            this.txt_NombreProv.Location = new System.Drawing.Point(410, 77);
+            this.txt_NombreProv.Name = "txt_NombreProv";
+            this.txt_NombreProv.Size = new System.Drawing.Size(201, 26);
+            this.txt_NombreProv.TabIndex = 3;
+            this.txt_NombreProv.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label6
             // 
@@ -155,16 +240,16 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Referencia Bancaria";
             // 
-            // txt_Cantidad
+            // txt_id_solicitud
             // 
-            this.txt_Cantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.txt_Cantidad.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Cantidad.ForeColor = System.Drawing.Color.White;
-            this.txt_Cantidad.Location = new System.Drawing.Point(22, 77);
-            this.txt_Cantidad.Name = "txt_Cantidad";
-            this.txt_Cantidad.Size = new System.Drawing.Size(127, 26);
-            this.txt_Cantidad.TabIndex = 2;
-            this.txt_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_id_solicitud.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
+            this.txt_id_solicitud.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_id_solicitud.ForeColor = System.Drawing.Color.White;
+            this.txt_id_solicitud.Location = new System.Drawing.Point(22, 77);
+            this.txt_id_solicitud.Name = "txt_id_solicitud";
+            this.txt_id_solicitud.Size = new System.Drawing.Size(127, 26);
+            this.txt_id_solicitud.TabIndex = 2;
+            this.txt_id_solicitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_Impuesto
             // 
@@ -210,84 +295,6 @@
             this.btn_inicio.UseVisualStyleBackColor = false;
             this.btn_inicio.Click += new System.EventHandler(this.btn_inicio_Click);
             // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox6.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.White;
-            this.textBox6.Location = new System.Drawing.Point(25, 160);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(201, 26);
-            this.textBox6.TabIndex = 7;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(21, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 23);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Fecha";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox7.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.White;
-            this.textBox7.Location = new System.Drawing.Point(253, 160);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(201, 26);
-            this.textBox7.TabIndex = 9;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(249, 134);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 23);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Descripción";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(478, 134);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 23);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Total";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(75)))), ((int)(((byte)(88)))));
-            this.textBox8.Font = new System.Drawing.Font("Gill Sans MT", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.White;
-            this.textBox8.Location = new System.Drawing.Point(483, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(160, 26);
-            this.textBox8.TabIndex = 11;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::PL.Properties.Resources.Agregar;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(699, 145);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 41);
-            this.button1.TabIndex = 19;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Frm_Compras_PL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +306,7 @@
             this.Name = "Frm_Compras_PL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Compras";
+            this.Load += new System.EventHandler(this.Frm_Compras_PL_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Proveedor)).EndInit();
             this.gbp_Proveedor.ResumeLayout(false);
@@ -318,11 +326,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_Cantidad;
+        private System.Windows.Forms.TextBox txt_id_solicitud;
         private System.Windows.Forms.TextBox txt_Impuesto;
         private System.Windows.Forms.TextBox txt_Descuento;
         private System.Windows.Forms.DataGridView dtg_Proveedor;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_NombreProv;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;

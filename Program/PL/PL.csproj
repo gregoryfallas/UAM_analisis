@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Aprobacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Adicionales\Form_Aprobacion.Designer.cs">
+      <DependentUpon>Form_Aprobacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pantallas\Adicionales\Form_Aprobacion.resx">
+      <DependentUpon>Form_Aprobacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Adicionales\Form_Consultar_Pruebas_Participantes.resx">
       <DependentUpon>Form_Consultar_Pruebas_Participantes.cs</DependentUpon>
     </EmbeddedResource>

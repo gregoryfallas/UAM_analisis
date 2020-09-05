@@ -14,6 +14,45 @@ namespace BLL
     public class Suministros_BLL
     {
 
+        public DataTable listar_solicitudes_para_aprovar()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_consulta_solicitud_para_aprov";
+
+                DA acceso = new DA();
+                return acceso.consulta_solicitud_para_aprov(sentencia);
+
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+
+        }
+
+        public DataTable listar_solicitudes_aprovar()
+        {
+            try
+            {
+                SQLSentencia sentencia = new SQLSentencia();
+                sentencia.Peticion = @"EXEC sp_solicitudes_aprovadas";
+
+                DA acceso = new DA();
+                return acceso.consulta_solicitud_para_aprov(sentencia);
+
+            }
+            catch (Exception e)
+
+            {
+                throw e;
+            }
+
+        }
+
+
         public static DataTable ConsultarInventarioArticulos()
         {          
             try
@@ -29,6 +68,22 @@ namespace BLL
 
             {
                 throw e;
+            }
+        }
+
+        public static bool modificar_estado_solicitud(SOLICITUD_COMPRA soliarticulos)
+        {
+            try
+            {
+                SQLSentencia pet = new SQLSentencia();
+                pet.Peticion = @"EXEC sp_modificar_estado_solicitud_compra " + soliarticulos.ID_Solicitud_Compra + ", " + soliarticulos.Estado ;
+
+                DA acceso = new DA();
+                return acceso.ejecutarSentecia(pet);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -57,7 +112,7 @@ namespace BLL
             try
             {
                 SQLSentencia pet = new SQLSentencia();
-                pet.Peticion = @"EXEC SP_INGRESO_SUMINISTROS " + soliarticulos.ID_Articulo_Proveedor +", " + soliarticulos.ID_Solicitud_Compra + ", '" + soliarticulos.Descripcion + "', " + soliarticulos.Cantidad;
+                pet.Peticion = @"EXEC SP_INGRESO_SUMINISTROS " + soliarticulos.ID_Articulo_Proveedor +", " + soliarticulos.ID_Solicitud_Compra + ", '" + soliarticulos.Descripcion + "', " + soliarticulos.Cantidad + ", '" + soliarticulos.encabezado + "', " + soliarticulos.estado;
 
                 DA acceso = new DA();
                 return acceso.ejecutarSentecia(pet);

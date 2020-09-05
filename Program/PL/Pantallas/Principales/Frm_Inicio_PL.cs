@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PL.Pantallas.Adicionales;
 using PL.Pantallas.Principales;
+using DAL.Entidades;
 
 namespace PL.Pantallas.Principales
 {
     public partial class Frm_Inicio_PL : Form
     {
+        public USUARIOS user;
+
         int EnviarFecha = 0;
         public Frm_Inicio_PL()
         {
@@ -61,6 +64,7 @@ namespace PL.Pantallas.Principales
         {
             //this.Hide();
             Adicionales.Form_Marcar_PL logueo = new Adicionales.Form_Marcar_PL();
+            logueo.user = user;
             logueo.ShowDialog();
         }
 
@@ -209,6 +213,12 @@ namespace PL.Pantallas.Principales
         {
             Frm_Laboratorio_PL Laboratorio = new Frm_Laboratorio_PL();
             Laboratorio.ShowDialog();
+        }
+
+        private void apropacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Aprovacion aprov = new Aprovacion();
+            aprov.ShowDialog();
         }
     }
 }

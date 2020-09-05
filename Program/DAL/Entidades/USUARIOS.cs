@@ -27,6 +27,7 @@ namespace DAL.Entidades
         public System.DateTime Created_at { get; set; }
         public string Last_Login { get; set; }
         public int Estado { get; set; }
+        public string Nombre { get; set; }
     
         public virtual ESTADOS ESTADOS { get; set; }
         public virtual PERSONAL PERSONAL { get; set; }

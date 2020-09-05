@@ -54,6 +54,7 @@
     <Compile Include="Express_BLL.cs" />
     <Compile Include="Factura_BLL.cs" />
     <Compile Include="Laboratorio_BLL.cs" />
+    <Compile Include="Login_BLL.cs" />
     <Compile Include="Mascota_BLL.cs" />
     <Compile Include="PreConsulta_BLL.cs" />
     <Compile Include="Promociones_BLL.cs" />

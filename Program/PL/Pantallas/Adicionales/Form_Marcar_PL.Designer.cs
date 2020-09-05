@@ -184,6 +184,7 @@
             this.txtidpersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtidpersonal.Location = new System.Drawing.Point(140, 40);
             this.txtidpersonal.Name = "txtidpersonal";
+            this.txtidpersonal.ReadOnly = true;
             this.txtidpersonal.Size = new System.Drawing.Size(131, 26);
             this.txtidpersonal.TabIndex = 52;
             // 

@@ -15,6 +15,7 @@ namespace PL.Pantallas.Adicionales
 {
     public partial class Form_Marcar_PL : Form
     {
+        public USUARIOS user;
         public List<TIPO_MARCA> lstresultado { get; set; }
 
         int EnviarFecha = 0;
@@ -88,6 +89,7 @@ namespace PL.Pantallas.Adicionales
 
         private void Form_Marcar_PL_Load(object sender, EventArgs e)
         {
+            txtidpersonal.Text = user.ID_Personal.ToString();
             timer1.Interval = 500;
             timer1.Start();
         }
